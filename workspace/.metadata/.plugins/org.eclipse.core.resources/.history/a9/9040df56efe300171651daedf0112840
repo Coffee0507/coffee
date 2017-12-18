@@ -1,0 +1,10 @@
+package com.internousdev.practice.DAO;
+
+public class BuyItemDAO {
+
+	public BuyItemDTO getBuyItemInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

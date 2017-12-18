@@ -8,4 +8,5 @@ org.eclipse.debug.ui.errorColor=131,120,110
 org.eclipse.debug.ui.inColor=248,225,170
 org.eclipse.debug.ui.outColor=248,225,170
 org.eclipse.debug.ui.save_dirty_editors_before_launch=never
+preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
 preferredTargets=default\:default|
