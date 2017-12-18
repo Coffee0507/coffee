@@ -1,0 +1,10 @@
+package com.internousdev.practice.DTO;
+
+public class LoginDTO {
+
+	public boolean getLoginFlg() {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+}

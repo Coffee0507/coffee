@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<content name="struts.devMode" value="true"></content>
+<package name="com.internoudev.practice.Action" extends="/struts-default"></package>
+<action name=HomeAction" class="com.internousdev.practice.Action.HomeAction" method="execute"></action>
+<result name="success">login.jsp</result>
+</struts>

@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<!DOCTYPE struts PUBLIC
+	"-//Apache Struts Foundatioin//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd"/>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="immagetoolbar" content="no">
+<meta name="despatcher" content="">
+<meta name="keywords" content="">
+<title>ホーム画面</title>
+<style type="text/css">
+
+
+
+
+
+</style>
+</head>
+</html>

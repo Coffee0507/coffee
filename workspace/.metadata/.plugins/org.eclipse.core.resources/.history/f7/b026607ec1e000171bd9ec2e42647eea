@@ -1,0 +1,7 @@
+package com.internousdev.login.Action;
+
+public class LoginAction {
+	LoginDAO dao = new LoginDAO();
+	LoginDTO dto = new LoginDTO();
+
+}

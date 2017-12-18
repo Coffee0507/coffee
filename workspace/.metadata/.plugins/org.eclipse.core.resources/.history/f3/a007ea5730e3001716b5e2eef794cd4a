@@ -1,0 +1,52 @@
+package com.internousdev.practice.Action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.practice.DAO.LoginActionDAO;
+import com.internousdev.practice.DTO.LoginActionDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAction extends ActionSupport implements SessionAware {
+	private String loginuserId;
+	private String loginuserPass;
+	public Map<String, Object> session;
+	private LoginActionDAO loginactionDAO = new LoginActionDAO();
+	private LoginActionDTO loginactionDTO = new LoginActionDTO();
+	private String result;
+
+	public String execute() {
+		result = ERROR;
+		loginactionDTO = loginactionDAO.getLoginUserInfo(loginuserId, loginuserPass);
+		session.put("loginUser", loginactionDTO);
+		if (((LoginActionDTO) session.get("loginUser")).getLoginFlg()) {
+			result = SUCCESS;
+
+			session.put("login_user_id", loginactionDTO.getLoginId());
+
+			return result;
+		}
+		return result;
+	}
+
+	public String getLoginUserId() {
+		return loginuserId;
+	}
+
+	public void setLoginUserId(String loginUserId) {
+		this.loginuserId = loginUserId;
+	}
+
+	public String setLoginUserpassword() {
+		return loginuserPass;
+	}
+
+	public void setLoginUserPassword(String loginuserPass) {
+		this.loginuserPass = loginuserPass;
+	}
+	@Override
+	public void setSession(Map<String,Object>session){
+		this.session = session;
+	}
+}

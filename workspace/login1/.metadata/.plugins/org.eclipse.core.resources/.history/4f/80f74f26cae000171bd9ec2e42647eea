@@ -1,0 +1,10 @@
+package com.internousdev.login.Action;
+
+import com.internousdev.login.DAO.LoginDAO;
+import com.internousdev.login.DTO.LoginDTO;
+import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAction extends ActionSupport implements SessionAware{
+
+}

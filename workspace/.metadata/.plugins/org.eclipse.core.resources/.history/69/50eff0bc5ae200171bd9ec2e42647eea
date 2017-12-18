@@ -1,0 +1,26 @@
+package com.internousdev.practice.util;
+
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnector {
+	private static String DriverName = "con.mysql.jdbc.Driver";
+	private static String url = "jdbc:mysql://localhost/excite";
+	private static String user = "root";
+	private static String password = "mysql";
+
+	Connection con = null;
+	public Connection getConnection() {
+		Connection con = null;
+		try {
+			Class.forName(DriverName);
+			con = (Connection) DriverManager.getConnection(url, user, password);
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return con;
+	}
+
+}

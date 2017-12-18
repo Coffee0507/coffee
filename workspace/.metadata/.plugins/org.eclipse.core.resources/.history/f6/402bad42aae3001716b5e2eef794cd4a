@@ -1,0 +1,43 @@
+package com.internousdev.practice.DTO;
+
+public class LoginDTO {
+	public boolean loginFlg = false;
+
+	public String getLoginId() {
+		return null;
+	}
+
+	public void setLoginId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public String getLoginPassword() {
+		return null;
+	}
+
+	public void setLoginPassword(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public String getUserName() {
+		return null;
+	}
+
+
+	public void setUserName(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public boolean getLoginFlg() {
+		return loginFlg;
+
+	}
+
+	public void setLoginFlg(boolean loginFlg) {
+		this.loginFlg = loginFlg;
+	}
+
+}

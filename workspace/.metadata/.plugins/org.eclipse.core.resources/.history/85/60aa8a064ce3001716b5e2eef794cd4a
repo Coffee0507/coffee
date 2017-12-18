@@ -1,0 +1,13 @@
+package com.internousdev.practice.DAO;
+
+import com.internousdev.practice.DTO.LoginActionDTO;
+
+public class LoginActionDAO{
+
+
+
+	public LoginActionDTO getLoginUserInfo(String loginuserId,String loginuserPass){
+		return null;
+
+	}
+}

@@ -1,0 +1,14 @@
+package com.internousdev.practice.DAO;
+
+import java.sql.Connection;
+import com.internousdev.practice.util.DBConnector;
+
+public class LoginActionDAO{
+	private DBConnector db = new DBConnector();
+	private Conection con = db.getConnection();
+	private LoginActionDAO loginactionDAO = new LoginactionDAO();
+
+	public LoginActionDAO getLoginInfo(String loginuesrId,String loginPassword){
+
+	}
+}

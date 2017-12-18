@@ -1,0 +1,11 @@
+package com.internousdev.practice.DAO;
+
+public class LoginDTO {
+	private String loginuserId;
+	private String logiuserPass;
+	public String result;
+	private LoginDAO loginDAO = new LoginDAO();
+	private LoginDTO loginDTO = new LoginDTO();
+	
+	
+}

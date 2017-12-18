@@ -1,0 +1,11 @@
+package com.internousdev.practice.DAO;
+
+public class LoginActionDAO{
+
+
+
+	public LoginActionDAO getLoginUserInfo(String loginuserId,String loginuserPass){
+		return null;
+
+	}
+}
