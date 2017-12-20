@@ -1,0 +1,15 @@
+package com.internousdev.practice.Action;
+
+import java.util.Map;
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
+
+public class BuyItemAction extends ActionSupport implements SessionAware{
+	private int stock;
+	private String pay;
+	private Map<String,Object> session;
+
+
+
+
+}
