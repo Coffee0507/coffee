@@ -12,42 +12,44 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class LoginAction extends ActionSupport implements SessionAware{
-	private String loginuserId;
-	private String loginuserPass;
-	public Map<String,Object>session;
-	private BuyItemDAO buyitemDAO = new BuyItemDAO();
+	private String loginUserId;
+	private String loginPassword;
+	private String result;
+	public Map<String,Object> session;
 	private LoginDAO loginDAO = new LoginDAO();
 	private LoginDTO loginDTO = new LoginDTO();
-	public String result;
+	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+
+
 	public String execute(){
 		result = ERROR;
-		loginDTO = loginDAO.getLoginUserInfo(loginuserId, loginuserPass);
-		session.put("loginUser", loginDTO);
+		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
+		session.put("loginUser",loginDTO);
 		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
 			result = SUCCESS;
 
-			BuyItemDTO buyitemDTO = buyitemDAO.getBuyItemInfo();
+			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
 			session.put("login_user_id",loginDTO.getLoginId());
-			session.put("id",buyitemDTO.getId());
-			session.put("buyItem_name",buyitemDTO.getItemName());
-			session.put("buyItem_price",buyitemDTO.getitemPrice());
+			session.put("id", buyItemDTO.getId());
+			session.put("buy_Item_name", buyItemDTO.getItemName());
+			session.put("buy_Item_price", buyItemDTO.getItemPrice());
 
 
 			return result;
 		}
 		return result;
 	}
-	public String getLoginUserID(){
-		return loginuserId;
+	public String getLoginUserId(){
+		return loginUserId;
 	}
-	public void setLoginUserID(String loginuserId){
-		this.loginuserId = loginuserId;
+	public void setLoginUserId(String loginUserId){
+		this.loginUserId = loginUserId;
 	}
-	public String setLoginUserPass(){
-		return loginuserPass;
+	public String getLoginPassword(){
+		return loginPassword;
 	}
-	public void setLoginUserPass(String loginuserPass){
-		this.loginuserPass = loginuserPass;
+	public void setLoginPassword(String loginPassword){
+		this.loginPassword = loginPassword;
 	}
 	@Override
 	public void setSession(Map<String,Object>session){

@@ -1,0 +1,58 @@
+package com.internousdev.practice.Action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.practice.DAO.BuyItemDAO;
+import com.internousdev.practice.DAO.LoginDAO;
+import com.internousdev.practice.DTO.BuyItemDTO;
+import com.internousdev.practice.DTO.LoginDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+
+public class LoginAction extends ActionSupport implements SessionAware {
+	private String loginuserId;
+	private String loginPassword;
+	private String result;
+	public Map<String, Object> session;
+	private LoginDAO loginDAO = new LoginDAO();
+	private LoginDTO loginDTO = new LoginDTO();
+	private BuyItemDAO buyitemDAO = new BuyItemDAO();
+
+
+	public String execute() {
+		result = ERROR;
+		loginDTO = loginDAO.getLoginUserInfo(loginuserId, loginPassword);
+		session.put("loginUser", loginDTO);
+		if (((LoginDTO) session.get("loginUser")).getLoginFlg()) {
+			result = SUCCESS;
+
+			BuyItemDTO buyitemDTO = buyitemDAO.getBuyItemInfo();
+			session.put("login_User_Id", loginDTO.getLoginId());
+			session.put("login_Password", loginDTO.getLoginPassword());
+			session.put("buy_item_name", buyitemDTO.getItemName());
+			session.put("buy_item_price", buyitemDTO.getItemPrice());
+
+
+			return result;
+		}
+		return result;
+	}
+	public String getLoginId(){
+		return loginuserId;
+	}
+	public void setIoginId(String loginuserId){
+		this.loginuserId = loginuserId;
+	}
+	public String getLoginPassword(){
+		return loginPassword;
+	}
+	public void setLoginPassword(String loginPassword){
+		this.loginPassword = loginPassword;
+	}
+	public void setSession(Map<String,Object>session){
+		this.session = session;
+	}
+
+}

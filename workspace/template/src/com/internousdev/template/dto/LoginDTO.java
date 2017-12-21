@@ -36,6 +36,7 @@ public class LoginDTO {
 
 	public boolean getLoginFlg() {
 		return loginFlg;
+
 	}
 
 	public void setLoginFlg(boolean loginFlg) {

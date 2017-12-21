@@ -11,7 +11,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>ホーム画面</title>
+<title>Home画面</title>
 <style type="text/css">
 body {
 	margin: 0;
@@ -29,6 +29,13 @@ table {
 	margin: 0 auto;
 }
 
+/* ========TEMPLATE LAYOUT======== */
+#top {
+	width: 200px;
+	margin: 80px auto;
+	border: 1px solid #333;
+}
+
 #header {
 	width: 100%;
 	height: 80px;
@@ -38,13 +45,7 @@ table {
 #main {
 	width: 100%;
 	height: 500px;
-	text-align: center;
-}
-
-#top {
-	margin: 80px auto;
-	width: 200px;
-	border: 1px solid #333;
+	text-align:center;
 }
 
 #footer {
@@ -63,10 +64,10 @@ table {
 		<div id="top">
 			<p>Home</p>
 		</div>
+
 		<div>
 			<s:form action="HomeAction">
-				<s:submit value="商品購入">
-				</s:submit>
+				<s:submit value="商品購入" />
 			</s:form>
 		</div>
 	</div>

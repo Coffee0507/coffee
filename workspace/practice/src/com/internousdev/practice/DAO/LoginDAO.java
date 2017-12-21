@@ -8,38 +8,45 @@ import com.internousdev.practice.DTO.LoginDTO;
 import com.internousdev.practice.util.DBConnector;
 
 public class LoginDAO {
-	private DBConnector db = new DBConnector();
-	private Connection con = db.getConnection();
+	private DBConnector dbConnector = new DBConnector();
+	private Connection connection = dbConnector.getConnection();
 	private LoginDTO loginDTO = new LoginDTO();
 
-	public LoginDTO getLoginUserInfo(String loginuserId, String loginuserPass) {
-		String sql = "select*from login_user_transaction where login_id=? and login_pass=?";
+	/**
+	 * ログインユーザ情報取得メソッド
+	 *
+	 * @param loginUserId
+	 * @param loginPassword
+	 * @return LoginDTO
+	 */
+	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
+		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
 
 		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, loginuserId);
-			ps.setString(2, loginuserPass);
-			;
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, loginUserId);
+			preparedStatement.setString(2, loginPassword);
 
-			ResultSet rs = ps.executeQuery();
+			ResultSet resultSet = preparedStatement.executeQuery();
 
-			if (rs.next()) {
-				loginDTO.setLoginId(rs.getString("login_id"));
-				loginDTO.setLoginPassword(rs.getString("login_pass"));
-				loginDTO.setUserName(rs.getString("user_name"));
+			if(resultSet.next()) {
+				loginDTO.setLoginId(resultSet.getString("login_id"));
+				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
+				loginDTO.setUserName(resultSet.getString("user_name"));
 
-				if (!(rs.getString("login_id").equals(null))) {
+				if(!(resultSet.getString("login_id").equals(null))) {
 					loginDTO.setLoginFlg(true);
 				}
 			}
-		} catch (Exception e) {
+
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		// TODO 自動生成されたメソッド・スタブ
-		return loginDTO;
-	}
-	public LoginDTO getLoginDTO(){
+
 		return loginDTO;
 	}
 
+	public LoginDTO getLoginDTO() {
+		return loginDTO;
+	}
 }

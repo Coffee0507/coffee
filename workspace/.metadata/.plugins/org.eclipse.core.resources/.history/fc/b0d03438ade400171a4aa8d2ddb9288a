@@ -1,0 +1,18 @@
+create database ecsite;
+use ecsite;
+create table item_info_transaction(
+)
+
+create table login_user_transaction(
+id int,
+String login_id varchar(255),
+login_pass varchar(255),
+user_name varchar(255),
+insert_data varchar(255),
+updated_date varchar(255)
+);
+
+create table user_buy_item_transaction(
+)
+
+insert into login_user_transaction values(1,"internous","internous01","test","NULL","NULL");

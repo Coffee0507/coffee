@@ -1,0 +1,6 @@
+create database ecsite;
+use ecsite;
+create table item_info_transaction(
+)
+
+create table login_user_transaction
