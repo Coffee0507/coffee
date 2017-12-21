@@ -1,5 +1,0 @@
-package com.internousdev.practice.DTO;
-
-public class LoginActionDTO {
-
-}

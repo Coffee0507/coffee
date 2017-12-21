@@ -1,7 +1,0 @@
-computeSourcePath=true
-contextsDir=E\:/pleiades/pleiades/tomcat/8/conf/Catalina/localhost
-eclipse.preferences.version=1
-managerUrl=http\://localhost\:8080/manager
-tomcatConfigFile=E\:/pleiades/pleiades/tomcat/8/conf/server.xml
-tomcatDir=E\:/pleiades/pleiades/tomcat/8
-tomcatVersion=tomcatV8

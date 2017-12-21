@@ -1,0 +1,9 @@
+package com.internousdev.practice.Action;
+
+
+
+public class LoginAction extends ActionSupport implements SessionAware{
+	public class execute(){
+
+	}
+}
