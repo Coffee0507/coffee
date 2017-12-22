@@ -64,7 +64,6 @@ table {
 		<div id="top">
 			<p>Home</p>
 		</div>
-
 		<div>
 			<s:form action="HomeAction">
 				<s:submit value="商品購入" />

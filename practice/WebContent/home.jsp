@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE html>
 <html>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -14,8 +16,8 @@
 body {
 	margin: 0;
 	padding: 0;
-	line-heg\ight: 1.6;
-	litter-spacing: 1px;
+	line-height: 1.6;
+	letter-spacing: 1px;
 	font-size: 12px;
 	font-family: Verdana, Helvetica, sans-serif;
 	color: #333;
@@ -36,13 +38,13 @@ table {
 #main {
 	width: 100%;
 	height: 500px;
-	text-align:center;
+	text-align: center;
 }
 
 #top {
-	margin: 80 auto;
-	parring: 200px;
-	border: 1px solid #fff;
+	width: 200px;
+	margin: 80px auto;
+	border: 1px solid #333;
 }
 
 #footer {
@@ -52,7 +54,6 @@ table {
 	clear: both;
 }
 </style>
-<head>
 </head>
 <body>
 	<div id="header">
@@ -62,9 +63,11 @@ table {
 		<div id="top">
 			<p>home</p>
 		</div>
-		<s:form action="HomeAction">
-			<s:submit value="商品購入" />
-		</s:form>
+		<div>
+			<s:form action="HomeAction">
+				<s:submit value="商品購入" />
+			</s:form>
+		</div>
 	</div>
 	<div id="footer">
 		<div id="pr"></div>

@@ -17,8 +17,8 @@
 body {
 	margin: 0;
 	padding: 0;
-	line-heg\ight: 1.6;
-	litter-spacing: 1px;
+	line-height: 1.6;
+	letter-spacing: 1px;
 	font-size: 12px;
 	font-family: Verdana, Helvetica, sans-serif;
 	color: #333;
@@ -39,13 +39,13 @@ table {
 #main {
 	width: 100%;
 	height: 500px;
-	text-align:center;
+	text-align: center;
 }
 
 #top {
-	margin: 80 auto;
-	parring: 200px;
-	border: 1px solid #fff;
+	width: 200px;
+	margin: 80px auto;
+	border: 1px solid #333;
 }
 
 #footer {
@@ -67,8 +67,9 @@ table {
 		<div>
 			<h3>商品を購入するにはログインしてください</h3>
 			<s:form action="LoginAction">
-				<s:textfield name="user_name" />
-				<s:password name="login_password" />
+				<s:textfield name="loginUserId" value="internous" />
+<!-- 				<s:password name="loginPassword" />  -->
+			<s:textfield name="loginPassword" value="internous01" />
 				<s:submit value="ログイン" />
 			</s:form>
 			<br />

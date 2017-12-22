@@ -1,0 +1,19 @@
+package com.internousdev.practice.DAO;
+import java.sql.Connection;
+
+import com.internousdev.practice.DTO.BuyItemDTO;
+import com.internousdev.practice.util.DBConnector;
+public class BuyItemDAO {
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+
+	public BuyItemDTO getBuyItemInfo() {
+
+
+
+		return null;
+
+	}
+
+}

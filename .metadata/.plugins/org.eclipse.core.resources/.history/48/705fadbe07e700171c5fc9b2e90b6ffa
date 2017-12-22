@@ -1,0 +1,16 @@
+package com.internousdev.practice.DAO;
+import com.internousdev.practice.DTO.BuyItemDTO;
+public class BuyItemDAO {
+	private DBConnector db = new DBConnector;
+
+
+
+	public BuyItemDTO getBuyItemInfo() {
+
+
+
+		return null;
+
+	}
+
+}

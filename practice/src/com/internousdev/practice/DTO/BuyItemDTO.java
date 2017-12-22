@@ -2,24 +2,34 @@ package com.internousdev.practice.DTO;
 
 public class BuyItemDTO {
 
-	public Object getItemName() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+	private String buyItemId;
+	private String buyItemName;
+	private String buyItemPrice;
+	private String buyItemStock;
 
-	public Object getId() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public String getItemId() {
+		return buyItemId;
 	}
-
-	public Object getItemPrice() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public void setItemId(String buyItemId){
+		this.buyItemId= buyItemId;
 	}
-
-	public Object getItemStock() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public String getItemName() {
+		return buyItemName;
+	}
+	public void setItemName(String buyItemName) {
+		this.buyItemName=buyItemName;
+	}
+	public String getItemPrice() {
+		return buyItemPrice;
+	}
+	public void setItemPrice(String buyItemPrice) {
+		this.buyItemPrice=buyItemPrice;
+	}
+	public String getItemStock() {
+		return buyItemStock;
+	}
+	public void setItemStock(String buyItemStock) {
+		this.buyItemStock=buyItemStock;
 	}
 
 }
