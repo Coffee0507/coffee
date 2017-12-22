@@ -1,0 +1,16 @@
+package com.internousdev.practice.DAO;
+
+import java.sql.SQLException;
+
+import com.internousdev.practice.util.DBConnector;
+
+public class LoginActionDAO{
+ private DBConector db = new DBConnector();
+
+
+
+	public String LoginUserInfo() throws SQLException{
+
+	}
+
+}

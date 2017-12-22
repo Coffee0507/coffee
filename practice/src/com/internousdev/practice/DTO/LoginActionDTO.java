@@ -42,4 +42,6 @@ public class LoginActionDTO {
 	public void setLoginFlg(boolean loginFlg) {
 		this.loginFlg = loginFlg;
 	}
+
+
 }

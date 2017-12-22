@@ -30,15 +30,17 @@ table {
 #header {
 	width: 100%;
 	height: 30px;
-	background-color: #fff;
+	background-color: #333;
 }
 
 #main {
 	width: 100%;
 	height: 500px;
+	text-align:center;
 }
 
-#top {margin 80 auto;
+#top {
+	margin: 80 auto;
 	parring: 200px;
 	border: 1px solid #fff;
 }
@@ -46,28 +48,26 @@ table {
 #footer {
 	width: 100%;
 	height: 30px;
-	background-color: #fff;
+	background-color: #333;
 	clear: both;
 }
 </style>
 <head>
 </head>
 <body>
-<div id = "header">
-<div id="pr">
-</div>
-</div>
-<div id="main">
-<div id ="top">
-<p>home</p>
-</div>
-<s:form action="HomeAction">
-<s:submit value="商品購入"/>
-</s:form>
-</div>
-<div id ="footer">
-<div id ="pr">
-</div>
-</div>
+	<div id="header">
+		<div id="pr"></div>
+	</div>
+	<div id="main">
+		<div id="top">
+			<p>home</p>
+		</div>
+		<s:form action="HomeAction">
+			<s:submit value="商品購入" />
+		</s:form>
+	</div>
+	<div id="footer">
+		<div id="pr"></div>
+	</div>
 </body>
 </html>

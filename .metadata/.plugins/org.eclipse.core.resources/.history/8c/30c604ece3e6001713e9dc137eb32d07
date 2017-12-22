@@ -1,0 +1,13 @@
+package com.internousdev.practice.DAO;
+
+
+
+public class LoginActionDAO{
+
+
+
+	public String LoginUserInfo() throws SQLException{
+
+	}
+
+}

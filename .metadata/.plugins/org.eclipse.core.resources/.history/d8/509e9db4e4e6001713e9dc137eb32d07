@@ -1,0 +1,23 @@
+package com.internousdev.practice.DAO;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Map;
+
+import com.internousdev.practice.util.DBConnector;
+
+public class LoginActionDAO {
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	public Map<String,Object>session;
+
+	public String LoginUserInfo() throws SQLException {
+		String sql = "select*from login_user_Transaction where login_id And login_pass";
+		try{
+
+		PreparedStatement ps = con.prepareStatement(sql);
+		}
+
+	}
+
+}

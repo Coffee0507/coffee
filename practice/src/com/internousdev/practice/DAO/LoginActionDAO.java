@@ -1,53 +1,46 @@
-//ここの復習から
 package com.internousdev.practice.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Map;
 
 import com.internousdev.practice.DTO.LoginActionDTO;
 import com.internousdev.practice.util.DBConnector;
 
 public class LoginActionDAO {
-	private DBConnector dbConnector = new DBConnector();
-	private Connection connection = dbConnector.getConnection();
-	private LoginActionDTO loginDTO = new LoginActionDTO();
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	public Map<String, Object> session;
+	private LoginActionDTO loginActionDTO;
 
-	/**
-	 * ログインユーザ情報取得メソッド
-	 *
-	 * @param loginUserId
-	 * @param loginPassword
-	 * @return LoginDTO
-	 */
 	public LoginActionDTO getLoginUserInfo(String loginUserId, String loginPassword) {
-		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
-
+		String sql = "select*from login_user_Transaction where login_id And login_pass";
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, loginUserId);
-			preparedStatement.setString(2, loginPassword);
+			PreparedStatement ps = con.prepareStatement(sql);
 
-			ResultSet resultSet = preparedStatement.executeQuery();
+			ps.setString(1, loginUserId);
+			ps.setString(2, loginPassword);
 
-			if(resultSet.next()) {
-				loginDTO.setLoginId(resultSet.getString("login_id"));
-				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
-				loginDTO.setUserName(resultSet.getString("user_name"));
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				loginActionDTO.setLoginId(rs.getString("login_user_id"));
+				loginActionDTO.setLoginPassword(rs.getString("login_Password2"));
+				loginActionDTO.setUserName(rs.getString("user_name"));
 
-				if(!(resultSet.getString("login_id").equals(null))) {
-					loginDTO.setLoginFlg(true);
+				if(!(rs.getString("login_user_id").equals(null))){
+					loginActionDTO.setLoginFlg(true);
 				}
 			}
-
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return loginActionDTO;
 
-		return loginDTO;
 	}
 
-	public LoginActionDTO getLoginDTO() {
-		return loginDTO;
+	public LoginActionDTO getLoginActionDTO(){
+		return loginActionDTO;
 	}
+
 }
