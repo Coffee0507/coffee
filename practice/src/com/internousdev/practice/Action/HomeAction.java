@@ -1,4 +1,4 @@
-package com.internousdev.practice.Action;
+package com.internousdev.practice.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 

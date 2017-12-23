@@ -1,35 +1,34 @@
-package com.internousdev.practice.DTO;
+package com.internousdev.practice.dto;
 
 public class BuyItemDTO {
 
-	private String buyItemId;
-	private String buyItemName;
-	private String buyItemPrice;
-	private String buyItemStock;
+	public int id;
 
-	public String getItemId() {
-		return buyItemId;
-	}
-	public void setItemId(String buyItemId){
-		this.buyItemId= buyItemId;
-	}
+	public String itemName;
+
+	public String itemPrice;
+
 	public String getItemName() {
-		return buyItemName;
-	}
-	public void setItemName(String buyItemName) {
-		this.buyItemName=buyItemName;
-	}
-	public String getItemPrice() {
-		return buyItemPrice;
-	}
-	public void setItemPrice(String buyItemPrice) {
-		this.buyItemPrice=buyItemPrice;
-	}
-	public String getItemStock() {
-		return buyItemStock;
-	}
-	public void setItemStock(String buyItemStock) {
-		this.buyItemStock=buyItemStock;
+		return itemName;
 	}
 
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public String getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(String itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

@@ -1,46 +1,52 @@
-package com.internousdev.practice.DAO;
+package com.internousdev.practice.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Map;
 
-import com.internousdev.practice.DTO.LoginActionDTO;
+import com.internousdev.practice.dto.LoginDTO;
 import com.internousdev.practice.util.DBConnector;
 
 public class LoginDAO {
-	private DBConnector db = new DBConnector();
-	private Connection con = db.getConnection();
-	public Map<String, Object> session;
-	private LoginActionDTO loginActionDTO;
+	private DBConnector dbConnector = new DBConnector();
+	private Connection connection = dbConnector.getConnection();
+	private LoginDTO loginDTO = new LoginDTO();
 
-	public LoginActionDTO getLoginUserInfo(String loginUserId, String loginPassword) {
-		String sql = "select * from login_user_Transaction where login_id=? And login_pass=?";
+	/**
+	 * ログインユーザ情報取得メソッド
+	 *
+	 * @param loginUserId
+	 * @param loginPassword
+	 * @return LoginDTO
+	 */
+	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
+		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
+
 		try {
-			PreparedStatement ps = con.prepareStatement(sql);
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, loginUserId);
+			preparedStatement.setString(2, loginPassword);
 
-			ps.setString(1, loginUserId);
-			ps.setString(2, loginPassword);
+			ResultSet resultSet = preparedStatement.executeQuery();
 
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				loginActionDTO.setLoginId(rs.getString("login_id"));
-				loginActionDTO.setLoginPassword(rs.getString("login_pass"));
-				loginActionDTO.setUserName(rs.getString("user_name"));
+			if(resultSet.next()) {
+				loginDTO.setLoginId(resultSet.getString("login_id"));
+				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
+				loginDTO.setUserName(resultSet.getString("user_name"));
 
-				if(!(rs.getString("login_id").equals(null))){
-					loginActionDTO.setLoginFlg(true);
+				if(!(resultSet.getString("login_id").equals(null))) {
+					loginDTO.setLoginFlg(true);
 				}
 			}
-		} catch (Exception e) {
+
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		return loginActionDTO;
 
+		return loginDTO;
 	}
 
-	public LoginActionDTO getLoginActionDTO(){
-		return loginActionDTO;
+	public LoginDTO getLoginDTO() {
+		return loginDTO;
 	}
-
 }

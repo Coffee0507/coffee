@@ -1,7 +1,0 @@
-package com.internousdev.practice.Action;
-
-public class BuyItemAction extends ActionSupport implements SessionAware{
-
-
-
-}
