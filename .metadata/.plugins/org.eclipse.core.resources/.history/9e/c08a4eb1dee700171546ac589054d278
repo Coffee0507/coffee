@@ -1,0 +1,17 @@
+package com.internousdev.practice.action;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.practice.dao.BuyItemDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemAction extends ActionSupport implements SessionAware{
+	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+	public Map<String.Object>session;
+
+
+	public String execute(){
+
+	}
+
+}

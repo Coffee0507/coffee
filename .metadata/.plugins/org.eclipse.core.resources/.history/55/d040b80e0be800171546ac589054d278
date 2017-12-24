@@ -1,0 +1,8 @@
+package com.internousdev.practice.action;
+
+
+
+
+public class MyPageAction extends ActionSupport implements SessionAware{
+
+}

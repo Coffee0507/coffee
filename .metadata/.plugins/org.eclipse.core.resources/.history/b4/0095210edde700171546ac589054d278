@@ -1,0 +1,9 @@
+package com.internousdev.practice.action;
+
+public class BuyItemAction extends ActionSupport implements SessionAware{
+
+	public String execute(){
+
+	}
+
+}

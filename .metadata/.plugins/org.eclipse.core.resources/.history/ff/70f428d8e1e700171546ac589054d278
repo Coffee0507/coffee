@@ -1,0 +1,6 @@
+package com.internousdev.practice.action;
+
+
+public class BuyItemConfirm extends ActionSupport implements SessionAware{
+
+}

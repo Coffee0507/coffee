@@ -1,0 +1,8 @@
+package com.internousdev.practice.dao;
+
+
+
+public class UserCreateCompleteDAO{
+	private DBConnector db = new DBConnector();
+
+}

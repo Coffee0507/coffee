@@ -1,0 +1,29 @@
+package com.internousdev.practice.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.internousdev.practice.util.DBConnector;
+import com.internousdev.practice.util.DateUtil;
+
+public class UserCreateCompleteDAO {
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private DateUtil dateUtil = new DateUtil();
+	private String sql = "INSERT INTO login_user_transaction(login_id,login_pass,user_name,insert_date) value(?,?,?,?)";
+
+	public void createUserInfo(String login_user_id,String login_pass,String user_name,String insert_date){
+
+	try{
+	PreparedStatement ps = con.prepareStatement(sql);
+
+
+
+
+
+
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	}
+}

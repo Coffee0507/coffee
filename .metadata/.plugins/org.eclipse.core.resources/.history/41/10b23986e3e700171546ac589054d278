@@ -1,0 +1,28 @@
+package com.internousdev.practice.action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.practice.dao.BuyItemDAO;
+import com.internousdev.practice.dto.BuyItemCompleteDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemConfirmAction extends ActionSupport implements SessionAware {
+	public  Map<String, Object> session;
+	private String result;
+	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
+
+	public String execute() throws SQLException{
+
+		buyItemCompleteDAO.getItemInfo{
+
+		}
+
+	}
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		this.session = session;
+	}
+}

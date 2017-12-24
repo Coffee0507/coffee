@@ -1,0 +1,7 @@
+package com.internousdev.practice.action;
+
+
+
+public class UserCreateCompleteAction extends ActionSupport implements SessionAware{
+
+}

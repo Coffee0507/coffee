@@ -1,0 +1,27 @@
+package com.internousdev.practice.action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.practice.util.DBConnector;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemConfirmAction extends ActionSupport implements SessionAware {
+	private Map<String, Object> session;
+	private String result;
+	private DBConnector db = new DBConnector();
+
+
+
+
+
+
+
+
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		this.session = session;
+	}
+}

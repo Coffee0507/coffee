@@ -1,0 +1,16 @@
+package com.internousdev.practice.dao;
+
+import com.internousdev.practice.dto.MyPageDTO;
+
+public class MyPageDAO{
+
+	public MyPageDTO getMyPageUserInfo(String item_transaction_id,String user_master_id){{
+
+	}
+
+
+
+	public myPageDAO buyItemHistoryDelete(String item_transaction_id,String user_master_id){
+
+	}
+}
