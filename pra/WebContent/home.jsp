@@ -62,7 +62,7 @@ table {
 	</div>
 	<div id="main">
 		<div id="top"><p>Home</p></div>
-		<s:form action="LoginAction">
+		<s:form action="HomeAction">
 			<div>
 				<s:submit value="ログイン画面" />
 			</div>

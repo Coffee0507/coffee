@@ -1,0 +1,32 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+import java.util.Map;
+
+
+import com.internousdev.pra.DTO.BuyItemDTO;
+import com.internousdev.pra.util.DBConnector;
+
+public class BuyItemDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private BuyItemDTO buyItemDTO = new BuyItemDTO();
+	public String loginFlg;
+
+	public BuyItemDTO getBuyItemInfo(loginUserId,loginPassword) {
+
+
+
+
+
+
+		if(){
+
+
+			loginFlg = true;
+			return loginFlg;
+		}
+	}
+
+}

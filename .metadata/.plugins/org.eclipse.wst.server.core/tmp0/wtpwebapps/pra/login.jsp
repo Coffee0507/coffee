@@ -12,6 +12,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>Login画面</title>
+<meta charset="utf-8">
 <style type="text/css">
 body {
 	margin: 0;
@@ -66,11 +67,9 @@ table {
 		<div>
 			<h3>商品を購入する際にはログインをお願いします</h3>
 			<s:form action="LoginAction">
-				<div>
-					<s:textfield name="loginUserId" />
-					<s:password name="loginPassword" />
-					<s:submit value="ログイン画面" />
-				</div>
+				<s:textfield name="loginUserId"></s:textfield>
+				<s:password name="loginPassword"></s:password>
+				<s:submit value="ログイン画面"></s:submit>
 			</s:form>
 		</div>
 		<div>

@@ -1,0 +1,34 @@
+package com.internousdev.pra.action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.pra.DAO.BuyItemDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemAction extends ActionSupport implements SessionAware {
+	public Map<String, Object> session;
+	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+	private int stock;
+	private String pay;
+	private String result;
+
+	public String execute() throws SQLException{
+		result = SUCCESS;
+
+
+
+
+
+		return result;
+
+	}
+
+
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+}

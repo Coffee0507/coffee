@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.internoudev.pra.util.DBConnector;
 import com.internousdev.pra.DTO.LoginDTO;
+import com.internousdev.pra.util.DBConnector;
 
 public class LoginDAO {
 	private DBConnector db = new DBConnector();
@@ -25,8 +25,8 @@ public class LoginDAO {
 
 			if (rs.next()) {
 				loginDTO.setLoginId(rs.getString("login_id"));
-				loginDTO.setLoginPassword(rs.getString("login_Pass"));
-				loginDTO.setUserName(rs.getString("userName"));
+				loginDTO.setLoginPassword(rs.getString("login_pass"));
+				loginDTO.setUserName(rs.getString("user_name"));
 
 				if (!(rs.getString("login_id").equals(null))) {
 					loginDTO.setLoginFlg(true);

@@ -1,0 +1,27 @@
+package com.internousdev.pra.DTO;
+
+public class BuyItemDTO {
+
+
+
+	public Object getItemName() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public BuyItemDTO getBuyItemInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getItemId() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getItemPrice() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}
