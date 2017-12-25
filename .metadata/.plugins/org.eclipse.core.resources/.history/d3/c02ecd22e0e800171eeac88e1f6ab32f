@@ -1,0 +1,29 @@
+package com.internousdev.pra.DAO;
+
+import com.internoudev.pra.util.DBConnector;
+import com.internousdev.pra.DTO.LoginDTO;
+
+public class LoginDAO {
+
+	public LoginDTO getLoginUserInfo(String loginUserId,String loginPassword){
+		private DBConnector db = new DBConnector();
+		private Connection con = db.getConnection(sql);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		return null;
+
+}
+}

@@ -1,0 +1,8 @@
+package com.internousdev.pra.DAO;
+
+public class LoginDAO {
+
+	public LoginDAO LoginUserInfo(String loginUserId,String loginPassword){
+
+}
+}

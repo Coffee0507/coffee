@@ -1,0 +1,26 @@
+package com.internousdev.pra.DTO;
+
+public class LoginDTO {
+
+	public boolean loginFlg = false;
+
+	public Object getLoginUserId() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getLoginPassword() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public boolean getLoginFlg(){
+		return loginFlg;
+	}
+
+	public void setLoginId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

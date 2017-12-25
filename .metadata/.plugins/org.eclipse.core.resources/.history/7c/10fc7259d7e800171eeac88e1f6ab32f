@@ -1,0 +1,7 @@
+package com.internousdev.pra.DAO;
+
+public class LoginDAO {
+
+	public Object getLoginUserId;
+
+}

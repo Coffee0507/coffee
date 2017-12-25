@@ -1,0 +1,9 @@
+package com.internousdev.pra.action;
+
+public class HomeAction {
+
+	public String execute(){
+
+	}
+
+}

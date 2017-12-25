@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC
-"-//Apache Software Foundation//DTD Struts 2.3//EN"
-"http://sturts.apacheorg/dtds/configuration-2.3.dtd">
-<display-name>sample</display-name>
-<welcome-file-list>
-<welcome-file>home.jsp</welcome-file>
-</welcome-file-list>

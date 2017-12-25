@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="com.internousdev.practice.util.DBConnector"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="com.internousdev.practice.DTO.BuyItemDTO"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.dto.BuyItemCompleteDTO"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.dao.BuyItemCompleteDAO"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.dao.MyPageDAO"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.dto.MyPageDTO"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.util.DBConnector"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.dao.UserCreateCompleteDAO"/>
+<fullyQualifiedTypeName name="com.internousdev.practice.util.DateUtil"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.internousdev.pra.DTO.LoginDTO"/>
+<fullyQualifiedTypeName name="com.internousdev.pra.DAO.LoginDAO"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>
