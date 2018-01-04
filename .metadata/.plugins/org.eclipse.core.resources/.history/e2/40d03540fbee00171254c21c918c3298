@@ -1,0 +1,11 @@
+package com.internousdev.sample.DAO;
+
+import com.internousdev.sample.DTO.BuyItemCompleteDTO;
+
+public class BuyItemCompleteDAO throws SQLException{
+
+	public BuyItemCompleteDTO buyItemCompleteInfo(String buyItem_Name,String buyItem_price,String stock,String pay) {
+		return null;
+	}
+
+}

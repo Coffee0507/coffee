@@ -1,0 +1,25 @@
+package com.internousdev.sample.util;
+
+import java.sql.Connection;
+
+public class DBConnector {
+	private String driverName = "com.mysql.jdbc.Driver";
+	private String url = "jdbc:mysql://localhost/ecsite";
+	private String user = "root";
+	private String password = "mysql";
+
+	public Connection getConnection(){
+
+		Connection con = null;
+	try{
+		Class.forName(driverName);
+		con = (Connection)DriverManeger.getConnection(url,user,password);
+
+	}catch(ClassNotFoundException e){
+		e.printStackTrace();
+	}
+	return null;
+	}
+
+
+}

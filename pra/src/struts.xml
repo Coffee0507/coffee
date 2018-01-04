@@ -21,12 +21,22 @@
 
 		<action name="BuyItemAction" class="com.internousdev.pra.action.BuyItemAction"
 			method="execute">
-			<result name="success">buyItemConfirm.jsp</result>
+			<result name="success">buyItemComfirm.jsp</result>
 		</action>
 
 		<action name="BuyItemConfirmAction" class="com.internousdev.pra.action.BuyItemConfirmAction"
 			method="execute">
 			<result name="success">buyItemComplete.jsp</result>
+		</action>
+
+		<action name="BuyItemCompleteAction"
+			class="com.internousdev.pra.action.BuyItemCompleteAction" method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+
+		<action name="MyPageAction"
+			class="com.internousdev.pra.action.MyPageAction" method="execute">
+			<result name="success">myPage.jsp</result>
 		</action>
 
 	</package>

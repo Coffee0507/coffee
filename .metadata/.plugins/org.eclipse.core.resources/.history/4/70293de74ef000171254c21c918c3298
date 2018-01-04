@@ -1,0 +1,13 @@
+package com.internousdev.sample.Action;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class HomeAction extends ActionSupport {
+
+	private String result;
+
+	public String execute(){
+		return SUCCESS;
+	}
+
+}

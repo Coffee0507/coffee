@@ -1,0 +1,23 @@
+package com.internousdev.sample.DAO;
+
+import java.sql.Connection;
+
+import com.internousdev.sample.DTO.LoginDTO;
+import com.internousdev.sample.util.DBConnector;
+
+public class LoginDAO {
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public LoginDTO loginUserInfo(String loginUserId, String loginPass) {
+
+
+
+
+
+
+
+		return null;
+	}
+
+}

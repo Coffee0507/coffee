@@ -1,0 +1,25 @@
+package com.internousdev.sample.DTO;
+
+public class LoginDTO {
+
+	public String loginUserID;
+	public boolean loginFlg;
+	public  String loginUserPass;
+
+	public boolean getLoginUserName() {
+		return loginFlg;
+	}
+
+	public void setLoginFlg(boolean loginFlg) {
+		this.loginFlg = loginFlg;
+	}
+
+	public void setLoginUserId(String loginUserId) {
+		this.loginUserID = loginUserId;
+	}
+
+	public void setLoginUserPass(String loginPass) {
+		this.loginUserPass = loginPass;
+	}
+
+}

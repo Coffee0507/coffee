@@ -1,0 +1,10 @@
+package com.internousdev.sample.DAO;
+
+public class BuyItemConfirmDAO {
+
+	public void buyItemInfo(String itemId, String itemPrice, String itemStock, String loginId, String pay) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

@@ -1,6 +1,5 @@
 package com.internousdev.pra.action;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -8,12 +7,34 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
-	public Map<String, Object> session;
+
+	/**
+	 * アイテム購入個数
+	 */
 	private int stock;
+
+	/**
+	 * 支払い方法
+	 */
 	private String pay;
+
+	/**
+	 * アイテム情報を格納
+	 */
+	public Map<String, Object> session;
+
+	/**
+	 * 処理結果
+	 */
 	private String result;
 
-	public String execute() throws SQLException {
+	/**
+	 * 商品情報取得メソッド
+	 *
+	 * @author internous
+	 */
+	public String execute(){
+
 		result = SUCCESS;
 		session.put("stock", stock);
 		int intStock = Integer.parseInt(session.get("stock").toString());
@@ -23,13 +44,14 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		String payment;
 
 		if (pay.equals("1")) {
+
 			payment = "現金払い";
 			session.put("pay", payment);
 		} else {
+
 			payment = "クレジットカード払い";
 			session.put("pay", payment);
 		}
-
 		return result;
 
 	}
@@ -42,14 +64,14 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		this.stock = stock;
 	}
 
-	public String getPayment() {
+	public String getPay() {
 		return pay;
 	}
 
-	public void setPayment(String pay) {
+	public void setPay(String pay) {
 		this.pay = pay;
 	}
-
+	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

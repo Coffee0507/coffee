@@ -1,8 +1,0 @@
-package com.internousdev.practice.action;
-
-
-
-public class UserCreatConfirmAction extends ActionSupport implements SessionAware{
-
-
-}

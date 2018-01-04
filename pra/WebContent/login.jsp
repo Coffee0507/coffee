@@ -11,8 +11,8 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>Login画面</title>
 <meta charset="utf-8">
+<title>Login画面</title>
 <style type="text/css">
 body {
 	margin: 0;
@@ -69,7 +69,7 @@ table {
 			<s:form action="LoginAction">
 				<s:textfield name="loginUserId"></s:textfield>
 				<s:password name="loginPassword"></s:password>
-				<s:submit value="ログイン画面"></s:submit>
+				<s:submit value="ログイン"></s:submit>
 			</s:form>
 		</div>
 		<div>

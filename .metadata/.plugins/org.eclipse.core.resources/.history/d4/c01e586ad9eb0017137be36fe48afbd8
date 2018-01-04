@@ -1,0 +1,52 @@
+package com.internousdev.sample.DTO;
+
+public class BuyItemDTO {
+	private String BuyItemId;
+
+	private String BuyItemName;
+
+	private String BuyItemPrice;
+
+	private String BuyItemStock;
+
+	public Object getbuyItemId() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void setBuyItemId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public Object getbuyItemName() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void setBuyItemName(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public Object getbuyItemPrice() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void setBuyItemPrice(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public Object getbuyItemStock() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	public void setBuyItemStock(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+
+}

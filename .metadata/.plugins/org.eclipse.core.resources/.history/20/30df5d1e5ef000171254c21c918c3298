@@ -1,0 +1,20 @@
+package com.internousdev.sample.DTO;
+
+public class LoginDTO {
+
+	public void setLoginUserId(String loginUserId) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setLoginUserName(String UserName) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setLoginpassword(String loginPass) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

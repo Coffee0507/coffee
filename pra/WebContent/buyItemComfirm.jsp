@@ -11,8 +11,8 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>BuyItemComfirm画面</title>
 <meta charset="utf-8">
+<title>BuyItemConfirm画面</title>
 <style type="text/css">
 body {
 	margin: 0;

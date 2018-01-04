@@ -1,0 +1,6 @@
+package com.internousdev.sample.util;
+
+public class DBConnector {
+private String driverName = "com.mysql.jdbc.Driver";
+privete String url = "jdbc:mysql://localhost/ecsite"
+}

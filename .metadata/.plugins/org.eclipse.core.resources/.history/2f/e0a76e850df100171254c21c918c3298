@@ -1,0 +1,10 @@
+package com.internousdev.sample.Action;
+
+public class BuyItemConfirmAction {
+
+	private map<String,Object>session;
+
+
+
+
+}

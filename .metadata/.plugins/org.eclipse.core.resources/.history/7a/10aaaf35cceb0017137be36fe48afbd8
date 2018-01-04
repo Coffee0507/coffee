@@ -1,0 +1,7 @@
+package com.internousdev.sample.DTO;
+
+public class LoginDTO {
+
+	public boolean loginFlg;
+
+}

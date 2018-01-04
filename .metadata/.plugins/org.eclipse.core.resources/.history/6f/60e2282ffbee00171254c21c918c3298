@@ -1,0 +1,12 @@
+package com.internousdev.sample.DAO;
+
+import com.internousdev.sample.DTO.BuyItemCompleteDTO;
+
+public class BuyItemCompleteDAO {
+
+	public BuyItemCompleteDTO buyItemCompleteInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

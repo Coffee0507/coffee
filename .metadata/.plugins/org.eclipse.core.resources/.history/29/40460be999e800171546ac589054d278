@@ -1,8 +1,0 @@
-package com.internousdev.practice.dao;
-
-import com.internousdev.practice.util.DBConnector;
-
-public class UserCreateCompleteDAO{
-	private DBConnector db = new DBConnector();
-
-}

@@ -30,7 +30,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			result = SUCCESS;
 
 			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
-			session.put("loginUser_Id", loginDTO);
+			session.put("loginUser_Id", loginDTO.getLoginUserId());
 			session.put("id", buyItemDTO.getItemId());
 			session.put("buyItem_name", buyItemDTO.getItemName());
 			session.put("buyItem_price", buyItemDTO.getItemPrice());

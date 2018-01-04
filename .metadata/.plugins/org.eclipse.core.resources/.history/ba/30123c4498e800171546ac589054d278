@@ -1,9 +1,0 @@
-package com.internousdev.practice.action;
-
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.opensymphony.xwork2.ActionSupport;
-
-public class UserCreateCompleteAction extends ActionSupport implements SessionAware{
-
-}

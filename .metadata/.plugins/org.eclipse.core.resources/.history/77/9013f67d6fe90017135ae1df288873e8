@@ -1,6 +1,0 @@
-package com.internousdev.pra.action;
-
-public class BuyItemComfirm {
-	private BuyItemDAO buyItemDAO = new BuyItemDAO();
-
-}

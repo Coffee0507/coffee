@@ -1,0 +1,30 @@
+package com.internousdev.sample.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.internousdev.sample.DTO.LoginDTO;
+import com.internousdev.sample.util.DBConnector;
+
+public class LoginDAO {
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private LoginDTO loginDTO = new LoginDTO();
+	private String sql = "select*from login_user_transaction";
+
+	public LoginDTO loginUserInfo(String loginUserId, String loginPass) {
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+
+		}
+
+
+
+
+
+		return null;
+	}
+
+}

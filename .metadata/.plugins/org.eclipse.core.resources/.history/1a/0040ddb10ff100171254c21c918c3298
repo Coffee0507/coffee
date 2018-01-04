@@ -1,0 +1,6 @@
+package com.internousdev.sample.util;
+
+public class UtilDate {
+	public SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+
+}

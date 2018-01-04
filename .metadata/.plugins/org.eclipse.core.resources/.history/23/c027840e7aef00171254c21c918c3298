@@ -1,0 +1,42 @@
+package com.internousdev.sample.DTO;
+
+public class BuyItemDTO {
+	private String buyItemId;
+
+	private String buyItemName;
+
+	private String buyItemPrice;
+
+	private String buyItemStock;
+
+	public String getbuyItemId() {
+		return buyItemId;
+	}
+
+	public void setBuyItemId(String buyItemId) {
+		this.buyItemId = buyItemId;
+	}
+
+	public String getBuyItemName() {
+		return buyItemName;
+	}
+
+	public void setBuyItemName(String buyItemName) {
+		this.buyItemName = buyItemName;
+	}
+
+	public String getBuyItemPrice() {
+		return buyItemPrice;
+	}
+
+	public void setBuyItemPrice(String buyItemPrice) {
+		this.buyItemPrice = buyItemPrice;
+	}
+
+	public String getBuyItemStock() {
+		return buyItemStock;
+	}
+	public void setBuyItemStock(String buyItemStock) {
+		this.buyItemStock = buyItemStock;
+	}
+}

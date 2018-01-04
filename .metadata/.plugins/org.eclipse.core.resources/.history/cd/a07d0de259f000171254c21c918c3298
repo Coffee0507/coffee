@@ -1,0 +1,6 @@
+package com.internousdev.sample.util;
+
+public class DBConnector {
+	private String driverName = "com.jdbc.mysql.driver";
+
+}

@@ -1,8 +1,0 @@
-package com.internousdev.pra.action;
-
-import com.internousdev.pra.DAO.BuyItemCompleteDAO;
-
-public class BuyItemComfirmAction {
-	private BuyItemCompleteDAO buyItemDAO = new BuyItemCompleteDAO();
-
-}

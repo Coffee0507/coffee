@@ -1,0 +1,13 @@
+package com.internousdev.sample.util;
+
+import java.text.SimpleDateFormat;
+
+import freemarker.template.utility.DateUtil;
+
+public class UtilDate {
+	public SimpleDateFormat simpleDateFormat;
+	public DateUtil dateUtil;
+
+	return DateUtil dateUtil();
+
+}

@@ -10,7 +10,6 @@ import com.internousdev.template.dto.BuyItemDTO;
 import com.internousdev.template.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class LoginAction extends ActionSupport implements SessionAware{
 	private String loginUserId;
 	private String loginPassword;
@@ -23,7 +22,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		result = ERROR;
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUser",loginDTO);
-		if(((LoginDTO) session.get("loginUser")).getLoginFlg()){
+		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
 			result = SUCCESS;
 
 			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();

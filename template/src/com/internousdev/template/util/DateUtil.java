@@ -11,8 +11,8 @@ public class DateUtil {
 	 * @return String
 	 */
 	public String getDate() {
-		Date date = new Date();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
 
 		return simpleDateFormat.format(date);
 	}
