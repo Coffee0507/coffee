@@ -1,0 +1,29 @@
+package com.internousdev.pra.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnctor {
+
+	private static String driverName = "com.mysql.jdbc.Driver";
+	private static String url = "jdbc:mysql://localhost.ecsite";
+	private static String user = "root";
+	private static String pass = "mysql";
+
+	public Connection getConnection() {
+
+		try{
+			Class.forName(driverName);
+			con = (Connection)DriverManager.getConnection(url,user,pass);
+
+
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}
+
+
+		return null;
+
+	}
+
+}

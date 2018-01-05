@@ -1,17 +1,10 @@
 package com.internousdev.pra.DTO;
 
 public class BuyItemDTO {
-	public int id;
-	public String itemName;
-	public String itemPrice;
 
-	public int getItemId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	private String itemName;
+	private int itemId;
+	private String itemPrice;
 
 	public String getItemName() {
 		return itemName;
@@ -21,6 +14,14 @@ public class BuyItemDTO {
 		this.itemName = itemName;
 	}
 
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
 	public String getItemPrice() {
 		return itemPrice;
 	}
@@ -28,5 +29,4 @@ public class BuyItemDTO {
 	public void setItemPrice(String itemPrice) {
 		this.itemPrice = itemPrice;
 	}
-
 }

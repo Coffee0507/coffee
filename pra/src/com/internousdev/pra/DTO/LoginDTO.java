@@ -1,33 +1,35 @@
 package com.internousdev.pra.DTO;
 
 public class LoginDTO {
-	private String loginUserId;
-	private String loginPassword;
-	private String userName;
+
+	public String loginUserId;
+	public String loginUserName;
+	public String loginUserPass;
 	public boolean loginFlg = false;
+
 
 	public String getLoginUserId() {
 		return loginUserId;
 	}
 
-	public void setLoginId(String loginUserId) {
+	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
 	}
 
-	public String getLoginPassword() {
-		return loginPassword;
+	public String getLoginUserName() {
+		return loginUserName;
 	}
 
-	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
+	public void setLoginUserName(String loginUserName) {
+		this.loginUserName = loginUserName;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getLoginUserPass() {
+		return loginUserName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setLoginUserPass(String loginUserPass) {
+		this.loginUserPass = loginUserPass;
 	}
 
 	public boolean getLoginFlg() {
@@ -37,5 +39,7 @@ public class LoginDTO {
 	public void setLoginFlg(boolean loginFlg) {
 		this.loginFlg = loginFlg;
 	}
+
+
 
 }

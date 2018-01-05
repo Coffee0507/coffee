@@ -1,0 +1,24 @@
+package com.internousdev.pra.DAO;
+
+import com.internousdev.pra.DTO.LoginDTO;
+
+public class LoginDAO {
+
+	private DBConnctor db = new DBConnector();
+	private Connection con = db.getConnection();
+	private String sql = "select*from login_user_transaction";
+
+	public LoginDTO loginUserInfo(String loginUserId, String loginPass) {
+
+		PreparedStatement ps = con.prepareStatement(sql);
+
+
+
+
+
+
+
+		return null;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.internousdev.pra.DAO;
+
+import com.internousdev.pra.DTO.BuyItemDTO;
+
+public class BuyItemDAO {
+
+	private BuyItemDTO buyItemDTO = new BuyItemDTO();
+
+
+
+	public BuyItemDTO getItemInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

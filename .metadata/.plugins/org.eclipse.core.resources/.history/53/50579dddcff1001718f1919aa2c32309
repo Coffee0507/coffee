@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<title>home画面</title>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	letter-spacing: 1px;
+	font-familly: Verdana, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333;
+	background: #fff;
+}
+
+table {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#header {
+	width: 100%;
+	height: 80p;
+	border: 1px solid #333;
+}
+
+#main {
+	text-align:center;
+	width:100%;
+	margin:80px auto;
+}
+
+#top {
+	height:30px;
+	width:200px;
+}
+
+#footer {
+	width: 100%;
+	height: 80p;
+	border: 1px solid #333;
+	clear: both;
+}
+</style>
+</head>
+<body>
+
+</body>
+</html>
