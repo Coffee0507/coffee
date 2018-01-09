@@ -1,0 +1,34 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.internousdev.pra.DTO.MyPageDTO;
+import com.internousdev.pra.util.DBConnector;
+
+public class MyPageDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public MyPageDTO getBuyItemInfo(String loginUserId) {
+		String sql = "select*from user_buy_item_transaction where user_master_id=?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, loginUserId);
+			ResultSet rs = ps.executeQuery();
+
+			myPageDTO.setLoginId(rs.getString("")
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
+
+
+	}
+
+}

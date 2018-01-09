@@ -1,0 +1,7 @@
+set name utf-8;
+set foreign_key_checks = 0;
+
+drop if exists table login_user_transaction;
+drop if exists table buy_item_tarnsaction;
+drop if exists table user_buy_item_transaction;
+

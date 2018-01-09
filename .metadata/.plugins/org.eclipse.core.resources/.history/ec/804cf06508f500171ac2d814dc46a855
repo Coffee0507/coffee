@@ -1,0 +1,18 @@
+package com.internousdev.pra.DTO;
+
+public class MyPageDTO {
+
+	private DBConnector db = new DBConnector();
+
+	public MyPageDTO getBuyItemInfo() {
+
+
+
+
+
+
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

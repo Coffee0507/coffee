@@ -15,7 +15,7 @@ public class BuyItemDAO {
 	private BuyItemDTO buyItemDTO = new BuyItemDTO();
 
 	public BuyItemDTO getItemInfo() throws SQLException {
-		String sql = "select*from item_info_transaction";
+		String sql = "select*from buy_item_transaction";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

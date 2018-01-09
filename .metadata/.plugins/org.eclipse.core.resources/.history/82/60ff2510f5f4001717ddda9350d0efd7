@@ -1,0 +1,17 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+
+import com.internousdev.pra.util.DBConnector;
+
+public class BuyItemConfirmDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public void buyItemInfo(String itemName,String itemPrice,String stock,String pay) {
+
+
+	}
+
+}

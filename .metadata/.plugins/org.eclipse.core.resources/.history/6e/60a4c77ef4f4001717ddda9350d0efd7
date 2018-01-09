@@ -1,0 +1,10 @@
+package com.internousdev.pra.DAO;
+
+public class BuyItemConfirmDAO {
+
+
+	public void buyItemInfo(String itemName,String itemPrice,String stock,String pay) {
+
+	}
+
+}

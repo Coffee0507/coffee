@@ -1,0 +1,17 @@
+package com.internousdev.pra.util;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateUtil {
+	private SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+	private Date date = new Date();
+
+	public String dateUtil(){
+
+
+
+		return dateUtil();
+
+	}
+}

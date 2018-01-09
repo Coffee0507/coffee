@@ -10,7 +10,7 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="keywords" content="">
 <meta name="description" content="">
-<title>BuyItem画面</title>
+<title>BuyItemConfirm画面</title>
 <style type="text/css">
 body {
 	margin: 0;
@@ -62,33 +62,26 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItem</p>
+			<p>BuyItemConfirm</p>
 		</div>
 		<div>
 			<table>
-				<s:form action="">
+				<s:form action="BuyItemConfirmAction">
 					<tr>
 						<td><span>商品名</span></td>
 						<td><s:property value="session.itemName" /></td>
 					</tr>
 					<tr>
 						<td><span>値段</span></td>
-						<td><s:property value="session.itemPrice" /></td>
+						<td><s:property value="session.buyItemPrice" /></td>
 					</tr>
 					<tr>
-						<td><span>在庫</span></td>
-						<td><select name="stock">
-								<option value="1" selected="selected">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-						</select></td>
+						<td><span>購入個数</span></td>
+						<td><s:property value="session.stock" /><span>個</span></td>
 					</tr>
 					<tr>
 						<td><span>支払い方法</span></td>
-						<td><input type="radio" name="pay" checked="checked">現金払い
-							<input type="radio" name="pay">クレジット</td>
+						<td><s:property value="session.pay" /></td>
 					</tr>
 					<tr>
 						<td><s:submit value="購入確認" /></td>

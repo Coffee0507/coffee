@@ -1,0 +1,36 @@
+package com.internousdev.pra.Action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.pra.DAO.BuyItemConfirmDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemConfirmAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private BuyItemConfirmDAO buyItemConfirmDAO = new BuyItemConfirmDAO();
+	public String execute() throws SQLException {
+		result = SUCCESS;
+
+		buyItemConfirmDAO.buyItemInfo(
+				session.get("itemId").toString(),
+				session.get("itemName").toString(),
+				session.get("buyItemPrice").toString(),
+				session.get("stock").toString(),
+				session.get("loginUserId").toString(),
+				session.get("pay").toString());
+
+		return result;
+	}
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+
+}

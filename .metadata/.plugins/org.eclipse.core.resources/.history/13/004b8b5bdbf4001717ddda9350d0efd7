@@ -1,0 +1,16 @@
+set name utf-8;
+set foreign_key_checks = 0;
+
+drop database if exists ecsite;
+create database if not exists ecsite;
+
+drop table if exists login_user_transaction;
+drop table if exists buy_item_tarnsaction;
+drop table if exists user_buy_item_transaction;
+
+create table if not exists login_user_transction;
+create table if not exists buy_item_transaction;
+create table if not exists user_buy_item_transaction;
+
+
+

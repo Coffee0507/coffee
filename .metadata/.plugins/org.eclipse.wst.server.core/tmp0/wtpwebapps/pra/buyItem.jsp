@@ -73,7 +73,7 @@ table {
 					</tr>
 					<tr>
 						<td><span>値段</span></td>
-						<td><s:property value="session.itemPrice" /></td>
+						<td><s:property value="session.itemPrice" /><span>円</span></td>
 					</tr>
 					<tr>
 						<td><span>在庫</span></td>
@@ -87,8 +87,8 @@ table {
 					</tr>
 					<tr>
 						<td><span>支払い方法</span></td>
-						<td><input type="radio" name="pay" checked="checked">現金払い
-							<input type="radio" name="pay">クレジット</td>
+						<td><input type="radio" name="pay" value="1" checked="checked">現金払い
+							<input type="radio" name="pay" value="2">クレジット</td>
 					</tr>
 					<tr>
 						<td><s:submit value="購入確認" /></td>

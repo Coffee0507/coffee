@@ -1,0 +1,17 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+
+import com.internousdev.pra.util.DBConnector;
+
+public class BuyItemConfirmDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public void buyItemInfo(String itemId,String itemName,String itemPrice,String stock,String loginid,String pay) {
+		String sql = "insert into user_buy_item_transaction(item_transaction_id,item_name,item_price,item_stock,user_master_id,pay,insert_date) values(?,?,?,?,?,?,?)";
+
+	}
+
+}
