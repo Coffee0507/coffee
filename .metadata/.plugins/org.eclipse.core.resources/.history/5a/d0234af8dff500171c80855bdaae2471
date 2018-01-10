@@ -1,0 +1,15 @@
+package com.internousdev.pra.DAO;
+
+public class DeleteDAO {
+
+	public void deleteInfo(String loginId,String itemId,String itemName,String itemStock,String itemPrice,String itemPay,String insertDate) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public boolean getdeleteFlg() {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+}

@@ -5,6 +5,7 @@ public class MyPageDTO {
 	private String loginId;
 	private String itemId;
 	private String itemName;
+	private String itemStock;
 	private String itemPrice;
 	private String itemPay;
 	private String insertDate;
@@ -39,6 +40,14 @@ public class MyPageDTO {
 
 	public void setItemPrice(String itemPrice) {
 		this.itemPrice = itemPrice;
+	}
+
+	public String getItemStock() {
+		return itemStock;
+	}
+
+	public void setItemStock(String itemStock){
+		this.itemStock = itemStock;
 	}
 
 	public String getPay() {

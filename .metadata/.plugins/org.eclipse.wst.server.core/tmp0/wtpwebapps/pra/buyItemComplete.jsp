@@ -66,12 +66,12 @@ table {
 		</div>
 		<div>
 			<table>
-				<s:form action="">
+				<s:form action="MyPageAction">
 					<tr>
 						<td>商品の購入が完了しました</td>
 					</tr>
 					<tr>
-						<td><a href='<s:url action=""/>'>マイページ</a><span>から購入履歴の確認ができます</span>
+						<td><a href='<s:url action="MyPageAction"/>'>マイページ</a><span>から購入履歴の確認ができます</span>
 						</td>
 					</tr>
 				</s:form>

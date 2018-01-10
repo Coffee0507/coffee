@@ -1,0 +1,43 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.internousdev.pra.DTO.MyPageDTO;
+import com.internousdev.pra.util.DBConnector;
+
+public class MyPageDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private MyPageDTO myPageDTO = new MyPageDTO();
+
+	public MyPageDTO getBuyItemInfo(String loginUserId) throws SQLException {
+		String sql = "select*from user_buy_item_transaction where user_master_id=?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, loginUserId);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				myPageDTO.setLoginId(rs.getString("user_master_id"));
+				myPageDTO.setItemId(rs.getString("item_transaction_id"));
+				myPageDTO.setItemName(rs.getString("item_name"));
+				myPageDTO.setItemPrice(rs.getString("item_stock"));
+				myPageDTO.setPay(rs.getString("pay"));
+				myPageDTO.setInsertDate(rs.getString("insert_date"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return myPageDTO;
+	}
+
+	public MyPageDTO getMyPageDTO() {
+		return myPageDTO;
+	}
+
+}

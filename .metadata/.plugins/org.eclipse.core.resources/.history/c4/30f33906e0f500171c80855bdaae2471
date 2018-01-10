@@ -1,0 +1,18 @@
+package com.internousdev.pra.DAO;
+
+import com.internousdev.pra.util.DBConnector;
+
+public class DeleteDAO {
+
+	private DBConnector db = new DBConnector();
+
+	public void deleteInfo(String loginId,String itemId,String itemName,String itemStock,String itemPrice,String itemPay,String insertDate) {
+
+	}
+
+	public boolean getdeleteFlg() {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+}

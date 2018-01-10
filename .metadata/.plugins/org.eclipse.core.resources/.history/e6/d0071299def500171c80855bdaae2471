@@ -1,0 +1,10 @@
+package com.internousdev.pra.DAO;
+
+public class DeleteDAO {
+
+	public void deleteInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}
