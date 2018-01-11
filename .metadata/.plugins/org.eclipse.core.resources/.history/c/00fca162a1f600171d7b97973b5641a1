@@ -1,0 +1,25 @@
+package com.dto;
+
+public class AcountConfirmDTO {
+
+	public void setName1(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setName2(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setAge(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setSex(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

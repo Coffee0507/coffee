@@ -1,0 +1,19 @@
+package calculator.Sorce;
+
+public class calculator extends ActionSupport implements SessionAware{
+
+	private String result;
+	private int number1;
+	private ing number2;
+
+	public String execute() {
+		result = "SUCCESS";
+
+
+
+
+
+		return result;
+	}
+
+}

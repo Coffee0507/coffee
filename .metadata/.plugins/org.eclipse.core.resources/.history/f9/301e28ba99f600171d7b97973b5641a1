@@ -1,0 +1,22 @@
+package com.Action;
+
+import java.util.Map;
+
+import com.dao.AcountConfirmDAO;
+
+public class AcountConfirm {
+
+	private String result;
+	public Map<String,Object>session;
+	public AcountConfirmDAO dao = new AcountConfirmDAO();
+
+	public String excute(){
+		result = "SUCCESS";
+
+		return result;
+	}
+
+	public void setSession(Map<String,Object>session){
+		this.session = session;
+	}
+}

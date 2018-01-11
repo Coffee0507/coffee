@@ -1,0 +1,24 @@
+package com.Util;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class DBConnector {
+
+	private String driverName = "com.mysql.jdbc.driver";
+	private String url = "jdbc.mysql://localhost/acount";
+	private String user = "root";
+	private String root = "mysql";
+	private Connection con = null;
+
+	public Connection getConnection() throws SQLException{
+		try {
+			Class.forName(driverName);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return con;
+
+
+	}
+}

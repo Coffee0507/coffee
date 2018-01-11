@@ -1,0 +1,14 @@
+package com.calculator.Sorce;
+
+public class AcountConfirm {
+
+	private String result;
+	public Map<String,Object>session;
+
+
+	public String excute(){
+		result = "SUCCESS";
+
+		return result;
+	}
+}
