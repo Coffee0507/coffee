@@ -44,7 +44,7 @@ table {
 
 #main {
 	width: 400px;
-	height: 300px;
+	height: 500px;
 	text-align: center;
 }
 
@@ -65,8 +65,12 @@ table {
 			<p>calculator</p>
 		</div>
 		<div>
+			<s:if test="session.message == 'error'">
+				<h3>入力漏れがあります。</h3>
+			</s:if>
 			<h3>項目を入力してください</h3>
 			<s:form action="AcountConfirm">
+
 				<table>
 					<tr>
 						<td>名前</td>
@@ -76,7 +80,7 @@ table {
 					<tr>
 						<td>年齢</td>
 						<td><select name="age">
-								<option value="1" selected="selected">1</option>
+								<option value="1" selected="selected">18</option>
 								<option value="2">19</option>
 								<option value="3">20</option>
 								<option value="4">21</option>
@@ -88,13 +92,14 @@ table {
 								<option value="10">27</option>
 								<option value="11">28</option>
 								<option value="12">29</option>
-								<option value="23">30</option>
+								<option value="13">30</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td>性別</td>
-						<td><input type="radio" name="sex" value="1" checked="checked">男性
-						 <input type="radio" name="sex" value="2">女性</td>
+						<td><input type="radio" name="sex" value="1"
+							checked="checked">男性 <input type="radio" name="sex"
+							value="2">女性</td>
 					</tr>
 				</table>
 				<s:submit value="確認" />

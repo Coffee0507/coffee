@@ -65,25 +65,25 @@ table {
 			<p>calculator</p>
 		</div>
 		<div>
+		<s:property value="session.message"/>
 			<h3>入力された内容をご確認ください</h3>
-			<s:form action="AcountComplete">
-				<table>
-					<tr>
-						<td>名前:</td>
-						<td><s:property value="session.name1"/></td>
-						<td><s:property value="session.name2"/></td>
-					</tr>
-					<tr>
-						<td>年齢:</td>
-						<td><s:property value="session.age"/></td>
-					</tr>
-					<tr>
-						<td>性別:</td>
-						<td><s:property value="session.sex"/></td>
-					</tr>
-				</table>
-				<s:submit value="確認" />
-			</s:form>
+			<table>
+				<tr>
+					<td>名前:</td>
+					<td><s:property value="session.name1" /></td>
+					<td><s:property value="session.name2" /></td>
+				</tr>
+				<tr>
+					<td>年齢:</td>
+					<td><s:property value="session.age" /></td>
+				</tr>
+				<tr>
+					<td>性別:</td>
+					<td><s:property value="session.sex" /></td>
+				</tr>
+				<s:property value="message"/>
+			</table>
+			<s:submit value="確認" />
 		</div>
 	</div>
 	<div id="footer">

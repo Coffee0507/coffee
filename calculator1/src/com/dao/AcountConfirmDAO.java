@@ -2,7 +2,6 @@ package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.Util.DBConnector;
@@ -24,14 +23,12 @@ public class AcountConfirmDAO {
 			ps.setString(3, age);
 			ps.setString(4, sex);
 
-			ResultSet rs = ps.executeQuery();
+			ps.executeUpdate();
 
-			if(rs.next()){
-				dto.setName1(rs.getString("name1"));
-				dto.setName2(rs.getString("name2"));
-				dto.setAge(rs.getString("age"));
-				dto.setSex(rs.getString("sex"));
-			}
+				dto.setName1(name1);
+				dto.setName2(name2);
+				dto.setAge(age);
+				dto.setSex(sex);
 
 		}catch(Exception e){
 			e.printStackTrace();
