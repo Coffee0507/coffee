@@ -7,6 +7,7 @@ public class AcountConfirmDTO {
 	private String age;
 	private String sex;
 	private String Flg;
+	private String time;
 
 	public String getName1() {
 		return name1;
@@ -45,6 +46,14 @@ public class AcountConfirmDTO {
 
 	public void setFlg(String Flg) {
 		this.Flg = Flg;
+	}
+
+	public String getTime(){
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time= time;
 	}
 
 }

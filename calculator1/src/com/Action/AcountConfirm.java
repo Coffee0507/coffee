@@ -107,13 +107,15 @@ public class AcountConfirm extends ActionSupport implements SessionAware {
 					sex = "女性";
 				}
 
-				session.put("name1", getName1());
-				session.put("name2", getName2());
-				session.put("age", getAge());
-				session.put("sex", getSex());
+				if (dto.getName1() == name1) {
+					session.put("name1", getName1());
+					session.put("name2", getName2());
+					session.put("age", getAge());
+					session.put("sex", getSex());
 
-				result = SUCCESS;
-				return result;
+					result = SUCCESS;
+					return result;
+				}
 			}
 		}
 		return result;

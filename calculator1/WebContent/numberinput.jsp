@@ -44,7 +44,7 @@ table {
 
 #main {
 	width: 400px;
-	height: 300px;
+	height: 500px;
 	text-align: center;
 }
 

@@ -15,6 +15,14 @@
 		</action>
 
 
+		<action name="NumberInputAction" class="com.Action.NumberInputAction" method="execute">
+			<result name="success">numberinput.jsp</result>
+		</action>
+
+		<action name="CreateAcountAction" class="com.Action.CreateAcountAction" method="execute">
+			<result name="success">CreateAcountAction.jsp</result>
+		</action>
+
 		<action name="Calculator" class="com.Action.Calculator" method="execute">
 			<result name="success">result.jsp</result>
 			<result name="error">acountinput.jsp</result>

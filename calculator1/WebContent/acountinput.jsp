@@ -68,7 +68,8 @@ table {
 			<s:if test="session.message == 'error'">
 				<h3>入力漏れがあります。</h3>
 			</s:if>
-			<h3>項目を入力してください</h3>
+			<h3>項目を入力してログインください</h3>
+			<br>
 			<s:form action="AcountConfirm">
 
 				<table>
@@ -105,6 +106,8 @@ table {
 				<s:submit value="確認" />
 			</s:form>
 		</div>
+		<h4>アカウント登録がまだの場合は<a href='<s:url action="CreateAcountAction"/>>'>作成</a>をお願いします</h4>
+
 	</div>
 	<div id="footer">
 		<div id="pr"></div>

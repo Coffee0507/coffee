@@ -61,32 +61,41 @@ table {
 		<div id="pr"></div>
 	</div>
 	<div id="main">
-		<div id="top">
-			<p>calculator</p>
-		</div>
-		<div>
-			<s:property value="session.message" />
-			<h3>入力された内容をご確認ください</h3>
-			<table>
-				<s:form action="NumberInputAction">
-					<tr>
-						<td>名前:</td>
-						<td><s:property value="session.name1" /></td>
-						<td><s:property value="session.name2" /></td>
-					</tr>
-					<tr>
-						<td>年齢:</td>
-						<td><s:property value="session.age" /></td>
-					</tr>
-					<tr>
-						<td>性別:</td>
-						<td><s:property value="session.sex" /></td>
-					</tr>
-					<s:property value="message" />
-					<s:submit value="確認" />
-				</s:form>
-			</table>
-		</div>
+		<div id="top">CreateAcountAction</div>
+		<h3>必須項目の入力をお願いします</h3>
+		<table>
+			<tr>
+				<td>SurName:</td>
+				<td><s:textfield name="name1" size="10" /></td>
+			</tr>
+			<tr>
+				<td>FirstName:</td>
+				<td><s:textfield action="name2" size="10" /></td>
+			</tr>
+			<tr>
+				<td>age:</td>
+				<td><select name="age">
+						<option value="1" selected="selected">18</option>
+						<option value="2">19</option>
+						<option value="3">20</option>
+						<option value="4">21</option>
+						<option value="5">22</option>
+						<option value="6">23</option>
+						<option value="7">24</option>
+						<option value="8">25</option>
+						<option value="9">26</option>
+						<option value="10">27</option>
+						<option value="11">28</option>
+						<option value="12">29</option>
+						<option value="13">30</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>sex:</td>
+				<td><input type="radio" name="sex" value="1" checked="checked">>male
+				<input type="radio" name="sex" value="2">female</td>
+			</tr>
+		</table>
 	</div>
 	<div id="footer">
 		<div id="pr"></div>
