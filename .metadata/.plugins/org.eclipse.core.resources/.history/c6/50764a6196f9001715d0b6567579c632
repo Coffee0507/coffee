@@ -1,0 +1,38 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.Util.DBConnector;
+import com.dto.CreateAcountConfirmDTO;
+
+public class CreateAcountConfirmDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private CreateAcountConfirmDTO createAcountConfirmDTO = new CreateAcountConfirmDTO();
+
+	public CreateAcountConfirmDTO acountInfo(String name1, String name2, String age, String sex) throws SQLException {
+		String sql = "INSERT INTO acount_info_transaction where(name1,name2,age,sex) values(?,?,?,?)";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, name1);
+			ps.setString(2, name2);
+			ps.setString(3, age);
+			ps.setString(4, sex);
+
+			int res = ps.executeUpdate();
+
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return createAcountConfirmDTO;
+	}
+}

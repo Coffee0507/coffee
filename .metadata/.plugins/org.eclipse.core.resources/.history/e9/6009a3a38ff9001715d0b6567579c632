@@ -1,0 +1,11 @@
+package com.Util;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class UtilDate {
+	public SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+	public Date data = new Date();
+
+
+}

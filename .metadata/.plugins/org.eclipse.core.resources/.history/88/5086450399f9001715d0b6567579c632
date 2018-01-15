@@ -1,0 +1,12 @@
+package com.Util;
+
+public class UtilDate {
+
+	public String getDate(){
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+
+
+		return null;
+	}
+}

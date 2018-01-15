@@ -9,14 +9,26 @@
 	<package name="com.Action" extends="struts-default">
 
 
-		<action name="AcountConfirm" class="com.Action.AcountConfirm" method="execute">
+		<action name="AcountConfirmAction" class="com.Action.AcountConfirmAction" method="execute">
 			<result name="success">acountconfirm.jsp</result>
 			<result name="error">acountinput.jsp</result>
 		</action>
 
+		<action name="NumberInputAction" class="com.Action.NumberInputAction" method="execute">
+			<result name="success">numberinput.jsp</result>
+		</action>
 
-		<action name="Calculator" class="com.Action.Calculator" method="execute">
+		<action name="CalculatorAction" class="com.Action.CalculatorAction" method="execute">
 			<result name="success">result.jsp</result>
+			<result name="error">acountinput.jsp</result>
+		</action>
+
+		<action name="CreateUserAction" class="com.Action.CreateUserAction" method="execute">
+			<result name="success">createuseraction.jsp</result>
+		</action>
+
+		<action name="CreateUserConfirmAction" class="com.Action.CreateUserConfirmAction" method="execute">
+			<result name="success">createuserconfirmaction.jsp</result>
 			<result name="error">acountinput.jsp</result>
 		</action>
 

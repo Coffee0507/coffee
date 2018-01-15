@@ -1,0 +1,23 @@
+package com.dao;
+
+import java.sql.Connection;
+
+import com.Util.DBConnector;
+import com.dto.CreateAcountConfirmDTO;
+
+public class CreateAcountConfirmDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private CreateAcountConfirmDTO createAcountConfirmDTO = new CreateAcountConfirmDTO();
+
+	public CreateAcountConfirmDTO acountInfo(String name1, String name2, String age, String sex) {
+
+
+
+
+
+	return
+	}
+
+}

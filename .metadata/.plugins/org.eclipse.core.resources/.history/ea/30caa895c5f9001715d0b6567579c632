@@ -1,0 +1,31 @@
+package com.dao;
+
+import java.sql.Connection;
+
+import com.Util.DBConnector;
+import com.dto.CreateUserConfirmActionDTO;
+
+public class CreateUserConfirmActionDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public CreateUserConfirmActionDTO getCreateInfo(String name1, String name2, String birth_year, String birth_month,
+			String birth_day, String sex) {
+
+		String sql = "INSERT INTO acount_info_transaction(name1,name2,birth_year,birth_month,birth_day,sex,) values(?,?,?,?,?,?)";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,name1);
+
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+
+		return null;
+	}
+
+}

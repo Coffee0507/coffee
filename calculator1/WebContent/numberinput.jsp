@@ -66,7 +66,7 @@ table {
 		</div>
 		<div>
 			<h3>計算したい２つの数字と計算方法を選択してください</h3>
-			<s:form action="Calculator">
+			<s:form action="CalculatorAction">
 				<s:textfield name="number1" size="5" />
 				<s:textfield name="number2" size="5" />
 				<span><input type="radio" name="method" value="1" checked="checked">+

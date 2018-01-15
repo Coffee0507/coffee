@@ -8,6 +8,10 @@ use acount;
 create table acount_info_transaction(
 name1 varchar(30),
 name2 varchar(30),
-age varchar(3),
-sex varchar(3),
+birth_year varchar(16),
+birth_month varchar(8),
+birth_day varchar(4),
+sex varchar(2),
 insert_date datetime);
+
+insert into acount_info_transaction(name1,name2,birth_year,birth_month,birth_day,sex) values("tahahashi","yuuri","1991","05","07","1")

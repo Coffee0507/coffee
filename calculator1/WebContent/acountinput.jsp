@@ -70,44 +70,20 @@ table {
 			</s:if>
 			<h3>項目を入力してログインください</h3>
 			<br>
-			<s:form action="AcountConfirm">
+			<s:form action="AcountConfirmAction">
 
 				<table>
 					<tr>
 						<td>名前</td>
-						<td><s:textfield name="name1" size="13" /></td>
-						<td><s:textfield name="name2" size="13" /></td>
+						<td><s:textfield name="name1" size="13" style="ime-mode:disabled"/></td>
+						<td><s:textfield name="name2" size="13" style="ime-mode:disabled"/></td>
 					</tr>
-					<tr>
-						<td>年齢</td>
-						<td><select name="age">
-								<option value="1" selected="selected">18</option>
-								<option value="2">19</option>
-								<option value="3">20</option>
-								<option value="4">21</option>
-								<option value="5">22</option>
-								<option value="6">23</option>
-								<option value="7">24</option>
-								<option value="8">25</option>
-								<option value="9">26</option>
-								<option value="10">27</option>
-								<option value="11">28</option>
-								<option value="12">29</option>
-								<option value="13">30</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>性別</td>
-						<td><input type="radio" name="sex" value="1"
-							checked="checked">男性 <input type="radio" name="sex"
-							value="2">女性</td>
-					</tr>
+
 				</table>
 				<s:submit value="確認" />
 			</s:form>
 		</div>
-		<h4>アカウント登録がまだの場合は<a href='<s:url action="CreateAcountAction"/>>'>作成</a>をお願いします</h4>
-
+		<span>アカウントがない方は</span><a href='<s:url action="CreateUserAction"/>'>こちら</a><span>からお願いします</span>
 	</div>
 	<div id="footer">
 		<div id="pr"></div>
