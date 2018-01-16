@@ -1,0 +1,42 @@
+package com.Action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.dao.LoginAcountConfirmDAO;
+import com.dto.LoginAcountConfirmDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAcountConfirmAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private LoginAcountConfirmDAO dao = new LoginAcountConfirmDAO();
+	private LoginAcountConfirmDTO dto = new LoginAcountConfirmDTO();
+
+	public String execute() throws SQLException {
+		result = ERROR;
+
+		dto = dao.info(session.get("name1").toString(), session.get("name2").toString());
+		session.put("AcountInfo", dto);
+
+		if (((LoginAcountConfirmDTO) session.get("AcountInfo")).getFlg()) {
+			session.put("birthyear", dto.getBirthYear());
+			session.put("birthmonth", dto.getBirthMonth());
+			session.put("birthday", dto.getBirthDay());
+			session.put("sex", dto.getSex());
+			result = SUCCESS;
+			return result;
+		}
+
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

@@ -12,7 +12,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta charset="utf-8">
-<title>Login画面</title>
+<title>Result画面</title>
 <style type="text/css">
 body {
 	margin: 0;
@@ -62,10 +62,16 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>calculator</p>
+			<p>result</p>
 		</div>
 		<div>
 			<s:property value="session.total" />
+		</div>
+		<div>
+			<s:form action="NumberInputAction">
+				<s:submit value="再計算" />
+			</s:form>
+			<span>ログイン画面に戻る場合は</span><a href='<s:url value="HomeAction"/>'>こちら</a>
 		</div>
 	</div>
 	<div id="footer">

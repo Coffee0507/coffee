@@ -99,3 +99,7 @@
 0:0:0:0:0:0:0:1 - - [15/Jan/2018:17:50:22 +0900] "GET /calculator1/ HTTP/1.1" 200 2203
 0:0:0:0:0:0:0:1 - - [15/Jan/2018:17:50:24 +0900] "GET /calculator1/CreateUserAction.action HTTP/1.1" 200 2664
 0:0:0:0:0:0:0:1 - - [15/Jan/2018:17:50:29 +0900] "POST /calculator1/CreateUserConfirmAction.action HTTP/1.1" 404 1097
+127.0.0.1 - - [15/Jan/2018:17:54:27 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [15/Jan/2018:17:54:29 +0900] "GET /calculator1/ HTTP/1.1" 200 2203
+0:0:0:0:0:0:0:1 - - [15/Jan/2018:17:54:31 +0900] "GET /calculator1/CreateUserAction.action HTTP/1.1" 200 2664
+0:0:0:0:0:0:0:1 - - [15/Jan/2018:17:54:39 +0900] "POST /calculator1/CreateUserConfirmAction.action HTTP/1.1" 404 1097

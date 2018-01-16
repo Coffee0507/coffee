@@ -15,7 +15,7 @@ public class AcountConfirmDAO {
 	private AcountConfirmDTO dto = new AcountConfirmDTO();
 
 	public AcountConfirmDTO getAcountInfo(String name1, String name2) throws SQLException {
-		String sql = "select*from acount_info_transaction where name1 = ? and name2=?";
+		String sql = "select*from acount_info_transaction where name1 = ? and name2 = ?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -25,7 +25,7 @@ public class AcountConfirmDAO {
 
 			ResultSet rs = ps.executeQuery();
 
-			if (!(rs.getString("name1").equals(null))) {
+			if (rs.next()) {
 
 				dto.setName1(rs.getString("name1"));
 				dto.setName2(rs.getString("name2"));

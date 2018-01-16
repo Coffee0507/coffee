@@ -1,0 +1,36 @@
+package com.Action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.dao.LoginAcountConfirmDAO;
+import com.dto.LoginAcountConfirmDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAcountConfirmAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private LoginAcountConfirmDAO dao = new LoginAcountConfirmDAO();
+	private LoginAcountConfirmDTO dto = new LoginAcountConfirmDTO();
+
+	public String execute() {
+		result = SUCCESS;
+
+		dto = dao.info(session.get("name1"),session.get("name2"));
+		session.put("AcountInfo", dto);
+
+
+
+
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

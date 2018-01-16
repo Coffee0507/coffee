@@ -26,8 +26,8 @@ public class AcountConfirmDTO {
 		return Flg;
 	}
 
-	public void setFlg(boolean b) {
-		this.Flg = b;
+	public void setFlg(boolean Flg) {
+		this.Flg = Flg;
 	}
 
 }

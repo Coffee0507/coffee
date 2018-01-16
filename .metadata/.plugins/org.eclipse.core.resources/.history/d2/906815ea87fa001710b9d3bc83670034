@@ -1,0 +1,33 @@
+package com.dto;
+
+public class LoginAcountConfirmDTO {
+
+	private String name1;
+	private String name2;
+	private String birthyear;
+	private String birthmonth;
+	private String birthday;
+	private String sex;
+
+
+	public Object getBirthYear() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getBirthMonth() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getBirthDay() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getSex() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

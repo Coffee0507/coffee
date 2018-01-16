@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="com.Action" extends="struts-default">
+
+
+		<action name="AcountConfirmAction" class="com.Action.AcountConfirmAction" method="execute">
+			<result name="success">acountconfirm.jsp</result>
+			<result name="error">acountinput.jsp</result>
+		</action>
+
+		<action name="NumberInputAction" class="com.Action.NumberInputAction" method="execute">
+			<result name="success">numberinput.jsp</result>
+		</action>
+
+		<action name="CalculatorAction" class="com.Action.CalculatorAction" method="execute">
+			<result name="success">result.jsp</result>
+			<result name="error">acountinput.jsp</result>
+		</action>
+
+		<action name="CreateUserAction" class="com.Action.CreateUserAction" method="execute">
+			<result name="success">createuseraction.jsp</result>
+		</action>
+
+		<action name="CreateUserConfirmAction" class="com.Action.CreateUserConfirmAction" method="execute">
+			<result name="success">createuserconfirmaction.jsp</result>
+			<result name="error">acountinput.jsp</result>
+		</action>
+
+	</package>
+</struts>

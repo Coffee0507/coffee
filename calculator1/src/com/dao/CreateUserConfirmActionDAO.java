@@ -13,29 +13,27 @@ public class CreateUserConfirmActionDAO {
 	private Connection con = db.getConnection();
 	private UtilDate utilDate = new UtilDate();
 
-	public CreateUserConfirmActionDTO getCreateInfo(String name1, String name2, String birth_year, String birth_month,
-			String birth_day, String sex) {
+	public CreateUserConfirmActionDTO getCreateInfo(String name1, String name2, String birthyear, String birthmonth,
+			String birthday, String sex) {
 
 		String sql = "INSERT INTO acount_info_transaction(name1,name2,birth_year,birth_month,birth_day,sex,insert_date) values(?,?,?,?,?,?,?)";
 
-		try{
+		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1,name1);
-			ps.setString(2,name2);
-			ps.setString(3, birth_year);
-			ps.setString(4, birth_month);
-			ps.setString(5, birth_day);
+			ps.setString(1, name1);
+			ps.setString(2, name2);
+			ps.setString(3, birthyear);
+			ps.setString(4, birthmonth);
+			ps.setString(5, birthday);
 			ps.setString(6, sex);
 			ps.setString(7, utilDate.getDate());
 
-			int rs = ps.executeUpdate();
+			ps.execute();
 
-
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
-
 
 	}
 

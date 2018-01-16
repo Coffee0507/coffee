@@ -12,7 +12,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta charset="utf-8">
-<title>Login画面</title>
+<title>Calculator画面</title>
 <style type="text/css">
 body {
 	margin: 0;
@@ -76,6 +76,7 @@ table {
 				<s:submit value="計算" />
 			</s:form>
 		</div>
+		<span>ログイン画面に戻る場合は</span><a href='<s:url value="HomeAction"/>'>こちら</a>
 	</div>
 	<div id="footer">
 		<div id="pr"></div>

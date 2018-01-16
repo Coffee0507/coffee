@@ -14,4 +14,4 @@ birth_day varchar(4),
 sex varchar(2),
 insert_date datetime);
 
-insert into acount_info_transaction(name1,name2,birth_year,birth_month,birth_day,sex) values("tahahashi","yuuri","1991","05","07","1")
+insert into acount_info_transaction(name1,name2,birth_year,birth_month,birth_day,sex) values("takahashi","yuuri","1991","05","07","1")

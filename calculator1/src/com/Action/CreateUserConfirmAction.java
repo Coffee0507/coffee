@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.dao.CreateUserConfirmActionDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware {
@@ -13,22 +14,32 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String result;
 	private String name1;
 	private String name2;
-	private int birth_year;
-	private int birth_month;
-	private int birth_day;
+	private String birthyear;
+	private String birthmonth;
+	private String birthday;
 	private String sex;
+	private CreateUserConfirmActionDAO dao = new CreateUserConfirmActionDAO();
 
 	public String execute() throws SQLException {
 		result = ERROR;
 
+		dao.getCreateInfo(name1, name2, birthyear, birthmonth, birthday, sex);
+
 		if (!(name1.equals("")) && !(name2.equals(""))) {
+
+			if(sex.equals("1")){
+				sex = "男性";
+				session.put("sex", sex);
+			}else{
+				sex="女性";
+				session.put("sex", sex);
+			}
 
 			session.put("name1", name1);
 			session.put("name2", name2);
-			session.put("birth_year", birth_year);
-			session.put("birth_month", birth_month);
-			session.put("birth_day", birth_day);
-			session.put("sex", sex);
+			session.put("birthyear", birthyear);
+			session.put("birthmonth", birthmonth);
+			session.put("birthday", birthday);
 
 			result = SUCCESS;
 			return result;
@@ -52,28 +63,28 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		this.name2 = name2;
 	}
 
-	public int getBirthyear() {
-		return birth_year;
+	public String getBirthyear() {
+		return birthyear;
 	}
 
-	public void setBirthyear(int birth_year) {
-		this.birth_year = birth_year;
+	public void setBirthyear(String birthyear) {
+		this.birthyear = birthyear;
 	}
 
-	public int getBirthmonth() {
-		return birth_month;
+	public String getBirthmonth() {
+		return birthmonth;
 	}
 
-	public void setBirthmonth(int birth_month) {
-		this.birth_month = birth_month;
+	public void setBirthmonth(String birthmonth) {
+		this.birthmonth = birthmonth;
 	}
 
-	public int getBirthday() {
-		return birth_day;
+	public String getBirthday() {
+		return birthday;
 	}
 
-	public void setBirthday(int birth_day) {
-		this.birth_day = birth_day;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getSex() {

@@ -9,3 +9,9 @@
 1515981817900	型名 'AcountConfirm' を変更します
 1515981986670	要素を削除
 1515981990781	要素を削除
+1516064817404	要素を削除
+1516064830380	リソース 'createuserConfirmaction.jsp' の名前変更
+1516067453427	'createusercompleteaction.jsp' を 'WebContent' に移動
+1516080466310	リソース 'acountinput.jsp' の名前変更
+1516080493103	リソース 'acountconfirm.jsp' の名前変更
+1516092358477	'result.jsp' を 'WebContent' に移動

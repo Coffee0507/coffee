@@ -69,28 +69,28 @@ table {
 				<table>
 					<tr>
 						<td>苗字:</td>
-						<td><s:textfield name="name1" /></td>
+						<td><s:textfield name="name1" value="takahashi" /></td>
 					</tr>
 					<tr>
 						<td>名前:</td>
-						<td><s:textfield name="name2" /></td>
+						<td><s:textfield name="name2" value="yuuri"/></td>
 					</tr>
 					<tr>
 						<td>生年月日:</td>
-						<td><select name="birth-year">
-								<option value="1" selected="selected">1991</option>
+						<td><select name="birthyear">
+								<option value="1991" selected="selected">1991</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><select name="birth-month">
-								<option value="1" selected="selected">05</option>
+						<td><select name="birthmonth">
+								<option value="05" selected="selected">05</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td><select name="birth-day">
-								<option value="1" selected="selected">07</option>
+						<td><select name="birthday">
+								<option value="07" selected="selected">07</option>
 						</select></td>
 					</tr>
 				</table>

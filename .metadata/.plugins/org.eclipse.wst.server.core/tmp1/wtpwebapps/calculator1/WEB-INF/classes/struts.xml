@@ -9,9 +9,13 @@
 	<package name="com.Action" extends="struts-default">
 
 
+		<action name="HomeAction" class="com.Action.HomeAction" method="execute">
+			<result name="success">login.jsp</result>
+		</action>
+
 		<action name="AcountConfirmAction" class="com.Action.AcountConfirmAction" method="execute">
-			<result name="success">acountconfirm.jsp</result>
-			<result name="error">acountinput.jsp</result>
+			<result name="success">hello.jsp</result>
+			<result name="error">login.jsp</result>
 		</action>
 
 		<action name="NumberInputAction" class="com.Action.NumberInputAction" method="execute">
@@ -20,7 +24,7 @@
 
 		<action name="CalculatorAction" class="com.Action.CalculatorAction" method="execute">
 			<result name="success">result.jsp</result>
-			<result name="error">acountinput.jsp</result>
+			<result name="error">numberinput.jsp</result>
 		</action>
 
 		<action name="CreateUserAction" class="com.Action.CreateUserAction" method="execute">
@@ -29,8 +33,18 @@
 
 		<action name="CreateUserConfirmAction" class="com.Action.CreateUserConfirmAction" method="execute">
 			<result name="success">createuserconfirmaction.jsp</result>
-			<result name="error">acountinput.jsp</result>
+			<result name="error">login.jsp</result>
 		</action>
+
+		<action name="CreateUserCompleteAction" class="com.Action.CreateUserCompleteAction" method="execute">
+			<result name="success">createusercompleteaction.jsp</result>
+		</action>
+
+		<action name="LoginAcountConfirmAction" class="com.Action.LoginAcountConfirmAction" method="execute">
+			<result name="success">loginacountconfirm.jsp</result>
+			<result name="error">hello.jsp</result>
+		</action>
+
 
 	</package>
 </struts>

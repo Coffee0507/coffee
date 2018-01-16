@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnector {
-
 	private static String driverName = "com.mysql.jdbc.Driver";
 	private static String url = "jdbc:mysql://localhost/acount";
 	private static String user = "root";
@@ -16,7 +15,6 @@ public class DBConnector {
 		try {
 			Class.forName(driverName);
 			con = (Connection) DriverManager.getConnection(url, user, pass);
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
