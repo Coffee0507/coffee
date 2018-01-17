@@ -70,7 +70,7 @@ table {
 			</s:if>
 			<h3>項目を入力してログインください</h3>
 			<br>
-			<s:form action="AcountConfirmAction">
+			<s:form action="LoginAction">
 
 				<table>
 					<tr>

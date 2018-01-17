@@ -21,6 +21,7 @@ public class LoginAcountConfirmAction extends ActionSupport implements SessionAw
 		session.put("AcountInfo", dto);
 
 		if (((LoginAcountConfirmDTO) session.get("AcountInfo")).getFlg()) {
+			session.put("id",dto.getId());
 			session.put("birthyear", dto.getBirthYear());
 			session.put("birthmonth", dto.getBirthMonth());
 			session.put("birthday", dto.getBirthDay());

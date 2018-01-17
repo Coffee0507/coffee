@@ -84,13 +84,13 @@ table {
 					<tr>
 						<td></td>
 						<td><select name="birthmonth">
-								<option value="05" selected="selected">05</option>
+								<option value="5" selected="selected">5</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td><select name="birthday">
-								<option value="07" selected="selected">07</option>
+								<option value="7" selected="selected">7</option>
 						</select></td>
 					</tr>
 				</table>

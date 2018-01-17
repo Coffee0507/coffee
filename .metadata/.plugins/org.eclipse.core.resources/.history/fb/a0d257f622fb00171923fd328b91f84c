@@ -1,0 +1,5 @@
+package com.Action;
+
+public class AcountUpdateAction extends ActionSupport implements SessionAwares{
+
+}

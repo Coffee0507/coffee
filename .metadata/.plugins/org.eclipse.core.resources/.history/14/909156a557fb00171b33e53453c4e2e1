@@ -1,0 +1,15 @@
+package com.dao;
+
+import com.dto.AcountUpdateCompleteDTO;
+
+public class AcountUpdateCompleteDAO {
+
+	public AcountUpdateCompleteDTO getUpdataInfo(String string, String string2, String string3, String string4,
+			String string5, String string6) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+
+
+}

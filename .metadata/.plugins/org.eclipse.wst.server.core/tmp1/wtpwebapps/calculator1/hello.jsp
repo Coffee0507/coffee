@@ -68,7 +68,7 @@ table {
 			<s:property value="session.message" /><br>
 			<s:property value="session.name1" />
 			<table>
-				<s:form action="NumberInputAction">
+				<s:form action="HelloAction">
 					<s:submit value="確認" />
 				</s:form>
 			</table>

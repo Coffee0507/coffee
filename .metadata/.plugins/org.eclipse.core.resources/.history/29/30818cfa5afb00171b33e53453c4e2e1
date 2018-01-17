@@ -1,0 +1,35 @@
+package com.Action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.dao.AcountUpdateCompleteDAO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class AcountUpdateCompleteAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private AcountUpdateCompleteDAO dao = new AcountUpdateCompleteDAO();
+	private String result;
+
+	public String execute() {
+
+		dao.getUpdataInfo(session.get("changeName1").toString(), session.get("changeName2").toString(),
+				session.get("changeBirthyear").toString(), session.get("changeBirthmonth").toString(),
+				session.get("changeBirthday").toString(), session.get("changeSex").toString(),
+				session.get("name1").toString(), session.get("name2").toString(), session.get("birthyear").toString(),
+				session.get("birthmonth").toString(), session.get("birthday").toString(),
+				session.get("sex").toString());
+
+		result = SUCCESS;
+
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

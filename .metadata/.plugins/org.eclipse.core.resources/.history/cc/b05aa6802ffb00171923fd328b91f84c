@@ -1,0 +1,48 @@
+package com.Action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class AcountUpdateConfirmAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private String changeName1;
+	private String changeName2;
+	private String changeBirthyear;
+	private String changeBirthmonth;
+	private String changeBirthday;
+	private String changeSex;
+
+	public String execute() {
+		result = SUCCESS;
+
+		if(changeName1.equals("")){
+			session.put("changeName1", session.get("Name1"));
+		}else{
+			session.put("chanegeName1",changeName1);
+		};
+		if(changeName2.equals("")){
+			session.put("changeName2", session.get("Name2"));
+		}else{
+			session.put("chanegeName2",changeName2);
+		};
+		if(changeBirthyear.equals("1989")){
+			session.put("changeBirthyear","1989");
+		}else if(changeBirthyear.equals("1990")){
+			session.put("changeBirthyear","1990");
+		}
+
+
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

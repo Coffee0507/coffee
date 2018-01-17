@@ -2,6 +2,7 @@ package com.dto;
 
 public class LoginAcountConfirmDTO {
 
+	private int id;
 	private String name1;
 	private String name2;
 	private String birthyear;
@@ -9,6 +10,14 @@ public class LoginAcountConfirmDTO {
 	private String birthday;
 	private String sex;
 	private boolean Flg;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName1() {
 		return name1;

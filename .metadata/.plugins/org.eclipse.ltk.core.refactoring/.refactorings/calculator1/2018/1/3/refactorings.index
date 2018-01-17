@@ -15,3 +15,5 @@
 1516080466310	リソース 'acountinput.jsp' の名前変更
 1516080493103	リソース 'acountconfirm.jsp' の名前変更
 1516092358477	'result.jsp' を 'WebContent' に移動
+1516182806032	型名 'AcountConfirmAction' を変更します
+1516182979643	型名 'NumberInputAction' を変更します

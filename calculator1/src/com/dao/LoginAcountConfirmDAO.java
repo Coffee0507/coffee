@@ -26,6 +26,7 @@ public class LoginAcountConfirmDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
+				dto.setId(rs.getInt("id"));
 				dto.setName1(name1);
 				dto.setName2(name2);
 				dto.setBirthYear(rs.getString("birth_year"));

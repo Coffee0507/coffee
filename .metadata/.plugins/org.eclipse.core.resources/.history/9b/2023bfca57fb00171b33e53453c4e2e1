@@ -1,0 +1,16 @@
+package com.dao;
+
+import com.dto.AcountUpdateCompleteDTO;
+
+public class AcountUpdateCompleteDAO {
+
+	private AcountUpdateCompleteDTO dto = new AcountUpdateCompleteDTO();
+
+	public AcountUpdateCompleteDTO getUpdataInfo(String name1, String name2, String birthyear, String birthmonth,
+			String birthday, String sex) {
+		return AcountUpdateCompleteDTO;
+	}
+
+
+
+}

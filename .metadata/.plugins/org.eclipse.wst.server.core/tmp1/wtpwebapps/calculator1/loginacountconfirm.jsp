@@ -65,7 +65,7 @@ table {
 			<p>loginacountconfirm</p>
 		</div>
 		<div>
-			<s:form action="NumberInputAction">
+			<s:form action="HelloAction">
 				<table>
 					<tr>
 						<td>名前:</td>
@@ -85,6 +85,7 @@ table {
 				</table>
 				<s:submit value="完了" />
 			</s:form>
+			<span>登録内容の変更は</span><a href='<s:url value="AcountUpdateAction"/>'>こちら</a>
 		</div>
 	</div>
 	<div id="footer">
