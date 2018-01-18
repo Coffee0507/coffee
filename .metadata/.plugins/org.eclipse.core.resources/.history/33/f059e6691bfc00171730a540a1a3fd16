@@ -1,0 +1,7 @@
+package com.internous.Service;
+
+import com.internous.Interface.MarboroughInterface;
+
+public class MarboroughService implements MarboroughInterface{
+
+}

@@ -1,0 +1,8 @@
+package com.internous.Interface;
+
+public interface MarboroughInterface {
+
+	public void getInfo(String name1,String name2,int number1,int number2,String tabacco);
+	public void getInfo2(String name1,String name2,int number1,int number2,String tabacco);
+
+}

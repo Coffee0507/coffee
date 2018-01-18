@@ -1,0 +1,13 @@
+package com.internous.service;
+
+import com.internous.interfice.NoTitleInterfice;
+
+public class NoTitleService implements NoTitleInterfice{
+
+
+	@Override
+	public void getInfo(String name1, String name2, int nuber1, int number2) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+}

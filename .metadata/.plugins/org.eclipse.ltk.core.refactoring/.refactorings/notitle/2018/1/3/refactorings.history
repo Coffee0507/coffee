@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;NoTitleStatic.java&apos; to &apos;notitle/src/com.internous.util&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;notitle&apos;&#x0D;&#x0A;- 宛先要素: &apos;notitle/src/com.internous.util&apos;&#x0D;&#x0A;- オリジナル要素: &apos;com.internous.action.NoTitleStatic.java&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="コンパイル単位を移動" destination="/src&lt;com.internous.util" element1="/src&lt;com.internous.action{NoTitleStatic.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1516255892470" units="1" version="1.0"/>
+</session>

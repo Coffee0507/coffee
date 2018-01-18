@@ -1,0 +1,11 @@
+package com.internous.action;
+
+import com.internous.service.TotalPriceService;
+
+public class InternousMain extends TotalPriceService{
+
+	public static void main(String[] args) {
+
+	}
+
+}

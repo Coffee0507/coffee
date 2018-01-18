@@ -22,6 +22,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 
+		if (name1.equals("0001") && name2.equals("")) {
+			result = LOGIN;
+			return result;
+		}
 		dto = dao.getAcountInfo(name1, name2);
 		session.put("dto", dto);
 
@@ -55,6 +59,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("message", "error");
 			result = ERROR;
 		}
+
 		return result;
 	}
 

@@ -1,0 +1,6 @@
+package com.internous.util;
+
+public class NoTitleStatic {
+
+	public static final String name1 = "takahashi";
+}

@@ -1,0 +1,6 @@
+package object;
+
+// interfaceを実装
+public class Human {
+
+}

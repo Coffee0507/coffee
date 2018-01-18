@@ -1,0 +1,19 @@
+package com.internous.Service;
+
+import com.internous.Interface.MarboroughInterface;
+
+public class MarboroughService implements MarboroughInterface{
+
+	@Override
+	public void getInfo(String name1, String name2, int number1, int number2) {
+		System.out.println(name1 + name2 +"は今日"+(number1+number2)+"本の煙草を吸いました");
+		System.out.println("そのうち"+(number1-number2)+"本がマルボロでした");
+	}
+
+	@Override
+	public void getInfo2(String name3, String name4, int number3, int number4) {
+		System.out.println(name3 + name4 +"は今日"+(number3+number4)+"本の煙草を吸いました");
+		System.out.println("そのうち"+(number3-number4)+"本がセブンスターでした");
+	}
+
+}

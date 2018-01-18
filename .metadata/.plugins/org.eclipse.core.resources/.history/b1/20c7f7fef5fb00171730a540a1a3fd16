@@ -1,0 +1,9 @@
+package object;
+
+public interface HumanInterface {
+	// メソッドを書く
+
+	void run();
+	void eat();
+	void sleep();
+}

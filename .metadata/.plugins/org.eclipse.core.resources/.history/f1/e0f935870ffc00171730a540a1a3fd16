@@ -1,0 +1,29 @@
+package com.internous.action;
+
+import com.internous.service.TotalPriceService;
+
+public class InternousMain {
+
+	public static void main(String[] args) {
+
+		String numberC = "10";
+
+		TotalPriceService tps = new TotalPriceService();
+
+		tps.getAddition(Untitled.numberA, Untitled.numberB);
+		tps.getSubtraction(Untitled.numberA, Untitled.numberB);
+		tps.getMultiplication(Untitled.numberA, Untitled.numberB);
+		tps.getDivision(Untitled.numberA, Untitled.numberB);
+		tps.getRemainder(Untitled.numberA, Untitled.numberB);
+
+		System.out.println(Untitled.numberA);
+		System.out.println(Untitled.numberB);
+		System.out.println(numberC);
+
+		abc();
+	}
+
+	public static void abc(){
+		System.out.println(Untitled.numberA);
+	}
+}

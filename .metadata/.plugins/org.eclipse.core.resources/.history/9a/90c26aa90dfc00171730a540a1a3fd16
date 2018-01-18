@@ -1,0 +1,17 @@
+package com.internous.action;
+
+import com.internous.service.TotalPriceService;
+
+public class InternousMain {
+
+	public static void main(String[] args) {
+
+		Untitled u = new Untitled();
+		static int numberA = 16;
+		static int numberB = 3;
+
+		TotalPriceService tps = new TotalPriceService();
+
+	}
+
+}

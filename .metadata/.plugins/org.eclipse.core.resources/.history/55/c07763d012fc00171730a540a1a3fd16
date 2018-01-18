@@ -1,0 +1,10 @@
+package com.internous.action;
+
+public class Untitled {
+	public static int numberA = 16;
+	public static int numberB = 3;
+
+	public void aaa(){
+		System.out.println(numberA);
+	}
+}

@@ -1,0 +1,34 @@
+package com.internous.service;
+
+import com.internous.Interface.TotalPriceInterface;
+
+public class TotalPriceService implements TotalPriceInterface{
+
+	private int numberA;
+	private int numberB;
+
+	@Override
+	public void getAddition() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void getSubtraction() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void getMultiplication() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void getDivision() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

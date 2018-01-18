@@ -1,0 +1,9 @@
+package object;
+
+public interface HumanInterface {
+	// メソッドを書く
+
+	void geRun();
+	void getEat();
+	void getSleep();
+}

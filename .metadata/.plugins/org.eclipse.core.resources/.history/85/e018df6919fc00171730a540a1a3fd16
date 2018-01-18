@@ -1,0 +1,15 @@
+package com.internous.action;
+
+import com.internous.service.NoTitleService;
+
+public class NoTitleAction {
+
+	public static void main(String[] args){
+
+		NoTitleService nts = new NoTitleService();
+
+		nts.getInfo(name1, name2, nuber1, number2);
+
+	}
+
+}

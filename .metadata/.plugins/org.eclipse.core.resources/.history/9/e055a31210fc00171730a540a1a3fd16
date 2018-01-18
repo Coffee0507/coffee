@@ -1,0 +1,6 @@
+package com.internous.action;
+
+public class Untitled {
+	protected static int numberA = 16;
+	static int numberB = 3;
+}
