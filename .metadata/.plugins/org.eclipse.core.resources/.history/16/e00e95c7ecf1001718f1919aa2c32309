@@ -1,0 +1,59 @@
+package com.internousdev.pra.Action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.pra.DAO.BuyItemDAO;
+import com.internousdev.pra.DAO.LoginDAO;
+import com.internousdev.pra.DTO.BuyItemDTO;
+import com.internousdev.pra.DTO.LoginDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class LoginAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private String loginUserId;
+	private String loginPass;
+	private LoginDAO loginDAO = new LoginDAO();
+	private LoginDTO loginDTO = new LoginDTO();
+	private BuyItemDAO buyItemDAO = new BuyItemDAO();
+
+	public String execute() throws SQLException {
+		result = ERROR;
+
+		loginDTO = loginDAO.getloginUserInfo(loginUserId,loginPass);
+		session.put("loginUserInfo", loginDTO);
+		if(((LoginDTO)session.get("loginUserInfo")).getLoginFlg()){
+			BuyItemDTO buyItemDTO = buyItemDAO.getItemInfo();
+			session.put("loginUserId",loginDTO.getLoginUserId());
+			session.put("itemName",buyItemDTO.getItemName());
+			session.put("itemId",buyItemDTO.getItemId());
+			session.put("itemPrice",buyItemDTO.getItemPrice());
+		}
+		return result;
+	}
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public String getLoginUserId(){
+		return loginUserId;
+	}
+
+	public void setLoginUserId( String loginUserId){
+		this.loginUserId = loginUserId;
+	}
+
+	public String getLoginPass(){
+		return loginPass;
+	}
+
+	public void setLoginPass( String loginPass){
+		this.loginPass = loginPass;
+	}
+
+}

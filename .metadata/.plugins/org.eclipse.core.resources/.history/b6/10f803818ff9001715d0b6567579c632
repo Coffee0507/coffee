@@ -1,0 +1,8 @@
+package com.Util;
+
+public class UtilDate {
+	public SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+	public Date data = new Date();
+
+
+}

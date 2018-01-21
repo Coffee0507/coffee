@@ -1,0 +1,5 @@
+package com.internousdev.pra.Action;
+
+public class LoginAction extends ActionSupport implements SessionAware{
+
+}

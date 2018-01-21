@@ -1,0 +1,13 @@
+package calculator.Sorce;
+
+public class calculator {
+
+	private String result;
+
+	public String execute() {
+		result = "SUCCESS";
+
+		return result;
+	}
+
+}

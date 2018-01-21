@@ -1,0 +1,9 @@
+package com.internous.action;
+
+public class NoTitleAction {
+
+	public static void main(String[] args){
+
+	}
+
+}

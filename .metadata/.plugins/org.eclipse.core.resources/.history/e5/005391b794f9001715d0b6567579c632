@@ -1,0 +1,16 @@
+package com.dao;
+
+import com.Util.DBConnector;
+import com.dto.CreateAcountConfirmDTO;
+
+public class CreateAcountConfirmDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public CreateAcountConfirmDTO acountInfo(String name1, String name2, String age, String sex) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

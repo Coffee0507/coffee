@@ -1,0 +1,21 @@
+package com.dao;
+
+import java.sql.Connection;
+
+import com.Util.DBConnector;
+import com.dto.AcountUpdateCompleteDTO;
+
+public class AcountUpdateCompleteDAO {
+
+	private AcountUpdateCompleteDTO dto = new AcountUpdateCompleteDTO();
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public AcountUpdateCompleteDTO getUpdataInfo(String name1, String name2, String birthyear, String birthmonth,
+			String birthday, String sex) {
+		return dto;
+	}
+
+
+
+}

@@ -1,0 +1,23 @@
+package com.internous.action;
+
+import com.internous.service.TotalPriceService;
+
+public class InternousMain extends TotalPriceService{
+
+	public static void main(String[] args) {
+
+		int numberA = 2;
+		int numberB = 4;
+
+
+		TotalPriceService tps = new TotalPriceService();
+
+		tps.getAddition();
+		tps.getSubtraction();
+		tps.getMultiplication();
+		tps.getDivision();
+		tps.getRemainder();
+
+	}
+
+}

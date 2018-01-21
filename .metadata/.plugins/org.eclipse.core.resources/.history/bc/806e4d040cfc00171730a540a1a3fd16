@@ -1,0 +1,9 @@
+
+public class Static {
+
+
+	static int numberA = 16;
+	static int numberB = 3;
+
+
+}

@@ -1,0 +1,25 @@
+package com.dao;
+
+import java.sql.Connection;
+
+import com.Util.DBConnector;
+import com.dto.AcountUpdateCompleteDTO;
+
+public class AcountUpdateCompleteDAO {
+
+	private AcountUpdateCompleteDTO dto = new AcountUpdateCompleteDTO();
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public AcountUpdateCompleteDTO getUpdataInfo(String name1, String name2, String birthyear, String birthmonth,
+			String birthday, String sex) {
+		String sql = "UPDATE acount_info_transaction set name1=? and name2=? and birth_year=? and birth_month=? and birth_day=? and sex=? where name1=? and name2=? and birth_year=? and birth_month=? and birth_day=? and sex=? ";
+
+
+
+		return dto;
+	}
+
+
+
+}

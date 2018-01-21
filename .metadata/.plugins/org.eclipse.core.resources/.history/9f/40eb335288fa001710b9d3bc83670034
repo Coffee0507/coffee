@@ -1,0 +1,14 @@
+package com.dao;
+
+import com.dto.LoginAcountConfirmDTO;
+
+public class LoginAcountConfirmDAO {
+
+	private DBConnector db =new DBConnector();
+
+	public LoginAcountConfirmDTO info(String string, String string2) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

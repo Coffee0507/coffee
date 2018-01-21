@@ -1,0 +1,12 @@
+package com.calculator.Sorce;
+
+public class AcountConfirm {
+
+	private String result;
+
+	public String excute(){
+		result = "SUCCESS";
+
+		return result;
+	}
+}

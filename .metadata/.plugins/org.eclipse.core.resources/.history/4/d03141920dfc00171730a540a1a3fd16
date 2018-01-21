@@ -1,0 +1,12 @@
+
+public class Untitled {
+
+	TotalPriceService tps = new TotalPriceService();
+
+	tps.getAddition(numberA, numberB);
+	tps.getSubtraction(numberA, numberB);
+	tps.getMultiplication(numberA, numberB);
+	tps.getDivision(numberA, numberB);
+	tps.getRemainder(numberA, numberB);
+
+}

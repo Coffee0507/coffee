@@ -1,0 +1,65 @@
+package com.internousdev.pra.Action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.pra.DAO.DeleteDAO;
+import com.internousdev.pra.DAO.MyPageDAO;
+import com.internousdev.pra.DTO.MyPageDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class MyPageAction extends ActionSupport implements SessionAware {
+	public Map<String, Object> session;
+	private MyPageDAO myPageDAO = new MyPageDAO();
+	private MyPageDTO myPageDTO = new MyPageDTO();
+	private DeleteDAO deleteDAO = new DeleteDAO();
+	private String result;
+	private String userLoginId;
+	private String deleteFlg;
+
+	public String execute() throws SQLException {
+		result = SUCCESS;
+		if (deleteFlg == null) {
+			userLoginId = session.get("loginUserId").toString();
+			myPageDTO = myPageDAO.getBuyItemInfo(userLoginId);
+
+			session.put("LoginId", myPageDTO.getLoginId());
+			session.put("ItemId", myPageDTO.getItemId());
+			session.put("ItemName", myPageDTO.getItemName());
+			session.put("ItemStock", myPageDTO.getItemStock());
+			session.put("ItemPrice", myPageDTO.getItemPrice());
+			session.put("ItemPay", myPageDTO.getPay());
+			session.put("InsertDate", myPageDTO.getInsertDate());
+			session.put("message", "");
+		} else if (deleteFlg == "1") {
+			delete();
+		}
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public String delete() throws SQLException {
+		deleteDAO.deleteInfo(
+				session.get("LoginId").toString(),
+				session.get("ItemId").toString(),
+				session.get("ItemName").toString(),
+				session.get("ItemStock").toString(),
+				session.get("ItemPrice").toString(),
+				session.get("ItemPay").toString(),
+				session.get("InsertDate").toString());
+		if(deleteDAO.getdeleteFlg()){
+		String message = "削除に成功しました";
+		session.put("message", message);
+		}else{
+			String message = "削除に失敗しました";
+			session.put("message",message);
+		}
+		return delete();
+	}
+}

@@ -1,0 +1,40 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.internousdev.pra.DTO.LoginDTO;
+import com.internousdev.pra.util.DBConnctor;
+
+public class LoginDAO {
+
+	private DBConnctor db = new DBConnctor();
+	private Connection con = db.getConnection();
+	private String sql = "select*from login_user_transaction where login_id=? and login_pass=?";
+	private LoginDTO loginDTO = new LoginDTO();
+
+	public LoginDTO loginUserInfo(String loginUserId, String loginPass) throws SQLException {
+
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		try {
+
+			ps.setString(1, "loginUserId");
+			ps.setString(2, "loginpass");
+			ResultSet rs = ps.executeQuery();
+
+			if(!(rs.getString(loginUserId).equals(null))){
+				if(!rs.getString(loginPass).equals(null)){
+					loginDTO.setLoginUserId(rs.getString("login_id"));
+					loginDTO.setLoginUserName(rs.getString("user_name"));
+					loginDTO.setLoginUserPass(rs.getString("login_pass"));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

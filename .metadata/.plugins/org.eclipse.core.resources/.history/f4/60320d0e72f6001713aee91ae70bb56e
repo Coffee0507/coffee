@@ -1,0 +1,23 @@
+package calculator.Sorce;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class calculator extends ActionSupport implements SessionAware{
+
+	private String result;
+	private int number1;
+	private ing number2;
+
+	public String execute() {
+		result = "SUCCESS";
+
+
+
+
+
+		return result;
+	}
+
+}

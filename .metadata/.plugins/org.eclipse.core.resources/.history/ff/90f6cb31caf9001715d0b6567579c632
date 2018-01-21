@@ -1,0 +1,47 @@
+package com.Action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.dao.CreateUserConfirmActionDAO;
+import com.dto.CreateUserConfirmActionDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class CreateUserConfirmAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private String name1;
+	private String name2;
+	private String birth_year;
+	private String birth_month;
+	private String birth_day;
+	private String sex;
+	private CreateUserConfirmActionDAO dao = new CreateUserConfirmActionDAO();
+	private CreateUserConfirmActionDTO dto = new CreateUserConfirmActionDTO();
+
+	public String execute() throws SQLException {
+		result = ERROR;
+
+		if(!(name1.equals(null))&(!(name2.equals(null)))&(!(birth_year.equals(null)))&(!(birth_month.equals(null)))&(!(birth_day.equals(null)))&(!(sex.equals(null)))){
+
+			session.put("name1",name1);
+			session.put("name2",name2);
+			session.put("birth_year",birth_year);
+			session.put("birth_month",birth_month);
+			session.put("birth_day",birth_day);
+			session.put("sex",sex);
+
+		}
+
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

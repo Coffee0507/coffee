@@ -1,0 +1,5 @@
+package com.Action;
+
+public class CreateUserAction extends ActionSupport implements SessionAware {
+
+}

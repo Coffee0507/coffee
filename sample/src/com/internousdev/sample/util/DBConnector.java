@@ -10,14 +10,14 @@ public class DBConnector {
 	private static String user = "root";
 	private static String pass = "mysql";
 
-	public Connection getConnection(){
+	public Connection getConnection() {
 		Connection con = null;
-		try{
-		Class.forName(driverName);
-		con = (Connection)DriverManager.getConnection(url,user,pass);
-		}catch(ClassNotFoundException e){
+		try {
+			Class.forName(driverName);
+			con = (Connection) DriverManager.getConnection(url, user, pass);
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}catch(SQLException e){
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return con;

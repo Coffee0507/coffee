@@ -1,0 +1,75 @@
+package com.calculator.Sorce;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class Calculator extends ActionSupport implements SessionAware {
+
+	private String result;
+	private String number1;
+	private String number2;
+	private String method;
+	private String total;
+	public Map<String, Object> session;
+
+	public String execute() {
+		getCalculatedOutput(number1, number2, method);
+		result = SUCCESS;
+		return result;
+	}
+
+	public String getCalculatedOutput(String number1, String number2, String method) {
+		if (method == "1") {
+			int total1 = Integer.parseInt(number1);
+			int total2 = Integer.parseInt(number2);
+			int total = total1 + total2;
+			session.put("total", total);
+		} else if (method == "2") {
+			int total1 = Integer.parseInt(number1);
+			int total2 = Integer.parseInt(number2);
+			int total = total1 - total2;
+			session.put("total", total);
+		} else if (method == "3") {
+			int total1 = Integer.parseInt(number1);
+			int total2 = Integer.parseInt(number2);
+			int total = total1 * total2;
+			session.put("total", total);
+		} else if (method == "4") {
+			int total1 = Integer.parseInt(number1);
+			int total2 = Integer.parseInt(number2);
+			int total = total1 / total2;
+			session.put("total", total);
+		}
+		return total;
+
+	}
+	public String getNumber1(){
+		return number1;
+	}
+	public void setNumber1(String number1){
+		this.number1 = number1;
+	}
+
+	public String getNumber2(){
+		return number2;
+	}
+	public void setNumber1(String number2){
+		this.number2 = number2;
+	}
+
+	public String getMethod(){
+		return number1;
+	}
+	public void setMethod(String method){
+		this.method = method;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

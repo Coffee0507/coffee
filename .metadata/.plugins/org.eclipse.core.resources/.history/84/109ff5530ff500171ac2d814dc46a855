@@ -1,0 +1,14 @@
+package com.internousdev.pra.DAO;
+
+import com.internousdev.pra.DTO.MyPageDTO;
+import com.internousdev.pra.util.DBConnector;
+
+public class MyPageDAO {
+
+	private DBConnector db = new DBConnecotor();
+
+	public MyPageDTO getBuyItemInfo() {
+		return null;
+	}
+
+}

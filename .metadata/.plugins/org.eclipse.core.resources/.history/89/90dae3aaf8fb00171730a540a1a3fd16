@@ -1,0 +1,7 @@
+package com.internous.service;
+
+import com.internous.Interface.TotalPriceInterface;
+
+public class TotalPriceService implements TotalPriceInterface{
+
+}

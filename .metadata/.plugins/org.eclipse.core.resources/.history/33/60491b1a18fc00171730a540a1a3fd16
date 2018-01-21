@@ -1,0 +1,5 @@
+package com.internous.interfice;
+
+public interface NoTitleInterfice {
+
+}

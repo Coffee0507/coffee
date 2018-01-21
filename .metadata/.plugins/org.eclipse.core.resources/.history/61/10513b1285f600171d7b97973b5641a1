@@ -1,0 +1,46 @@
+package com.calculator.Sorce;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class Calculator extends ActionSupport implements SessionAware {
+
+	private String result;
+	private int number1;
+	private int number2;
+	private int method;
+	private String total;
+	public Map<String, Object> session;
+
+	public String execute() {
+		CalculatedOutput(number1, number2);
+		result = SUCCESS;
+		return result;
+	}
+
+	public String CalculatedOutput(int number1, int number2) {
+		if (method == 1) {
+			total = ((Integer) (number1 + number2)).toString();
+			session.put("total", total);
+		} else if (method == 2) {
+			total = ((Integer) (number1 - number2)).toString();
+			session.put("total", total);
+		} else if (method == 3) {
+			total = ((Integer) (number1 * number2)).toString();
+			session.put("total", total);
+		} else if (method == 4) {
+			total = ((Integer) (number1 / number2)).toString();
+			session.put("total", total);
+		}
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

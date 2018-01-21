@@ -1,0 +1,34 @@
+package com.internousdev.pra.DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.internousdev.pra.DTO.LoginDTO;
+import com.internousdev.pra.util.DBConnctor;
+
+public class LoginDAO {
+
+	private DBConnctor db = new DBConnctor();
+	private Connection con = db.getConnection();
+	private String sql = "select*from login_user_transaction";
+
+	public LoginDTO loginUserInfo(String loginUserId, String loginPass) throws SQLException{
+
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		try{
+
+
+		}catch(Exception e){
+			printStackTrace();
+		}
+
+
+
+
+
+		return null;
+	}
+
+}

@@ -7,5 +7,6 @@ overviewRuler_migration=migrated_3.1
 printMargin=true
 printMarginColumn=120
 quickdiff.defaultProvider=org.eclipse.egit.ui.internal.decorators.GitQuickDiffProvider
+showWhitespaceCharacters=true
 spellingEnabled=false
 writeOccurrenceIndicationColor=0,255,64

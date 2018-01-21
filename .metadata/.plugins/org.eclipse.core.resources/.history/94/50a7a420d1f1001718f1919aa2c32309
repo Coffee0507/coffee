@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"
+pageEncoding="UTF-8"?>
+<constant "struts.devMode" value="true">
+	<package name="pra" extends="struts-default">
+
+
+
+	</package>
+</constant>

@@ -1,0 +1,21 @@
+package com.dto;
+
+
+public class CreateAcountConfirmDTO {
+
+	private String name1;
+	private String name2;
+	private String age;
+	private String sex;
+
+	public void acountInfo(String name1, String name2, String age, String sex) {
+
+		
+		
+		
+		
+		
+		
+		
+	}
+}

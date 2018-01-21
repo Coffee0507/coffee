@@ -1,0 +1,40 @@
+package com.internousdev.pra.DTO;
+
+public class MyPageDTO {
+
+	private String loginId;
+
+	public String getLoginId(){
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+	public void setItemId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setItemName(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setItemPrice(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setPay(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setInsertDate(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

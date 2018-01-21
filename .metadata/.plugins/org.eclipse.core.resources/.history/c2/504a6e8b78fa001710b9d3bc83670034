@@ -1,0 +1,46 @@
+package com.dto;
+
+public class CreateUserConfirmActionDTO {
+
+	private String name1;
+	private String name2;
+	private String birthyear;
+	private String birthmonth;
+	private String birthday;
+	private String sex;
+
+	public String getName1(){
+		return name1;
+	}
+
+	public void setName1(String name1) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setName2(String name2) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setBirthYear(String birthyear) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setBirthMonth(String birthmonth) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setBirthDay(String birthday) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setSex(String sex) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

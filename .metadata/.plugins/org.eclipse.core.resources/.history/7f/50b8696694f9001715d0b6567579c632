@@ -1,0 +1,12 @@
+package com.dto;
+
+import com.dao.CreateAcountConfirmDAO;
+
+public class CreateAcountConfirmDTO {
+
+	public CreateAcountConfirmDAO acountInfo(String name1, String name2, String age, String sex) {
+		// TODO 自動生成されたメソッド・スタブ
+		return CreateAcountConfirmDTO;
+	}
+
+}

@@ -1,0 +1,21 @@
+package object;
+
+// interfaceを実装
+public class Human implements HumanInterface {
+
+	@Override
+	public void run() {
+this run = run;
+	}
+
+	@Override
+	public void eat() {
+		this.eat = eat;
+	}
+
+	@Override
+	public void sleep() {
+		this.sleep = sleep;
+	}
+
+}

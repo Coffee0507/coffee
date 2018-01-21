@@ -1,0 +1,5 @@
+package com.internous.Interface;
+
+public class TotalPriceService {
+
+}

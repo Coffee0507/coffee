@@ -1,0 +1,10 @@
+package com.internous.Interface;
+
+public interface TotalPriceInterface {
+
+	Public void getAdd();
+	Public void getPull();
+	Public void getMultiply();
+	Public void getDivision();
+
+}

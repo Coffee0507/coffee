@@ -1,0 +1,11 @@
+package com.internous.Action;
+
+import com.internous.Service.MarboroughService;
+
+public class MarboroughAction {
+
+	MarboroughService ms = new MarboroughService();
+
+	ms.getInfo(MarboroughStatic.name1, MarboroughStatic.name2, MarboroughStatic.number1, MarboroughStatic.number2);
+
+}

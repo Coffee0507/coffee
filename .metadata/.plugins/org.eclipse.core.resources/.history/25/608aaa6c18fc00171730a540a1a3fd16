@@ -1,0 +1,7 @@
+package com.internous.service;
+
+public class NoTitleService implements NoTitleService{
+
+
+	getInfo(String name1,String name2,int nuber1,int number2);
+}

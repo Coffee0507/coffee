@@ -1,0 +1,73 @@
+package com.Action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class AcountUpdateConfirmAction extends ActionSupport implements SessionAware {
+
+	public Map<String, Object> session;
+	private String result;
+	private String changeName1;
+	private String changeName2;
+	private String changeBirthyear;
+	private String changeBirthmonth;
+	private String changeBirthday;
+	private String changeSex;
+
+	public String execute() {
+		result = SUCCESS;
+
+		if(changeName1.equals("")){
+			session.put("changeName1", session.get("Name1"));
+		}else{
+			session.put("chanegeName1",changeName1);
+		};
+		if(changeName2.equals("")){
+			session.put("changeName2", session.get("Name2"));
+		}else{
+			session.put("chanegeName2",changeName2);
+		};
+		if(changeBirthyear.equals("1989")){
+			session.put("changeBirthyear","1989");
+		}else if(changeBirthyear.equals("1990")){
+			session.put("changeBirthyear","1990");
+		};
+		if(changeBirthmonth.equals("1")){
+			session.put("changeBirthmonth","1");
+		}else if(changeBirthmonth.equals("2")){
+			session.put("changeBirthmonth","2");
+		}else if(changeBirthmonth.equals("3")){
+			session.put("changeBirthmonth","3");
+		}else if(changeBirthmonth.equals("4")){
+			session.put("changeBirthmonth","4");
+		}else if(changeBirthmonth.equals("5")){
+			session.put("changeBirthmonth","5");
+		}else if(changeBirthmonth.equals("6")){
+			session.put("changeBirthmonth","6");
+		}else if(changeBirthmonth.equals("7")){
+			session.put("changeBirthmonth","7");
+		}else if(changeBirthmonth.equals("8")){
+			session.put("changeBirthmonth","8");
+		}else if(changeBirthmonth.equals("9")){
+			session.put("changeBirthmonth","9");
+		}else if(changeBirthmonth.equals("10")){
+			session.put("changeBirthmonth","10");
+		}else if(changeBirthmonth.equals("11")){
+			session.put("changeBirthmonth","11");
+		}else if(changeBirthmonth.equals("12")){
+			session.put("changeBirthmonth","12");
+		}
+
+
+		return result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+}

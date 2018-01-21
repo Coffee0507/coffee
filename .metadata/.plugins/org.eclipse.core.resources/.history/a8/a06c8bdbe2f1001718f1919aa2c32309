@@ -1,0 +1,19 @@
+package com.internousdev.pra.DAO;
+
+import com.internousdev.pra.DTO.BuyItemDTO;
+import com.internousdev.pra.util.DBConnctor;
+
+public class BuyItemDAO {
+
+	private DBConnctor db = new DBConnctor();
+	private Connectin con = db.getConnection();
+	private BuyItemDTO buyItemDTO = new BuyItemDTO();
+
+
+
+	public BuyItemDTO getItemInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.internous.Service;
+
+import com.internous.Interface.MarboroughInterface;
+
+public class MarboroughService implements MarboroughInterface{
+
+	@Override
+	public void getInfo(String name1, String name2, int number1, int number2) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

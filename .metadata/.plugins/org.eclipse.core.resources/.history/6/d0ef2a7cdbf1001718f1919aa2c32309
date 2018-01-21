@@ -1,0 +1,26 @@
+package com.internousdev.pra.DTO;
+
+public class LoginDTO {
+
+	public String loginUserId;
+
+
+	public String getLoginUserId() {
+		return loginUserId
+	}
+
+	public void setLoginUserId(String loginUserId) {
+		this.loginUserId = loginUserId;
+	}
+
+	public void setLoginUserName(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setLoginUserPass(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

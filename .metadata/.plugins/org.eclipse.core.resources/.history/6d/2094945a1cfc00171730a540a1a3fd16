@@ -1,0 +1,11 @@
+package com.internous.Action;
+
+import com.internous.Service.MarboroughService;
+
+public class MarboroughAction {
+
+	MarboroughService ms = new MarboroughService();
+
+	ms.getInfo(name1,name2,number3,number4);
+
+}

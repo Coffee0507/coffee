@@ -1,0 +1,6 @@
+package com.internous.interfice;
+
+public interface NoTitleInterfice {
+
+	getInfo(String name1,String name2,int nuber1,int number2);
+}

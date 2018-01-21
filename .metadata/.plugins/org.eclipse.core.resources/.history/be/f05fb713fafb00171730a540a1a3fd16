@@ -1,0 +1,44 @@
+package com.internous.service;
+
+import com.internous.Interface.TotalPriceInterface;
+
+public class TotalPriceService implements TotalPriceInterface {
+
+	private int numberA;
+	private int numberB;
+
+	@Override
+	public void getAddition(int numberA,int numberB) {
+		int total = numberA + numberB;
+		System.out.println(total);
+	}
+
+	@Override
+	public void getSubtraction() {
+		int total = numberA - numberB;
+		System.out.println(total);
+
+	}
+
+	@Override
+	public void getMultiplication() {
+		int total = numberA * numberB;
+		System.out.println(total);
+
+	}
+
+	@Override
+	public void getDivision() {
+		int total = numberA / numberB;
+		System.out.println(total);
+
+	}
+
+	@Override
+	public void getRemainder() {
+		int total = numberA % numberB;
+		System.out.println(total);
+
+	}
+
+}

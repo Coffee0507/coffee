@@ -1,0 +1,13 @@
+package com.dao;
+
+import com.dto.CreateUserConfirmActionDTO;
+
+public class CreateUserConfirmActionDAO {
+
+	public CreateUserConfirmActionDTO getCreateInfo(String name1, String name2, String birth_year, String birth_month,
+			String birth_day, String sex) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

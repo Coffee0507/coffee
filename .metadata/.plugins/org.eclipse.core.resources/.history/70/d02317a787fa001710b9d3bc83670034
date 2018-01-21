@@ -1,0 +1,20 @@
+package com.dto;
+
+public class LoginAcountConfirmDTO {
+
+	public Object getBirthYear() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getBirthMonth() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Object getBirthDay() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

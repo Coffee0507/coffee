@@ -1,0 +1,44 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.Util.DBConnector;
+
+public class AcountUpdateCompleteDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private int rs;
+
+	public int getUpdataInfo(String newname1, String newname2, String newbirthyear, String newbirthmonth,
+			String newbirthday, String newsex, String oldname1, String oldname2, String oldbirthyear,
+			String oldbirthmonth, String oldbirthday, String oldsex) {
+		String sql = "UPDATE acount_info_transaction set name1=? and name2=? and birth_year=? and birth_month=? and birth_day=? and sex=? where name1=? and name2=? and birth_year=? and birth_month=? and birth_day=? and sex=? ";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, newname1);
+			ps.setString(2, newname2);
+			ps.setString(3, newbirthyear);
+			ps.setString(4, newbirthmonth);
+			ps.setString(5, newbirthday);
+			ps.setString(6, newsex);
+			ps.setString(7, "takahashi");
+			ps.setString(8, oldname2);
+			ps.setString(9, oldbirthyear);
+			ps.setString(10, oldbirthmonth);
+			ps.setString(11, oldbirthday);
+			ps.setString(12, oldsex);
+
+			int rs = ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
+
+	}
+
+}

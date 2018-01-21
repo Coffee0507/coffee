@@ -1,0 +1,45 @@
+package com.dto;
+
+public class LoginAcountConfirmDTO {
+
+	private String name1;
+	private String name2;
+	private String birthyear;
+	private String birthmonth;
+	private String birthday;
+	private String sex;
+
+	public String getBirthYear() {
+		return birthyear;
+	}
+
+	public void setBirthYear(String birthyear) {
+		this.birthyear = birthyear;
+	}
+
+	public String getBirthMonth() {
+		return birthmonth;
+	}
+
+	public void setBirthMonth(String birthmonth) {
+		this.birthmonth = birthmonth;
+	}
+
+	public String getBirthDay() {
+		return birthday;
+	}
+
+	public void setBirthDay(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+
+}

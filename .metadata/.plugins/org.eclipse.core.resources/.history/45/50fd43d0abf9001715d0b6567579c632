@@ -1,0 +1,38 @@
+package com.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.Util.DBConnector;
+import com.Util.UtilDate;
+import com.dto.AcountConfirmDTO;
+
+public class AcountConfirmDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private AcountConfirmDTO dto = new AcountConfirmDTO();
+	private UtilDate utilDate = new UtilDate();
+
+	public AcountConfirmDTO getAcountInfo(String name1, String name2) {
+		String sql = "insert into acount_info_transaction(name1,name2,age,sex) values(?,?,?,?)";
+
+		String time = utilDate.getDate();
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, name1);
+			ps.setString(2, name2);
+
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		}
+
+		return dto;
+	}
+
+}

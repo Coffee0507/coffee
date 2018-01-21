@@ -1,0 +1,22 @@
+package com.dto;
+
+import java.sql.Connection;
+
+import com.Util.DBConnector;
+
+public class CreateAcountConfirmDTO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private CreateAcountConfirmDTO createAcountConfirmDTO = new CreateAcountConfirmDTO();
+
+	public CreateAcountConfirmDTO acountInfo(String name1, String name2, String age, String sex) {
+
+
+
+
+
+		return createAcountConfirmDTO;
+	}
+
+}

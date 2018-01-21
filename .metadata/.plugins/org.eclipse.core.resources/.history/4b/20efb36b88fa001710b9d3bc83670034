@@ -1,0 +1,18 @@
+package com.dao;
+
+import java.sql.Connection;
+
+import com.Util.DBConnector;
+import com.dto.LoginAcountConfirmDTO;
+
+public class LoginAcountConfirmDAO {
+
+	private DBConnector db =new DBConnector();
+	private Connection con = db.getConnection();
+
+	public LoginAcountConfirmDTO info(String string, String string2) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

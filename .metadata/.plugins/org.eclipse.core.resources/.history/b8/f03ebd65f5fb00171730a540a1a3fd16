@@ -1,0 +1,18 @@
+package object;
+
+public class Main extends Human{
+
+	public static void main(String[] args) {
+		//Humanをインスタンス化してメソッドを呼び出す
+
+		private Human human = new Human();
+
+		 run(){
+
+		}
+
+
+
+	}
+
+}
