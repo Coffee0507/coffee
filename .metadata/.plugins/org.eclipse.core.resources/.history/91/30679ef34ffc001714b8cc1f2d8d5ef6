@@ -1,0 +1,14 @@
+package com.orion.service;
+
+import com.orion.interfac.OrionInterface;
+
+public class OrionService implements OrionInterface {
+
+
+	@Override
+	public void getInfo(String name1, String name2, int number1, int number2) {
+		System.out.println(name1 + name2 + "さんは今年で" + "number1" + "歳" + "です")
+		System.out.println("結婚して" +  number2 + "年です");
+
+	}
+}

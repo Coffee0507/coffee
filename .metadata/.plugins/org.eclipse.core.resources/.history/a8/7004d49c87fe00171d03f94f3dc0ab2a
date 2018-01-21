@@ -1,0 +1,20 @@
+package sample;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main{
+
+	public static void main(String[] args){
+
+		ApplicationContext context = new ClassPathXmlApplicationContext("sample/applicationContext");
+
+		Person person = (Person)context.getBean("person");
+
+		Cat cat = (Cat)context.getBean("cat");
+
+		System.out.println(person.plan());
+
+		System.out.println(cat.plan());
+	}
+}

@@ -1,0 +1,11 @@
+package sample;
+
+public class Limousin implements Car{
+
+	@Override
+	public String drive() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

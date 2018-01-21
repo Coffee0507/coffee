@@ -1,0 +1,9 @@
+package sample;
+
+public class catPlan {
+
+	public static String plan(){
+		String msg = "寝ること";
+		return msg;
+	}
+}

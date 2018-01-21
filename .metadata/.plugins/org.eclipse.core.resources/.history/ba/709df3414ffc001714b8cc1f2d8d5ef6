@@ -1,0 +1,8 @@
+package com.orion.service;
+
+import com.orion.interfac.OrionInterface;
+
+public class OrionService {
+
+	OrionInterface oi = new OrionInterface();
+}

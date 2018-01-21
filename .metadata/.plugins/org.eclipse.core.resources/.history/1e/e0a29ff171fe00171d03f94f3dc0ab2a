@@ -1,0 +1,15 @@
+package sample;
+
+
+public class Main{
+
+	public static void main(String[] args){
+
+		ApplicationContext context = ClassPassXmlApplicationContext("sample/applicationContext");
+
+
+
+
+		getplan();
+	}
+}

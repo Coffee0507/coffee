@@ -1,0 +1,11 @@
+package spring;
+
+public class UserServiceImpl implements UserService{
+
+	@Override
+	public void register(User user, String rawPassword) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

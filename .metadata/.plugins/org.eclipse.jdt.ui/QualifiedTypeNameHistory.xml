@@ -25,7 +25,9 @@
 <fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
 <fullyQualifiedTypeName name="org.apache.struts2.interceptor.SessionAware"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.Util.DateUtil"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
 </qualifiedTypeNameHistroy>

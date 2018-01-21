@@ -1,0 +1,12 @@
+package com.orion.action;
+
+import com.orion.service.OrionService;
+import com.orion.util.OrionStatic;
+
+public class OrionAction {
+
+	OrionService os = new OrionService();
+	os.getInfo(OrionStatic. name1, String name2, int number1, int number2) {
+	}
+
+}

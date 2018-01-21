@@ -1,0 +1,15 @@
+package spring;
+
+public class User {
+
+	public String getUsername() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void setpassword(String encode) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}
