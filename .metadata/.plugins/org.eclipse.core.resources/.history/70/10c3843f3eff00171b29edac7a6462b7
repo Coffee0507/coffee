@@ -1,0 +1,23 @@
+package Service;
+
+public class AbcService implements InterFace.AbcInterface{
+
+	@Override
+	public void getRun() {
+		return "走る";
+	}
+
+	@Override
+	public void getJog() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void getWalk() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+
+}

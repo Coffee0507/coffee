@@ -1,0 +1,10 @@
+package InterFace;
+
+public interface sampleInterface {
+
+	getAction(){
+		String msg = "サンプルアクションを起動しました";
+		return msg;
+	}
+
+}

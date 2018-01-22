@@ -1,0 +1,27 @@
+package com.internousdev.Service;
+
+import com.internousdev.Interface.AbcInterface;
+
+public class AbcService implements AbcInterface {
+	{
+
+	}
+
+	@Override
+	public void getRun() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void getWalk() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public void getJog() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+}

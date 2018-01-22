@@ -1,0 +1,7 @@
+package Service;
+
+import InterFace.InterFace;
+
+public class Service implements InterFace{
+
+}

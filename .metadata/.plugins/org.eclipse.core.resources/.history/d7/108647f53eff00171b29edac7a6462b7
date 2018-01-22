@@ -1,0 +1,21 @@
+package Service;
+
+public class AbcService implements InterFace.AbcInterface{
+
+	@Override
+	public String getRun() {
+		System.out.println("走る");;
+	}
+
+	@Override
+	public String getJog() {
+		System.out.println("ジョギング");;
+	}
+
+	@Override
+	public String getWalk() {
+		System.out.println("歩く");;
+	}
+
+
+}

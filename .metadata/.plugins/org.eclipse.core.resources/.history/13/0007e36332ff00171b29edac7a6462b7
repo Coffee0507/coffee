@@ -1,0 +1,15 @@
+package Service;
+
+import org.springframework.stereotype.Service;
+
+import InterFace.sampleInterface;
+
+@Service
+public class sampleServiceImpl implements sampleInterface {
+
+	@Override
+	public String getAction() {
+		String msg = "サンプルメッセージを起動しました";
+		return msg;
+	}
+}

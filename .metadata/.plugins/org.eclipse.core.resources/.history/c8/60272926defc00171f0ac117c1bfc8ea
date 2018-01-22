@@ -1,0 +1,9 @@
+package com.marineroad.springboot;
+
+@RestController // (1)
+public class HelloController {
+	@RequestMapping("/hello") // (2)
+	public String hello() {
+		return "Hello World !!";
+	}
+}

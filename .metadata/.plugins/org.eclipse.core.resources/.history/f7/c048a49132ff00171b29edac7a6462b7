@@ -1,0 +1,6 @@
+package InterFace;
+
+public interface sampleInterface {
+
+	public void getAction();
+}

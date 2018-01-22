@@ -1,0 +1,31 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Service;
+
+import Interface.Interface;
+
+@Service
+public class Service implements Interface{
+
+	@Override
+	public String getRun() {
+		String msg = "走る";
+		System.out.println(msg);
+		return msg;
+	}
+
+	@Override
+	public String getWalk() {
+		String msg = "歩く";
+		System.out.println(msg);
+		return msg;
+	}
+
+	@Override
+	public String getJog() {
+		String msg = "ジョギング";
+		System.out.println(msg);
+		return msg;
+	}
+
+}

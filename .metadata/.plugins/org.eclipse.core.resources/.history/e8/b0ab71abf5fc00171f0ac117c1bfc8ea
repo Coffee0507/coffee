@@ -1,0 +1,10 @@
+package com.example.demo;
+
+public class helloService implements helloInterface {
+
+	@Override
+	public void getInfo(String name1, String name2, int number1, int number2) {
+		System.out.println(name1+","+name2+"は晴れている。"+"気温"+number1+"度、湿度"+number2+"度です");
+	}
+
+}

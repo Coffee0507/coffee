@@ -1,0 +1,21 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import Service.Service;
+
+@RestController
+public class Action {
+
+	String name1 = "takahashi";
+	String name2 = "yuuri"
+;
+	public String action() {
+		Service service = new Service();
+		service.getAction(this.name1, this.name2);
+
+		return null;
+
+	}
+
+}

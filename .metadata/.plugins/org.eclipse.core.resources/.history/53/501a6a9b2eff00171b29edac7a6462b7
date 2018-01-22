@@ -1,0 +1,9 @@
+package InterFace;
+
+public interface sampleInterface {
+
+	getAction(){
+		"サンプルアクションを起動しました";
+	}
+
+}

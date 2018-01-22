@@ -1,0 +1,16 @@
+package com.internousdev.Action;
+
+import com.internousdev.Interface.AbcInterface;
+
+public class AbcAction {
+
+	AbcInterface abc;
+
+	public void action() {
+		abc.getJog();
+		abc.getRun();
+		abc.getWalk();
+
+	}
+
+}

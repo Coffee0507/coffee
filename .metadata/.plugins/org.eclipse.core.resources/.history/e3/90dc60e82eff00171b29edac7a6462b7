@@ -1,0 +1,7 @@
+package Service;
+
+import InterFace.sampleInterface;
+
+public class sampleService implements sampleInterface{
+
+}

@@ -1,0 +1,15 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
+
+import InterFace.sampleInterface;
+
+@RestController
+public class IndexController {
+
+	sampleInterface si = new sampleInterface() {
+	}
+	@Service
+	public abc;
+}

@@ -1,0 +1,14 @@
+package Service;
+
+import InterFace.sampleInterface;
+
+
+public class sampleServiceImpl implements sampleInterface {
+
+	@Override
+	public String getAction() {
+		String msg = "サンプルメッセージを起動しました";
+		System.out.println(msg);
+		return msg;
+	}
+}

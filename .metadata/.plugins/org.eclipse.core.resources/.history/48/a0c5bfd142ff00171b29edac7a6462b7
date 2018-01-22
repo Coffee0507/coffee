@@ -1,0 +1,25 @@
+package com.internousdev.Action;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.internousdev.Interface.AbcInterface;
+
+@RestController
+public class AbcAction {
+
+	@Autowired
+	AbcInterface abc;
+
+	@RequestMapping("/yyy")
+	public static void main(String[] args){
+	public String action() {
+		abc.getJog();
+		abc.getRun();
+		abc.getWalk();
+		return
+	}
+	}
+
+}

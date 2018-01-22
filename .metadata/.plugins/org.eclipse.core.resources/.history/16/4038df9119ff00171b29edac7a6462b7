@@ -1,0 +1,20 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import Service.Service;
+
+@RestController
+public class Action {
+
+	Service service = new Service();
+
+	public static void  main(String[] args){
+
+		@RequestController
+		service.getAction(name1, name2);
+
+
+	}
+
+}

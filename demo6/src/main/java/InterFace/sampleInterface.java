@@ -1,0 +1,10 @@
+package InterFace;
+
+public interface sampleInterface {
+
+	public String getAction();
+
+	public String getwalk();
+
+	public String getrun();
+}

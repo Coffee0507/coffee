@@ -1,0 +1,23 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import Service.Service;
+
+@RestController
+public class Action {
+
+	public String name1 = "takahashi";
+	public String name2 = "yuuri";
+
+	Service service = new Service();
+
+
+		@RequestMapping
+		service.getAction(this.name1,this.name2);
+
+
+	}
+
+}

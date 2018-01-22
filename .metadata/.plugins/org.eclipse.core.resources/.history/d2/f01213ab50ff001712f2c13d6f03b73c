@@ -1,0 +1,11 @@
+package sample;
+
+
+public interface Inter {
+
+	public String getRun();
+
+	public String getWalk();
+
+	public String getJog();
+}

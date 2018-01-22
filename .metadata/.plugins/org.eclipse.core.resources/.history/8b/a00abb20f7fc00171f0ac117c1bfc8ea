@@ -1,0 +1,7 @@
+package com.example.demo;
+
+public interface helloInterface {
+
+	public void getInfo(String name1,String name2,int number1,int number2);
+
+}

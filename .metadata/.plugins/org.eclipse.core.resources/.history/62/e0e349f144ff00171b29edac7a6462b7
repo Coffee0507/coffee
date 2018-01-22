@@ -1,0 +1,28 @@
+package Service;
+
+import Interface.AbcInterface;
+
+public class AbcService implements AbcInterface{
+
+	@Override
+	public String getRun() {
+		return null;
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public String getJog() {
+		return null;
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	@Override
+	public String getWalk() {
+		return null;
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

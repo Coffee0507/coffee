@@ -1,0 +1,28 @@
+package sample;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import sample.Interface.Inter;
+
+
+
+@RestController
+public class Controller {
+
+	@Autowired
+	Inter face;
+
+	@RequestMapping("/action")
+		String action() {
+		face.getJog();
+		face.getRun();
+		face.getWalk();
+
+		return face.getRun();
+	}
+
+
+}

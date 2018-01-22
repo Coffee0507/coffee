@@ -1,0 +1,9 @@
+package com.example.demo;
+
+public interface Interface {
+
+
+	public String getRun();
+	public String getWalk();
+	public String getJog();
+}

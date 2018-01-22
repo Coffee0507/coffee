@@ -1,0 +1,9 @@
+package com.example.demo;
+
+@RestController
+public class SampleController
+@RequestController("/sample")
+
+
+
+}

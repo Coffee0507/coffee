@@ -1,5 +1,7 @@
 package com.internous.Action;
 
+import java.util.Random;
+
 import com.internous.Interface.NoTitleInterface;
 import com.internous.Service.MarboroughService;
 import com.internous.util.MarboroughStatic;
@@ -18,7 +20,7 @@ public class MarboroughAction {
 
 		ms.getInfo2(name1, name2, MarboroughStatic.number3, MarboroughStatic.number4, MarboroughStatic.tabacco2);
 
-		// 内部クラス（インナークラス、匿名クラス無名クラスとも言う）
+		// 内部クラスインナークラス、匿名クラス無名クラスとも言う
 		NoTitleInterface nti = new NoTitleInterface() {
 			public void print() {
 				// メソッド内部の変更
@@ -27,5 +29,13 @@ public class MarboroughAction {
 		};
 		// メソッドの実行
 		nti.print();
+
+		float a = new Random().nextInt(1000);
+
+		System.out.println(a);
+
+		double b = (int) (Math.random());
+
+		System.out.println(b);
 	}
 }

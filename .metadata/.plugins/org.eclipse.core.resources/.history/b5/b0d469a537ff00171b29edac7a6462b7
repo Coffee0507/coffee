@@ -1,0 +1,25 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import InterFace.sampleInterface;
+import Service.sampleServiceImpl;
+
+@RestController
+public class IndexController {
+
+	sampleInterface ssi;
+
+
+	//@Autowired
+	//sampleInterface sif;
+
+	@RequestMapping("/service")
+	public String index() {
+		ssi.getrun();
+		ssi.getwalk();
+		return //sif.getAction();
+	}
+}

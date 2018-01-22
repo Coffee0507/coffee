@@ -1,0 +1,17 @@
+package com.example.demo;
+
+import InterFace.AbcInterface;
+
+public class AbcController {
+
+	AbcInterface aif;
+
+	@AutoWired
+	public void action(){
+	aif.get
+
+
+
+
+	}
+}

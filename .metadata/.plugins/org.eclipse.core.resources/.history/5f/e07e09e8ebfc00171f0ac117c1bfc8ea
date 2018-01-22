@@ -1,0 +1,12 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class sampleController {
+	@RequestController("/sample")
+	public String sumple(){
+		return sample "sample";
+	}
+
+}

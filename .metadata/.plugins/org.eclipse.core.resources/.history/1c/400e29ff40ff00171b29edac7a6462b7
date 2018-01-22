@@ -1,0 +1,5 @@
+package com.internousdev.Service;
+
+public class AbcService import com.internousdev.Interface.AbcInterface;{
+
+}

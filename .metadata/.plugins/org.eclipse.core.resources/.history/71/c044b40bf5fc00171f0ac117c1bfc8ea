@@ -1,0 +1,11 @@
+package com.example.demo;
+
+public class helloService implements helloInterface{
+
+	@Override
+	public void getInfo(String name1, String name2, int number1, int number2) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

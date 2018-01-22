@@ -1,0 +1,6 @@
+package InterFace;
+
+public interface InterFace {
+
+	getAction(String name1,String name2);
+}

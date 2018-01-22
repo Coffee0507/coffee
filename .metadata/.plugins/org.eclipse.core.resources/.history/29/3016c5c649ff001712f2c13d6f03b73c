@@ -1,0 +1,15 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Controller {
+
+	@Autowired
+	Interface face;
+
+	@RequestMapping("/action")
+	public String action() {
+	}
+}

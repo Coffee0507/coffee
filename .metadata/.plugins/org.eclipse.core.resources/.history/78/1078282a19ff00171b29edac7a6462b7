@@ -1,0 +1,10 @@
+package com.example.demo;
+
+import Service.Service;
+
+@RestController
+public class Action {
+
+	Service service = null;
+
+}

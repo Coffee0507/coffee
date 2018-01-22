@@ -1,0 +1,8 @@
+package InterFace;
+
+public interface sampleInterface {
+
+	public String getAction(){
+	"実行します"；
+}
+}

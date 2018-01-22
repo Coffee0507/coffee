@@ -1,0 +1,8 @@
+package InterFace;
+
+public interface AbcInterface {
+
+	public void getRun();
+	public String getJog();
+	public void getWalk();
+}

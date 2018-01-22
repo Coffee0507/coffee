@@ -1,0 +1,14 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import Service.sampleServiceImpl;
+
+@RestController
+public class IndexController {
+
+	sampleServiceImpl ssi = new sampleServiceImpl();
+
+	@RequestMapping
+
+}

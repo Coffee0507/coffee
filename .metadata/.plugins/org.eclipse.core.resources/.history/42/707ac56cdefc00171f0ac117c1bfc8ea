@@ -1,0 +1,9 @@
+package com.example.demo;
+
+@RestController // (1)
+public class DemoApplication {
+	@RequestMapping("/hello") // (2)
+	public String hello() {
+		return "Hello World !!";
+	}
+}
