@@ -1,0 +1,14 @@
+package sample;
+
+public class Person {
+
+	public void setCar(Car car){
+		this.car = car;
+	}
+
+	public String getPlan(){
+		String plan = car.drive();
+		return "明日の予定は"+plan;
+	}
+
+}

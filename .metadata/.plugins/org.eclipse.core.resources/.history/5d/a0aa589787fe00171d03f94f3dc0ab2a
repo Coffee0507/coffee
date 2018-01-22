@@ -1,0 +1,12 @@
+package sample;
+
+public class Cat {
+
+	public void plan(){
+		String msg = catPlan.plan(){
+			System.out.println("今日の予定は"+msg);
+		}
+
+	}
+
+}

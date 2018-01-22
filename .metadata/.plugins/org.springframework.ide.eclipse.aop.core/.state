@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<<<<<<< HEAD
 <aop-project name="demo4"/>
 <aop-project name="demo5"/>
 <aop-project name="demo6"/>
 <aop-project name="demo7"/>
 <aop-project name="demo8"/>
 <aop-project name="demo9"/>
+=======
+<aop-project name="demo-1"/>
+<aop-project name="demo"/>
+>>>>>>> 47a6d5eb900bc7b519444197b7ed0fcefe15828a
 </aop-reference-model>

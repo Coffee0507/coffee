@@ -1,0 +1,12 @@
+package sample;
+
+public class Person{
+
+	public String plan() {
+		String msg = "明日の予定は";
+		return msg;
+	}
+
+
+
+}

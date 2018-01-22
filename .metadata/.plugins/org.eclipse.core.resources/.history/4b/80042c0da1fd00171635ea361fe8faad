@@ -1,0 +1,20 @@
+package spring;
+
+public class UserServiceImpl implements UserService{
+
+
+	public UserServiceImpl(UserRepository userRepository ,PasswordEncoder passwordEncoder){
+		this.userRepository = new userRepository;
+		this.passwordEncoder = new passwordEncoder;
+	}
+
+	public void register(User user,String rawPassword){
+		if(this.userRepository.countByUsername(user.getUsername())>0){
+			throw new UserAlreadyRegisteredException();
+		}
+
+		user.setpassword(this.passwordEncoder.encode(rawPassword));
+		this.userRepository.seva(user);
+	}
+
+}

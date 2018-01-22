@@ -1,9 +1,0 @@
-package com.internousdev.sample.Action;
-
-import org.apache.struts2.interceptor.SessionAware;
-
-import com.opensymphony.xwork2.ActionSupport;
-
-public class BuyItemComplete extends ActionSupport implements SessionAware{
-
-}

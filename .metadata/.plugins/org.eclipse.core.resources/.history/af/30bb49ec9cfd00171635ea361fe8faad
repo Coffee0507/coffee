@@ -1,0 +1,7 @@
+package spring;
+
+public interface UserRepository {
+	user sage(User user);
+	int countByUsername(Sring username);
+
+}

@@ -1,1 +1,10 @@
+<<<<<<< HEAD
 1516341671197	要素を削除
+=======
+1516452744206	'applicationContext.xml' を 'demo' に移動
+1516452781918	'applicationContext.xml' を 'static' に移動
+1516452790578	'applicationContext.xml' を 'templates' に移動
+1516452843968	'applicationContext.xml' を 'demo' に移動
+1516453173373	パッケージ名 'com.example.demo' を変更します
+1516454855373	要素を削除
+>>>>>>> 47a6d5eb900bc7b519444197b7ed0fcefe15828a

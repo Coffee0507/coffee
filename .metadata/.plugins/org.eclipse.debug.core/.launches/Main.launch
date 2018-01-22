@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<<<<<<< HEAD
+<listEntry value="/demo/src/main/java/sample/Main.java"/>
+=======
 <listEntry value="/object/src/object/Main.java"/>
+>>>>>>> e2e7459aba3cb0289d625ff9f65fe5ff3afd14a7
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
+<<<<<<< HEAD
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="sample.Main"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="demo"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+=======
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="object.Main"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="object"/>
+>>>>>>> e2e7459aba3cb0289d625ff9f65fe5ff3afd14a7
 </launchConfiguration>

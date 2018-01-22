@@ -61,7 +61,10 @@ table {
 	<div id="main">
 		<div id="top">BuyItemCompleteAction</div>
 		<div>
-			<a href='<s:url action="BuyItemCompleteAction"/>'>マイページ</a><span>から購入履歴の確認ができます</span>
+			<p>購入手続きが完了しました。</p>
+			<div>
+				<a href='<s:url action="MyPageAction"/>'>マイページ</a><span>から購入履歴の確認ができます</span>
+			</div>
 		</div>
 	</div>
 	<div id="footer">

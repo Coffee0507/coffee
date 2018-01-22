@@ -1,0 +1,10 @@
+package sample;
+
+public class Cat {
+
+	public void plan(){
+		String msg = catPlan.plan();
+
+	}
+
+}

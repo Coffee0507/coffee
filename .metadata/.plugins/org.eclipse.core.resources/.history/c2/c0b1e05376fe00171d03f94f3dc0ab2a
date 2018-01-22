@@ -1,0 +1,8 @@
+package sample;
+
+public class catPlan {
+
+	public void plan(){
+		String msg = "寝ること";
+	}
+}

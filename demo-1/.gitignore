@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
+=======
+target/
+!.mvn/wrapper/maven-wrapper.jar
+>>>>>>> 47a6d5eb900bc7b519444197b7ed0fcefe15828a
 
 ### STS ###
 .apt_generated

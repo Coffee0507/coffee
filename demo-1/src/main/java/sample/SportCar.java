@@ -1,0 +1,10 @@
+package sample;
+
+public class SportCar implements Car {
+
+	@Override
+	public String drive() {
+		String msg = "スポーツカーでドライブ";
+		return msg;
+	}
+}

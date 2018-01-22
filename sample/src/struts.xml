@@ -28,7 +28,7 @@
 			<result name="success">buyItemComplete.jsp</result>
 		</action>
 
-		<action name="BuyItemCompleteAction" class="com.internousdev.sample.Action.BuyItemCompleteAction"
+		<action name="MyPageAction" class="com.internousdev.sample.Action.MyPageAction"
 			method="execute">
 			<result name="success">myPage.jsp</result>
 		</action>

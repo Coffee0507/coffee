@@ -1,0 +1,11 @@
+package com.orion.action;
+
+import com.orion.service.OrionService;
+
+public class OrionAction {
+
+	OrionService os = new OrionService();
+	os.getInfo(String name1, String name2, int number1, int number2) {
+	}
+
+}

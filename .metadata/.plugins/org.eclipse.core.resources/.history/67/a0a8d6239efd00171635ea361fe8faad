@@ -1,0 +1,13 @@
+package spring;
+
+public class UserServiceImpl implements UserService{
+	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
+
+	public UserServiceImpl(javax.spl.DataSource dataSource){
+		this.userRepository = new JdbcUserRepository(dataSource);
+		this.passwordEncoder = new BCryptPasswordEncoder();
+
+	}
+
+}
