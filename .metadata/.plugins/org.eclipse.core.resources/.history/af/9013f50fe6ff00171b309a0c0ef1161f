@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns=""
+xmlns:xsi=""
+xsi:schemaLocation="
+">
+<welcome-file-list>
+<welcom-file></welcom-file>
+</welcome-file-list>
+
+<filter-name></filter-name>
+<fileter-class></fileter-class>
+
+<filter-name></filter-name>
+<url-mapping></url-mapping>
+
+</web-app>

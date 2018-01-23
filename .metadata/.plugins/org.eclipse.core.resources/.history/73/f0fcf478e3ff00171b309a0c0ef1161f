@@ -1,0 +1,13 @@
+package com.example.Interface;
+
+import org.springframework.context.annotation.Bean;
+
+@Bean
+public interface demoInterface {
+
+	public String getRun();
+	public String getWalk();
+	public String getJog();
+
+
+}

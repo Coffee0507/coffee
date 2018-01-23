@@ -1,0 +1,30 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class demoService implements demoInterface {
+
+	String msg;
+
+	public void getRun(String msg) {
+		msg = "走る";
+		this.msg = msg;
+		System.out.println(msg);
+	}
+
+	public void getWalk(String msg) {
+		msg = "歩く";
+		this.msg = msg;
+		System.out.println(msg);
+
+	}
+
+	public void getJog(String msg) {
+		msg = "ジョギング";
+		this.msg = msg;
+		System.out.println(msg);
+
+	}
+
+}

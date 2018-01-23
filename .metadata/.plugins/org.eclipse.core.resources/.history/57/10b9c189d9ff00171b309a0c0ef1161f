@@ -1,0 +1,10 @@
+package com.example.demo;
+
+public interface demoInterface {
+
+	public void getRun(String msg);
+	public void getWalk(String msg);
+	public void getJog(String msg);
+
+
+}

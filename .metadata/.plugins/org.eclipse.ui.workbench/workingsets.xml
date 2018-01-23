@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1516527139192_1" label="demo" name="demo">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/demo-TRUNK" type="4"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1516527139192_1" label="demo" name="demo"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1513879964048_0" label="ウィンドウ・ワーキング・セット" name="Aggregate for window 1513879964048"/>
 </workingSetManager>

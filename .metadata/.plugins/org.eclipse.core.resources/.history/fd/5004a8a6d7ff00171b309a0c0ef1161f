@@ -1,0 +1,18 @@
+package com.example.demo;
+
+public class demoService implements demoInterface {
+
+	public void getRun() {
+		String msg = "走る";
+		System.out.println(msg);
+	}
+
+	public void getWalk() {
+
+	}
+
+	public void getJog() {
+
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<runner version="1.0.0">
+<category name="カテゴリーなし">
+<launchConfiguration bookmark="false" name="DemoApplication"/>
+<launchConfiguration bookmark="false" name="InternousMain"/>
+<launchConfiguration bookmark="false" name="Main (1)"/>
+<launchConfiguration bookmark="false" name="MarboroughAction"/>
+<launchConfiguration bookmark="false" name="NoTitleAction"/>
+<launchConfiguration bookmark="false" name="OrionAction"/>
+<launchConfiguration bookmark="false" name="calculator1"/>
+<launchConfiguration bookmark="false" name="demo - DemoApplication"/>
+<launchConfiguration bookmark="false" name="demo - Main"/>
+<launchConfiguration bookmark="false" name="demo-1 - Main"/>
+<launchConfiguration bookmark="false" name="practice"/>
+<launchConfiguration bookmark="false" name="ローカル・ホスト の Tomcat v8.0 サーバー"/>
+</category>
+</runner>

@@ -1,0 +1,21 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class demoController {
+
+	@RequestMapping("/b")
+	public String getRun(String msg) {
+		return msg;
+	}
+
+	public String getWalk(String msg){
+		return msg;
+	}
+
+	public String getJog(String msg) {
+	}
+
+}
