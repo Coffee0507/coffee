@@ -1,0 +1,9 @@
+package com.internousdev.controller;
+
+public class LoginForm {
+
+	public String loginName;
+	public String loginPassword;
+
+
+}

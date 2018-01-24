@@ -1,0 +1,34 @@
+package com.internousdev.controller;
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.internousdev.validation.GroupOrder1;
+import com.internousdev.validation.GroupOrder2;
+
+public class LoginForm {
+
+	@NotEmpty(groups={GroupOrder1.class},message="ユーザー名を入力してください")
+	private String loginName;
+
+	@NotEmpty(groups={GroupOrder1.class},message="パスワードを入力してください")
+	@Size(min=8,max=16,groups={GroupOrder2.class},message="パスワードは{min}文字以上{max}文字以下です")
+	@Pattern(regexp="[a-zA-Z0-9]*")
+	private String loginPassword;
+
+	public String getLoginName(){
+		return loginName;
+	}
+	public void setLoginName(String loginName){
+		this.loginName = loginName;
+	}
+	public String getLoginPass(){
+		return loginPassword;
+	}
+	public void setLoginPassword(String loginPassword){
+		this.loginPassword = loginPassword;
+	}
+
+
+}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="demo11"/>
+<aop-project name="HelloWorld-0"/>
 <aop-project name="HelloWorld"/>
 </aop-reference-model>

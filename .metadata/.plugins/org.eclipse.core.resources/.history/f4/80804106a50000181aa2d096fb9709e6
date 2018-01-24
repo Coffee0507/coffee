@@ -1,0 +1,16 @@
+package com.internousdev.controller;
+
+public class LoginForm {
+
+	public String loginName;
+	public String loginPassword;
+
+	public String getLoginName(){
+		return loginName;
+	}
+	public void setLoginName(String loginName){
+		this.loginName = loginName;
+	}
+
+
+}
