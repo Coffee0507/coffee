@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hello Thymeleaf</title>
+	</head>
+	<body>
+		<h1 th:text="${modelValue}" ></h1>
+		<br>
+
+		<!-- 文字列 -->
+		<span> th:text="some text"></span>
+		<!-- 数値 -->
+		<span th:text="123"></span>
+		<!-- 真偽地 -->
+		<span th:text="true"></span>
+		<!-- null -->
+		<span th:text="null"></span>
+
+	</body>
+</html>
+

@@ -1,0 +1,17 @@
+package com.example.demo;
+
+import org.springframework.ui.Model;
+
+@Controller
+public class SampleController {
+
+	@Autowired
+	MyDataRepository repository;
+
+	@RequestMapping("/helo")
+	public String helo(Model model){
+		Interable<MyData>list = repository.findAll();
+		model.addAttribute("datas",list);
+		return "helo";
+	}
+}

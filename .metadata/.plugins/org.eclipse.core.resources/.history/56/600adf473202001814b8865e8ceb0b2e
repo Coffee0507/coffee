@@ -1,0 +1,6 @@
+package com.example.demo;
+
+@Repository
+public interface MyDataRepository extends JpaRepository<MyData, Integer> {
+
+}

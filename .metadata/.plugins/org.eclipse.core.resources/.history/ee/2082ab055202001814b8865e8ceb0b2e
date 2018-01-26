@@ -1,0 +1,4 @@
+spring.datasource.url=jdbc:hsqldb.hsql://localhost
+spring.datasource.username=root
+spring.datasource.password=mysql
+spring.datasource.driverClassName=org.hsqldb.jdbc.JDBCDriver

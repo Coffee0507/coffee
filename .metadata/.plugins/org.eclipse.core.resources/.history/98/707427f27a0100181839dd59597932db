@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hello Thymeleaf</title>
+	</head>
+	<body>
+		<h1 th:text="${modelValue}" ></h1>
+
+
+		<!-- 文字列 -->
+		<span th:text="'some text'"></span><br/>
+		<!-- 数値 -->
+		<span th:text="123"></span><br/>
+		<!-- 真偽地 -->
+		<span th:text="true"></span><br/>
+		<!-- null -->
+		<span th:text="null"></span><br/>
+		<!-- 文字連結 -->
+		<span th:text="'some text'+'!!'"></span><br/>
+
+		<!-- リテラル置換 -->
+		<span th:text="|Hello ${message}|"></span><br/>
+
+		<!-- 算術演算子 -->
+		<span th:text="(30*20+10/5-1)%3"></span><br/>
+
+		<!-- 論理演算子 -->
+		<span th:text="true	and false or true
+						and not true or !false"></span><br/>
+
+		<!-- 比較と等価 -->
+		<p th:text="1==10"></p><br/>
+		<p th:text="1!=10"></p><br/>
+
+		<!-- 条件演算子 -->
+		1:<span th:text="true ? 'a'"></span><br/>
+		2:<span th:text="false ? 'b'"></span><br/>
+		3:<span th:text="true ? 'c':'C'"></span><br/>
+		4:<span th:text="true ?: 'd'"></span><br/>
+		5:<span th:text="false ?: 'e'"></span><br/>
+		6:<span th:text="null ?: 'f'"></span><br/>
+
+
+		<div th:text="${hoge.publicFiled}"></div>
+		<div th:text="${hoge['publicField']"></div>
+		<div th:text="${hoge.publicMethod()}"></div>
+	</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hello Thymeleaf</title>
+	</head>
+	<body>
+		<h1 th:text="${modelValue}" ></h1>
+
+
+		<!-- 文字列 -->
+		<span th:text="'some text'"></span>
+		<!-- 数値 -->
+		<span th:text="123"></span>
+		<!-- 真偽地 -->
+		<span th:text="true"></span>
+		<!-- null -->
+		<span th:text="null"></span>
+		<!-- 文字連結 -->
+		<span th:text="'some text'+'!!'"></span>
+
+		<!-- リテラル置換 -->
+		<span th:text="|Hello ${message}|"></span>
+
+		<!-- 算術演算子 -->
+		<span th:text="(30*20+10/5-1)%3"></span>
+
+		<!-- 論理演算子 -->
+		<span th:text="true	and false or true
+						and not true or !false"></span>
+
+		<!-- 比較と等価 -->
+		<span th:text="1<10"></span>
+	</body>
+</html>
+

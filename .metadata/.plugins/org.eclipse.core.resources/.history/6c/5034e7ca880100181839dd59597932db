@@ -1,0 +1,26 @@
+package com.example.demo.web;
+
+import java.util.HashMap;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class HelloController {
+
+	@GetMapping("/hello")
+	public String hello(Model model) {
+		HashMap<String,String>map = new HashMap<>();
+		map.put("message", "HelloWorld!!");
+	}
+
+	public static class Hoge{
+		public int publicField = 1;
+
+		public int publicMethod(){return 2;}
+
+		public int getPublicValue(){return 3;}
+	}
+
+}

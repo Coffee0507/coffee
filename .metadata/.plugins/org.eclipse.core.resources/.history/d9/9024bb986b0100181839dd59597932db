@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hello Thymeleaf</title>
+	</head>
+	<body>
+		<h1 th:text="${modelValue}" ></h1>
+
+	</body>
+</html>
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="UTF-8" />
+ <title>TEST画面</title>
+</head>
+<body>
+ <h2>TEST</h2>
+ <p th:text="${session.mUserForm.loginId}"/>
