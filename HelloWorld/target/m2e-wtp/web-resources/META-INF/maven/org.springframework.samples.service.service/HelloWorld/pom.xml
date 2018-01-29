@@ -7,12 +7,12 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<hibernate.version>4.3.10.Final</hibernate.version>
 
 		<!-- Generic properties -->
 		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<hibernate.version>4.3.10Final></hibernate.version>
 
 		<!-- Web -->
 		<jsp.version>2.2</jsp.version>
@@ -62,16 +62,6 @@
 			<version>${jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.4.Final</version>
-		</dependency>
 
 		<!-- Spring and Transactions -->
 		<dependency>
@@ -113,14 +103,9 @@
 
 		<!-- db connection -->
 		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-		</dependency>
-		<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.38</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
 		</dependency>
 
 		<!-- Test Artifacts -->

@@ -1,0 +1,17 @@
+package com.example.demo.dao;
+
+import com.example.demo.dto.ControllerDTO;
+
+public class ControllerDAO {
+
+	private ControllerDTo dto;
+
+	public ControllerDTO getInfo() {
+
+
+
+
+		return null;
+	}
+
+}

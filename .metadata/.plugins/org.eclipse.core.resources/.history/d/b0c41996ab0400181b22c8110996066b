@@ -1,0 +1,10 @@
+package com.example.demo.Controller;
+
+public class MySQLController {
+
+	MySQLInterface MI = new MySQLInterface();
+
+	@Autowired
+	public String
+
+}

@@ -1,0 +1,12 @@
+package com.example.demo.Service;
+
+import com.example.demo.Interface.MySQLInterface;
+
+public class MySQLService implements MySQLInterface {
+
+	@Override
+	public void getAction(String name1, String age1) {
+		System.out.println(MySQLService);
+	}
+
+}

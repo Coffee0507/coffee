@@ -1,0 +1,20 @@
+package com.example.demo.dto;
+
+public class ControllerDTO {
+
+	public void setName(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setAge(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

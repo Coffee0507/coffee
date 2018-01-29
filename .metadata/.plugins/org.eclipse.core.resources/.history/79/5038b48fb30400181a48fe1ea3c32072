@@ -1,0 +1,9 @@
+package com.example.demo.util;
+
+import java.sql.Connection;
+
+public class DBConnector {
+
+	private Connection con = (Connection).getConnector();
+
+}

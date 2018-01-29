@@ -1,0 +1,10 @@
+package com.example.demo.Interface;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public interface MySQLInterface {
+
+	@Autowired
+	public void getAction(String name1,String age1);
+
+}

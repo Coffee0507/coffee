@@ -1,0 +1,18 @@
+package com.example.demo.dao;
+
+import com.example.demo.dto.ControllerDTO;
+
+public class ControllerDAO {
+
+	private ControllerDTO dto;
+	private DBConnector db = new DBConnector();
+
+	public ControllerDTO getInfo() {
+
+
+
+
+		return null;
+	}
+
+}

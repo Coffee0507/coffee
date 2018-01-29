@@ -1,0 +1,23 @@
+package com.example.demo.dao;
+
+import com.example.demo.dto.ControllerDTO;
+import com.example.demo.util.DBConnector;
+
+public class ControllerDAO {
+
+	private ControllerDTO dto;
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public ControllerDTO getInfo() {
+		private String sql = "select * from Controller where name = ?";
+
+		PreparedStatement ps =
+
+
+
+
+		return null;
+	}
+
+}

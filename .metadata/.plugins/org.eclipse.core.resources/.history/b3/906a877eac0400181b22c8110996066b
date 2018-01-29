@@ -1,0 +1,8 @@
+package com.example.demo.Interface;
+
+public interface MySQLInterface {
+
+	@AppRepository
+	public void getAction(String name1,String age1);
+
+}

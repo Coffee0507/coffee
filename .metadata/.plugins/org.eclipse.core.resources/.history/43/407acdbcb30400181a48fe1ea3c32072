@@ -1,0 +1,10 @@
+package com.example.demo.util;
+
+public class DBConnector {
+
+	private String drivername = "com.mysql.jdbc.Driver";
+	private String user = "root";
+	private String password = "msyql";
+	private String url = "jdbc:mysql;//localhost/Controller"
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;index.jsp&apos; to &apos;view&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;HelloWorld&apos;&#x0D;&#x0A;- 宛先要素: &apos;view&apos;&#x0D;&#x0A;- オリジナル要素: &apos;index.jsp&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="ファイルを移動する" element1="src/main/webapp/index.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1517212257267" target="src/main/webapp/WEB-INF/view" units="0" version="1.0"/>
+</session>

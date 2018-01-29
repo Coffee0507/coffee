@@ -1,0 +1,10 @@
+package com.example.demo.Interface;
+
+import org.springframework.stereotype.Repository;
+
+public interface MySQLInterface {
+
+	@Repository
+	public void getAction(String name1,String age1);
+
+}

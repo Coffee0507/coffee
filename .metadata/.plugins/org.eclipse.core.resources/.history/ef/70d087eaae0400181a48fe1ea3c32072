@@ -1,0 +1,23 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Interface.MySQLInterface;
+
+@RestController
+public class MySQLController {
+
+	@Autowired
+	MySQLInterface MI = new MySQLInterface() {
+
+		@Override
+		public void getAction(String name1, String age1) {
+			// TODO 自動生成されたメソッド・スタブ
+
+		}
+	};
+
+}

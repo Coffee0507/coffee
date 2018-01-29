@@ -1,0 +1,20 @@
+package com.example.demo.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.Interface.MySQLInterface;
+
+@RestController
+public class MySQLController {
+
+	private String name1 = "name1";
+	private String age1 = "age1";
+
+	@Autowired
+	MySQLInterface MI = new MySQLInterface;
+
+		@RecestMapping
+		void MI.getAction(this.name1, this.age1) ;
+
+}

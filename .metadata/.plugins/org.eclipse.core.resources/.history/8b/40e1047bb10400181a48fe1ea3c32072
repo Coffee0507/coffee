@@ -1,0 +1,15 @@
+package com.example.demo.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.Interface.MySQLInterface;
+
+@Autowired
+public class MySQLService implements MySQLInterface {
+
+	@Override
+	public void getAction(String name1, String age1) {
+		System.out.println("MySQLService");
+	}
+
+}

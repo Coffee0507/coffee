@@ -1,0 +1,13 @@
+package com.example.demo.Service;
+
+import com.example.demo.Interface.MySQLInterface;
+
+public class MySQLService implements MySQLInterface{
+
+	@Override
+	public void getAction(String name1, String age1) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

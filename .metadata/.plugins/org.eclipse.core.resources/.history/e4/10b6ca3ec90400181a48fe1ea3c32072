@@ -1,0 +1,5 @@
+package com.internosdev.action;
+
+public class LoginForm {
+
+}

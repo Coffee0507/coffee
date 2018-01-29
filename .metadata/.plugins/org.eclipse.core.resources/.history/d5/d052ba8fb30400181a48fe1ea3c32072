@@ -1,0 +1,10 @@
+package com.example.demo.util;
+
+import java.sql.Connection;
+
+public class DBConnector {
+
+	private String drivername = com.mysql.jdbc.Driver;
+
+
+}

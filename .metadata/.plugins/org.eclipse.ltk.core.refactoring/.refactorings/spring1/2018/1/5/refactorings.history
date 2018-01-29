@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="3 個の要素を &apos;demo/src/main/java/com.example.demo&apos; にコピー&#x0D;&#x0A;- 元のプロジェクト: &apos;spring1&apos;&#x0D;&#x0A;- 宛先要素: &apos;demo/src/main/java/com.example.demo&apos;&#x0D;&#x0A;- オリジナル要素:&#x0D;&#x0A;     com.example.demo.MyData.java&#x0D;&#x0A;     com.example.demo.MyDataRepository.java&#x0D;&#x0A;     com.example.demo.SampleController.java" description="コンパイル単位をコピー" destination="=demo/src\/main\/java&lt;com.example.demo" element1="/src\/main\/java&lt;com.example.demo{MyData.java" element2="/src\/main\/java&lt;com.example.demo{MyDataRepository.java" element3="/src\/main\/java&lt;com.example.demo{SampleController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1517189555563" units="3" version="1.0"/>
+</session>
