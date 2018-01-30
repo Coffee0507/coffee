@@ -3,6 +3,8 @@ C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.p
 \spring1\src\main\java
 C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\182789280.index
 \MySQLpractice\src\main\java
+C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\916452685.index
+\start1\src\main\java
 C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1550361615.index
 \boot\src\main\java
 C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3553775084.index

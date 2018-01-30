@@ -1,0 +1,10 @@
+package com.internousdev.service;
+
+public class TopService {
+
+	public void action(String name, String password) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

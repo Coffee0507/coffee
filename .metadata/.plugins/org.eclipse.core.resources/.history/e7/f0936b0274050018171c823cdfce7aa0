@@ -1,0 +1,46 @@
+package com.internousdev.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.internousdev.service.TopService;
+
+
+@Controller
+public class LoginController {
+
+	private String name;
+	private String password;
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Model model) {
+		return "top";
+	}
+
+	@RequestMapping(value = "/top", method = RequestMethod.POST)
+	public String top(Model model) {
+		TopService top = new TopService();
+		top.action(name,password);
+		return "action";
+	}
+
+	public String getname(){
+		return name;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+	public String getPassword(){
+		return password;
+	}
+
+	public void setPassword(String password){
+		this.password = password;
+	}
+
+
+}

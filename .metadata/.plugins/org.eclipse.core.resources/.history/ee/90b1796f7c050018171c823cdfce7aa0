@@ -1,0 +1,10 @@
+package com.internousdev.controller;
+
+@RestController
+public class Controller {
+
+	@RequestMapping
+	public String action()
+
+
+}

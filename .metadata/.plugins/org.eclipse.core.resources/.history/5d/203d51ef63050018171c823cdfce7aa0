@@ -1,0 +1,6 @@
+package com.internousdev.controller;
+
+@Controller
+public class LoginController {
+
+}

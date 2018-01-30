@@ -1,0 +1,15 @@
+package com.internousdev.service;
+
+import com.internousdev.dao.TopServiceDAO;
+import com.internousdev.dto.TopServiceDTO;
+
+public class TopService {
+
+	private TopServiceDAO dao = new TopServiceDAO();
+	private TopServiceDTO dto = new TopServiceDTO();
+
+	public void action(String name, String password) {
+
+	}
+
+}

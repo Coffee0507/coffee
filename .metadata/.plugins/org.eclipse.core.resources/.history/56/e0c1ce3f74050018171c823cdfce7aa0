@@ -1,0 +1,21 @@
+package com.internousdev.dto;
+
+public class TopServiceDTO {
+
+	private String name;
+	private String id;
+
+
+	public String getId(String id){
+		this.id = id;
+	}
+
+	public void setId(String string) {
+		return id;
+	}
+
+	public void setName(String string) {
+
+	}
+
+}

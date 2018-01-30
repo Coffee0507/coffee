@@ -1,0 +1,16 @@
+package com.internousdev.form;
+
+public class FirstForm {
+
+	private String name;
+	private String password;
+
+	public String getLoginName() {
+		return name;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+}

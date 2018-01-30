@@ -1,0 +1,6 @@
+package com.internousdev.controller;
+
+@ResttController
+public class Controller {
+
+}

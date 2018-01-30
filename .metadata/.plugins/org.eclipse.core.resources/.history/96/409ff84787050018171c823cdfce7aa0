@@ -1,0 +1,10 @@
+package com.internousdev.form;
+
+public class FirstForm {
+
+	public Object getLoginName() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

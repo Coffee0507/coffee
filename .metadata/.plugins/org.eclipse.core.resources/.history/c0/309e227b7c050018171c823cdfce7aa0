@@ -1,0 +1,14 @@
+package com.internousdev.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class Controller {
+
+	@RequestMapping
+	public String action(){
+
+	}
+
+
+}

@@ -1,0 +1,23 @@
+package com.internousdev.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnector {
+
+	private String DriverName = "com.jdbc.mysql.Driver";
+	private String url = "jdbc;mysql://localhost/sample";
+	private String user = "root";
+	private String password = "mysql";
+	private Connection con = null;
+
+	public Connection getConnection(){
+
+		Class.forName(DriverName);
+		con = (Connection)DriverManager.getConnection(url, user, password)
+
+		return con;
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.internousdev.util;
+
+public class DBConnector {
+
+	private String DriverName = "com.jdbc.mysql.Driver";
+	private String url = "jdbc;mysql://localhost/sample";
+	private String name = "root";
+	private String password = "mysql";
+
+	public Connection getConnection(){
+
+	}
+
+}

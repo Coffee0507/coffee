@@ -1,0 +1,15 @@
+package com.internousdev.service;
+
+import com.internousdev.util.DBConnector;
+
+public class TopService {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+
+	public void action(String name, String password) {
+
+	}
+
+}

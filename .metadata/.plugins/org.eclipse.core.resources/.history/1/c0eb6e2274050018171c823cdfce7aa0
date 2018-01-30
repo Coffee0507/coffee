@@ -1,0 +1,15 @@
+package com.internousdev.dto;
+
+public class TopServiceDTO {
+
+	public void setId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
+	public void setName(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
+
+}
