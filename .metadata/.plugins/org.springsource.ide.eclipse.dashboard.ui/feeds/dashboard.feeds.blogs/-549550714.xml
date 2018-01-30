@@ -5,7 +5,119 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-01-30T02:55:55Z</updated>
+  <updated>2018-01-30T16:13:23Z</updated>
+  <entry>
+    <title>Reactor Bismuth-SR5 is out!</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/01/30/reactor-bismuth-sr5-is-out" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Stephane Maldini</name>
+    </author>
+    <id>tag:spring.io,2018-01-29:3150</id>
+    <updated>2018-01-30T16:13:23Z</updated>
+    <content type="html">&lt;p&gt;Improvements, new features, and fixes have landed in a Maven Central mirror near you under &lt;code&gt;Bismuth-SR5&lt;/code&gt; &lt;a href="https://github.com/reactor/reactor"&gt;Bill Of Material&lt;/a&gt;. This version is now used by &lt;a href="https://spring.io/blog/2018/01/23/spring-framework-5-0-3-and-4-3-14-available-now"&gt;Spring Framework 5.0.3&lt;/a&gt; and the upcoming &lt;code&gt;Spring Boot 2.0.RC1&lt;/code&gt;! Our site &lt;a href="http://projectreactor.io"&gt;projectreactor.io&lt;/a&gt; has been updated with the latest versions.&lt;/p&gt;&lt;h1&gt;&lt;a href="#reactor-core-3-1-3" class="anchor" name="reactor-core-3-1-3"&gt;&lt;/a&gt;Reactor-Core 3.1.3&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/reactor/reactor-core/releases/tag/v3.1.3.RELEASE"&gt;release notes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A quality update including more than a dozen fixes and just a couple new features: new &lt;code&gt;Flux#delaySequence&lt;/code&gt;, &lt;code&gt;log(Logger)&lt;/code&gt; alias, and &lt;code&gt;Signal#getContext&lt;/code&gt; access to the current flow &lt;code&gt;Context&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;reactor-test&lt;/code&gt; also welcomed new features including &lt;code&gt;Context&lt;/code&gt; verification facilities and a &lt;code&gt;StepVerifier#toString&lt;/code&gt; implementation.&lt;/p&gt;
+&lt;p&gt;We are now working on &lt;code&gt;3.1.4.RELEASE&lt;/code&gt;. Have a look at our &lt;a href="http://github.com/reactor/reactor-core/issues"&gt;issues backlog&lt;/a&gt;.&lt;/p&gt;&lt;h1&gt;&lt;a href="#reactor-addons-3-1-4" class="anchor" name="reactor-addons-3-1-4"&gt;&lt;/a&gt;Reactor Addons 3.1.4&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/reactor/reactor-addons/releases/tag/v3.1.4.RELEASE"&gt;release notes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this release, we improved our &lt;code&gt;Retry&lt;/code&gt; and &lt;code&gt;Repeat&lt;/code&gt; facilities timing handling.&lt;br/&gt;We are also featuring our first new advanced caching helpers for &lt;code&gt;Flux&lt;/code&gt; and &lt;code&gt;Mono&lt;/code&gt; . They will allow easy storage implementation choices as well as providing the expected behavior for consuming subscribers. &lt;/p&gt;
+&lt;p&gt;Below is a quick snippet using an arbitrary hash-map that demonstrates an upstream flow is only subscribed once regardless of the multiple verifications:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;Map&amp;lt;String, List&amp;gt; data = new HashMap&amp;lt;&amp;gt;();&#xD;
+&#xD;
+Flux&amp;lt;Integer&amp;gt; cached = CacheFlux.lookup(data, &amp;quot;foo&amp;quot;, Integer.class)&#xD;
+		     .onCacheMissResume(Flux.just(1, 2, 3).log());&#xD;
+&#xD;
+StepVerifier.create(cached)&#xD;
+             .expectNext(1, 2, 3)&#xD;
+             .verifyComplete();&#xD;
+//prints 1, 2, 3&#xD;
+&#xD;
+StepVerifier.create(cached)&#xD;
+             .expectNext(1, 2, 3)&#xD;
+             .verifyComplete();&#xD;
+//prints nothing
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We are now working on &lt;code&gt;3.1.5.RELEASE&lt;/code&gt;, and our community is invited to submit ideas for more extensions or operators. We already have another fantastic PR in progress from Oleg Dokuka about &lt;a href="https://github.com/reactor/reactor-addons/pull/141"&gt;IO extensions for Flux&lt;/a&gt; &lt;/p&gt;&lt;h1&gt;&lt;a href="#reactor-netty-0-7-3" class="anchor" name="reactor-netty-0-7-3"&gt;&lt;/a&gt;Reactor Netty 0.7.3&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/reactor/reactor-netty/releases/tag/v0.7.3.RELEASE"&gt;release notes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A recommended update that fixes a race condition when publishing the stream body from a different thread than one of Netty&amp;rsquo;s own threads. We now also support &lt;code&gt;KQueue&lt;/code&gt; as an alternative to &lt;code&gt;Epoll&lt;/code&gt;. Also &lt;code&gt;HttpClient&lt;/code&gt; has been updated to emit an error on premature HTTP response completion.&lt;/p&gt;
+&lt;p&gt;We are now working on the &lt;code&gt;0.7.4.RELEASE&lt;/code&gt; and the following &lt;code&gt;0.8.0&lt;/code&gt;. Keep in mind the next major version will bring important API changes and for that reason we strongly recommend to use an adapting layer instead of exposing the &lt;code&gt;reactor-netty&lt;/code&gt; API directly. Or simply use &lt;code&gt;Spring Framework&lt;/code&gt; which does exactly that on both the client and server sides.&lt;/p&gt;&lt;h1&gt;&lt;a href="#extra-stuff" class="anchor" name="extra-stuff"&gt;&lt;/a&gt;Extra Stuff&lt;/h1&gt;
+&lt;p&gt;Last month, we had a chance to speak at SpringOne Platform. You can view &lt;a href="https://speakerdeck.com/smaldini/springoneplatform-2017-reactor-now-and-tomorrow"&gt;the slides online&lt;/a&gt; and watch &lt;a href="https://www.youtube.com/watch?v=zls8ZLry68M"&gt;the video replay&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Next Generation OAuth 2.0 Support with Spring Security</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/01/30/next-generation-oauth-2-0-support-with-spring-security" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Joe Grandja</name>
+    </author>
+    <id>tag:spring.io,2018-01-29:3149</id>
+    <updated>2018-01-30T13:35:50Z</updated>
+    <content type="html">&lt;div class="sect1"&gt;
+&lt;h2 id="current-state"&gt;&lt;a class="anchor" href="#current-state"&gt;&lt;/a&gt;Current State&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The current state of OAuth 2.0 Support, within the Spring projects portfolio, is spread out between
+&lt;a href="http://projects.spring.io/spring-security-oauth/" target="_blank"&gt;Spring Security OAuth&lt;/a&gt;,
+&lt;a href="https://cloud.spring.io/spring-cloud-security/" target="_blank"&gt;Spring Cloud Security&lt;/a&gt;,
+&lt;a href="https://projects.spring.io/spring-boot/" target="_blank"&gt;Spring Boot 1.5.x&lt;/a&gt;, and the new support introduced in
+&lt;a href="https://projects.spring.io/spring-security/" target="_blank"&gt;Spring Security 5&lt;/a&gt;.
+As a user of OAuth, you may be asking, "Which project(s) do I use? And why has Spring Security 5 introduced new support into the mix?"&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;To put it simply, there was a need to unify the OAuth 2.0 support into one project
+in order to provide a clear choice to the user and to avoid any potential confusion.
+In addition, the OAuth 2.0 support needed to take the next level and provide more extensive support for OAuth 2.0 and OpenID Connect 1.0.
+Also, based on community feedback, documentation needed to be re-vamped in order to allow for ease of use and promote developer productivity.
+Based on all these factors, we decided to start afresh and build the next generation of OAuth 2.0 support in Spring Security 5.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="the-plan-forward"&gt;&lt;a class="anchor" href="#the-plan-forward"&gt;&lt;/a&gt;The Plan Forward&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The OAuth 2.0 support is currently underway in Spring Security 5 with new &lt;em&gt;Client&lt;/em&gt; support.
+The plan is to also provide support for &lt;em&gt;Resource Server&lt;/em&gt; by mid-2018 and &lt;em&gt;Authorization Server&lt;/em&gt; by the end of 2018 or early 2019.
+Our goal is to provide extensive support for &lt;a href="https://oauth.net/2/" target="_blank"&gt;OAuth 2.0 Core and Extensions&lt;/a&gt;,
+&lt;a href="http://openid.net/connect/" target="_blank"&gt;OpenID Connect 1.0&lt;/a&gt;, and &lt;a href="http://jose.readthedocs.io/en/latest/" target="_blank"&gt;Javascript Object Signing and Encryption (JOSE)&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you are interested in finding out more about which OAuth 2.0 and OpenID Connect 1.0 features will be implemented in Spring Security 5,
+you may track upcoming features in the &lt;a href="https://github.com/spring-projects/spring-security/issues" target="_blank"&gt;Spring Security GitHub&lt;/a&gt; repo using the
+&lt;a href="https://github.com/spring-projects/spring-security/labels/OAuth2" target="_blank"&gt;OAuth2&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-security/labels/OIDC" target="_blank"&gt;OIDC&lt;/a&gt;, and
+&lt;a href="https://github.com/spring-projects/spring-security/labels/JWT-JOSE" target="_blank"&gt;JWT-JOSE&lt;/a&gt; labels.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="future-of-legacy-spring-security-oauth-project"&gt;&lt;a class="anchor" href="#future-of-legacy-spring-security-oauth-project"&gt;&lt;/a&gt;Future of Legacy Spring Security OAuth Project&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;At this time, we would also like to announce that the &lt;a href="http://projects.spring.io/spring-security-oauth/" target="_blank"&gt;Spring Security OAuth&lt;/a&gt; project
+is officially in maintenance mode. We will provide bug/security fixes and consider adding minor features but we will not be adding major features.
+Our focus and efforts going forward will be put into building all the features currently in Spring Security OAuth into Spring Security 5.x.
+After Spring Security has reached feature parity with Spring Security OAuth, we will continue to support bugs and security fixes for at least one year.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="feature-matrix-roadmap"&gt;&lt;a class="anchor" href="#feature-matrix-roadmap"&gt;&lt;/a&gt;Feature Matrix / Roadmap&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We&amp;#8217;ve put together a &lt;a href="https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Features-Matrix" target="_blank"&gt;feature matrix&lt;/a&gt;
+that outlines all the OAuth 2.0 features implemented by the various projects within the Spring portfolio.
+This matrix may be used to determine which project(s) to use (today) based on your OAuth 2.0 requirements.
+It also serves as a roadmap of the features to be implemented as we move towards feature parity with Spring Security OAuth.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;For any additional inquiries you may have, please see the
+&lt;a href="https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Features-Matrix#frequently-asked-questions" target="_blank"&gt;Frequently Asked Questions&lt;/a&gt; on our wiki
+or reach out to me &lt;a href="https://twitter.com/joe_grandja"&gt;@joe_grandja&lt;/a&gt; or Rob &lt;a href="https://twitter.com/rob_winch"&gt;@rob_winch&lt;/a&gt; on Twitter.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>CVE-2017-8030: Spring Security 5.0.1, 4.2.4, 4.1.5 Released</title>
     <link rel="alternate" href="https://spring.io/blog/2018/01/30/cve-2017-8030-spring-security-5-0-1-4-2-4-4-1-5-released" />
@@ -1371,58 +1483,5 @@ dependencies {&#xD;
 &lt;p&gt;Detailed new and noteworthy notes can be found here: &lt;a href="http://docs.spring.io/sts/nan/v392/NewAndNoteworthy.html"&gt;STS 3.9.2 New &amp;amp; Noteworthy&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;STS 3.9.3 is scheduled to be released on top of Eclipse Oxygen.3 (4.7.3) in late March 2018.&lt;/p&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security SAML 1.0.3.RELEASE</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/12/20/spring-security-saml-1-0-3-release" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2017-12-20:3130</id>
-    <updated>2017-12-20T20:39:24Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the community, I&amp;#8217;m pleased to announce the release of Spring Security SAML 1.0.3.RELEASE which makes some minor changes to work with Spring Framework 5.0.0+ while keeping backward compatibility.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://spring.io/spring-security-saml"&gt;Project Site&lt;/a&gt; |
-&lt;a href="http://docs.spring.io/spring-security-saml/docs/1.0.x/reference/html/"&gt;Documentation&lt;/a&gt;
-|
-&lt;a href="https://github.com/spring-projects/spring-security-saml/milestone/12?closed=1"&gt;Changelog&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - December 19th, 2017</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/12/20/this-week-in-spring-december-19th-2017" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2017-12-20:3129</id>
-    <updated>2017-12-20T02:39:00Z</updated>
-    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! I&amp;rsquo;ve just returned from London where I spent Monday talking to Pivotal customers and helping teams build software in terms of Spring. &lt;/p&gt;
-&lt;p&gt;Now I&amp;rsquo;m home for the holidays. Can you believe we&amp;rsquo;re only a few weeks away from 2018!? Where has the time gone! Chanukah, Christmas and Boxing Day will all be over and Kwanzaa will have started before next week&amp;rsquo;s installment of &lt;em&gt;This Week in Spring&lt;/em&gt;, so on behalf of the Spring team and Pivotal as a whole, let me wish you the warmest and happiest of holidays! &lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ve got a lot to tide you over if you happen to have some time off, so without further ado, let&amp;rsquo;s get to it.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;In this latest installment of &lt;a href="http://twitter.com/SpringTipsLive"&gt;&lt;em&gt;Spring Tips&lt;/em&gt;&lt;/a&gt;, I look at one of the most important &lt;a href="https://spring.io/blog/2017/12/15/spring-tips-bootiful-banners"&gt;features in Spring Boot 2.0&lt;/a&gt;, and indeed in Spring, ever: the ASCII banners! Do NOT miss this one!&lt;/li&gt;
-  &lt;li&gt;I loved this talk introducing &lt;a href="https://www.youtube.com/watch?v=JEmpIDiX7LU&amp;t=2329s&amp;list=PLAdzTan_eSPQ2uPeB0bByiIUMLVAhrPHL&amp;index=37"&gt;Consumer Driven Contract (CDC)&lt;/a&gt; by Spring Cloud Contract lead Marcin Grzejszczak and Adib Saikali.&lt;/li&gt;
-  &lt;li&gt;I really liked this first blog post &lt;a href="https://projectriff.io/blog/first-post-announcing-riff-0-0-2-release/"&gt;for Project Riff&lt;/a&gt;, a serverless platform that we announced at SpringOne Platform 2017.&lt;/li&gt;
-  &lt;li&gt;This is an oldie but might be useful to some. In this post, Redmonk&amp;rsquo;s James Governor and &lt;a href="https://www.youtube.com/watch?v=sWbeG782Vec"&gt;I look at &lt;em&gt;cloud-native&lt;/em&gt; with Spring Boot&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;In this SpringOne Platform 2017 talk, Spring Framework Juergen Hoeller looks &lt;a href="https://www.youtube.com/watch?v=0-sbPBf81KA"&gt;at Spring Framework 5.0 on Java 9&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;This is an interesting sample Spring Boot project &lt;a href="https://github.com/creactiviti/graffiti"&gt;that uses the Giraphe CMS framework and Spring Boot&lt;/a&gt;. Giraphe is a Spring Boot based headless CMS Framework.&lt;/li&gt;
-  &lt;li&gt;Baeldung have &lt;a href="http://www.baeldung.com/rest-with-spring-series/"&gt;updated their REST with Spring tutorial&lt;/a&gt;, and it&amp;rsquo;s always worth a look.&lt;/li&gt;
-  &lt;li&gt;The good Dr. Syer has put together a very nice tutorial looking at &lt;a href="https://github.com/dsyer/spring-boot-angular"&gt;how to incept a Spring Boot project with Angular&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;IntelliJ engineer Yann C?bron knows how to &lt;a href="https://twitter.com/yanncebron/status/940680833731584000"&gt;start the journey to production&lt;/a&gt;: &lt;em&gt;start.. dot.. spring.. dot.. io&lt;/em&gt;!&lt;/li&gt;
-  &lt;li&gt;It&amp;rsquo;s that time of year again! All &lt;a href="https://springoneplatform.io/"&gt;the SpringOne Platform 2017 videos are up and available&lt;/a&gt;! Binge watch &amp;rsquo;em all and give yourself the gift of knowledge!&lt;/li&gt;
-  &lt;li&gt;Spring Data ninja Mark Paluch, who did a lot of the work behind the reactive Spring Data implementations, gave a great SpringOne Platform 2017 talk, &lt;a href="https://www.youtube.com/watch?v=BKYXu25sziI"&gt;&lt;em&gt;Under the Hood of Reactive Data Access&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring community legend Jenn Strater gave a talk on _Documenting RESTful APIs with Spring REST Docs](&lt;a href="https://www.youtube.com/watch?v=CaARz49u1Mc&amp;list=PLSzU7snapMVZ4n5s5glQz4Dd_C3572O_2"&gt;https://www.youtube.com/watch?v=CaARz49u1Mc&amp;list=PLSzU7snapMVZ4n5s5glQz4Dd_C3572O_2&lt;/a&gt;) for SpringOne Platform 2017 that is well worth a watch.
-&lt;/li&gt;
-  &lt;li&gt;The Linux Foundation has a nice course on building &lt;a href="https://www.edx.org/node/33041.json#!?_lrsc=f867a0a2-befd-4cec-830e-4d6bafd2bf12&amp;utm_source=employee-social&amp;utm_medium=twitter&amp;utm_campaign=employee_advocacy"&gt;cloud native software with Cloud Foundry&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;InfoQ&amp;rsquo;s Victor Grazi looks at the &lt;a href="https://www.infoq.com/news/2017/12/Spring-Security-5.0.0"&gt;new Spring Security 5.0 release&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The epages blog has a nice post that looks at &lt;a href="https://developer.epages.com/blog/api-experience/restful-api-documentation-with-spring-rest-docs-and-raml/"&gt;RESTful API documentation with Spring REST Docs and RAML&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;InfoQ&amp;rsquo;s Victor Grazi had a nice interview with &lt;a href="https://www.infoq.com/news/2017/12/s1p-Conference-reactor-webflux"&gt;Reactor engineer Simon Basle and marketing manager Pieter Humphrey&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring ninja Thomas Risberg put together a &lt;a href="https://github.com/trisberg/s1p2017-jdbc/tree/master/jdbc-writer"&gt;cool Project Riff - our recently announced serverless platform - demo that you can inspect here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;the Open at Microsoft blog looks at Pivotal Cloud Foundry&amp;rsquo;s latest &lt;a href="https://open.microsoft.com/2017/12/13/microsoft-open-source-weekly-kubecon/"&gt;release supporting Microsoft Azure&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
   </entry>
 </feed>

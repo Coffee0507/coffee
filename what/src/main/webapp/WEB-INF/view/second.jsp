@@ -16,7 +16,7 @@
 	<c:out value="${loginName}" /><br><br>
 	<c:out value="${loginPassword}" /><br><br>
 	<f:form modelAttribute="secondForm" action="third" method="post">
-		<input type="text" id="loginId" name="loginId" />
+		name:<input type="text" id="loginId" name="loginId" />
 		<br>
 		<input type="submit" value="Id" />
 	</f:form>
