@@ -14,9 +14,12 @@
 </head>
 <body>
 	<f:form modelAttribute="firstForm" action="second" method="post">
-		名前：<input type="text" id="loginName" name="loginName" /><br>
+		名前：<input type="text" id="loginName" name="loginName" />
+		<f:errors path="loginName" element="div" cssStyle="color:red"/>
+		<br>
 		<br>
 		パス：<input type="text" id="loginPassword" name="loginPassword"/><br>
+		<f:errors path="loginPassword" element="div" cssStyle="color:red"/>
 		<br>
 		<input type="submit" value="login" />
 	</f:form>

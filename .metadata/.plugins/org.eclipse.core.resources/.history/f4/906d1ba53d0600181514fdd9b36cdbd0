@@ -1,0 +1,14 @@
+package com.internousdev.form;
+
+public class SecondForm {
+
+	private String loginId;
+
+	public String getId() {
+		return loginId;
+	}
+
+	public void setId(String loginId){
+		this.loginId = loginId;
+	}
+}

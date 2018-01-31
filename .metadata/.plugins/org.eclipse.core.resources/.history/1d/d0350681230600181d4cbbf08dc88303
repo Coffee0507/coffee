@@ -1,0 +1,12 @@
+package com.internousdev.dao;
+
+import com.internousdev.dto.SecondDTO;
+
+public class SecondDAO {
+
+	public SecondDTO info() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

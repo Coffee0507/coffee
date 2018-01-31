@@ -1,0 +1,16 @@
+package com.internousdev.service;
+
+import com.internousdev.dao.SecondDAO;
+import com.internousdev.dto.SecondDTO;
+
+public class SecondService {
+
+	private SecondDAO dao = new SecondDAO();
+	private SecondDTO dto = new SecondDTO();
+
+	private String action(){
+
+	}
+
+
+}

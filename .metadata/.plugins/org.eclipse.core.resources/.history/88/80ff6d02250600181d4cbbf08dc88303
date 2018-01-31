@@ -1,0 +1,10 @@
+package com.internousdev.dto;
+
+public class SecondDTO {
+
+	public void setString(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

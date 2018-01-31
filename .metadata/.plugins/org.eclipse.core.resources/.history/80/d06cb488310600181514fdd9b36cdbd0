@@ -1,0 +1,32 @@
+package com.internousdev.service;
+
+import java.sql.SQLException;
+
+import com.internousdev.dao.SecondDAO;
+import com.internousdev.dto.SecondDTO;
+
+public class SecondService {
+
+	private SecondDAO dao = new SecondDAO();
+	private SecondDTO dto = new SecondDTO();
+	boolean flg = false;
+
+	public boolean action(String id, String pass) throws SQLException {
+		dto = dao.info(id, pass);
+		System.out.println("aaa");
+		System.out.println(id);
+		System.out.println(pass);
+		System.out.println(dto.getId());
+		System.out.println(dto.getPass());
+		if (id.equals(dto.getId())) {
+			if (pass.equals(dto.getPass())) {
+				System.out.println(id);
+				System.out.println(dto.getId());
+				System.out.println(pass);
+				System.out.println(dto.getPass());
+				flg = true;
+			}
+		}
+		return flg;
+	}
+}

@@ -1,0 +1,40 @@
+package com.internousdev.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import org.springframework.ui.Model;
+
+import com.internousdev.dto.SecondDTO;
+import com.internousdev.util.DBConnector;
+
+public class SecondDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private SecondDTO dto = new SecondDTO();
+
+	public SecondDTO info(Model id) {
+
+		String sql = "select * from user where id = ?";
+		String Id = id.toString();
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, Id);
+
+			ResultSet rs = ps.executeQuery();
+
+		}catch(SQLException e){
+
+		}
+
+
+
+
+		return dto;
+	}
+
+}

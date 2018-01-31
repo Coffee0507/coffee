@@ -18,6 +18,8 @@
 	<f:form modelAttribute="secondForm" action="third" method="post">
 		<input type="text" id="loginId" name="loginId" />
 		<br>
+		<input type="password" id="loginPass" name="loginPass"/>
+		<br>
 		<input type="submit" value="Id" />
 	</f:form>
 </body>

@@ -1,0 +1,16 @@
+package com.internousdev.dto;
+
+public class SecondDTO {
+
+	private String id;
+	private String pass;
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+}

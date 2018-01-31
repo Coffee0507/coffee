@@ -1,0 +1,18 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class WhyApplication {
+
+	public static void main(String[] args) {
+		try(ConfigurableApplicationContext ctx = SpringApplication.run(Main.class,args)){
+			Main m = ctx.getBean(Main.class);
+
+		}
+
+		SpringApplication.run(WhyApplication.class, args);
+	}
+}

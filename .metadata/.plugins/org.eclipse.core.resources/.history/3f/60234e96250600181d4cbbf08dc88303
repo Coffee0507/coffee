@@ -1,0 +1,19 @@
+package com.internousdev.service;
+
+import org.springframework.ui.Model;
+
+import com.internousdev.dao.SecondDAO;
+import com.internousdev.dto.SecondDTO;
+
+public class SecondService {
+
+	private SecondDAO dao = new SecondDAO();
+	private SecondDTO dto = new SecondDTO();
+
+	public void action(String id,String pass) {
+		dto = dao.info(id);
+
+	}
+
+
+}
