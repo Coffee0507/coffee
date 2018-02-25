@@ -1,0 +1,15 @@
+package Practice;
+
+public class RamudaFanction {
+
+	public static void main(String[] args){
+
+		Function(Integer,String> asterisker = (i) ->{
+			return "*"+ i;
+		};
+
+		String result - asterisker.apply(10);
+		System.out.println(result);
+	}
+
+}

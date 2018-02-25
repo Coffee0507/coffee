@@ -1,0 +1,90 @@
+package com.internousdev.craftdenki.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.internousdev.craftdenki.dto.PurchaseHistoryDTO;
+import com.internousdev.craftdenki.util.DBConnector;
+
+public class PurchaseHistoryDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public ArrayList<PurchaseHistoryDTO> getPurchaseHistory(String userId) throws SQLException {
+
+		System.out.println("aaa");
+		System.out.println(userId);
+		System.out.println("aaa");
+		ArrayList<PurchaseHistoryDTO> purchaseHistoryList = new ArrayList<PurchaseHistoryDTO>();
+
+		String sql = "SELECT pi.product_id as product_id,phi.product_count as product_count,phi.price as price,pi.image_file_name as image_file_name,pi.product_name as product_name,pi.product_name_kana as product_name_kana,pi.release_company as release_company,pi.release_date as release_date FROM purchase_history_info as phi LEFT JOIN product_info as pi ON phi.product_id = pi.product_id WHERE phi.user_id = ? and phi.status = 0";
+
+		try {
+
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+
+				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
+
+				dto.setProductName(rs.getString("product_name"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setimageFileName(rs.getString("image_file_name"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setCount(rs.getInt("product_count"));
+				dto.setreleaseCompany(rs.getString("release_company"));
+				dto.setreleaseDate(rs.getString("release_date"));
+				dto.setreleaseDate(rs.getString("product_id"));
+
+				System.out.println(rs.getString("product_name"));
+				System.out.println(rs.getString("product_name_kana"));
+				System.out.println(rs.getString("image_file_name"));
+				System.out.println(rs.getInt("price"));
+				System.out.println(rs.getInt("product_count"));
+				System.out.println(rs.getString("release_company"));
+				System.out.println(rs.getString("release_date"));
+				System.out.println(rs.getString("product_id"));
+
+				purchaseHistoryList.add(dto);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			con.close();
+
+		}
+		return purchaseHistoryList;
+
+	}
+
+
+
+	public int deleteHistoryInfo(String product_id) {
+		String sql = "DELETE FROM purchase_history_info where id = ?";
+		PreparedStatement ps;
+		int result = 0;
+
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, product_id);
+
+			result = ps.executeUpdate();
+			return result;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+}

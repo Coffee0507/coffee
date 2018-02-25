@@ -1,0 +1,38 @@
+package Practice;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class Collection {
+
+	public static void main(String[] args) {
+
+		String[] str = {"2","a","13","4b"};
+
+		ArrayList<String> str2 = new ArrayList<>();
+
+		for(String s : str){
+			str2.add(s);
+		}
+
+		str2.sort(Comparator.naturalOrder());
+
+		System.out.println(str2);
+
+		str2.sort(Comparator.reverseOrder());
+
+		System.out.print(str2);
+
+
+		int[] i = {9,15,8,2};
+
+		ArrayList<Integer> i2 = new ArrayList<>();
+
+		for(int i3 : i){
+			i2.add(i3);
+		}
+
+
+	}
+
+}

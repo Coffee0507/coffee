@@ -1,0 +1,11 @@
+package Practice;
+
+public class RamudaFunction3 {
+
+	public static void main(String[] args){
+
+		Consumer<String> buyer = (goods)->{
+
+		};
+	}
+}

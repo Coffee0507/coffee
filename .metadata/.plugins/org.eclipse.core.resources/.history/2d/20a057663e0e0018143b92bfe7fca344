@@ -1,0 +1,39 @@
+package com.internousdev.craftdenki.action;
+
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class Review3Action extends ActionSupport implements SessionAware {
+
+	private Map<String, Object> session;
+	private String searchWord;
+
+	public String execute() {
+
+		searchWord = "なし";
+
+
+		return SUCCESS;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public Map<String,Object> getSession(){
+		return session;
+	}
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+}
+

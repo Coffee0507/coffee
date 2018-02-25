@@ -1,0 +1,2 @@
+127.0.0.1 - - [15/Feb/2018:22:08:05 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [15/Feb/2018:22:08:07 +0900] "GET /Ramuda/WEB-INF/classes/Ramuda/Ramuda.java HTTP/1.1" 404 1017

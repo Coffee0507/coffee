@@ -1,0 +1,32 @@
+package Ramuda;
+
+public class Ramuda {
+
+	public static void main(String[] args) {
+
+
+		class Local1(){
+			public void sayHello(){
+				System.out.println("hello");
+
+
+
+		Local1 local1 = new Local1();
+		local1.sayHello();
+
+
+
+
+
+
+
+		class Local2 implements Runnable {
+			public void run() {
+				System.out.println("hello");
+			}
+		}
+
+		Runnable runner = new Local2();
+		runner.run();
+	}
+}

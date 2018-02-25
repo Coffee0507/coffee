@@ -1,0 +1,13 @@
+package Practice;
+
+public class NoName {
+
+	public static void main(String[] args){
+		public void run(){
+			System.out.println("Hello world");
+		}
+	};
+
+	runner.run();
+
+}

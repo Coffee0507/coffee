@@ -1,0 +1,15 @@
+package Practice;
+
+import java.util.function.Predicate;
+
+public class RamudaFunction4 {
+
+	public static void main(String[] args){
+
+		Predicate<String> checker = (s) ->{
+			return s.equals("java");
+	};
+
+	boolean result = checker.test("java");
+
+}

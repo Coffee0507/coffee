@@ -1,0 +1,13 @@
+package Practice;
+
+public class Ramuda {
+
+
+	public static void main(String[] args){
+		Runnable runner = () ->{
+			System.out.println("helloworld");
+		};
+
+		runner.run();
+	}
+}

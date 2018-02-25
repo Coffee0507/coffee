@@ -1,0 +1,20 @@
+package Practice;
+
+import java.util.function.BiFunction;
+
+public class RamudaFunction2 {
+
+	public static void main(String[] args){
+
+		BiFunction<Integer, Integer, String> adder = (a, b) -> {
+			return b;
+		};
+
+		String result = adder.apply(1, 2);
+
+		System.out.println(result);
+	}
+
+}
+
+//adder.apply 必須

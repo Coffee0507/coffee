@@ -1,0 +1,93 @@
+package com.internousdev.craftdenki.action;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.craftdenki.dao.CartDAO;
+import com.internousdev.craftdenki.dto.CartDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class CartAction extends ActionSupport implements SessionAware{
+
+	private Map<String,Object> session;
+
+
+
+	private String isFlg;
+
+
+
+
+	public String execute()throws SQLException{
+		String result=ERROR;
+
+		if(isFlg!=null){
+			deleteFlg="1";
+		}
+
+		CartDAO cartDAO = new CartDAO();
+
+		//ログイン/未ログインでカートにInsertするIDを変更
+		if(session.containsKey("trueID")){
+			userId = session.get("trueID").toString();
+		}else{
+			userId = session.get("temp_user_id").toString();
+		}
+
+
+		//商品の追加
+		if(insertFlg != null){
+			cartDAO.insertCart(userId,product_id,product_count, Integer.parseInt(price));
+		}
+
+
+		System.out.println("INSERTFLG : " + insertFlg);
+		System.out.println("DELETEFLG : " + deleteFlg);
+
+		if(deleteFlg == null){
+
+			//カート情報取得
+			cartList = cartDAO.getCartInfo(userId);
+			session.put("cartList", cartList);
+
+			int size = cartList.size();
+			for(int i=0; i<size; i++){
+				finalPrice = finalPrice + cartList.get(i).getTotalPrice();
+			}
+
+
+		}else if(deleteFlg.equals("1")){
+
+			//商品の削除
+			for(String deleteId:delete){
+				int res = cartDAO.deleteCart(userId,Integer.parseInt(deleteId));
+
+				if(res > 0){
+					setMessage("カート情報を削除しました。");
+				}else if(res == 0){
+					setMessage("カート情報の削除に失敗しました。");
+				}
+			}
+		}
+
+		result = SUCCESS;
+		return result;
+	}
+
+
+
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+}

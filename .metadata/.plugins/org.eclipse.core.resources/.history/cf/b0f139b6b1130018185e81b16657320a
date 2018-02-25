@@ -1,0 +1,25 @@
+package Practice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Collection2 {
+
+	public static void main(String[] args){
+
+		int[] n = {1,2,3,4,5};
+
+		ArrayList<Integer> N = new ArrayList<>();
+
+		for(Integer N1 : n){
+			N.add(N1);
+		}
+		System.out.println(N + " " );
+
+		Collections.sort(N,(2,3) ->{
+			return a-b;
+		});
+
+	}
+
+}

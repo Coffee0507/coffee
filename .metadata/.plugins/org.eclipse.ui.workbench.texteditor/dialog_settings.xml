@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="execute" key="selection"/>
-		<item value="true" key="casesensitive"/>
+		<item value="Fa" key="selection"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="execute"/>
-			<item value="com.calculator.Sorce"/>
-			<item value="Calculator"/>
-			<item value="session.put"/>
-			<item value="session."/>
-			<item value="id"/>
-			<item value="BuyItemActionConfirm"/>
-			<item value="loginPass"/>
+			<item value="fa"/>
+			<item value="pur"/>
+			<item value="getProductInfo"/>
+			<item value="getFavoriteInfo"/>
+			<item value="insertFavorite"/>
+			<item value="getDeleteFlg"/>
+			<item value="deleteFavoriteInfo"/>
+			<item value="image_file_name"/>
 		</list>
 		<list key="replacehistory">
 			<item value="String"/>
@@ -23,10 +23,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="361" key="DIALOG_WIDTH"/>
-		<item value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI" key="DIALOG_FONT_NAME"/>
-		<item value="444" key="DIALOG_HEIGHT"/>
-		<item value="1180" key="DIALOG_X_ORIGIN"/>
-		<item value="150" key="DIALOG_Y_ORIGIN"/>
+		<item value="303" key="DIALOG_WIDTH"/>
+		<item value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI" key="DIALOG_FONT_NAME"/>
+		<item value="381" key="DIALOG_HEIGHT"/>
+		<item value="828" key="DIALOG_X_ORIGIN"/>
+		<item value="559" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -1,6 +1,0 @@
-package com.internousdev.validation;
-
-@GroupSequence({GroupOrder1.class,GroupOrder2.class})
-public interface GroupOrder {
-
-}

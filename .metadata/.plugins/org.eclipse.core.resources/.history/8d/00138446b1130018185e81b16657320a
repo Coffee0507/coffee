@@ -1,0 +1,23 @@
+package Practice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Collection2 {
+
+	public static void main(String[] args){
+
+		int[] n = {1,2,3,4,5};
+
+		ArrayList<Integer> N = new ArrayList<>();
+
+		Collections.sort(N,(a,b) ->{
+			return a=b;
+		});
+
+		for(Integer N1 : n){
+			System.out.println(N1 + " " );
+		}
+	}
+
+}

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-GitRepositoriesView.GitDirectories=C\:\\Users\\a33a0\\Desktop\\backup\\.git;C\:\\Users\\a33a0\\Desktop\\workspace\\.git;
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=47a6d5eb900bc7b519444197b7ed0fcefe15828a
+GitRepositoriesView.GitDirectories=C\:\\Users\\a33a0\\Desktop\\backup\\.git;C\:\\Users\\internousdev\\Desktop\\workspace\\workspace-y.takahash\\backup\\.git;C\:\\Users\\a33a0\\Desktop\\\u65B0\u3057\u3044\u30D5\u30A9\u30EB\u30C0\u30FC\\keipuro\\.git;C\:\\Users\\a33a0\\Desktop\\workspace\\.git;
 core_autoIgnoreDerivedResources=false
-=======
-GitRepositoriesView.GitDirectories=C\:\\Users\\a33a0\\Desktop\\backup\\.git;C\:\\Users\\internousdev\\Desktop\\workspace\\workspace-y.takahash\\backup\\.git;C\:\\Users\\a33a0\\Desktop\\workspace\\.git;
-<<<<<<< HEAD
-core_autoIgnoreDerivedResources=false
-=======
->>>>>>> e2e7459aba3cb0289d625ff9f65fe5ff3afd14a7
->>>>>>> 47a6d5eb900bc7b519444197b7ed0fcefe15828a
 eclipse.preferences.version=1

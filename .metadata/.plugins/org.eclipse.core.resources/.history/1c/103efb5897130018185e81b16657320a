@@ -1,0 +1,18 @@
+package Practice;
+
+import java.util.ArrayList;
+
+public class Collection {
+
+	public static void main(String[] args) {
+
+		String[] str = {"2","a","13","4b"};
+
+		ArrayList<String> str2 = new ArrayList<>();
+
+		for(String str2 : str){
+			str2.add(str);
+		}
+	}
+
+}

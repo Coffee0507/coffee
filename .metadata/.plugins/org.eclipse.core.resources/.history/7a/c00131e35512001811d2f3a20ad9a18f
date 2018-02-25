@@ -1,0 +1,16 @@
+package Practice;
+
+public class RamudaFanction {
+
+	public static void main(String[] args){
+
+	R apple(T){
+		Function(Integer,String> asterisker = (i) ->{
+			return "*"+ i;
+		};
+
+		String result - asterisker.apply(10);
+		System.out.println(result);
+
+	}
+}

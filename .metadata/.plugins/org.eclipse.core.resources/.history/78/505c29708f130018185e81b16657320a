@@ -1,0 +1,25 @@
+package Practice;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Collection {
+
+	public static void main(String[] args) {
+
+		int[] numbers = { -1, 2, 0, -3, 8 };
+
+		List<Integer> numbersList = new ArrayList<>();
+
+		for(int n : numbers){
+			numbersList.add(n);
+		}
+
+		Array.sort(numbersList,Comparator.naturalOrder());
+
+		System.out.println(Array.toString());
+	}
+
+}
