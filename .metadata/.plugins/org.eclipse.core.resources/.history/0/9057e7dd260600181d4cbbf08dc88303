@@ -1,0 +1,9 @@
+package com.internousdev.dto;
+
+public class SecondDTO {
+
+	public void setString(String string) {
+
+	}
+
+}

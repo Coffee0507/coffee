@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [[{"location":"C:\\Users\\a33a0\\Desktop\\pleiades\\eclipse\\jre","type":"JRE","hints":{}},"jre:jre:1.8.0"]]
+=======
+[[{"location":"C:\\pleiades\\eclipse\\jre","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"J2SE-1.5"}},"jre:jre:1.5.0"],[{"location":"C:\\Users\\internousdev\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework.boot\\spring-boot\\1.5.10.RELEASE\\594b3efa04829f62754a19f59f81ba204636167a\\spring-boot-1.5.10.RELEASE.jar","type":"JAR","hints":{}},"org.springframework.boot:spring-boot:1.5.10"],[{"location":"C:\\Users\\internousdev\\Desktop\\workspace\\workspace-y.takahash\\backup\\why","type":"PROJECT","hints":{"PROJECT_NAME":"why"}},"ABSENT"],[{"location":"C:\\Users\\internousdev\\.gradle\\caches\\modules-2\\files-2.1\\org.springframework\\spring-context\\4.3.14.RELEASE\\e50a712960926c30e537ef4a633f5d9dd5a8b155\\spring-context-4.3.14.RELEASE.jar","type":"JAR","hints":{}},"ABSENT"]]
+>>>>>>> f4dc2a0c0cf18ba2a8e872d2cc6706bf8c091a97

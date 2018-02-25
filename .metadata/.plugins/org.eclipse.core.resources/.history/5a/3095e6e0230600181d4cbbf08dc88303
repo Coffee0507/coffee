@@ -1,0 +1,15 @@
+package com.internousdev.dao;
+
+import org.springframework.ui.Model;
+
+import com.internousdev.dto.SecondDTO;
+
+public class SecondDAO {
+
+	private SecondDTO dto = new SecondDTO();
+
+	public SecondDTO info(Model id) {
+		return dto;
+	}
+
+}

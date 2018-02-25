@@ -1,0 +1,14 @@
+package com.internousdev.dao;
+
+import org.springframework.ui.Model;
+
+import com.internousdev.dto.SecondDTO;
+
+public class SecondDAO {
+
+	public SecondDTO info(Model id) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}

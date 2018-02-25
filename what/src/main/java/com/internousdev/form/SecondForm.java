@@ -2,13 +2,22 @@ package com.internousdev.form;
 
 public class SecondForm {
 
-	private String id;
+	private String loginId;
+	private String loginPass;
 
 	public String getLoginId() {
-		return id;
+		return loginId;
 	}
 
-	public void getId(String id){
-		this.id = id;
+	public void setLoginId(String loginId){
+		this.loginId = loginId;
+	}
+
+	public String getLoginPass() {
+		return loginPass;
+	}
+
+	public void setLoginPass(String loginPass){
+		this.loginPass = loginPass;
 	}
 }
