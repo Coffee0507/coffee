@@ -1,0 +1,6 @@
+package jp.ssie.helloworld.web;
+
+@controller
+public class LoginController {
+
+}

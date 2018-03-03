@@ -1,0 +1,135 @@
+package jp.ssie.helloworld.web;
+
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import jp.ssie.helloworld.model.User;
+import jp.ssie.helloworld.repository.UserRepository;
+import jp.ssie.helloworld.validation.GroupOrder;
+
+@Controller
+public class LoginController implements UserRepository{
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(Model model) {
+		return "index";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Model model, @Validated(GroupOrder.class) @ModelAttribute("loginForm") LoginForm loginForm,
+			BindingResult result) {
+		if (result.hasErrors()) {
+			return "index";
+		}
+
+		List<User> userList = findAll();
+		for (User user : userList) {
+			if (user.getName().equals(loginForm.getLoginName())) {
+				model.addAttribute("loginName", loginForm.getLoginName());
+				return "top";
+			}
+		}
+		return "index";
+	}
+
+	public List<User> findAll() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public List<User> findAll(Sort sort) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public List<User> findAll(Iterable<String> ids) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public <S extends User> List<S> save(Iterable<S> entities) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void flush() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public <S extends User> S saveAndFlush(S entity) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public void deleteInBatch(Iterable<User> entities) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void deleteAllInBatch() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public User getOne(String id) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public Page<User> findAll(Pageable pageable) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public <S extends User> S save(S entity) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public User findOne(String id) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	public boolean exists(String id) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+
+	public long count() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
+	}
+
+	public void delete(String id) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void delete(User entity) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void delete(Iterable<? extends User> entities) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void deleteAll() {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

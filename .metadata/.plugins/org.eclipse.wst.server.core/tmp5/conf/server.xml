@@ -124,11 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp4/conf/server.xml
-      <Context docBase="C:\Users\a33a0\Desktop\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp4\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\a33a0\Desktop\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp4\wtpwebapps\Ramuda" path="/Ramuda" reloadable="true" source="org.eclipse.jst.jee.server:Ramuda"/></Host>
-=======
-      <Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp5\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\internousdev\Desktop\workspace\workspace-y.takahash\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp5\wtpwebapps\what" path="/what" reloadable="true" source="org.eclipse.jst.jee.server:what"/></Host>
->>>>>>> f4dc2a0c0cf18ba2a8e872d2cc6706bf8c091a97:.metadata/.plugins/org.eclipse.wst.server.core/tmp5/conf/server.xml
+      <Context docBase="C:\Users\a33a0\Desktop\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp5\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\a33a0\Desktop\backup\.metadata\.plugins\org.eclipse.wst.server.core\tmp5\wtpwebapps\HelloWorld" path="/HelloWorld" reloadable="true" source="org.eclipse.jst.jee.server:HelloWorld"/></Host>
     </Engine>
   </Service>
 </Server>

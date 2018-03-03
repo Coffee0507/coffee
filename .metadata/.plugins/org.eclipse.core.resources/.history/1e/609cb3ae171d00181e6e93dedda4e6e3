@@ -1,0 +1,5 @@
+package jp.ssie.helloworld.web;
+
+public class LoginForm {
+
+}

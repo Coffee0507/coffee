@@ -1,0 +1,14 @@
+package jp.ssie.helloworld.web;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class LoginController {
+
+	@RequestMapping
+	public String login(Model model){
+		return top;
+	}
+
+
+}

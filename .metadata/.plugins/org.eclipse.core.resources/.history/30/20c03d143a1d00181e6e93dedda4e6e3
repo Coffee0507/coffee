@@ -1,0 +1,6 @@
+package jp.ssie.helloworld.validation;
+
+@GroupSequence({GroupOrder1.class,GroupOrder2.class})
+public class GroupOrder {
+
+}
