@@ -1,10 +1,5 @@
 package jp.ssie.helloworld.web;
 
-import java.util.List;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,7 +27,7 @@ public class LoginController implements UserRepository {
 			return "index";
 		}
 
-		List<User> userList = findAll();
+		userList = User.findAll;
 		for (User user : userList) {
 			if (user.getName().equals(loginForm.getLoginName())) {
 				model.addAttribute("loginName", loginForm.getLoginName());
@@ -42,94 +37,5 @@ public class LoginController implements UserRepository {
 		return "index";
 	}
 
-	public List<User> findAll() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public List<User> findAll(Sort sort) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public List<User> findAll(Iterable<String> ids) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public <S extends User> List<S> save(Iterable<S> entities) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public void flush() {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-	public <S extends User> S saveAndFlush(S entity) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public void deleteInBatch(Iterable<User> entities) {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-	public void deleteAllInBatch() {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-	public User getOne(String id) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public Page<User> findAll(Pageable pageable) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public <S extends User> S save(S entity) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public User findOne(String id) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
-
-	public boolean exists(String id) {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
-	}
-
-	public long count() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
-	}
-
-	public void delete(String id) {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-	public void delete(User entity) {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-	public void delete(Iterable<? extends User> entities) {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
-
-	public void deleteAll() {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
 
 }

@@ -19125,3 +19125,806 @@ java.lang.NullPointerException: null
 2018-03-03 13:06:55,906 [Worker-282] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2018-03-03 13:06:55,906 [Worker-282] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-03-03 13:06:55,906 [Worker-282] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 12:25:06,541 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:25:06,558 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 12:25:06,564 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:25:06,567 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 12:25:19,162 [Worker-505] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:25:19,164 [Worker-505] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 12:25:19,171 [Worker-505] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:25:19,177 [Worker-505] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 12:27:28,531 [Worker-513] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:27:28,531 [Worker-513] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 12:27:28,537 [Worker-513] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:27:28,541 [Worker-513] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 12:36:37,360 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:36:37,361 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 12:36:37,365 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:36:37,369 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 12:42:07,241 [Worker-507] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld1\pom.xml.
+2018-03-04 12:42:08,247 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:08,252 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:42:08,264 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:08,268 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld1\src\test\resources
+2018-03-04 12:42:09,094 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:09,100 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:42:09,112 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:09,118 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld1\src\test\resources
+2018-03-04 12:42:12,751 [Worker-523] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2018-03-04 12:42:13,201 [Worker-523] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld1\pom.xml.
+2018-03-04 12:42:15,229 [Worker-523] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HelloWorld1/src/main/java
+2018-03-04 12:42:15,233 [Worker-523] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /HelloWorld1/src/main/resources
+2018-03-04 12:42:15,237 [Worker-523] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HelloWorld1/src/test/java
+2018-03-04 12:42:16,256 [Worker-523] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld1
+2018-03-04 12:42:16,265 [Worker-523] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 3 sec
+2018-03-04 12:42:16,719 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:16,720 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:42:16,777 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:16,797 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld1\src\test\resources
+2018-03-04 12:42:16,821 [Worker-524] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld1
+2018-03-04 12:42:16,821 [Worker-524] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld1
+2018-03-04 12:42:16,837 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:18,070 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:18,072 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:42:18,072 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:18,073 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld1\src\test\resources
+2018-03-04 12:42:35,445 [Worker-507] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\a33a0\Desktop\backup\HelloWorld1
+2018-03-04 12:42:35,445 [Worker-507] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2018-03-04 12:42:42,112 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:42,118 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:42:42,118 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:42,122 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld1\src\test\resources
+2018-03-04 12:42:57,574 [Worker-523] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld2\pom.xml.
+2018-03-04 12:42:57,776 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:57,782 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:42:57,794 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:57,794 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 12:42:59,158 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:59,158 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:42:59,202 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:42:59,202 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 12:43:28,746 [Worker-522] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld3\pom.xml.
+2018-03-04 12:43:29,148 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:43:29,153 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:43:29,164 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:43:29,169 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 12:43:30,521 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:43:30,522 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:43:30,531 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:43:30,545 [Worker-507] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 12:43:55,639 [Worker-275] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld2\pom.xml.
+2018-03-04 12:43:55,883 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:43:55,887 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:43:55,892 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:43:55,892 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 12:43:55,896 [Worker-275] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld2
+2018-03-04 12:43:55,896 [Worker-275] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld2
+2018-03-04 12:43:55,909 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:45:39,900 [Worker-522] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld4\pom.xml.
+2018-03-04 12:45:40,216 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:45:40,217 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:45:40,229 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:45:40,229 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:45:41,684 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:45:41,685 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:45:41,702 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:45:41,709 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:46:31,972 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:46:31,972 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:46:31,983 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:46:31,990 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:46:58,767 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:46:58,768 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:46:58,777 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:46:58,783 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:47:13,588 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:47:13,589 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:47:13,606 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:47:13,617 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:48:12,336 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:48:12,337 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:48:12,343 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:48:12,347 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:48:38,468 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:48:38,469 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:48:38,477 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:48:38,481 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:48:50,543 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:48:50,543 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:48:50,548 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:48:50,551 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:49:10,389 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:49:10,390 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:49:10,394 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:49:10,398 [Worker-528] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:49:31,929 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:49:31,930 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:49:31,937 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:49:31,943 [Worker-525] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:50:03,873 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:50:03,873 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:50:03,892 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:50:03,901 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:51:22,769 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:51:22,770 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:51:22,781 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:51:22,788 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:51:27,863 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:51:27,863 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:51:27,868 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:51:27,871 [Worker-523] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:51:44,687 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:51:44,687 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:51:44,695 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:51:44,702 [Worker-526] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 12:52:21,421 [Worker-509] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld5\pom.xml.
+2018-03-04 12:52:21,986 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:52:21,989 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:52:21,998 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:52:22,001 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 12:52:23,497 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:52:23,513 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 12:52:23,529 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:52:23,534 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 12:53:01,454 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:53:01,457 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:53:01,461 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:53:01,466 [Worker-524] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 12:53:21,062 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:53:21,069 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 12:53:21,083 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 12:53:21,089 [Worker-275] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:13:05,925 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:13:05,926 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:13:05,940 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:13:05,948 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:13:45,608 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:13:45,614 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:13:45,621 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:13:45,625 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:14:06,137 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:14:06,142 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:14:06,148 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:14:06,151 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:14:19,792 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:14:19,797 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:14:19,801 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:14:19,805 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:14:51,155 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:14:51,162 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:14:51,170 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:14:51,176 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:15:27,418 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:15:27,421 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:15:27,426 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:15:27,429 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:15:30,905 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:15:30,909 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:15:30,913 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:15:30,916 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:15:49,365 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:15:49,374 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:15:49,381 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:15:49,385 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:16:07,232 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:16:07,239 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:16:07,244 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:16:07,249 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:16:22,285 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:16:22,291 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:16:22,299 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:16:22,304 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:16:48,114 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:16:48,118 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:16:48,124 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:16:48,129 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 13:17:44,863 [Worker-534] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld6\pom.xml.
+2018-03-04 13:17:45,325 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:17:45,332 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:17:45,340 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:17:45,340 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:17:46,847 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:17:46,855 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:17:46,884 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:17:46,885 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:18:57,997 [Worker-535] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld6\pom.xml.
+2018-03-04 13:18:58,365 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:18:58,370 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:18:58,375 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:18:58,379 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:18:58,379 [Worker-535] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld6
+2018-03-04 13:18:58,379 [Worker-535] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld6
+2018-03-04 13:18:58,390 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:18:59,906 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:18:59,906 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:18:59,927 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:18:59,927 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:19:32,847 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:19:32,848 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:19:32,864 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:19:32,872 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:19:42,897 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:19:42,897 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:19:42,898 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:19:42,898 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:19:55,405 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:19:55,411 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:19:55,417 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:19:55,417 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:20:05,354 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:05,355 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:20:05,355 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:05,355 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:20:14,989 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:14,993 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:20:14,998 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:14,998 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:20:21,926 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:21,927 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:20:21,927 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:21,927 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:20:27,507 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:27,512 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:20:27,517 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:20:27,517 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:21:28,045 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:21:28,046 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:21:28,046 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:21:28,046 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:21:36,625 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:21:36,628 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:21:36,632 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:21:36,632 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:21:58,554 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:21:58,554 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:21:58,555 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:21:58,555 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:22:13,636 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:22:13,641 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:22:13,647 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:22:13,647 [Worker-522] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:22:33,889 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:22:33,889 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:22:33,890 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:22:33,890 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 13:23:28,991 [Worker-536] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld7\pom.xml.
+2018-03-04 13:23:29,159 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:23:29,164 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:23:29,175 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:23:29,179 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 13:23:31,721 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:23:31,721 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:23:31,729 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:23:31,734 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 13:24:00,954 [Worker-537] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld7\pom.xml.
+2018-03-04 13:24:01,141 [Worker-537] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:01,146 [Worker-537] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:24:01,151 [Worker-537] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:01,152 [Worker-537] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 13:24:01,156 [Worker-537] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld7
+2018-03-04 13:24:01,156 [Worker-537] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld7
+2018-03-04 13:24:01,165 [Worker-537] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:13,464 [Worker-509] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld7\pom.xml.
+2018-03-04 13:24:14,884 [Worker-509] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar のダウンロード中
+2018-03-04 13:24:15,093 [Worker-536] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar のダウンロード中
+2018-03-04 13:24:16,492 [Worker-536] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar
+2018-03-04 13:24:16,676 [Worker-536] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar のダウンロード中
+2018-03-04 13:24:17,121 [Worker-536] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar
+2018-03-04 13:24:17,291 [Worker-536] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar のダウンロード中
+2018-03-04 13:24:17,695 [Worker-536] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar
+2018-03-04 13:24:18,166 [Worker-509] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar
+2018-03-04 13:24:18,353 [Worker-509] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar のダウンロード中
+2018-03-04 13:24:20,616 [Worker-509] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE.jar
+2018-03-04 13:24:20,808 [Worker-509] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar のダウンロード中
+2018-03-04 13:24:22,237 [Worker-509] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE.jar
+2018-03-04 13:24:22,623 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:22,627 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:24:22,630 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:22,630 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 13:24:22,633 [Worker-509] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld7
+2018-03-04 13:24:22,633 [Worker-509] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld7
+2018-03-04 13:24:22,638 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:24,166 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:24,168 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:24:24,181 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:24,186 [Worker-536] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 13:24:24,896 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE-sources.jar のダウンロード中
+2018-03-04 13:24:28,155 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE-sources.jar
+2018-03-04 13:24:28,245 [Worker-531] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-beans:4.2.5.RELEASE
+2018-03-04 13:24:28,458 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE-sources.jar のダウンロード中
+2018-03-04 13:24:30,136 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-core/4.2.5.RELEASE/spring-core-4.2.5.RELEASE-sources.jar
+2018-03-04 13:24:30,331 [Worker-531] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-core:4.2.5.RELEASE
+2018-03-04 13:24:30,507 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar のダウンロード中
+2018-03-04 13:24:30,850 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar
+2018-03-04 13:24:31,147 [Worker-531] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-logging:commons-logging:1.2
+2018-03-04 13:24:31,360 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE-sources.jar のダウンロード中
+2018-03-04 13:24:32,876 [Worker-531] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-context/4.0.9.RELEASE/spring-context-4.0.9.RELEASE-sources.jar
+2018-03-04 13:24:32,966 [Worker-531] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-context:4.0.9.RELEASE
+2018-03-04 13:24:33,202 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:33,207 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 13:24:33,208 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:24:33,212 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 13:26:31,101 [Worker-535] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld8\pom.xml.
+2018-03-04 13:26:31,436 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:26:31,436 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:26:31,450 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:26:31,456 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:26:33,729 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:26:33,730 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:26:33,749 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:26:33,752 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:27:12,967 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:27:12,967 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:27:12,973 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:27:12,980 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:27:41,755 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:27:41,755 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:27:41,759 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:27:41,763 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:28:20,248 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:28:20,249 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:28:20,253 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:28:20,257 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:28:52,796 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:28:52,798 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:28:52,808 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:28:52,813 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:29:13,458 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:29:13,459 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:29:13,462 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:29:13,466 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:29:49,951 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:29:49,951 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 13:29:49,956 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:29:49,960 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:30:35,872 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:30:35,873 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:30:35,880 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:30:35,885 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:30:42,749 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:30:42,750 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:30:42,755 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:30:42,759 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:31:12,460 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:12,460 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:31:12,473 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:12,479 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:31:26,827 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:26,827 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:31:26,833 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:26,837 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:31:32,981 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:32,982 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:31:32,989 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:32,994 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:31:42,987 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:42,988 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:31:42,996 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:43,001 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:31:53,779 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:53,779 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:31:53,786 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:53,791 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:31:58,368 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:58,368 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:31:58,382 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:31:58,418 [Worker-509] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:32:01,895 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:01,895 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:32:01,906 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:01,912 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:32:09,968 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:09,968 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:32:10,004 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:10,012 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:32:41,200 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:41,200 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:32:41,217 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:41,223 [Worker-535] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:32:49,483 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:49,484 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:32:49,509 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:32:49,520 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:33:06,578 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:33:06,579 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:33:06,684 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:33:06,692 [Worker-531] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:40:47,256 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:40:47,257 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 13:40:47,268 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:40:47,276 [Worker-540] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:42:51,592 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:42:51,593 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 13:42:51,599 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:42:51,602 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:43:10,985 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:43:10,986 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 13:43:10,990 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:43:10,993 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:44:01,727 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:44:01,728 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 13:44:01,733 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:44:01,738 [Worker-532] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:44:09,708 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:44:09,708 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 13:44:09,712 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:44:09,716 [Worker-538] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 13:45:55,130 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:45:55,131 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 13:45:55,137 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 13:45:55,140 [Worker-543] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 14:38:36,451 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 14:38:36,452 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 14:38:36,457 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 14:38:36,463 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 14:38:47,574 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 14:38:47,575 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 14:38:47,580 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 14:38:47,583 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 14:39:50,259 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 14:39:50,260 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 14:39:50,344 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 14:39:50,349 [Worker-558] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:35:02,559 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:35:02,559 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 15:35:02,574 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:35:02,586 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:35:15,613 [Worker-570] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:35:15,613 [Worker-570] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 15:35:15,720 [Worker-570] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:35:15,735 [Worker-570] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:39:11,785 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:11,785 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:39:11,790 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:11,793 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:39:28,265 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:28,265 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 15:39:28,270 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:28,274 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:39:40,899 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:40,900 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:39:41,082 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:41,089 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:39:48,172 [Worker-575] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:48,172 [Worker-575] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:39:48,178 [Worker-575] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:39:48,182 [Worker-575] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:40:21,713 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:40:21,715 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:40:21,793 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:40:21,862 [Worker-573] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:41:36,161 [Worker-576] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:41:36,162 [Worker-576] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:41:36,168 [Worker-576] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:41:36,175 [Worker-576] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:41:57,052 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:41:57,053 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:41:57,059 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:41:57,065 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:42:29,199 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:42:29,199 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:42:29,207 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:42:29,214 [Worker-569] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:42:39,054 [Worker-574] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:42:39,055 [Worker-574] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:42:39,104 [Worker-574] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:42:39,110 [Worker-574] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:57:08,759 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:08,760 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:57:08,901 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:08,908 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 15:57:25,203 [Worker-583] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:25,204 [Worker-583] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 15:57:25,215 [Worker-583] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:25,219 [Worker-583] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 15:57:39,581 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:39,582 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 15:57:39,698 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:39,710 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 15:57:51,659 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:51,660 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 15:57:51,674 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:57:51,686 [Worker-581] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 15:58:10,105 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:58:10,106 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 15:58:10,118 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:58:10,123 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 15:58:19,955 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:58:19,956 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 15:58:20,038 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:58:20,046 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 15:58:29,347 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:58:29,348 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 15:58:29,369 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:58:29,374 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 15:59:03,574 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:59:03,575 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 15:59:03,932 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 15:59:03,943 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:00:44,386 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:00:44,387 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:00:44,398 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:00:44,406 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 16:01:10,840 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:10,840 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:01:10,852 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:10,857 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 16:01:10,927 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:10,928 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:01:10,938 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:10,938 [Worker-588] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 16:01:25,739 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:25,740 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:01:25,748 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:25,748 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 16:01:25,811 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:25,812 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:01:25,821 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:25,821 [Worker-586] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 16:01:37,274 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:37,274 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:01:37,314 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:37,321 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 16:01:37,410 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:37,410 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:01:37,419 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:37,419 [Worker-585] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 16:01:49,313 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:49,313 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:01:49,363 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:49,363 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 16:01:49,462 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:49,462 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:01:49,474 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:01:49,474 [Worker-584] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 16:02:02,948 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:02,949 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:02:02,961 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:02,966 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 16:02:03,036 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:03,037 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:02:03,041 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:03,041 [Worker-582] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 16:02:16,181 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:16,181 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:02:16,207 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:16,207 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:02:16,299 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:16,299 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:02:16,305 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:02:16,305 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 16:08:41,254 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:08:41,254 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:08:41,263 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:08:41,266 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:08:52,505 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:08:52,506 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:08:52,513 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:08:52,518 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 16:09:01,704 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:01,704 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:09:01,710 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:01,714 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 16:09:09,239 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:09,240 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:09:09,245 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:09,250 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 16:09:15,152 [Worker-594] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:15,153 [Worker-594] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:09:15,159 [Worker-594] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:15,165 [Worker-594] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 16:09:21,285 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:21,286 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:09:21,295 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:21,303 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 16:09:28,203 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:28,203 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:09:28,212 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:28,218 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 16:09:34,663 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:34,664 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-04 16:09:34,671 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:09:34,675 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 16:10:38,636 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld2
+2018-03-04 16:10:38,683 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld3
+2018-03-04 16:10:38,740 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld4
+2018-03-04 16:10:38,795 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld5
+2018-03-04 16:10:38,866 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld6
+2018-03-04 16:10:38,965 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld7
+2018-03-04 16:10:39,061 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld8
+2018-03-04 16:10:41,115 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:41,116 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:10:41,125 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:41,128 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 16:10:41,132 [Worker-595] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld2
+2018-03-04 16:10:41,136 [Worker-595] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld2
+2018-03-04 16:10:41,139 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:41,681 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:41,682 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:10:41,692 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:41,692 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 16:10:41,692 [Worker-595] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld3
+2018-03-04 16:10:41,692 [Worker-595] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld3
+2018-03-04 16:10:41,695 [Worker-595] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:42,311 [Worker-590] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:42,317 [Worker-590] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:10:42,323 [Worker-590] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:42,329 [Worker-590] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 16:10:42,329 [Worker-590] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld4
+2018-03-04 16:10:42,382 [Worker-590] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld4
+2018-03-04 16:10:42,390 [Worker-590] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:43,003 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:43,003 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:10:43,018 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:43,019 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 16:10:43,019 [Worker-591] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld5
+2018-03-04 16:10:43,019 [Worker-591] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld5
+2018-03-04 16:10:43,022 [Worker-591] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:43,481 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:43,482 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:10:43,504 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:43,510 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 16:10:43,510 [Worker-565] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld6
+2018-03-04 16:10:43,510 [Worker-565] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld6
+2018-03-04 16:10:43,516 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:44,156 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:44,156 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:10:44,165 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:44,165 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 16:10:44,174 [Worker-589] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld7
+2018-03-04 16:10:44,174 [Worker-589] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld7
+2018-03-04 16:10:44,178 [Worker-589] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:45,677 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:45,678 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:10:45,715 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:10:45,715 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:10:45,716 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld8
+2018-03-04 16:10:45,824 [Worker-587] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld8
+2018-03-04 16:10:45,833 [Worker-587] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:14:09,207 [Worker-593] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2018-03-04 16:14:11,467 [Worker-593] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld8\pom.xml.
+2018-03-04 16:14:11,675 [Worker-593] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HelloWorld8/src/main/java
+2018-03-04 16:14:11,679 [Worker-593] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /HelloWorld8/src/main/resources
+2018-03-04 16:14:11,683 [Worker-593] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /HelloWorld8/src/test/java
+2018-03-04 16:14:11,999 [Worker-593] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld8
+2018-03-04 16:14:12,009 [Worker-593] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 2 sec
+2018-03-04 16:14:13,219 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:14:13,227 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:14:13,251 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:14:13,256 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:14:13,256 [Worker-565] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld8
+2018-03-04 16:14:13,256 [Worker-565] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld8
+2018-03-04 16:14:13,260 [Worker-565] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:14:15,908 [Worker-598] INFO  o.e.m.i.launch.MavenLaunchDelegate - C:\Users\a33a0\Desktop\backup\HelloWorld8
+2018-03-04 16:14:15,908 [Worker-598] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2018-03-04 16:14:23,848 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:14:23,850 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:14:23,851 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:14:23,851 [Worker-592] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:15:17,310 [Worker-598] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:15:17,310 [Worker-598] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:15:17,315 [Worker-598] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:15:17,315 [Worker-598] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:27:08,653 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:27:08,654 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:27:09,176 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:27:09,183 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:27:20,047 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:27:20,047 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:27:20,063 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:27:20,069 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:27:36,795 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:27:36,795 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:27:36,803 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:27:36,807 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:28:21,333 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:28:21,333 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:28:21,358 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:28:21,365 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:29:46,697 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:29:46,698 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:29:46,846 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:29:46,851 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:30:00,881 [Worker-604] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:30:00,881 [Worker-604] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:30:00,912 [Worker-604] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:30:00,917 [Worker-604] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:30:26,757 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:30:26,758 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:30:26,998 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:30:27,004 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:31:02,572 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:31:02,573 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:31:02,818 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:31:02,823 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:31:27,734 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:31:27,734 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:31:27,740 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:31:27,745 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:31:33,727 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:31:33,728 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-04 16:31:33,738 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:31:33,745 [Worker-600] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:32:34,893 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld2
+2018-03-04 16:32:34,943 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld3
+2018-03-04 16:32:35,002 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld4
+2018-03-04 16:32:35,057 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld5
+2018-03-04 16:32:35,129 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld6
+2018-03-04 16:32:35,218 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld7
+2018-03-04 16:32:35,305 [Worker-604] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld8
+2018-03-04 16:32:37,550 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:37,550 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:32:37,560 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:37,564 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld2\src\test\resources
+2018-03-04 16:32:37,569 [Worker-606] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld2
+2018-03-04 16:32:37,574 [Worker-606] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld2
+2018-03-04 16:32:37,578 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:38,359 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:38,359 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:32:38,365 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:38,365 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld3\src\test\resources
+2018-03-04 16:32:38,365 [Worker-602] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld3
+2018-03-04 16:32:38,365 [Worker-602] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld3
+2018-03-04 16:32:38,374 [Worker-602] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:39,020 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:39,025 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:32:39,038 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:39,044 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld4\src\test\resources
+2018-03-04 16:32:39,044 [Worker-607] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld4
+2018-03-04 16:32:39,050 [Worker-607] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld4
+2018-03-04 16:32:39,053 [Worker-607] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:39,749 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:39,750 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:32:39,764 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:39,764 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld5\src\test\resources
+2018-03-04 16:32:39,764 [Worker-605] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld5
+2018-03-04 16:32:39,764 [Worker-605] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld5
+2018-03-04 16:32:39,767 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:40,363 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:40,363 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:32:40,373 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:40,380 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld6\src\test\resources
+2018-03-04 16:32:40,380 [Worker-606] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld6
+2018-03-04 16:32:40,380 [Worker-606] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld6
+2018-03-04 16:32:40,383 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:41,089 [Worker-608] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:41,090 [Worker-608] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:32:41,100 [Worker-608] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:41,100 [Worker-608] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld7\src\test\resources
+2018-03-04 16:32:41,114 [Worker-608] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld7
+2018-03-04 16:32:41,114 [Worker-608] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld7
+2018-03-04 16:32:41,117 [Worker-608] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:42,422 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:42,423 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:32:42,430 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:32:42,431 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:32:42,431 [Worker-593] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld8
+2018-03-04 16:32:42,435 [Worker-593] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld8
+2018-03-04 16:32:42,438 [Worker-593] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:34:49,953 [Worker-603] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld\pom.xml.
+2018-03-04 16:34:50,760 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:34:50,766 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:34:50,780 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:34:50,783 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 16:34:50,989 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:34:50,995 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:34:51,002 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:34:51,002 [Worker-606] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld\src\test\resources
+2018-03-04 16:35:08,642 [Worker-605] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld8\pom.xml.
+2018-03-04 16:35:09,019 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:09,025 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:35:09,040 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:09,040 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:35:13,794 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:13,795 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-04 16:35:13,833 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:13,834 [Worker-601] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:35:33,465 [Worker-605] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.springframework.samples.service.service:HelloWorld1:0.0.1-SNAPSHOT @ C:\Users\a33a0\Desktop\backup\HelloWorld8\pom.xml.
+2018-03-04 16:35:33,742 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:33,745 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:35:33,754 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:33,759 [Worker-605] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
+2018-03-04 16:35:36,593 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:36,594 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2018-03-04 16:35:36,600 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-04 16:35:36,605 [Worker-603] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\backup\HelloWorld8\src\test\resources
