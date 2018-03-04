@@ -1,0 +1,5 @@
+package jp.ssie.helloworld.java;
+
+public class LoginController {
+
+}

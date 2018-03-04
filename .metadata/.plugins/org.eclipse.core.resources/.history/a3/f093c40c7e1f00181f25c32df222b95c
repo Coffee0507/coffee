@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HelloWorld8
+Bundle-SymbolicName: HelloWorld8
+Bundle-Version: 1.0.0.qualifier
+Export-Package: jp.ssie.helloworld.form,
+ jp.ssie.helloworld.model,
+ jp.ssie.helloworld.repository,
+ jp.ssie.helloworld.validation,
+ jp.ssie.helloworld.web
