@@ -18,6 +18,7 @@ import jp.ssie.helloworld.validation.GroupOrder;
 
 @Controller
 public class LoginController {
+
 	@Autowired
 	private UserRepository userRep;
 
@@ -30,15 +31,10 @@ public class LoginController {
 	public String login(Model model, @Validated(GroupOrder.class) @ModelAttribute("loginForm") LoginForm loginForm,
 			BindingResult result) {
 
-		if (result.hasErrors()) {
-			return "index";
-		}
-
 		List<User> userList = userRep.findById(loginForm.getUserId());
 
 		if (userList.size() > 0) {
 			model.addAttribute("userName", userList.get(0).getName());
-
 			return "top";
 		} else {
 			return "index";

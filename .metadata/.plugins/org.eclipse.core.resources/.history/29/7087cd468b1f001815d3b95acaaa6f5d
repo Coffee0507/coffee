@@ -1,6 +1,0 @@
-package jp.ssie.helloworld.repository;
-
-@Repository
-public interface UserRepository {
-
-}

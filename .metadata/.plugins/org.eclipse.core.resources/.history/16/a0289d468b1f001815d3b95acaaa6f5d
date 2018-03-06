@@ -1,5 +1,0 @@
-package jp.ssie.helloworld.repository;
-
-public interface UserRepository {
-
-}

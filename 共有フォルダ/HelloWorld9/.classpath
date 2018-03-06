@@ -28,5 +28,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/a33a0/Desktop/pleiades/tomcat/8/lib/servlet-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/abc"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

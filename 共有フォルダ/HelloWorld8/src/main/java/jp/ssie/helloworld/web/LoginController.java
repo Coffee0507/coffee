@@ -21,6 +21,11 @@ public class LoginController {
 	@Autowired
 	private UserRepository userRep;
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(Model model) {
+		return "index";
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Model model, @Validated(GroupOrder.class) @ModelAttribute("loginForm") LoginForm loginForm,
 			BindingResult result) {
