@@ -13,11 +13,10 @@ import jp.ssie.helloworld.validation.GroupOrder3;
 public class LoginForm {
 
 	@NotNull(groups = { GroupOrder1.class }, message = "ユーザーIDを入力してください。")
-	@Pattern(regexp = "[^-+0-9]*", groups = { GroupOrder2.class }, message = "IDは数字である必要があります。")
 	private int userId;
 
 	@NotEmpty(groups = { GroupOrder1.class }, message = "パスワードを入力してください。")
-	@Size(min = 8, max = 16, groups = { GroupOrder3.class }, message = "パスワードは{min}文字以上{max}文字以下です。")
+	@Size(min = 4, max = 8, groups = { GroupOrder3.class }, message = "パスワードは{min}文字以上{max}文字以下です。")
 	@Pattern(regexp = "[a-zA-Z0-9]*", groups = { GroupOrder2.class }, message = "パスワードは英数である必要があります。")
 	private String loginPassword;
 

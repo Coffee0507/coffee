@@ -10,5 +10,4 @@ import jp.ssie.helloworld.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 	public List<User> findById(int id);
-
 }
