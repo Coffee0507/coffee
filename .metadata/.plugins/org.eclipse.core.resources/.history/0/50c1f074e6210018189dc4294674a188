@@ -1,0 +1,18 @@
+package DTO;
+
+public class LoginDTO {
+
+	private String id;
+	private String pass;
+
+	public void setId(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+	public void setPass(String string) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

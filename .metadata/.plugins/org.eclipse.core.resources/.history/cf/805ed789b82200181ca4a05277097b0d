@@ -1,0 +1,16 @@
+/**
+ *
+ */
+export const doIt = () => {
+  return (dispatch) => {
+    dispatch(showLoading());
+    return dispatch(doHttpAction())
+    .then((res) => {
+      dispatch(hideLoading());
+      dispatch(refreshDisplay(res.data));
+    })
+    .catch(() => {
+      dispatch(hideLoading());
+    });
+  };
+};

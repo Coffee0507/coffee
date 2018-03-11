@@ -20351,3 +20351,38 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: TEXT must b
 2018-03-06 23:46:16,263 [Worker-156] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2018-03-06 23:46:16,268 [Worker-156] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-03-06 23:46:16,272 [Worker-156] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld9\src\test\resources
+2018-03-07 16:05:58,688 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 16:05:58,693 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-07 16:05:58,698 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 16:05:58,698 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld8\src\test\resources
+2018-03-07 16:06:00,058 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 16:06:00,059 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-07 16:06:00,062 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 16:06:00,062 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld9\src\test\resources
+2018-03-07 16:13:46,760 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.
+2018-03-07 18:45:52,242 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 18:45:52,249 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-07 18:45:52,255 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 18:45:52,256 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld8\src\test\resources
+2018-03-07 18:45:53,509 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 18:45:53,510 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-07 18:45:53,512 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-07 18:45:53,513 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld9\src\test\resources
+2018-03-07 18:46:08,427 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2018-03-08 11:06:27,943 [Worker-63] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld8
+2018-03-08 11:06:27,981 [Worker-63] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for HelloWorld9
+2018-03-08 11:06:33,562 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-08 11:06:33,566 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-08 11:06:33,582 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-08 11:06:33,582 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld8\src\test\resources
+2018-03-08 11:06:33,582 [Worker-67] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld8
+2018-03-08 11:06:33,603 [Worker-67] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld8
+2018-03-08 11:06:37,741 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-08 11:06:39,495 [Worker-64] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-08 11:06:39,495 [Worker-64] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-03-08 11:06:39,685 [Worker-64] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-08 11:06:39,691 [Worker-64] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\共有フォルダ\HelloWorld9\src\test\resources
+2018-03-08 11:06:39,697 [Worker-64] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of HelloWorld9
+2018-03-08 11:06:39,697 [Worker-64] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for HelloWorld9
+2018-03-08 11:06:39,709 [Worker-64] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-10 20:50:49,353 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.

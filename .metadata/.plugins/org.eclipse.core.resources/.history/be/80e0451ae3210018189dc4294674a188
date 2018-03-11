@@ -1,0 +1,14 @@
+package DAO;
+
+import DTO.LoginDTO;
+
+public class LoginDAO {
+
+	public LoginDTO select(String id, String pass) {
+
+		String sql = "select*from login where id=? and pass=?";
+
+		return null;
+	}
+
+}

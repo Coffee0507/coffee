@@ -1,0 +1,33 @@
+package DAO;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import DTO.LoginDTO;
+import util.DBConnector;
+
+public class LoginDAO {
+
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+
+	public LoginDTO select(String id, String pass) throws SQLException {
+
+		String sql = "select*from login where id=? and pass=?";
+
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		try{
+
+
+
+		}catch(SQLExceotion e){
+
+		}
+
+
+		return null;
+	}
+
+}

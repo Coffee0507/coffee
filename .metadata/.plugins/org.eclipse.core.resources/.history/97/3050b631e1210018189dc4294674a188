@@ -1,0 +1,11 @@
+package Action;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+public class LoginAction extends ActionSupport implements SessionAware {
+
+	public String execute(){
+
+	}
+
+}

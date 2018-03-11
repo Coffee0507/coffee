@@ -1,0 +1,2 @@
+console.log(1);
+setTimeout(fanction(){console.log(2)},1000)

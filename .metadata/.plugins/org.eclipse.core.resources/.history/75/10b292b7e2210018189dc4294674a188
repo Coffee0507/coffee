@@ -1,0 +1,28 @@
+package util;
+
+import java.sql.DriverManager;
+
+import com.mysql.jdbc.Connection;
+
+public class DBConnector {
+
+	private String driverName = "com.mysql.jdbc.Driver";
+	private String url = "jdbc:mysql://localhost/login";
+	private String user = "root";
+	private String password = "mysql";
+	private Connection con;
+
+	public Connection getConnection() throws ClassNotFoundException{
+
+	Class.forName(driverName);
+
+	con = (Connection)DriverManager.getConnection(url,user,password);
+
+
+
+
+
+
+		return con;
+	}
+}
