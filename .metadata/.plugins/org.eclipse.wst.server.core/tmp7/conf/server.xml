@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\template" path="/template" reloadable="true" source="org.eclipse.jst.jee.server:template"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\4each" path="/4each" reloadable="true" source="org.eclipse.jst.jee.server:4each"/></Host>
+      <Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\template" path="/template" reloadable="true" source="org.eclipse.jst.jee.server:template"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\4each" path="/4each" reloadable="true" source="org.eclipse.jst.jee.server:4each"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\Portal" path="/Portal" reloadable="true" source="org.eclipse.jst.jee.server:Portal"/></Host>
     </Engine>
   </Service>
 </Server>
