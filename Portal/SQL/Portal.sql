@@ -13,7 +13,7 @@ drop table if exists favorite_info;
 drop table if exists follow_info;
 drop table if exists notice_info;
 
---会員情報を格納するテーブル
+
 create table user_info(
 id int not null primary key auto_increment,
 user_id varchar(16),
@@ -25,7 +25,7 @@ draft varchar(150),
 followers_count int
 );
 
---投稿を格納するテーブル
+
 create table post_info(
 id int,
 user_id int,
@@ -35,7 +35,7 @@ post_taime date,
 favorite_count int
 );
 
---お気に入りした投稿を格納するテーブル
+
 create table favorite_info(
 id int,
 user_id varchar(16),
@@ -43,7 +43,7 @@ favorite_post_id int,
 input_time date
 );
 
---フォロー情報を格納するテーブル
+
 create table follow_info(
 id int,
 send int,
@@ -51,7 +51,7 @@ receive int,
 follow_time date
 );
 
---通史情報を格納するテーブル
+
 create table notice_info(
 id int,
 user_id int,
