@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+
+/* ページタイトル */
+/* p16590004.css にまとめた
+h3.user_edit_title {
+  color:black;
+  font-size:20px;
+  font-weight:normal;
+  font-family:sans-serif;
+}
+*/
+
+/* IE パスワードボックスの目ボタンを非表示にする */
+/* Added by dai */
+input::-ms-reveal {
+  visibility:hidden;*/
+/*  display: none; */
+}
+
+/*レイアウト調整に使用しているテーブルの設定*/
+table.user_edit_out_table{
+  width: autopx;
+}
+
+/* tableの設定 */
+table.user_edit_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding:20px; /*セル内の余白*/
+  /*text-align:center; 配置 右寄せ、中央寄せ等を行う*/
+  width: 430px;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+/* th要素の設定 */
+table.user_edit_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 10px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+
+  color:black; /*文字色*/
+  font-size:16px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width:150px;
+}
+
+/* td要素の設定 */
+table.user_edit_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 10px;
+  text-align:left; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size:16px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 240px;
+}
+
+/*テキストボックスの横幅*/
+table.user_edit_table input{
+  width: 198px;
+}
+
+/*ラジオボタン部*/
+input.radio_button {
+  width:20px !important;
+}
+
+/*氏名の姓、名のinputに対して使用*/
+input.name {
+  width: 150px !important;
+}
+
+/*不要のため削除する*/
+td.radiotest{
+display: -webkit-box;/* Safari,Google Chrome用 */
+display: -moz-box;/* Firefox用 */
+text-align:center;
+}
+
+/*編集時の氏名のinputに対して使用（readonly）*/
+input.edit_readonly {
+  border:none;
+}
+
+/*ページ下部のボタンの位置 ※レイアウト調整に使用しているテーブルに対して*/
+div.user_edit_button {
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*エラーメッセージ*/
+/* p16590004.css にまとめた
+p.error_message {
+  color:red;
+  font-size:16px;
+  font-weight:normal;
+  font-family:sans-serif;
+}
+*/

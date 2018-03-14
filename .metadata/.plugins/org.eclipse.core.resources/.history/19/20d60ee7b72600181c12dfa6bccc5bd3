@@ -1,0 +1,91 @@
+package jp.co.lsij.p16590004.common;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+/**
+ * Application Lifecycle Listener implementation class ListenerAppStart
+ *
+ */
+/**
+ * webアプリ起動時の処理をまとめたリスナー
+ *
+ * @author m-kakuwa
+ *
+ */
+@WebListener
+public class ListenerAppStart implements ServletContextListener {
+
+  /** web.xmlに定義されたパラメータ名一覧 */
+  /** ページ表示上限件数 */
+  private static final String CONTEXT_PARAM_PAGE_LIMIT = "pageLimit";
+  /** SMTPサーバ */
+  private static final String CONTEXT_PARAM_MAIL_SERVER = "mailServer";
+  /** SMTPポート番号 */
+  private static final String CONTEXT_PARAM_MAIL_PORT = "mailPort";
+  /** 送信元メールアドレス */
+  private static final String CONTEXT_PARAM_MAIL_ADDRESS = "mailAddress";
+  /** 工数単価デフォルト値 */
+  // 追加：インターノウス
+  // ここから
+  private static final String CONTEXT_PARAM_DEFAULT_UNIT_PRICE = "defaultUnitPrice";
+  // ここまで
+
+  /**
+   * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+   */
+  public void contextDestroyed(ServletContextEvent sce) {
+
+  }
+
+  /**
+   * @see ServletContextListener#contextInitialized(ServletContextEvent)
+   */
+  public void contextInitialized(ServletContextEvent sce) {
+    // アプリケーションスコープ取得
+    ServletContext context = sce.getServletContext();
+
+    // データソースからDB情報取得
+    DBDataSource pgOperator = new DBDataSource(Constants.POSTGRES_OPERATOR);// pg_operatorのデータソース
+    DBDataSource pgMaintainer = new DBDataSource(Constants.POSTGRES_MAINTAINER);// pg_maintainerのデータソース
+    // 追加：インターノウス
+    // 工数単価のデフォルト値を読み込む P番の新規追加の場合ここの5000値を追加してJSP側で呼び出す。
+    // ここから
+    DBDataSource pgWorkingTime = new DBDataSource(Constants.POSTGRES_WORKING_TIME);
+    // ここまで
+    // アプリケーションスコープに保存
+    context.setAttribute(ScopeNameConstants.SCOPE_PG_OPERATOR, pgOperator);
+    context.setAttribute(ScopeNameConstants.SCOPE_PG_MAINTAINER, pgMaintainer);
+    // 追加：インターノウス
+    context.setAttribute(ScopeNameConstants.SCOPE_PG_WORKING_TIME, pgWorkingTime);
+
+    // ページ分けの表示上限件数をアプリケーションスコープに保存
+    long pageLimit = Long.parseLong(context.getInitParameter(CONTEXT_PARAM_PAGE_LIMIT));
+    context.setAttribute(ScopeNameConstants.SCOPE_PAGE_LIMIT, pageLimit);
+
+    // 追加：インターノウス
+    // ここから String -> intに変更
+    int defaultUnitPrice = Integer.parseInt(context.getInitParameter(CONTEXT_PARAM_DEFAULT_UNIT_PRICE));
+    // ここまで
+    // アプリケーションスコープに保存
+    context.setAttribute(ScopeNameConstants.SCOPE_DEFAULT_UNIT_PRICE, defaultUnitPrice);
+
+    // メールに関する情報をアプリケーションスコープに保存
+    // 送信元メールアドレス
+    String mailAddress = context.getInitParameter(CONTEXT_PARAM_MAIL_ADDRESS);
+    // SMTPサーバ
+    String mailServer = context.getInitParameter(CONTEXT_PARAM_MAIL_SERVER);
+    // SMTPポート番号
+    int mailPort = Integer.parseInt(context.getInitParameter(CONTEXT_PARAM_MAIL_PORT));
+    // サーバとポート番号の情報をbeansにセットする
+    ServiceSetting servicesetting = new ServiceSetting(mailServer, mailPort);
+    // アプリケーションスコープに保存
+    context.setAttribute(ScopeNameConstants.SCOPE_MAIL_ADDRESS, mailAddress);
+    context.setAttribute(ScopeNameConstants.SCOPE_SMTP_INFO, servicesetting);
+
+  }
+
+
+}

@@ -1,0 +1,296 @@
+package jp.co.lsij.p16590004.e_200.model;
+
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.PurchaseConstants;
+import jp.co.lsij.p16590004.common.SystemOptionConstants;
+import jp.co.lsij.p16590004.e_77.model.BeanBuilderType;
+import jp.co.lsij.p16590004.e_77.model.IData;
+import jp.co.lsij.p16590004.e_77.model.master.LogFacade;
+import jp.co.lsij.p16590004.e_77.model.master.beans.CategoryBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.CustomerBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.LogBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.SalesStaffBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.SalesStatusBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserGroupBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.ProjNumBean;
+import jp.co.lsij.p16590004.e_77.model.sales.beans.SalesBean;
+
+/**
+ * ログを追加する処理を行うクラス
+ *
+ * @author m-kakuwa
+ *
+ */
+public class LogAction {
+
+  /** 定数定義：メニュー名=実行場所 */
+  /** P番一覧 */
+  private static final String P_ID = "P番一覧";
+  /** 売りwin一覧 */
+  private static final String UW_LIST = "売りwin案件一覧";
+  /** 分類設定 */
+  private static final String OPTION_CATEGORY = "分類設定";
+  /** ステータス設定 */
+  private static final String OPTION_STATUS = "ステータス設定";
+  /** 顧客登録 */
+  private static final String OPTION_CUSTOMER = "顧客登録";
+  /** 営業担当目標設定 */
+  private static final String OPTION_SALES_STAFF = "営業担当目標設定";
+  /** ユーザー一覧 */
+  private static final String USER_LIST = "ユーザー一覧";
+  // 追加：インターノウス
+  /** ユーザーグループ設定一覧 */
+  private static final String USER_GROUP_LIST = "ユーザーグループ設定一覧";
+  /** パスワード設定 */
+  private static final String OPTION_PASS = "パスワード設定";
+  // ---追加：インターノウス---
+  private static final String PURCHASE_IMPORT = "仕入れ";
+
+
+  /**
+   * ログを追加するメソッド
+   *
+   * @param dbDataSource データソース
+   * @param iData ログ使用する情報の入ったbeans
+   * @param beanBuilderType BeanBuilderの種別
+   * @param formType 行われた処理の種別(追加、変更、削除)
+   * @param user ログインユーザー名
+   * @param action actionパラメータ
+   * @param isError 処理が正常に行われたかの識別
+   */
+  public static void addLog(DBDataSource dbDataSource, IData iData, BeanBuilderType beanBuilderType,
+      CodeEnum.Form formType, String user, String action, boolean isError) {
+
+    if (iData == null) {
+      throw new IllegalArgumentException("システムエラー：LogAction.addLog");
+    }
+
+    // LogFacadeインスタンスを生成
+    LogFacade logFacade = new LogFacade();
+    // LogBeanインスタンスを生成
+    LogBean logBean = new LogBean();
+
+    // 実行者の情報をセット
+    logBean.setExecUserName(user);
+
+    // 実行場所の情報をlogBeanにセットする
+    getExecPlace(logBean, beanBuilderType, action);
+
+    // 実行内容の詳細情報を取得
+    String execContentDetail = "";
+    execContentDetail = getExecContentDetail(iData, beanBuilderType, execContentDetail, action,
+        formType, dbDataSource);
+
+    // formTypeごとにlogBeanにDBに追加する実行内容の情報をセット
+    getExecContent(formType, logBean, execContentDetail, isError);
+
+    // ログ追加処理実行
+    logFacade.add(logBean, dbDataSource);
+  }
+
+  /**
+   * 実行内容の情報をlogBeanにセットするメソッド
+   *
+   * @param formType
+   * @param logBean
+   * @param execContentDetail
+   * @param isError
+   */
+  private static void getExecContent(CodeEnum.Form formType, LogBean logBean,
+      String execContentDetail, boolean isError) {
+
+    if (formType == CodeEnum.Form.add) {// 追加処理の場合
+      if (!isError) {
+        logBean.setExecContent(execContentDetail + "を追加");
+      } else {
+        logBean.setExecContent(execContentDetail + "の追加失敗");
+      }
+
+    } else if (formType == CodeEnum.Form.edit) {// 変更処理の場合
+      if (!isError) {
+        logBean.setExecContent(execContentDetail + "を編集");
+      } else {
+        logBean.setExecContent(execContentDetail + "の編集失敗");
+      }
+
+    } else if (formType == CodeEnum.Form.delete) {// 削除処理の場合
+      if (!isError) {
+        logBean.setExecContent(execContentDetail + "を削除");
+      } else {
+        logBean.setExecContent(execContentDetail + "の削除失敗");
+      }
+
+    } else if (formType == CodeEnum.Form.copy) {// コピー処理の場合(売りwinのみ)
+      if (!isError) {
+        logBean.setExecContent(execContentDetail + "をコピー");
+      } else {
+        logBean.setExecContent(execContentDetail + "のコピー失敗");
+      }
+    }
+  }
+
+  /**
+   * 実行場所の情報をlogBeanにセットするメソッド
+   *
+   * @param logBean
+   * @param beanBuilderType
+   * @param action
+   */
+  private static void getExecPlace(LogBean logBean, BeanBuilderType beanBuilderType,
+      String action) {
+
+    // 実行場所の情報をセット
+    switch (beanBuilderType) {
+      case CATEGORY_BEAN_BUILDER:// 分類設定の場合
+        logBean.setExecPlace(OPTION_CATEGORY);
+        break;
+
+      case SALES_STATUS_BEAN_BUILDER:// ステータス設定の場合
+        logBean.setExecPlace(OPTION_STATUS);
+        break;
+
+      case CUSTOMER_BEAN_BUILDER:// 顧客登録の場合
+        logBean.setExecPlace(OPTION_CUSTOMER);
+        break;
+
+      case USER_BEAN_BUILDER:
+        if (action.equals(SystemOptionConstants.ACTION_PASS_CHANGE)) {// パスワード設定の場合
+          logBean.setExecPlace(OPTION_PASS);
+        } else {// ユーザー一覧の場合
+          logBean.setExecPlace(USER_LIST);
+        }
+        break;
+
+        // 追加：インターノウス
+        // ここから
+      case USER_GROUP_BEAN_BUILDER:
+        logBean.setExecPlace(USER_GROUP_LIST);
+        break;
+        // ここまで
+
+      case SALES_STAFF_BEAN_BUILDER:// 営業担当目標設定の場合
+        logBean.setExecPlace(OPTION_SALES_STAFF);
+        break;
+
+      // ---修正：インターノウスここから---
+      case P_NUM_BEAN_BUILDER:// P番関連の場合
+        if (action.equals(PurchaseConstants.ACTION_PURCHASE_IMPORT_START)) {// 仕入れインポートの場合
+          logBean.setExecPlace(PURCHASE_IMPORT);
+        } else {
+          logBean.setExecPlace(P_ID);
+        }
+        break;
+      // ---修正：インターノウスここまで---
+
+      case SALES_BEAN_BUILDER:// 売りwin一覧の場合
+        logBean.setExecPlace(UW_LIST);
+        break;
+
+      default:
+        throw new IllegalStateException("BeanBuilderTypeが一致しませんでした");
+    }
+
+  }
+
+  /**
+   * 実行内容の詳細情報を取得するメソッド
+   *
+   * @param iData
+   * @param beanBuilderType
+   * @param execContentDetail
+   * @param action
+   * @param formType
+   * @param dbDataSource
+   * @return
+   */
+  public static String getExecContentDetail(IData iData, BeanBuilderType beanBuilderType,
+      String execContentDetail, String action, CodeEnum.Form formType, DBDataSource dbDataSource) {
+
+    switch (beanBuilderType) {
+      case CATEGORY_BEAN_BUILDER:// 分類設定の場合
+        // iDataをキャスト
+        CategoryBean categoryBean = (CategoryBean) iData;
+        // 実行内容の詳細情報を取得
+        execContentDetail = categoryBean.getName();
+        break;
+
+      case SALES_STATUS_BEAN_BUILDER:// ステータス設定の場合
+        // iDataをキャスト
+        SalesStatusBean salesStatusBean = (SalesStatusBean) iData;
+        // 実行内容の詳細情報を取得
+        execContentDetail = salesStatusBean.getStatusName();
+        break;
+
+      case CUSTOMER_BEAN_BUILDER:// 顧客登録の場合
+        // iDataをキャスト
+        CustomerBean customerBean = (CustomerBean) iData;
+        // 実行内容の詳細情報を取得
+        execContentDetail = customerBean.getCustomerName();
+        break;
+
+      case USER_BEAN_BUILDER:// ユーザー一覧・パスワード設定の場合
+        // iDataをキャスト
+        UserBean userBean = (UserBean) iData;
+
+        // 実行内容の詳細情報を取得
+        if (action.equals(SystemOptionConstants.ACTION_PASS_CHANGE)) {// パスワード設定の場合
+          execContentDetail = "パスワード";
+
+        } else {// ユーザー一覧の場合
+          String userName = userBean.getSecondName() + userBean.getFirstName();
+          execContentDetail = userName;
+        }
+        break;
+
+      // 追加：インターノウス
+      case USER_GROUP_BEAN_BUILDER:// ユーザーグループ設定
+        // iDataをキャスト
+        UserGroupBean userGroupBean = (UserGroupBean) iData;
+
+        // 実行内容の詳細情報を取得
+        String userGroupName = userGroupBean.getUserGroupName();
+        execContentDetail = userGroupName;
+        break;
+
+      case SALES_STAFF_BEAN_BUILDER:// 営業担当目標設定の場合
+        // iDataをキャスト
+        SalesStaffBean salesStaffBean = (SalesStaffBean) iData;
+        // 実行内容の詳細情報を取得
+        execContentDetail = salesStaffBean.getSalesStaff();
+        break;
+
+      // ---修正：インターノウスここから---
+      case P_NUM_BEAN_BUILDER: // P番関連の場合
+        // iDataをキャスト
+        ProjNumBean projBean = (ProjNumBean) iData;
+
+        // 実行内容の詳細情報を取得
+        if (action.equals(PurchaseConstants.ACTION_PURCHASE_IMPORT_START)) {// 仕入れインポートの場合
+          if (projBean.isProjPrePurchase()) {// 旧弥生データの場合
+            execContentDetail = "P番:" + projBean.getProjNum() + "　（旧弥生データ）";
+          } else {
+            execContentDetail = "P番:" + projBean.getProjNum() + "　（仕入れデータ）";
+          }
+        } else {
+          execContentDetail = "P番:" + projBean.getProjNum() + " " + projBean.getProjName();
+        }
+        break;
+      // ---修正：インターノウスここまで---
+
+      case SALES_BEAN_BUILDER:// 売りwin一覧の場合
+        // iDataをキャスト
+        SalesBean salesBean = (SalesBean) iData;
+        // 実行内容の詳細情報を取得
+        execContentDetail = "P番:" + salesBean.getProjNum() + " " + salesBean.getProjName();
+        break;
+
+      default:
+        throw new IllegalStateException("BeanBuilderTypeが一致しませんでした");
+    }
+
+    return "「" + execContentDetail + "」";
+  }
+
+}

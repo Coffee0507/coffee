@@ -1,0 +1,106 @@
+package jp.co.lsij.p16590004.e_200.model.master;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.e_77.model.BeanDataType;
+import jp.co.lsij.p16590004.e_77.model.DataFactory;
+import jp.co.lsij.p16590004.e_77.model.IBeanBuilder;
+import jp.co.lsij.p16590004.e_77.model.IData;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserGroupBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserGroupMemberBean;
+import jp.co.lsij.p16590004.exception.PASMErrorType;
+import jp.co.lsij.p16590004.exception.PASMException;
+
+/**
+ * ユーザーグループ編集に関するMapを操作するクラス
+ *
+ * @author インターノウス
+ *
+ */
+
+public class UserGroupBeanBuilder implements IBeanBuilder {
+  /** ユーザーグループ編集：ユーザーグループIDのkey */
+  private static final String MAP_KEY_USER_GROUP_ID = "user_group_id";
+  /** ユーザーグループ編集：ユーザーグループ名のkey */
+  private static final String MAP_KEY_USER_GROUP_NAME = "user_group_name";
+  /** ユーザーグループ編集：氏名：ユーザーグループメンバーBeanListのkey */
+  private static final String MAP_KEY_USER_GROUP_MEMBER_BEAN_LIST = "user_group_member_bean_list";
+
+  /**
+   * 入力値チェックを行うメソッド
+   *
+   * @param userGroupMap ユーザーグループ編集の入力値
+   * @throws PASMException
+   */
+  public boolean isValidValue(Map<String, String[]> userGroupMap) throws PASMException {
+
+    for (String key : userGroupMap.keySet()) {
+      String val = userGroupMap.get(key)[0];
+
+      if (key.equals(MAP_KEY_USER_GROUP_NAME)) {// ユーザーグループ編集画面：空文字チェック
+
+        if (val.isEmpty()) {
+          if (key.equals(MAP_KEY_USER_GROUP_NAME)) {
+            throw new PASMException(PASMErrorType.INVALID_PARAM, "ユーザーグループ名を入力してください");
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+
+  /**
+   * Mapで取得した値をbeansにセットするメソッド
+   *
+   * @param userMap ユーザーグループ編集の入力値
+   * @param user ログインユーザー名
+   * @param formType フォームの種別
+   */
+  public IData mapToBean(Map<String, String[]> userGroupMap, String user, CodeEnum.Form formType) {
+
+    IData iData = DataFactory.create(BeanDataType.USER_GROUP_DATA);
+
+    List<UserGroupMemberBean> list = new ArrayList<UserGroupMemberBean>();
+
+    // iDataをCategoryBeanにキャスト
+    UserGroupBean userGroupBean = (UserGroupBean) iData;
+
+    // 以下でMapのデータをuserBeanにセットする
+
+    if (formType == CodeEnum.Form.add || formType == CodeEnum.Form.edit) {
+      // 作成者
+      userGroupBean.setCreatedBy(user);
+    }
+    if (formType == CodeEnum.Form.edit) {
+      // 更新者
+      userGroupBean.setChangedBy(user);
+    }
+
+    for(String key : userGroupMap.keySet()) {
+    	for(String val : userGroupMap.get(key)) {
+    		if(key.equals(MAP_KEY_USER_GROUP_NAME)) {
+    			userGroupBean.setUserGroupName(val);
+    		}else if(key.equals("user_group_id")) {
+    			long id = Long.parseLong(val);
+    			userGroupBean.setId(id);
+    		}else if(key.equals("selected_user_group_member")) {
+    			if(!val.isEmpty()) {
+    			UserGroupMemberBean userGroupMemberBean = new UserGroupMemberBean();
+    			int attachmentEmpNum = Integer.parseInt(val);
+    			userGroupMemberBean.setEmployeeNum(attachmentEmpNum);
+    			list.add(userGroupMemberBean);
+
+    			}
+    		}
+    	}
+    }
+
+    userGroupBean.setUserGroupMemberList(list);
+
+    return userGroupBean;
+  }
+}

@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+
+/* tableの設定 */
+table.summary_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding:20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  width: 1px; /*下にあるth,tdで幅を操作する*/
+  table-layout:fixed;
+}
+
+
+/* th要素の設定 */
+table.summary_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 10px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+
+  color:black; /*文字色*/
+  font-size:16px; /*文字の大きさ*/
+/*  font-size:medium;／／ブラウザ依存 *//*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 100px;
+  word-wrap: break-word;
+}
+
+/*表の頭の部分*/
+th.summary_head {
+  background-color:white !important;/*背景色*/
+  width: 140px !important;
+/*  width: 100px !important;*/
+}
+
+/*月の部分のth*/
+th.month_area {
+  width: 50px !important;
+  padding : 2px !important;
+  background-color:white !important;/*背景色*/
+}
+
+/*月の部分のtd*/
+td.month_area {
+  /*width: 50px !important;*/
+  padding : 2px !important;
+  text-align:center !important;
+}
+
+/* td要素の設定 */
+table.summary_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 10px;
+  text-align:right; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size:16px; /*文字の大きさ*/
+/*  font-size:medium;／／ブラウザ依存 */ /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  /*width: 100px;*/
+  word-wrap: break-word;
+}

@@ -1,0 +1,220 @@
+@CHARSET "UTF-8";
+
+/*メニュー画面（menu.jsp）のcss*/
+
+/*--------------「P番」ここから----------------*/
+/*一番上の枠の設定*/
+fieldset.high_area{
+  border-width:1px; /*線の太さ 2px*/
+  border-style:solid; /*線のスタイル 実線*/
+  border-color:#DDDDDD; /*枠線の色：黒*/
+  padding:10px;
+  /** 削除：インターノウス */
+  border-radius:10px;
+}
+
+/*一番上の見出しの設定*/
+b.high_index{
+  color:#555555;
+}
+
+/*P番一覧のtd*/
+td.p_list {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+/*--------------「P番」ここまで----------------*/
+
+
+/*--------------「売りwin」ここから----------------*/
+/*中間の枠の設定*/
+fieldset.middle_area{
+  border-width:1px; /*線の太さ 2px*/
+  border-style:solid; /*線のスタイル 実線*/
+  border-color:#DDDDDD; /*枠線の色：黒*/
+  padding:10px;
+  /** 削除：インターノウス */
+  border-radius:10px;
+}
+
+/*中間の見出しの設定*/
+b.middle_index{
+  color:#555555;
+}
+
+/*表系の現在・過去を囲むtd設定*/
+td.table_type {
+  width: 30px !important;
+}
+
+/*売りWin一覧のtd*/
+td.sales_list {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*総計のtd*/
+td.summary {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*受注・売上別合計のtd*/
+td.another_total {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*受注・売上総計のtd*/
+td.all_total {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*総計分類別のtd*/
+td.another_type_total{
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*管理職会議用のtd*/
+td.meeting {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*--------------「売りwin」ここまで----------------*/
+
+
+/*--------------「設定・その他」ここから----------------*/
+/*一番下の枠の設定*/
+fieldset.low_area{
+  border-width:1px; /*線の太さ 2px*/
+  border-style:solid; /*線のスタイル 実線*/
+  border-color:#DDDDDD; /*枠線の色：黒*/
+  padding:10px;
+  /** 削除：インターノウス */
+  border-radius:10px;
+}
+
+/*一番下の見出しの設定*/
+b.low_index{
+  color:#555555;
+}
+
+/*分類設定のtd*/
+td.cat {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*ステータス設定のtd*/
+td.status {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*顧客登録のtd*/
+td.customer {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*ユーザー一覧のtd*/
+td.user {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*営業担当目標設定のtd*/
+td.sales_user {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*パスワード設定のtd*/
+td.pass {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*操作ログのtd*/
+td.log {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/** 追加：インターノウス */
+/** 仕入れインポートのtd */
+td.purchase_import {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/** ユーザーグループ設定のtd */
+td.user_group {
+  height:10px;
+  color:black; /*文字色*/
+  font-size:14px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/*--------------「設定・その他」ここまで----------------*/
+
+/*P番、売りWin、設定・その他の枠内で使用しているtable設定*/
+table.all_width {
+/*  width: 190px !important;modified by dai 不要なので削除 */
+}
+
+/*P番一覧、案件一覧等の項目名の幅*/
+td.content_title {
+  width: 140px !important;/*modified by dai 幅広くした*/
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

@@ -1,0 +1,14 @@
+package com.portal.util;
+
+public class DBConnector {
+
+	private Connection con = null;
+	private String driverName = "";
+
+	public Connection getConnection(){
+
+
+
+	}
+
+}

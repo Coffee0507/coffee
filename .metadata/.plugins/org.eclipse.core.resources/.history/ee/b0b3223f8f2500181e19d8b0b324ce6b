@@ -1,0 +1,9 @@
+package com.portal.util;
+
+public class DBConnector {
+
+	public Connection getConnection(){
+
+	}
+
+}

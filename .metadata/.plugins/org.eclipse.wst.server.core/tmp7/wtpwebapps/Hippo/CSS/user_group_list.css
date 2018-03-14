@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+/* tableの設定 */
+table.user_group_list_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding: 20px; /*セル内の余白*/
+  text-align:left; /*配置 右寄せ、中央寄せ等を行う*/
+  table-layout:fixed;
+}
+
+/* th要素の設定 */
+table.user_group_list_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:#C4E2FD; /*背景色*/
+  padding: 10px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  
+  color:black; /*文字色*/
+  font-size:16px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 150px;
+  word-wrap: break-word;
+}
+
+/* td要素の設定 */
+table.user_group_list_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 10px; /*セル内の余白*/
+  text-align:left; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size:16px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のスタイル*/
+  width: 30px;
+  word-wrap: break-word;
+}
+
+div.page_portion {
+  text-align:left; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/* p16590004.css にまとめた
+p.error_message {
+  color:red;
+  font-size:16px;
+  font-weight:normal;
+  font-family:sans-serif;
+}
+*/
+
+/*thのチェックボックスの幅*/
+th.checkbox_area {
+  width: 40px !important;
+  text-align:center !important;
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
+/*tdのチェックボックスの幅*/
+td.checkbox_area {
+  text-align:center !important;
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
+/*グループ名のthの幅*/
+th.group_name {
+  width: 300px !important;
+}
+
+/*グループ名のtdの幅*/
+td.group_name {
+  /*width: 120px !important;*/
+  word-wrap: break-word;
+}
+
+td.print_space {
+  padding: 1px 1px 1px 25px !important; /*セル内の余白*/
+}

@@ -1,0 +1,490 @@
+package jp.co.lsij.p16590004.e_200.controller;
+
+import java.io.IOException;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.fileupload.FileUploadException;
+
+import jp.co.lsij.p16590004.common.ActionParamConstants;
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.Error;
+import jp.co.lsij.p16590004.common.ForwardPathConstants;
+import jp.co.lsij.p16590004.common.ProjConstants;
+import jp.co.lsij.p16590004.common.ScopeNameConstants;
+import jp.co.lsij.p16590004.e_200.model.ControllerAction;
+import jp.co.lsij.p16590004.e_200.model.ControllerActionHelper;
+import jp.co.lsij.p16590004.e_200.model.ExceptionHandler;
+import jp.co.lsij.p16590004.e_200.model.FileDownload;
+import jp.co.lsij.p16590004.e_200.model.SessionManagement;
+import jp.co.lsij.p16590004.e_200.model.SortAndSearchAction;
+import jp.co.lsij.p16590004.e_200.model.bean.SearchBean;
+import jp.co.lsij.p16590004.e_200.model.bean.SortAndSearchBean;
+import jp.co.lsij.p16590004.e_200.model.p_num.ProjControllerAction;
+import jp.co.lsij.p16590004.e_77.model.BeanBuilderType;
+import jp.co.lsij.p16590004.e_77.model.FacadeType;
+import jp.co.lsij.p16590004.e_77.model.IData;
+import jp.co.lsij.p16590004.e_77.model.master.beans.SortBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.ProjNumFacade;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.AttachFileBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.ProjNumBean;
+import jp.co.lsij.p16590004.e_77.model.working_time.WorkingTimeFacade;
+
+/**
+ * Servlet implementation class ProjController
+ */
+@WebServlet("/ProjController")
+public class ProjController extends HttpServlet {
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    // response.getWriter().append("Served at: ").append(request.getContextPath());
+    /*
+     * chromeで起動時にタブを復元させると、doGet()にリクエストが飛ぶ
+     */
+  }
+
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    // doGet(request, response);
+
+    ServletContext app = null;
+    DBDataSource dbDataSource = null;
+    HttpSession session = null;
+    Error error = null;
+    String user = "";
+    String action = "";
+    // フォワード先
+    String forwardPath = "";
+    // 正常処理・異常処理の識別(getForwardPath()の引数)
+    boolean isException = false;
+    ProjNumFacade projNumFacade = null;
+    // フォワード処理が必要かどうかのフラグ(ファイルダウンロード時のみ使用)
+    boolean needForward = true;
+
+    try {// 前処理
+      // Errorインスタンスを生成、リクエストスコープに保存
+      error = new Error(false);
+      request.setAttribute(ScopeNameConstants.SCOPE_ERROR_CLASS, error);
+      // servletcontext取得
+      app = getServletContext();
+      // DataSource取得
+      dbDataSource = (DBDataSource) app.getAttribute(ScopeNameConstants.SCOPE_PG_MAINTAINER);
+      // セッションオブジェクト生setAttribute成
+      session = request.getSession(false);
+      if (session == null
+          || session.getAttribute(ScopeNameConstants.SCOPE_LOGIN_USER_INFO) == null) {
+        SessionManagement.sessionTimeoutAction(request, response, dbDataSource, app,
+            (session == null) ? true : false, session);
+        return;
+      }
+      // ログインユーザー情報を取得
+      UserBean account = (UserBean) session.getAttribute(ScopeNameConstants.SCOPE_LOGIN_USER_INFO);
+      user = account.getSecondName() + " " + account.getFirstName();
+      // ProjNumFacade取得
+      projNumFacade = new ProjNumFacade();
+      // actionパラメータを取得(FilterAll.javaから)
+      action = ControllerActionHelper.getActionParmeter(request, dbDataSource, app);
+
+    } catch (Exception e) {
+      // エラー発生かの識別
+      isException = true;
+      // 共通の例外処理
+      ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+          "ProjController.doPost:前処理");
+    }
+
+    // actionパラメータごとに処理をわける
+    if (action.equals(ProjConstants.ACTION_PROJ_YEAR)) {// P番一覧：年度切り替え表示ボタン
+      // 年度設定
+      String strFiscalYear = "";
+      // 検索条件の配列
+      SearchBean[] searchBeanArray = null;
+      // ソート条件
+      SortBean sortBean = new SortBean();
+
+      try {
+        // リクエストパラメータを取得
+        Map<String, String[]> requestParameterMap = ControllerActionHelper
+            .requestParameterAction(request, dbDataSource, CodeEnum.sysLogDebug.FromJSP, app);
+
+        // 年度
+        strFiscalYear = requestParameterMap.get(ProjConstants.JSP_SEARCH_FISCAL_YEAR)[0];
+        // 入力値チェック
+        ProjControllerAction.isValidFiscalYear(strFiscalYear);
+        // ソート・検索条件をデフォルトに戻す
+        SortAndSearchBean sortAndSearch =
+            ProjControllerAction.setDefaultCondition(sortBean, searchBeanArray);
+        sortBean = sortAndSearch.getSortBean();
+        searchBeanArray = sortAndSearch.getSearchBeanArray();
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_YEAR");
+
+        // 年度設定を元に戻す
+        strFiscalYear = ProjControllerAction.setBackConditionOfFiscalYear(session, strFiscalYear);
+        // ソート・検索条件を元に戻す
+        SortAndSearchBean sortAndSearch =
+            ProjControllerAction.setBackSearchCondition(session, sortBean, searchBeanArray);
+        sortBean = sortAndSearch.getSortBean();
+        searchBeanArray = sortAndSearch.getSearchBeanArray();
+
+      } finally {
+        // 年度設定をセッションスコープに保存
+        session.setAttribute(ProjConstants.SCOPE_FISCAL_YEAR, strFiscalYear);
+        // ソート・検索条件をセッションスコープに保存
+        session.setAttribute(ProjConstants.SCOPE_SORT_PROJ, sortBean);
+        session.setAttribute(ProjConstants.SCOPE_SEARCH_PROJ, searchBeanArray);
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_SEARCH)) {// P番一覧：検索ボタン
+      // 年度設定
+      String strFiscalYear = "";
+      // 検索条件の配列
+      SearchBean[] searchBeanArray = null;
+      // ソート条件
+      SortBean sortBean = new SortBean();
+      try {
+        // リクエストパラメータを取得
+        Map<String, String[]> requestParameterMap = ControllerActionHelper
+            .requestParameterAction(request, dbDataSource, CodeEnum.sysLogDebug.FromJSP, app);
+
+        // 年度条件取得
+        strFiscalYear = requestParameterMap.get(ProjConstants.JSP_SEARCH_FISCAL_YEAR)[0];
+        // 入力値チェック
+        ProjControllerAction.isValidFiscalYear(strFiscalYear);
+
+        // ソート条件
+        sortBean = SortAndSearchAction.sortBeanBuilder(requestParameterMap, sortBean, dbDataSource);
+
+        // 検索条件
+        searchBeanArray = SortAndSearchAction.searchBeanBuilder(requestParameterMap, 2,
+            CodeEnum.sortAndSearchType.proj, dbDataSource);
+        // 検索条件の指定がないSearchBeanを除いたsearchBeanArrayをつくる
+        searchBeanArray = ProjControllerAction.removeEmptySearchBean(searchBeanArray);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_SEARCH");
+
+        // 年度設定を元に戻す
+        strFiscalYear = ProjControllerAction.setBackConditionOfFiscalYear(session, strFiscalYear);
+        // ソート・検索条件を元に戻す
+        SortAndSearchBean sortAndSearch =
+            ProjControllerAction.setBackSearchCondition(session, sortBean, searchBeanArray);
+        sortBean = sortAndSearch.getSortBean();
+        searchBeanArray = sortAndSearch.getSearchBeanArray();
+
+      } finally {
+        // セッションスコープに保存
+        session.setAttribute(ProjConstants.SCOPE_FISCAL_YEAR, strFiscalYear);
+        session.setAttribute(ProjConstants.SCOPE_SORT_PROJ, sortBean);
+        session.setAttribute(ProjConstants.SCOPE_SEARCH_PROJ, searchBeanArray);
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_ADD)) {// P番新規追加処理※再利用時も同じパラメータ
+      try {
+        ProjControllerAction.projAddAction(request, user, action, dbDataSource, projNumFacade, app,
+            error);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_ADD");
+
+        // 入力値を戻す
+        try {
+          ControllerAction.setFormFieldMapToScope(request, action, dbDataSource, app);
+        } catch (FileUploadException fue) {
+          // エラー情報をセット
+          ExceptionHandler.setErrorInfo(request, error,
+              "システムエラー:ProjControllerAction.setFieldMapToScope", dbDataSource, app);
+        }
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_DETAIL_CHANGE)) {// P番詳細画面：変更ボタン
+      try {
+        // P番IDを取得し、それに応じたプロジェクト情報をDBから取得
+        IData iData = ControllerAction.getIDataWithTheID(request, dbDataSource,
+            FacadeType.PROJ_NUM_FACADE, app);
+        // キャストしてリクエストスコープに保存
+        ControllerActionHelper.changeActionHelper(request, dbDataSource, FacadeType.PROJ_NUM_FACADE,
+            iData, app);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_DETAIL");
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_CHANGE)
+        || action.equals(ProjConstants.ACTION_PROJ_COPY)) {// P番一覧：変更ボタン、再利用ボタン
+      try {
+        // 指定されたIDのP番情報を取得、リクエストスコープに保存
+        ControllerAction.changeAction(request, dbDataSource, FacadeType.PROJ_NUM_FACADE, app);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_CHANGE");
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_DELETE)) {// P番一覧：削除ボタン
+      try {
+        // 削除処理実行
+        ControllerAction.deleteAction(request, dbDataSource, FacadeType.PROJ_NUM_FACADE,
+            BeanBuilderType.P_NUM_BEAN_BUILDER, user, action, app, error);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_DELETE");
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_EDIT)) {// 編集フォーム画面：変更ボタン
+      try {
+        ProjControllerAction.projEditAction(request, user, action, dbDataSource, projNumFacade, app,
+            error);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_EDIT");
+        // 入力値を戻す
+        try {
+          ControllerAction.setFormFieldMapToScope(request, action, dbDataSource, app);
+        } catch (FileUploadException fue) {
+          // エラー情報をセット
+          ExceptionHandler.setErrorInfo(request, error,
+              "システムエラー:ProjControllerAction.getRequestParameterMap", dbDataSource, app);
+        }
+      }
+
+    } else if (action.equals(ProjConstants.ACTION_PROJ_DOWNLOAD_FILE)) {// P番詳細画面：ファイルダウンロード
+      try {
+        // ダウンロードするファイルの取得
+        AttachFileBean attachFileBean = FileDownload.PreDownloadFile(request, dbDataSource, app);
+        needForward = false;
+        // ダウンロード処理(ダイアログ作成、ファイル書き出し)
+        FileDownload.DownloadFile(request, response, attachFileBean);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.doPost:ACTION_PROJ_DOWNLOAD_FILE");
+      }
+
+    }
+
+    // フォワード先を設定
+    forwardPath = getForwardPath(action, isException, forwardPath);
+
+    // 追加：インターノウス
+    // ここから
+    // フォワード先ごとの処理
+    forwardHelper(forwardPath, request, dbDataSource, action, error, app, session, user);
+    // ここまで
+
+    // セッションスコープに保存したオブジェクトをリクエストスコープに保存しなおす(jspではセッションスコープは使用しないため)
+    SessionManagement.sessionToRequest(session, request, dbDataSource, app, error);
+
+    // 設定されたフォワード先にフォワードする
+    if (!forwardPath.isEmpty()) {
+      if (!(action.equals(ProjConstants.ACTION_PROJ_DOWNLOAD_FILE) && !needForward)) {
+        RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+        dispatcher.forward(request, response);
+      }
+    }
+  }
+
+
+  private static void forwardHelper(String forwardPath, HttpServletRequest request,
+      DBDataSource dbDataSource, String action, Error error, ServletContext app,
+      HttpSession session, String user) {
+
+    if (forwardPath.equals(ForwardPathConstants.FORWARD_PROJ_LIST)) {// P番一覧のとき
+      try {
+        ProjControllerAction.forwardActionToProjList(session, request, dbDataSource, action, app);
+
+      } catch (Exception e) {
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.forwardHelper:FORWARD_PROJ_LIST");
+      }
+
+    } else if (forwardPath.equals(ForwardPathConstants.FORWARD_PROJ_FORM)) {// P番フォーム画面の時
+      try {
+        ProjControllerAction.forwardActionToProjForm(request, dbDataSource, action, true, app);
+
+
+      } catch (Exception e) {
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.forwardHelper:FORWARD_PROJ_FORM");
+      }
+
+    } else if (forwardPath.equals(ForwardPathConstants.FORWARD_PROJ_DETAIL)) {// P番一覧から詳細画面
+      try {
+
+        // P番IDを取得し、それに応じたプロジェクト情報をDBから取得
+        IData iData = ControllerAction.getIDataWithTheID(request, dbDataSource,
+            FacadeType.PROJ_NUM_FACADE, app);
+
+        // 追加：インターノウス
+        // ここから
+        // 更新ボタンが押された場合、工数DBから取得を行う
+        if(action.equals(ProjConstants.ACTION_PROJ_DETAIL_MODIFY_TOTAL_WORKING_TIME_EDIT)) {
+          WorkingTimeFacade workingTimeFacade = new WorkingTimeFacade();
+          ProjNumFacade pNumFacade = new ProjNumFacade();
+          DBDataSource editDbDataSource = null;
+          editDbDataSource = (DBDataSource) app.getAttribute(ScopeNameConstants.SCOPE_PG_WORKING_TIME);
+
+          ProjNumBean projNumBean = (ProjNumBean)iData;
+
+          // 工数時間取得
+          projNumBean.setTotalWorkingTime(workingTimeFacade.query(projNumBean.getProjNum(), editDbDataSource));
+
+          pNumFacade.modifyWorkingTime(projNumBean, dbDataSource);
+
+          editDbDataSource = null;
+        }
+        // ここまで
+
+        // キャストしてリクエストスコープに保存
+        ControllerActionHelper.changeActionHelper(request, dbDataSource, FacadeType.PROJ_NUM_FACADE,
+            iData, app);
+
+        // プロジェクト情報(ProjNumBean)から通知ユーザーのユーザー情報(UserBean)を取得してスコープに保存
+        ProjControllerAction.getNotiUserInfo(iData, dbDataSource, request, app);
+
+      } catch (Exception e) {
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "ProjController.forwardHelper:FORWARD_PROJ_DETAIL");
+      }
+
+      // 追加：インターノウス
+      // ここから
+    } else if (forwardPath.equals(ForwardPathConstants.FORWARD_PROJ_IMPORT)) {
+      if (action.equals(ProjConstants.ACTION_PROJ_IMPORT_START)) {
+        try {
+          // インポート処理
+          ProjControllerAction.projNumBeanBuilder(request, user, CodeEnum.Form.other, action,
+              dbDataSource, app, error);
+          boolean projImportProcessComplete = false;
+          projImportProcessComplete = true;
+          request.setAttribute("projImportProcessComplete", projImportProcessComplete);
+        } catch (Exception e) {// ProjCOntrollerAction内で例外処理を行うため、通常は不使用
+          // 共通の例外処理
+          ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+              "ProjController.doPost:ACTION_PROJ_IMPORT_START");
+
+          // エラー行表示等の例外処理はProjControlellerActionHelper.importActionにて行う
+        }
+      }
+    }
+     // ここまで
+  }
+
+  private static String getForwardPath(String action, boolean isException, String forwardPath) {
+    // actionパラメータごとにフォワード先を変える
+
+    // 正常・異常：list または 正常:listのみ
+    if (action.equals(ActionParamConstants.ACTION_PROJ_ADMIN)
+        || action.equals(ActionParamConstants.ACTION_PROJ_GUEST)
+        || action.equals(ProjConstants.ACTION_PROJ_YEAR)
+        || action.equals(ProjConstants.ACTION_PROJ_SEARCH)
+        || action.equals(ProjConstants.ACTION_PROJ_DELETE)
+        || action.equals(ProjConstants.ACTION_PROJ_ADD_RETURN)
+        || action.equals(ProjConstants.ACTION_PROJ_EDIT_RETURN)
+        || action.equals(ProjConstants.ACTION_PROJ_IMPORT_RETURN)
+        || action.equals(ProjConstants.ACTION_PROJ_DETAIL_RETURN)
+        || action.equals(ProjConstants.ACTION_PROJ_LIST_NEXT)
+        || action.equals(ProjConstants.ACTION_PROJ_LIST_PRIVIOUS)) {
+
+      // フォワード先を設定
+      forwardPath = ForwardPathConstants.FORWARD_PROJ_LIST;
+
+      // 正常：form 異常：list
+    } else if (action.equals(ProjConstants.ACTION_PROJ_NEW)
+        || action.equals(ProjConstants.ACTION_PROJ_CHANGE)
+        || action.equals(ProjConstants.ACTION_PROJ_COPY)
+        || action.equals(ProjConstants.ACTION_PROJ_DETAIL_CHANGE)) {
+      // フォワード先を設定
+      if (!isException) {
+        forwardPath = ForwardPathConstants.FORWARD_PROJ_FORM;
+      } else {
+        forwardPath = ForwardPathConstants.FORWARD_PROJ_LIST;
+      }
+
+      // 正常：list 異常：form
+    } else if (action.equals(ProjConstants.ACTION_PROJ_ADD)
+        || action.equals(ProjConstants.ACTION_PROJ_EDIT)) {
+      if (!isException) {
+        forwardPath = ForwardPathConstants.FORWARD_PROJ_LIST;
+      } else {
+        forwardPath = ForwardPathConstants.FORWARD_PROJ_FORM;
+      }
+
+      // 正常・異常ともに詳細画面
+    } else if (action.equals(ProjConstants.ACTION_PROJ_DETAIL)
+        || action.equals(ProjConstants.ACTION_PROJ_DOWNLOAD_FILE)
+        // 追加：インターノウス
+        // ここから
+        || action.equals(ProjConstants.ACTION_PROJ_DETAIL_MODIFY_TOTAL_WORKING_TIME_EDIT)) {
+        // ここまで
+      forwardPath = ForwardPathConstants.FORWARD_PROJ_DETAIL;
+
+      // 正常・異常ともにインポート画面
+    } else if (action.equals(ProjConstants.ACTION_PROJ_IMPORT)
+        || action.equals(ProjConstants.ACTION_PROJ_IMPORT_START)) {
+      forwardPath = ForwardPathConstants.FORWARD_PROJ_IMPORT;
+
+   // 正常・異常ともに仕入れデータ画面
+   // Menuから仕入れインポート用Controllerを呼び出すように変更
+   // } else if(action.equals(ActionParamConstants.ACTION_PROJ_PURCHASE)) {
+    	//forwardPath = "purchase_import.jsp";
+   // 	forwardPath = ForwardPathConstants.FORWARD_PROJ_PURCHASE_IMPORT;
+    }
+
+    return forwardPath;
+  }
+
+
+}

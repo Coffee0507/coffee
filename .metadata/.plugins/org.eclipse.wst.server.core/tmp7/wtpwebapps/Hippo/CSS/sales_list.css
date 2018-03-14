@@ -1,0 +1,205 @@
+@CHARSET "UTF-8";
+
+/* tableの設定 */
+table.sales_list_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding: 20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  table-layout:fixed;
+  width: 1870px;
+}
+
+/* th要素の設定 */
+table.sales_list_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:#C4E2FD; /*背景色*/
+  padding: 9px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size:15px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 150px;
+  word-wrap: break-word;
+}
+
+/* td要素の設定 */
+table.sales_list_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+/*  padding: 10px;*/
+  padding: 9px 5px 5px 9px;/* 余白を左寄せ、右寄せで合わせる */
+  
+  color:black; /*文字色*/
+  font-size:13px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 150px;
+  word-wrap: break-word;
+}
+
+/*thのチェックボックスの幅*/
+th.checkbox_area {
+  width: 30px !important;
+  text-align:center !important;
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
+/*tdのチェックボックスの幅*/
+td.checkbox_area {
+  text-align:center !important;
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
+/*P番のth*/
+th.proj_num{
+  width: 90px !important;
+}
+/*P番のtd*/
+td.proj_num{
+/*  width: 90px !important; th.proj_num に width があるので不要と思われる*/
+  text-align:left !important; /*配置右寄せ*/
+  /*padding: 1px 1px 1px 5px !important;／／table.sales_list_table tdで指定したので不要*/ /*セル内の余白*/
+}
+
+th.cat{
+  width: 95px !important;
+}
+
+td.cat{
+  /*width: 95px !important;*/
+}
+
+th.sales{
+  width: 105px !important;
+}
+
+td.sales{
+  /*width: 65px !important;*/
+}
+
+th.status{
+  width: 75px !important;
+}
+
+td.status{
+  /*width: 75px !important;*/
+}
+
+th.pname{
+  width: 335px !important;
+}
+
+td.pname{
+  /*width: 335px !important;*/
+  text-align:left !important;
+  /*padding: 1px 1px 1px 5px !important;／／table.sales_list_table tdで指定したので不要*/ /*セル内の余白*/
+}
+
+th.customer{
+  width: 270px !important;
+}
+
+td.customer{
+  /*width: 270px !important;*/
+  text-align:left !important;
+  /*padding: 1px 1px 1px 5px !important;／／table.sales_list_table tdで指定したので不要*/ /*セル内の余白*/
+}
+
+th.enduser{
+  width: 130px !important;
+}
+
+td.enduser{
+  /*width: 130px !important;*/
+  text-align:left !important;
+  /*padding: 1px 1px 1px 5px !important;／／table.sales_list_table tdで指定したので不要*/ /*セル内の余白*/
+}
+
+th.ordermoney{
+/*  width: 100px !important;桁が足りない*/
+  width: 120px !important;
+}
+
+td.ordermoney{
+  /*width: 100px !important;*/
+  text-align:right !important; /*配置右寄せ*/
+}
+
+th.ordermonth{
+  width: 60px !important;
+}
+
+td.ordermonth{
+  /*width: 60px !important;*/
+}
+
+th.salesmonth{
+  width: 60px !important;
+}
+
+td.salesmonth{
+  /*width: 60px !important;*/
+}
+
+th.paymentmonth{
+  width: 60px !important;
+}
+
+td.paymentmonth{
+  /*width: 60px !important;*/
+}
+
+th.generalwords{
+  width: 160px !important;
+}
+
+td.generalwords{
+  /*width: 160px !important;*/
+}
+
+th.remarks{
+  width: 320px !important;
+}
+
+td.remarks{
+  /*width: 320px !important;*/
+  text-align:left !important;
+  /*padding: 1px 1px 1px 5px !important;／／table.sales_list_table tdで指定したので不要*/ /*セル内の余白*/
+}
+
+/*ページ分割部の設定*/
+div.page_portion {
+  text-align:left; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+td.search_setting_button {
+  width: 90px !important;
+}
+
+td.search_setting_title {
+  width: 90px !important;
+}
+
+td.print_space {
+  padding: 1px 1px 1px 25px !important; /*セル内の余白*/
+}
+
+pre.pre_remarks {
+  font-family:sans-serif !important; /*文字のフォント*/
+  font-size:13px !important;/*文字の大きさ*/
+}

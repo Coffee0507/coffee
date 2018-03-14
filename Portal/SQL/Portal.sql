@@ -1,7 +1,7 @@
 set names utf8;
 set foreign_key_checks = 0;
 
-drop database if exists Portal;
+drop database if exists portal;
 
 create database if not exists portal;
 

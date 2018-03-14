@@ -124,7 +124,30 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\template" path="/template" reloadable="true" source="org.eclipse.jst.jee.server:template"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\4each" path="/4each" reloadable="true" source="org.eclipse.jst.jee.server:4each"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\Portal" path="/Portal" reloadable="true" source="org.eclipse.jst.jee.server:Portal"/></Host>
+      <Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\template" path="/template" reloadable="true" source="org.eclipse.jst.jee.server:template"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\4each" path="/4each" reloadable="true" source="org.eclipse.jst.jee.server:4each"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\Portal" path="/Portal" reloadable="true" source="org.eclipse.jst.jee.server:Portal"/><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\Hippo" path="/Hippo" reloadable="true" source="org.eclipse.jst.jee.server:Hippo">
+<!--     <Resource name="pg_maintainer"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              maxIdle="10"
+              maxTotal="20"
+              maxWaitMillis="-1"
+              url="jdbc:postgresql://10.62.128.210/pasm_sys_db"
+              username="pasm_sys_db_maintainer"
+              password="maintainer_0509" />
+    <Resource name="pg_operator"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="org.postgresql.Driver"
+              maxIdle="10"
+              maxTotal="20"
+              maxWaitMillis="-1"
+              url="jdbc:postgresql://10.62.128.210/pasm_sys_db"
+              username="pasm_sys_db_operator"
+              password="operator_0509" /> -->
+    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_maintainer" password="posgre" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/pasm_sys_db" username="postgres"/>
+    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_operator" password="posgre" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/pasm_sys_db" username="postgres"/>
+</Context></Host>
     </Engine>
   </Service>
 </Server>

@@ -1,0 +1,257 @@
+package jp.co.lsij.p16590004.e_200.model.purchase;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.fileupload.FileItem;
+
+import jp.co.lsij.p16590004.common.ActionParamConstants;
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.Error;
+import jp.co.lsij.p16590004.common.PurchaseConstants;
+import jp.co.lsij.p16590004.common.ScopeNameConstants;
+import jp.co.lsij.p16590004.e_200.model.ExceptionHandler;
+import jp.co.lsij.p16590004.e_200.model.LogAction;
+import jp.co.lsij.p16590004.e_200.model.SystemLogAction;
+import jp.co.lsij.p16590004.e_200.model.bean.MultipartFormBean;
+import jp.co.lsij.p16590004.e_77.model.BeanBuilderType;
+import jp.co.lsij.p16590004.e_77.model.p_num.ProjNumFacade;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.ProjNumBean;
+import jp.co.lsij.p16590004.e_77.util.ProjNumBeanHelper;
+import jp.co.lsij.p16590004.exception.PASMErrorType;
+import jp.co.lsij.p16590004.exception.PASMException;
+
+/**
+ * PurchaseControllerが使用するメソッドをまとめたクラス
+ *
+ * @author インターノウス
+ *
+ */
+public class PurchaseControllerAction {
+
+	// デフォルトコンストラクタ
+	private PurchaseControllerAction() {
+
+	}
+
+  /**
+   * フォーム画面から送られるリクエストパラメータをProjNumBeanにセットするメソッド
+   *
+   * @param request
+   * @param user
+   * @param formType
+   * @param action
+   * @param dbDataSource
+   * @return
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static void projNumBeanBuilder(HttpServletRequest request, String user,
+      CodeEnum.Form formType, String action, DBDataSource dbDataSource, ServletContext app,
+      Error error) throws ParseException, PASMException {
+
+    // 以下で、リクエストパラメータを取得する
+    if (request.getAttribute(ScopeNameConstants.SCOPE_MULTIPART_DATA) == null) {
+      throw new IllegalStateException("システムエラー：パラメータが取得できませんでした");
+
+    } else {
+
+      MultipartFormBean multiPartFormBean =
+          (MultipartFormBean) request.getAttribute(ScopeNameConstants.SCOPE_MULTIPART_DATA);
+      boolean isProjPrePurchase = false;
+      // checkboxパラメータを取得
+      if (multiPartFormBean.getFormFieldMap().get(ActionParamConstants.IS_PROJ_PRE_PURCHASE) != null) {
+      	isProjPrePurchase = Boolean.valueOf(multiPartFormBean.getFormFieldMap().get(ActionParamConstants.IS_PROJ_PRE_PURCHASE)[0]);
+      }
+      // ファイルデータ
+      List<FileItem> fileDataList = multiPartFormBean.getFileDataList();
+
+      // ファイルデータをbeansにセットする処理
+      if (fileDataList != null) {
+        for (FileItem fileData : fileDataList) {
+          if (fileData.getName().isEmpty()) {// javascriptの動作上、ファイルが何も選択されていないものも送られてくるため、それを処理から除外する
+
+            if (action.equals(PurchaseConstants.ACTION_PURCHASE_IMPORT_START)) {// インポート時は必ず1ファイル指定するため、ファイルなしは例外を投げる
+              throw new PASMException(PASMErrorType.INVALID_PARAM, "インポートするファイルがありません");
+            }
+
+            continue;
+          }
+
+          // インポート処理
+          importAction(request, dbDataSource, fileData, user, action, app, error, isProjPrePurchase);
+        }
+      }
+    }
+  }
+
+  /**
+   * インポート処理
+   *
+   * @param request
+   * @param dbDataSource
+   * @param fileItem
+   * @param projBean
+   * @param attachmentIDList
+   * @param user
+   * @param action
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static void importAction(HttpServletRequest request, DBDataSource dbDataSource,
+      FileItem fileItem, String user, String action,
+      ServletContext app, Error error, boolean isProjPrePurchase) throws ParseException, PASMException {
+
+    // 開発ログ(デバッグ用)
+    if (fileItem != null) {
+      String fileName = fileItem.getName();
+      Object[] objectArray = {fileName};
+      SystemLogAction.addSystemLog(dbDataSource, "ファイル名", objectArray, CodeEnum.sysLogDebug.ToLogic,
+          request, app);
+    }
+
+    // 追加：三橋
+      List<String[]> recordList = ProjNumBeanHelper.createCSVList(fileItem, ProjNumBeanHelper.CSV_DEFAULT_CHARA_SET, false);
+   // List<String[]> recordList = ProjNumBeanHelper.createPurchaseCSVList(fileItem);// 一行もデータがないときはsize=0でくる
+
+    if (recordList.size() == 0) {
+      throw new PASMException(PASMErrorType.INVALID_PARAM, "インポートするデータがありません");
+    }
+
+    // 以下で、インポートするデータを1レコードずつ処理する
+    ProjNumFacade projNumFacade = new ProjNumFacade();
+    boolean isError = false;// エラーが起きたかどうか
+    boolean isErrorTemp = false;// 1レコードごとにリセットするエラーフラグ
+    int errorRecord = 0;// エラー行
+    int errorColumn = 0;// エラー列
+    String errorInfo = null;// エラー原因
+    String errorMessage = "";// エラーメッセージ
+    List<String> errorMessageList = new ArrayList<String>();// エラーメッセージのリスト
+
+    for (int recordNum = 0; recordNum < recordList.size(); recordNum++) {
+
+      String[] record = recordList.get(recordNum);
+
+      // 開発ログ(デバッグ用)・・・バイナリファイルの場合、例外が起こるため
+      // Object[] objectArray = record;
+      // SystemLogAction.addSystemLog(dbDataSource, "record", objectArray,
+      // CodeEnum.sysLogDebug.ToLogic, request);
+
+      // 項目数チェック
+      try {
+        if (record.length != PurchaseConstants.PURCHASE_IMPORT_COLUMN_NUM) {
+          throw new PASMException(PASMErrorType.INVALID, "CSVファイルの入力形式に誤りがあります");
+        }
+      } catch (PASMException e) {
+        // エラーがあったときの処理
+        isError = true;
+        isErrorTemp = true;
+        // エラーメッセージ追加
+        errorRecord = recordNum + 1;// エラー行(配列が０からスタートする分を足す)
+        errorInfo = e.getMessage();// エラー原因
+        errorMessage = "行:" + errorRecord + " 原因:" + errorInfo;// エラーメッセージ
+        errorMessageList.add(errorMessage);
+
+        continue;
+      }
+
+      // 項目ごとに入力値チェック
+      ProjNumBean projBean = new ProjNumBean();
+      for (int columnNum = 0; columnNum < PurchaseConstants.PURCHASE_IMPORT_COLUMN_NUM; columnNum++) {
+        // 入力された項目
+        String columnName = PurchaseConstants.PURCHASE_IMPORT_COLUMN_NAME[columnNum];
+        // 入力値
+        String columnValue = record[columnNum];
+
+        // 以下で入力値チェック
+        try {
+          // 空欄チェック
+          PurchaseControllerActionHelper.purchaseEmptyCheck(columnName, columnValue);
+          // 値チェック
+          PurchaseControllerActionHelper.puchaseValidInputValue(columnName, columnValue);
+
+          // 取得したパラメータをprojNumBeanにセットする
+          projBean = PurchaseControllerActionHelper.createProjNumBean(projBean, columnName, columnValue, isProjPrePurchase);
+
+        } catch (Exception e) {
+          // エラーがあったときの処理
+          isError = true;
+          isErrorTemp = true;
+          // エラーメッセージ追加
+          errorRecord = recordNum + 1;// エラー行(配列が０からスタートする分を足す)
+          errorColumn = columnNum + 1;// エラー列
+          errorInfo = e.getMessage();// エラー原因
+          errorMessage = "行:" + errorRecord + " 列:" + errorColumn + " 原因:" + errorInfo;// エラーメッセージ
+          errorMessageList.add(errorMessage);
+
+          continue;
+        }
+      }
+
+      if (!isErrorTemp) {
+        // 開発ログ(デバッグ用)
+        SystemLogAction.addSystemLog(dbDataSource, projBean, CodeEnum.sysLogDebug.ToLogic, request,
+            app);
+
+        try {
+          // DB更新処理実行
+          projNumFacade.modifyPurchaseAmount(projBean, !isProjPrePurchase, dbDataSource);
+
+        } catch (Exception e) {
+          isError = true;
+          isErrorTemp = true;
+          // エラーメッセージ追加
+          errorRecord = recordNum + 1;// エラー行(配列が０からスタートする分を足す)
+          errorInfo = e.getMessage();// エラー原因
+          errorMessage = "行:" + errorRecord + " 原因:" + errorInfo;// エラーメッセージ
+          errorMessageList.add(errorMessage);
+
+          try {// ログ追加(異常)
+            LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+                CodeEnum.Form.add, user, action, true);
+          } catch (Exception exception) {// 共通の例外処理
+            ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+                "PurchaseControllerAction.importAction");
+          }
+
+          // 開発ログ追加
+          SystemLogAction.addSystemLog(dbDataSource, e, "PurchaseControllerAction.importAction", 3,
+              request, app);
+        }
+
+        if (!isErrorTemp) {
+          try {// ログ追加(正常)
+            LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+                CodeEnum.Form.add, user, action, false);
+          } catch (Exception exception) {// 共通の例外処理
+            ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+                "PurchaseControllerAction.importAction");
+          }
+        }
+      }
+      // エラーフラグリセット
+      isErrorTemp = false;
+    }
+
+    if (isError) {
+      // エラーオブジェクトをスコープに保存
+      error.setIsError(true);
+      error.setErrorInfoList(errorMessageList);
+      request.setAttribute(PurchaseConstants.SCOPE_IMPORT_ERROR, error);
+
+      // 開発ログ追加(デバッグ用)
+      SystemLogAction.addSystemLog(dbDataSource, error, CodeEnum.sysLogDebug.ToJSP, request, app);
+    } else {
+      // DBへの更新が全て正しく終わった場合リクエストスコープにCompleteフラグを設定
+      boolean projPurchaseImportProcessComplete = true;
+      request.setAttribute("projPurchaseImportProcessComplete", projPurchaseImportProcessComplete);
+      request.setAttribute("completeMessage", "インポート正常終了しました");
+    }
+  }
+
+}

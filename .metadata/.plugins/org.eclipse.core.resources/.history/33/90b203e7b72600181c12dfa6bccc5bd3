@@ -1,0 +1,875 @@
+package jp.co.lsij.p16590004.e_200.model.p_num;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.fileupload.FileItem;
+
+import checkInputValue.CheckInputValueLogic;
+import jp.co.lsij.p16590004.common.ActionParamConstants;
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.common.CustomerTblConstants;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.Error;
+import jp.co.lsij.p16590004.common.JSPParamConstants;
+import jp.co.lsij.p16590004.common.ProjConstants;
+import jp.co.lsij.p16590004.common.ScopeNameConstants;
+import jp.co.lsij.p16590004.e_200.model.ControllerAction;
+import jp.co.lsij.p16590004.e_200.model.ControllerActionHelper;
+import jp.co.lsij.p16590004.e_200.model.DateAction;
+import jp.co.lsij.p16590004.e_200.model.ExceptionHandler;
+import jp.co.lsij.p16590004.e_200.model.LogAction;
+import jp.co.lsij.p16590004.e_200.model.MailAction;
+import jp.co.lsij.p16590004.e_200.model.PageAction;
+import jp.co.lsij.p16590004.e_200.model.SortAndSearchAction;
+import jp.co.lsij.p16590004.e_200.model.SystemLogAction;
+import jp.co.lsij.p16590004.e_200.model.bean.MultipartFormBean;
+import jp.co.lsij.p16590004.e_200.model.bean.SearchBean;
+import jp.co.lsij.p16590004.e_200.model.bean.SortAndSearchBean;
+import jp.co.lsij.p16590004.e_200.model.p_num.bean.ProjFormBean;
+import jp.co.lsij.p16590004.e_77.model.BeanBuilderType;
+import jp.co.lsij.p16590004.e_77.model.BeanDataList;
+import jp.co.lsij.p16590004.e_77.model.FacadeFactory;
+import jp.co.lsij.p16590004.e_77.model.FacadeType;
+import jp.co.lsij.p16590004.e_77.model.IData;
+import jp.co.lsij.p16590004.e_77.model.IDataList;
+import jp.co.lsij.p16590004.e_77.model.IFacade;
+import jp.co.lsij.p16590004.e_77.model.SearchCondition;
+import jp.co.lsij.p16590004.e_77.model.master.UserGroupFacade;
+import jp.co.lsij.p16590004.e_77.model.master.beans.PageBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.SortBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserGroupBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.ProjNumFacade;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.AttachFileBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.ProjNumBean;
+import jp.co.lsij.p16590004.e_77.model.sales.beans.SalesBean;
+import jp.co.lsij.p16590004.e_77.util.AttachFileBeanHelper;
+import jp.co.lsij.p16590004.e_77.util.DateHelper;
+import jp.co.lsij.p16590004.e_77.util.ProjNumBeanHelper;
+import jp.co.lsij.p16590004.e_77.util.SalesBeanHelper;
+import jp.co.lsij.p16590004.e_77.util.SearchProjNumConditionHelper;
+import jp.co.lsij.p16590004.e_77.util.SortProjNumBeanHelper;
+import jp.co.lsij.p16590004.exception.PASMErrorType;
+import jp.co.lsij.p16590004.exception.PASMException;
+
+/**
+ * ProjControllerが使用するメソッドをまとめたクラス
+ *
+ * @author m-kakuwa
+ *
+ */
+public class ProjControllerAction {
+
+  /**
+   * 入力値チェックを行うメソッド
+   *
+   * @param strFiscalYear
+   * @return 正しい値が入力されていたらtrue、誤りがあったら例外を投げる
+   * @throws PASMException
+   */
+  public static boolean isValidFiscalYear(String strFiscalYear) throws PASMException {
+    // 空欄チェック
+    if (strFiscalYear.isEmpty()) {
+      throw new PASMException(PASMErrorType.INVALID_PARAM, "年度を入力してください");
+    }
+    // 入力値チェック（半角数字）
+    boolean isNumber = CheckInputValueLogic.isNumber(strFiscalYear);
+    if (!isNumber) {
+      throw new PASMException(PASMErrorType.INVALID_PARAM, "年度は半角数字で入力してください");
+    }
+    // 入力値チェック(1970~9998年)※Dateの許容範囲。年度で入力されるため9999ではなく9998までとする
+    int fiscalYear = Integer.parseInt(strFiscalYear);
+    if (fiscalYear < DateHelper.MIN_YEAR_FOR_DATE || fiscalYear >= DateHelper.MAX_YEAR_FOR_DATE) {
+      throw new PASMException(PASMErrorType.INVALID_PARAM, "年度は1970~9998の範囲で入力してください");
+    }
+
+    return true;
+  }
+
+  /**
+   * ソート・検索条件のデフォルト値をセットする
+   *
+   * @param sortBean
+   * @param searchBeanArray
+   * @return
+   */
+  public static SortAndSearchBean setDefaultCondition(SortBean sortBean,
+      SearchBean[] searchBeanArray) {
+
+    // デフォルト値をセットする
+    sortBean.setAsc(false);
+    sortBean.setColumnName(ProjConstants.DEFAULT_SORT_CATEGORY_PROJ);
+    searchBeanArray = new SearchBean[0];
+
+    SortAndSearchBean sortAndSearch = new SortAndSearchBean(sortBean, searchBeanArray);
+
+    return sortAndSearch;
+  }
+
+
+  /**
+   * ソート・検索条件をもとの状態に戻す
+   *
+   * @param session
+   * @param sortBean
+   * @param searchBeanArray
+   * @return
+   */
+  public static SortAndSearchBean setBackSearchCondition(HttpSession session, SortBean sortBean,
+      SearchBean[] searchBeanArray) {
+
+    SortAndSearchBean sortAndSearch = null;
+
+    // ソート・検索条件を元に戻す
+    sortBean = (SortBean) session.getAttribute(ProjConstants.SCOPE_SORT_PROJ);
+    searchBeanArray = (SearchBean[]) session.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ);
+
+    if (sortBean == null || searchBeanArray == null) {// デフォルト値を設定
+      sortAndSearch = ProjControllerAction.setDefaultCondition(sortBean, searchBeanArray);
+    } else {
+      sortAndSearch = new SortAndSearchBean(sortBean, searchBeanArray);
+    }
+
+    return sortAndSearch;
+  }
+
+  /**
+   * 年度設定をもとの状態に戻す
+   *
+   * @param session
+   * @param fiscalYear
+   * @return
+   */
+  public static String setBackConditionOfFiscalYear(HttpSession session, String strFiscalYear) {
+
+    if (session.getAttribute(ProjConstants.SCOPE_FISCAL_YEAR) != null) {// セッションスコープに年度設定が保存されている場合
+      strFiscalYear = (String) session.getAttribute(ProjConstants.SCOPE_FISCAL_YEAR);
+    } else {
+      strFiscalYear = Integer.toString(DateAction.getFiscalYear());
+    }
+
+    return strFiscalYear;
+  }
+
+  /**
+   * 検索条件の指定がないbeansを除いたsearchBeanArrayをつくるメソッド
+   *
+   * @param searchBeanArray
+   * @return SearchBean[]
+   */
+  public static SearchBean[] removeEmptySearchBean(SearchBean[] searchBeanArray) {
+    List<SearchBean> searchBeanList = new ArrayList<SearchBean>();// 一時的に使うリスト
+    for (SearchBean searchBean : searchBeanArray) {
+      if (searchBean.getSearchCategory().equals(ProjConstants.DEFAULT_SEARCH_CATEGORY_PROJ)) {// 検索条件：項目の指定がないもの
+        continue;
+      } else if (searchBean.getSearchWord().isEmpty()) {// 検索ワードが指定されていないもの
+        continue;
+      }
+      searchBeanList.add(searchBean);
+    }
+    // searchBeanListを配列に変換
+    searchBeanArray = (SearchBean[]) searchBeanList.toArray(new SearchBean[0]);
+
+    return searchBeanArray;
+  }
+
+  /**
+   * P番一覧データリストを取得するメソッド
+   *
+   * @param request
+   * @param dbDataSource
+   * @param facadeType
+   * @param pageBeanBefore
+   * @param sortBean
+   * @param searchBeanArray
+   * @param strFiscalYear
+   */
+  public static void getProjDataList(HttpServletRequest request, DBDataSource dbDataSource,
+      FacadeType facadeType, PageBean pageBeanBefore, SortBean sortBean,
+      SearchBean[] searchBeanArray, String strFiscalYear, ServletContext app) {
+
+    IDataList iDataList = null;
+    PageBean pageBeanAfter = new PageBean();// 情報を入れない空のPageBean
+    SearchCondition[] searchCondition = null;
+
+    // DBアクセスに適したデータにSortBean,SearchBeanを加工する
+    // ソート
+    SortBean[] sortBeanArray = SortProjNumBeanHelper.createSortBeanForProjNumList(sortBean.isAsc(),
+        sortBean.getColumnName());
+    // 検索
+    if (searchBeanArray.length == 0) {// 検索条件がないとき＝年度とソート条件のみの時
+      searchCondition =
+          SearchProjNumConditionHelper.createSearchConditionForProjNumList(strFiscalYear);
+    } else {
+      searchCondition = SearchProjNumConditionHelper
+          .createSearchConditionForProjNumList(strFiscalYear, searchBeanArray);
+    }
+
+    // データ一覧を取得するための処理をfacadeTypeごとに実行する
+    iDataList = ControllerActionHelper.getIDataList(dbDataSource, facadeType, iDataList,
+        pageBeanBefore, pageBeanAfter, sortBeanArray, searchCondition, request, app);
+
+    // 取得したデータリストに応じた型にキャストして、リクエストスコープにデータリストを保存
+    ControllerActionHelper.castIDataList(request, facadeType, iDataList, dbDataSource, app);
+
+    // ページ分割が必要な画面の処理・・・pageBeanリクエストスコープに保存
+    request.setAttribute(ScopeNameConstants.SCOPE_PAGE_BEAN, pageBeanAfter);
+
+    // 開発ログ追加(デバッグ用)
+    SystemLogAction.addSystemLog(dbDataSource, pageBeanAfter, CodeEnum.sysLogDebug.ToJSP, request,
+        app);
+  }
+
+
+  /**
+   * フォーム画面のセレクトボックス等の選択肢になるデータを取得するメソッド
+   *
+   * @param request
+   * @param dbDataSource
+   * @param isProjAction
+   */
+  public static void getOptionDataList(HttpServletRequest request, DBDataSource dbDataSource,
+      boolean isProjAction, ServletContext app) {
+
+    FacadeType[] facadeTypeArray = null;
+
+    if (isProjAction) {// P番一覧の処理
+      facadeTypeArray = new FacadeType[] {FacadeType.CATEGORY_FACADE, FacadeType.SALES_STAFF_FACADE,
+          FacadeType.SALES_STATUS_FACADE, FacadeType.CUSTOMER_FACADE, FacadeType.USER_FACADE};
+    } else {// 売りwin一覧の処理
+      facadeTypeArray = new FacadeType[] {FacadeType.CATEGORY_FACADE, FacadeType.SALES_STAFF_FACADE,
+          FacadeType.SALES_STATUS_FACADE, FacadeType.CUSTOMER_FACADE};
+    }
+
+    // 開発ログ(デバッグ用)
+    SystemLogAction.addSystemLog(dbDataSource, facadeTypeArray, CodeEnum.sysLogDebug.ToLogic,
+        request, app);
+
+    IDataList iDataList = null;
+    for (FacadeType facadeType : facadeTypeArray) {
+      // データリスト取得処理実行
+      IFacade iFacade = FacadeFactory.create(facadeType);
+
+      // 顧客データ取得の時だけソート指定
+      if (facadeType == FacadeType.CUSTOMER_FACADE) {
+        SortBean[] sortBeanArray = SortAndSearchAction.createSortBeanArray(true,
+            CustomerTblConstants.CUSTOMER_NAME_NAME_STRING);
+        iDataList = iFacade.query(dbDataSource, sortBeanArray);
+
+      } else {
+        iDataList = iFacade.query(dbDataSource);
+      }
+
+      // 取得したiDataListをコピー、facadeTypeに応じた型にキャストして、リクエストスコープに保存
+      ControllerActionHelper.castIDataList(request, facadeType, iDataList, dbDataSource, app);
+    }
+  }
+
+  /**
+   * P番追加処理
+   *
+   * @param request
+   * @param user
+   * @param action
+   * @param dbDataSource
+   * @param projNumFacade
+   * @param app
+   * @param error
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static void projAddAction(HttpServletRequest request, String user, String action,
+      DBDataSource dbDataSource, ProjNumFacade projNumFacade, ServletContext app, Error error)
+      throws ParseException, PASMException {
+
+    // リクエストパラメータを取得、ProjNumBeanをつくる
+    ProjFormBean projFormBean =
+        projNumBeanBuilder(request, user, CodeEnum.Form.add, action, dbDataSource, app, error);
+    ProjNumBean projBean = projFormBean.getProjBean();
+
+    // DB追加処理実行(売りwin反映があるかないかで実行するメソッドが変わる)
+    boolean addData = false;// 売りwin反映の識別フラグ
+    try {
+      addData = ProjControllerActionHelper.executeAddMethod(request, projNumFacade, projBean,
+          dbDataSource, app);
+
+    } catch (Exception e) {
+      try {// ログ追加(異常)
+        LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+            CodeEnum.Form.add, user, action, true);
+      } catch (Exception exception) {// 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+            "ProjControllerAction.projAddAction");
+      }
+      throw e;
+    }
+
+    try {// ログ追加(正常)
+      LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+          CodeEnum.Form.add, user, action, false);
+    } catch (Exception exception) {// 共通の例外処理
+      ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+          "ProjControllerAction.projAddAction");
+    }
+
+    if (addData) {// ログ追加
+      try {
+        // ProjNumBeanをSalesBeanに変換
+        SalesBean salesBean = SalesBeanHelper.projNumBeanToSalesBean(projBean);
+        LogAction.addLog(dbDataSource, salesBean, BeanBuilderType.SALES_BEAN_BUILDER,
+            CodeEnum.Form.add, user, action, false);
+      } catch (Exception exception) {// 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+            "ProjControllerAction.projAddAction");
+      }
+    }
+
+    // メール通知処理(例外処理も行う)
+    MailAction.sendMailAction(app, request, dbDataSource, projBean, error, true);
+  }
+
+  /**
+   * P番編集処理
+   *
+   * @param request
+   * @param user
+   * @param action
+   * @param dbDataSource
+   * @param projNumFacade
+   * @param app
+   * @param error
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static void projEditAction(HttpServletRequest request, String user, String action,
+      DBDataSource dbDataSource, ProjNumFacade projNumFacade, ServletContext app, Error error)
+      throws ParseException, PASMException {
+
+    // リクエストパラメータを取得、ProjNumBeanをつくる
+    // ProjFormBean(ProjNumBeanと削除対象の添付ファイルIDのListをフィールドにもつクラス)の取得
+    ProjFormBean projFormBean =
+        projNumBeanBuilder(request, user, CodeEnum.Form.edit, action, dbDataSource, app, error);
+    // ProjFormBeanからそれぞれのフィールドを取得
+    ProjNumBean projBean = projFormBean.getProjBean();
+    List<Long> attachmentIDList = projFormBean.getAttachmentIDList();
+
+    // 開発ログ(デバッグ用)
+    SystemLogAction.addSystemLog(dbDataSource, projBean, CodeEnum.sysLogDebug.ToLogic, request,
+        app);
+    List<String> attachFileNameList = new ArrayList<String>();
+    for (AttachFileBean attachFileBean : projBean.getAttachFileList()) {
+      String fileName = attachFileBean.getFileName();
+      attachFileNameList.add(fileName);
+    }
+    SystemLogAction.addSystemLog(attachFileNameList, CodeEnum.sysLogDebug.ToLogic, dbDataSource,
+        request, app);
+    SystemLogAction.addSystemLog(projBean.getNotiUserList(), CodeEnum.sysLogDebug.ToLogic,
+        dbDataSource, request, app);
+    SystemLogAction.addSystemLog(dbDataSource, attachmentIDList, CodeEnum.sysLogDebug.ToLogic,
+        request, app);
+
+    // DB変更処理実行
+    try {
+      projNumFacade.modify(projBean, attachmentIDList, dbDataSource);
+    } catch (Exception e) {
+      try {// ログ追加(異常)
+        LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+            CodeEnum.Form.edit, user, action, true);
+      } catch (Exception exception) {// 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+            "ProjControllerAction.projEditAction");
+      }
+      throw e;
+    }
+
+    try {// ログ追加(正常)
+      LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+          CodeEnum.Form.edit, user, action, false);
+    } catch (Exception exception) {// 共通の例外処理
+      ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+          "ProjControllerAction.projEditAction");
+    }
+
+    // メール通知処理(例外処理も行う)
+    MailAction.sendMailAction(app, request, dbDataSource, projBean, error, false);
+  }
+
+  /**
+   * フォーム画面から送られるリクエストパラメータをProjNumBeanにセットするメソッド
+   *
+   * @param request
+   * @param user
+   * @param formType
+   * @param action
+   * @param dbDataSource
+   * @return
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static ProjFormBean projNumBeanBuilder(HttpServletRequest request, String user,
+      CodeEnum.Form formType, String action, DBDataSource dbDataSource, ServletContext app,
+      Error error) throws ParseException, PASMException {
+
+    // ProjNumBeanインスタンスを取得
+    ProjNumBean projBean = new ProjNumBean();
+    // 削除対象の添付ファイルのIDのリスト
+    List<Long> attachmentIDList = new ArrayList<Long>();
+    // ProjFormBeanインスタンス取得
+    ProjFormBean projFormBean = new ProjFormBean();
+
+    // 作成・更新ユーザー情報をprojBeanにセットする
+    if (formType == CodeEnum.Form.add || formType == CodeEnum.Form.copy) {// P番追加時
+      projBean.setCreatedBy(user);
+    } else if (formType == CodeEnum.Form.edit) {// P番編集時
+      projBean.setChangedBy(user);
+    }
+
+    // 以下で、リクエストパラメータを取得する
+    if (request.getAttribute(ScopeNameConstants.SCOPE_MULTIPART_DATA) == null) {
+      throw new IllegalStateException("システムエラー：パラメータが取得できませんでした");
+
+    } else {
+
+      MultipartFormBean multiPartFormBean =
+          (MultipartFormBean) request.getAttribute(ScopeNameConstants.SCOPE_MULTIPART_DATA);
+      // フォームデータ
+      Map<String, String[]> formFieldData = multiPartFormBean.getFormFieldMap();
+      // ファイルデータ
+      List<FileItem> fileDataList = multiPartFormBean.getFileDataList();
+
+      // ファイルデータをbeansにセットする処理
+      if (fileDataList != null) {
+        for (FileItem fileData : fileDataList) {
+          if (fileData.getName().isEmpty()) {// javascriptの動作上、ファイルが何も選択されていないものも送られてくるため、それを処理から除外する
+
+            if (action.equals(ProjConstants.ACTION_PROJ_IMPORT_START)) {// インポート時は必ず1ファイル指定するため、ファイルなしは例外を投げる
+              throw new PASMException(PASMErrorType.INVALID_PARAM, "インポートするファイルがありません");
+            }
+            continue;
+          }
+          if (!action.equals(ProjConstants.ACTION_PROJ_IMPORT_START)) {// インポート処理以外
+            // ファイルサイズの上限を超えていないかチェックする
+            boolean isValidSize = ProjControllerActionHelper.isValidFileSize(fileData);
+            if (!isValidSize) {// 上限を超えているとき
+              String fileName =
+                  ProjControllerActionHelper.getFileNameWithoutPath(fileData.getName());
+              throw new PASMException(PASMErrorType.INVALID, "添付ファイルのサイズが最大値("
+                  + (ProjConstants.FILE_SIZE_MAX / (1000 * 1024)) + "MB)を超えています：" + fileName);// byteからMBに変換
+            }
+
+            // 添付ファイル用のbeanをつくってprojNumBeanにセットする
+            AttachFileBean attachedFileBean = AttachFileBeanHelper.createAttachFileBean(fileData);
+            projBean.addAttachFileBean(attachedFileBean);
+
+          } else {// インポート処理
+            importAction(request, dbDataSource, fileData, attachmentIDList, user, action, app,
+                error);
+          }
+        }
+      }
+
+      // 以下、フォームデータをbeansにセットする処理
+
+      // 入力エラーに関する情報
+      boolean isError = false;// エラー発生したかどうか
+      String errorPoint = "";// エラー発生個所
+      DateAction projDevDate = new DateAction();// 開発期間の入力値チェック用オブジェクト
+
+      if (formFieldData != null) {
+        for (String key : formFieldData.keySet()) {
+          // valueの取得
+          for (String value : formFieldData.get(key)) {
+            // 以下で、パラメータチェック
+            try {
+              // 空欄チェック
+              ProjControllerActionHelper.projEmptyCheck(key, value);
+              // 入力値チェック
+              ProjControllerActionHelper.projIsValidInputValue(key, value, projDevDate, false);
+            } catch (Exception e) {// 入力値エラーがあったときの処理
+              isError = true;
+              // エラーの原因+改行コードを取得
+              errorPoint += (e.getMessage() + System.getProperty("line.separator"));
+            }
+
+            if (!isError) {
+              // 取得したパラメータをprojNumBeanにセットする
+              projBean = ProjControllerActionHelper.createProjNumBean(projBean, key, value,
+                  attachmentIDList);
+            }
+          }
+        }
+        // 入力エラーがあった場合・・・エラー情報をthrowする
+        if (isError) {
+          throw new PASMException(PASMErrorType.INVALID, errorPoint);
+        }
+      }
+
+      // ProjFormBeanにプロジェクト情報と削除ファイルの情報をセット
+      projFormBean.setProjBean(projBean);
+      projFormBean.setAttachmentIDList(attachmentIDList);
+
+      return projFormBean;
+    }
+  }
+
+
+  /**
+   * P番一覧画面に遷移する際に行う処理
+   *
+   * @param session
+   * @param request
+   * @param dbDataSource
+   * @param action
+   * @param app
+   */
+  public static void forwardActionToProjList(HttpSession session, HttpServletRequest request,
+      DBDataSource dbDataSource, String action, ServletContext app) {
+
+    // actionパラメータごとに、権限の識別情報をセッションスコープ保存
+    if (action.equals(ActionParamConstants.ACTION_PROJ_ADMIN)
+        || action.equals(ActionParamConstants.ACTION_PROJ_GUEST)) {
+
+      boolean canEdit = false;
+      if (action.equals(ActionParamConstants.ACTION_PROJ_ADMIN)) {// P番一覧：管理者の場合
+        canEdit = true;
+      }
+      session.setAttribute(ScopeNameConstants.SCOPE_CAN_EDIT, canEdit);
+
+      // 開発ログ(デバッグ用)
+      Object[] objectArray2 = {canEdit};
+      SystemLogAction.addSystemLog(dbDataSource, "canEdit", objectArray2,
+          CodeEnum.sysLogDebug.ToJSP, request, app);
+    }
+
+    // 検索条件の配列
+    SearchBean[] searchBeanArray = null;
+    // SortBeanをインスタンス生成
+    SortBean sortBean = new SortBean();
+    // PageBeanインスタンスを生成
+    PageBean pageBeanBefore = new PageBean();
+    // 年度設定・・・デフォルト＝今年度
+    String strFiscalYear = Integer.toString(DateAction.getFiscalYear());
+
+    // 年度条件を取得、なければデフォルト値をセッションスコープに保存
+    if (session.getAttribute(ProjConstants.SCOPE_FISCAL_YEAR) == null) {// セッションスコープに年度条件がないとき
+      // デフォルト値をセッションスコープに保存
+      session.setAttribute(ProjConstants.SCOPE_FISCAL_YEAR, strFiscalYear);
+    } else {// セッションスコープに年度条件があるとき
+      strFiscalYear = (String) session.getAttribute(ProjConstants.SCOPE_FISCAL_YEAR);
+    }
+
+    // 開発ログ(デバッグ用)
+    Object[] objectArray = {strFiscalYear};
+    SystemLogAction.addSystemLog(dbDataSource, "fiscalYear", objectArray,
+        CodeEnum.sysLogDebug.ToJSP, request, app);
+
+    // ソート・検索条件情報を取得する
+    if (session.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ) != null
+        && session.getAttribute(ProjConstants.SCOPE_SORT_PROJ) != null) {// セッションスコープにソート・検索条件に関するデータがあるとき
+      // 検索条件を取得
+      searchBeanArray = (SearchBean[]) session.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ);
+      // ソート条件を取得
+      sortBean = (SortBean) session.getAttribute(ProjConstants.SCOPE_SORT_PROJ);
+
+    } else {// セッションスコープにソート・検索条件がないとき・・・デフォルト値を設定(ソート=発行日降順・検索条件=空欄・・・要素数0のSearchBeanの配列)
+      SortAndSearchBean sortAndSearch =
+          ProjControllerAction.setDefaultCondition(sortBean, searchBeanArray);
+      sortBean = sortAndSearch.getSortBean();
+      searchBeanArray = sortAndSearch.getSearchBeanArray();
+      // セッションスコープに保存
+      session.setAttribute(ProjConstants.SCOPE_SEARCH_PROJ, searchBeanArray);
+      session.setAttribute(ProjConstants.SCOPE_SORT_PROJ, sortBean);
+    }
+
+    // 開発ログ追加(デバッグ用)
+    SystemLogAction.addSystemLog(dbDataSource, sortBean, CodeEnum.sysLogDebug.ToJSP, request, app);
+    SystemLogAction.addSystemLog(dbDataSource, searchBeanArray, CodeEnum.sysLogDebug.ToJSP, request,
+        app);
+
+    // ページ分割の情報をpageBeanにセットする(データ取得開始位置＝offset、表示上限件数＝limit)
+    if (action.equals(ProjConstants.ACTION_PROJ_LIST_NEXT)
+        || action.equals(ProjConstants.ACTION_PROJ_LIST_PRIVIOUS)) {// 前のページ、次のページがリクエストされた時
+      // リクエストパラメータを取得する
+      PageAction.pageBeanBuilder(request, app, pageBeanBefore, false);
+    } else {
+      // 1ページ目を表示する
+      PageAction.pageBeanBuilder(request, app, pageBeanBefore, true);
+    }
+
+    // プロジェクト一覧データを取得、リクエストスコープに保存
+    getProjDataList(request, dbDataSource, FacadeType.PROJ_NUM_FACADE, pageBeanBefore, sortBean,
+        searchBeanArray, strFiscalYear, app);
+  }
+
+  /**
+   * P番フォーム画面に遷移する際の処理
+   *
+   * @param request
+   * @param dbDataSource
+   * @param action
+   * @param isProjAction
+   */
+  public static void forwardActionToProjForm(HttpServletRequest request, DBDataSource dbDataSource,
+      String action, boolean isProjAction, ServletContext app) {
+
+    if (isProjAction) {// P番一覧の処理
+      // 追加・再利用 の時・・・今日の日付をリクエストスコープに保存
+      if (action.equals(ProjConstants.ACTION_PROJ_NEW)
+          || action.equals(ProjConstants.ACTION_PROJ_COPY)) {
+        DateAction.setDateTodayToScope(request, dbDataSource, app);
+      }
+
+      // ユーザーグループ情報を取得
+      // 追加：インターノウス
+      // ここから
+      UserGroupFacade userGroupFacade = new UserGroupFacade();
+      IDataList userGroupIDataList = userGroupFacade.query(dbDataSource);
+      List<UserGroupBean> userGroupList = ((BeanDataList<UserGroupBean>) userGroupIDataList).clone();
+
+      // 工数単価のデフォルト値設定
+      int defaultUnitPrice = 0;
+      defaultUnitPrice = (int) app.getAttribute(ScopeNameConstants.SCOPE_DEFAULT_UNIT_PRICE);
+
+      request.setAttribute(ScopeNameConstants.SCOPE_DEFAULT_UNIT_PRICE, defaultUnitPrice);
+      request.setAttribute("userGroupList", userGroupList);
+      // ここまで
+    }
+
+    // form画面の識別
+    ControllerAction.setFormIDToScope(request, action, dbDataSource, app);
+
+    // 選択肢データ取得（分類、営業担当、ステータス、顧客、通知全ユーザーなど）
+    getOptionDataList(request, dbDataSource, isProjAction, app);
+  }
+
+
+  /**
+   * インポート処理
+   *
+   * @param request
+   * @param dbDataSource
+   * @param fileItem
+   * @param projBean
+   * @param attachmentIDList
+   * @param user
+   * @param action
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static void importAction(HttpServletRequest request, DBDataSource dbDataSource,
+      FileItem fileItem, List<Long> attachmentIDList, String user, String action,
+      ServletContext app, Error error) throws ParseException, PASMException {
+
+    // 開発ログ(デバッグ用)
+    if (fileItem != null) {
+      String fileName = fileItem.getName();
+      Object[] objectArray = {fileName};
+      SystemLogAction.addSystemLog(dbDataSource, "ファイル名", objectArray, CodeEnum.sysLogDebug.ToLogic,
+          request, app);
+    }
+
+    List<String[]> recordList = ProjNumBeanHelper.createCSVList(fileItem);// 一行もデータがないときはsize=0でくる
+
+    if (recordList.size() == 0) {
+      throw new PASMException(PASMErrorType.INVALID_PARAM, "インポートするデータがありません");
+    }
+
+    // 以下で、インポートするデータを1レコードずつ処理する
+    ProjNumFacade projNumFacade = new ProjNumFacade();
+    boolean isError = false;// エラーが起きたかどうか
+    int errorRecord = 0;// エラー行
+    int errorColumn = 0;// エラー列
+    String errorInfo = null;// エラー原因
+    String errorMessage = "";// エラーメッセージ
+    List<String> errorMessageList = new ArrayList<String>();// エラーメッセージのリスト
+    DateAction projDevDate = new DateAction();
+
+    for (int recordNum = 0; recordNum < recordList.size(); recordNum++) {
+        boolean isErrorTemp = false;// 1レコードごとにリセットするエラーフラグ
+      // 追加：インターノウス
+      // continue後エラーフラグをリセット
+
+      String[] record = recordList.get(recordNum);
+
+      // 開発ログ(デバッグ用)・・・バイナリファイルの場合、例外が起こるため
+      // Object[] objectArray = record;
+      // SystemLogAction.addSystemLog(dbDataSource, "record", objectArray,
+      // CodeEnum.sysLogDebug.ToLogic, request);
+
+      // 項目数チェック
+      try {
+        if (record.length != ProjConstants.PROJ_IMPORT_COLUMN_NUM) {
+          throw new PASMException(PASMErrorType.INVALID, "CSVファイルの入力形式に誤りがあります");
+        }
+      } catch (PASMException e) {
+        // エラーがあったときの処理
+        isError = true;
+        isErrorTemp = true;
+        // エラーメッセージ追加
+        errorRecord = recordNum + 2;// エラー行(配列が０からスタートするのと、項目名の行の分を足す)
+        errorInfo = e.getMessage();// エラー原因
+        errorMessage = "行:" + errorRecord + " 原因:" + errorInfo;// エラーメッセージ
+        errorMessageList.add(errorMessage);
+
+        continue;
+      }
+
+      // 項目ごとに入力値チェック
+      ProjNumBean projBean = new ProjNumBean();
+      boolean addData = false;// 売りwin反映ありなしの判定
+      for (int columnNum = 0; columnNum < ProjConstants.PROJ_IMPORT_COLUMN_NUM; columnNum++) {
+        // 入力された項目
+        String columnName = ProjConstants.PROJ_IMPORT_COLUMN_NAME[columnNum];
+        // 入力値
+        String columnValue = record[columnNum];
+
+        // 以下で入力値チェック
+        try {
+          // 空欄チェック
+          ProjControllerActionHelper.projEmptyCheck(columnName, columnValue);
+          // 値チェック
+          ProjControllerActionHelper.projIsValidInputValue(columnName, columnValue, projDevDate,
+              true);
+
+          if (columnName.equals(ProjConstants.PROJ_ADD_UW)) {// 売りwinへの反映欄の処理
+            if (columnValue != null) {
+              if (columnValue.equals(JSPParamConstants.ADD_DATA)) {
+                addData = true;
+              }
+            }
+          } else {// 売りwinへの反映以外の処理
+            // 取得したパラメータをprojNumBeanにセットする
+            projBean = ProjControllerActionHelper.createProjNumBean(projBean, columnName,
+                columnValue, attachmentIDList);
+          }
+
+        } catch (Exception e) {
+          // エラーがあったときの処理
+          isError = true;
+          isErrorTemp = true;
+          // エラーメッセージ追加
+          errorRecord = recordNum + 2;// エラー行(配列が０からスタートするのと、項目名の行の分を足す)
+          errorColumn = columnNum + 1;// エラー列
+          errorInfo = e.getMessage();// エラー原因
+          errorMessage = "行:" + errorRecord + " 列:" + errorColumn + " 原因:" + errorInfo;// エラーメッセージ
+          errorMessageList.add(errorMessage);
+
+          continue;
+        }
+      }
+
+      if (!isErrorTemp) {
+        // 作成者
+        projBean.setCreatedBy(user);
+
+        // 開発ログ(デバッグ用)
+        SystemLogAction.addSystemLog(dbDataSource, projBean, CodeEnum.sysLogDebug.ToLogic, request,
+            app);
+
+        try {
+          // DB追加処理実行
+          projNumFacade.add(projBean, addData, dbDataSource);
+
+        } catch (Exception e) {
+          isError = true;
+          isErrorTemp = true;
+          // エラーメッセージ追加
+          errorRecord = recordNum + 2;// エラー行(配列が０からスタートするのと、項目名の行の分を足す)
+          errorInfo = e.getMessage();// エラー原因
+          errorMessage = "行:" + errorRecord + " 原因:" + errorInfo;// エラーメッセージ
+          errorMessageList.add(errorMessage);
+
+          try {// ログ追加(異常)
+            LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+                CodeEnum.Form.add, user, action, true);
+          } catch (Exception exception) {// 共通の例外処理
+            ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+                "ProjControllerAction.importAction");
+          }
+
+          // 開発ログ追加
+          SystemLogAction.addSystemLog(dbDataSource, e, "ProjControllerAction.importAction", 3,
+              request, app);
+        }
+        if (!isErrorTemp) {
+          try {// ログ追加(正常)
+            LogAction.addLog(dbDataSource, projBean, BeanBuilderType.P_NUM_BEAN_BUILDER,
+                CodeEnum.Form.add, user, action, false);
+          } catch (Exception exception) {// 共通の例外処理
+            ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+                "ProjControllerAction.importAction");
+          }
+
+          if (addData) {
+            try {
+              // ProjNumBeanをSalesBeanに変換
+              SalesBean salesBean = SalesBeanHelper.projNumBeanToSalesBean(projBean);
+              // ログ追加(正常)
+              LogAction.addLog(dbDataSource, salesBean, BeanBuilderType.SALES_BEAN_BUILDER,
+                  CodeEnum.Form.add, user, action, false);
+            } catch (Exception exception) {
+              // 共通の例外処理
+              ExceptionHandler.exceptionAction(app, request, exception, error, dbDataSource,
+                  "ProjControllerAction.importAction");
+            }
+          }
+        }
+      }
+      // エラーフラグリセット
+      isErrorTemp = false;
+    }
+
+    if (isError) {
+      // エラーオブジェクトをスコープに保存
+      error.setIsError(true);
+      error.setErrorInfoList(errorMessageList);
+      request.setAttribute(ProjConstants.SCOPE_IMPORT_ERROR, error);
+
+      // 開発ログ追加(デバッグ用)
+      SystemLogAction.addSystemLog(dbDataSource, error, CodeEnum.sysLogDebug.ToJSP, request, app);
+    }
+
+    // 追加：インターノウス
+    if (!isError) {
+      // インポート処理がすべて正常終了した場合、インポート完了フラグをスコープに保存する
+       boolean projImportProcessComplete = true;
+      request.setAttribute("projImportProcessComplete", projImportProcessComplete);
+    }
+  }
+
+  /**
+   * ProjNumBeanから通知ユーザーのユーザー情報を取得、リクエストスコープに保存するメソッド
+   *
+   * @param iData
+   * @param dbDataSource
+   * @param request
+   * @throws PASMException
+   */
+  public static void getNotiUserInfo(IData iData, DBDataSource dbDataSource,
+      HttpServletRequest request, ServletContext app) throws PASMException {
+
+    List<UserBean> notiUserList = null;
+    // キャスト
+    if (iData instanceof ProjNumBean) {
+      ProjNumBean projBean = (ProjNumBean) iData.deepCopy();
+      // projBeanから通知ユーザーの情報を取得する
+      notiUserList = MailAction.getNotiUserInfo(projBean, dbDataSource, request, app);
+      // スコープに保存
+      request.setAttribute(ProjConstants.SCOPE_NOTICE_USER_INFO, notiUserList);
+
+      // 開発ログ追加(デバッグ用)
+      SystemLogAction.addSystemLog(notiUserList, CodeEnum.sysLogDebug.ToJSP, dbDataSource, request,
+          app);
+
+    } else {
+      throw new IllegalStateException("システムエラー:ProjControllerAction.getNotiUserInfo");
+    }
+  }
+}

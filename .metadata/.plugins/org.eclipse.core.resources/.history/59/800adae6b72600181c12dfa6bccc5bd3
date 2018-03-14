@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+
+/*レイアウト調整に使用しているテーブルの設定*/
+table.proj_import_out_table{
+  width: auto;
+}
+
+/* tableの設定 */
+table.proj_import_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding:20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  width: auto;
+}
+
+/* th要素の設定 */
+table.proj_import_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+
+  color:black; /*文字色*/
+  font-size: 16px; /*文字の大きさ*/
+/*  font-size:medium;*/ /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+}
+
+/* td要素の設定 */
+table.proj_import_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 20px;
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size: 16px; /*文字の大きさ*/
+/*  font-size:medium; *//*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: auto;
+}
+
+/*ページ下部のボタンの位置 ※レイアウト調整に使用しているテーブルに対して*/
+div.proj_import_button {
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+input.import_file_box {
+  width: 400px !important;
+}
+
+/* 追加：インターノウス */
+/* 正常終了表示用 */
+p.complete_message {
+  color: brack; /*文字色*/
+  font-size: 16px; /*文字の大きさ*/
+  font-weight: normal;/*文字の太さ*/
+  font-family: sans-serif; /*文字のフォント*/
+}

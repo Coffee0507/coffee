@@ -1,0 +1,199 @@
+package jp.co.lsij.p16590004.common;
+
+/**
+ * P番関連の定数定義クラス
+ *
+ * @author m-kakuwa
+ *
+ */
+public class ProjConstants {
+
+  /** actionパラメータ一覧 */
+  /** P番一覧：削除ボタン */
+  public static final String ACTION_PROJ_DELETE = "p_del";
+  /** P番一覧：インポートボタン */
+  public static final String ACTION_PROJ_IMPORT = "p_import";
+  /** P番一覧：検索ボタン */
+  public static final String ACTION_PROJ_SEARCH = "p_search";
+  /** P番一覧：プロジェクト詳細情報 */
+  public static final String ACTION_PROJ_DETAIL = "p_detail";
+  /** P番一覧：次のページ */
+  public static final String ACTION_PROJ_LIST_NEXT = "proj_list_next";
+  /** P番一覧：前のページ */
+  public static final String ACTION_PROJ_LIST_PRIVIOUS = "proj_list_back";
+  /** P番フォーム：戻るボタン 新規追加 */
+  public static final String ACTION_PROJ_ADD_RETURN = "p_add_return";
+  /** P番フォーム：戻るボタン 編集 */
+  public static final String ACTION_PROJ_EDIT_RETURN = "p_edit_return";
+  /** P番フォーム：戻るボタン 再利用 */
+  // public static final String ACTION_PROJ_COPY_RETURN = "p_addlist_return";
+  /** P番詳細画面：ファイルダウンロード */
+  public static final String ACTION_PROJ_DOWNLOAD_FILE = "p_dat_doc";
+  /** インポート画面：インポート開始ボタン */
+  public static final String ACTION_PROJ_IMPORT_START = "p_imp_start";
+  /** インポート画面：戻るボタン */
+  public static final String ACTION_PROJ_IMPORT_RETURN = "p_imp_return";
+  /** P番一覧：年度切り替え(表示)ボタン */
+  public static final String ACTION_PROJ_YEAR = "p_year_dis";
+  /** P番一覧：新規追加ボタン */
+  public static final String ACTION_PROJ_NEW = "p_new";
+  /** P番一覧：再利用ボタン */
+  public static final String ACTION_PROJ_COPY = "p_copy";
+  /** P番一覧：変更ボタン */
+  public static final String ACTION_PROJ_CHANGE = "p_change";
+  /** P番フォーム画面：追加処理実行 */
+  public static final String ACTION_PROJ_ADD = "p_add";
+  /** P番フォーム画面：変更処理実行 */
+  public static final String ACTION_PROJ_EDIT = "p_edit";
+  /** P番詳細画面：変更ボタン */
+  public static final String ACTION_PROJ_DETAIL_CHANGE = "p_dat_change";
+  /** P番詳細画面：戻る */
+  public static final String ACTION_PROJ_DETAIL_RETURN = "p_dat_return";
+  // 追加：インターノウス
+  /** P番詳細：更新 */
+  public static final String ACTION_PROJ_DETAIL_MODIFY_TOTAL_WORKING_TIME_EDIT = "p_dat_modify_total_working_time";
+
+
+  /** リクエストパラメータ */
+  /** P番一覧：年度 ・・・下記記載 */
+  // public static final String FISCAL_YEAR = "p_year";
+  /** P番フォーム：P番 */
+  public static final String PROJ_ID = "p_number";
+  /** P番フォーム：分類 */
+  public static final String PROJ_CATEGORY = "p_type";
+  /** P番フォーム：営業 */
+  public static final String PROJ_SALES_STAFF = "p_sales";
+  /** P番フォーム：ステータス */
+  public static final String PROJ_STATUS = "p_status";
+  /** P番フォーム：プロジェクト名 */
+  public static final String PROJ_NAME = "p_name";
+  /** P番フォーム：売上先 */
+  public static final String PROJ_CUSTOMER = "p_cus";
+  /** P番フォーム：エンドユーザー */
+  public static final String PROJ_END_USER = "p_end_user";
+  /** P番フォーム：受注金額 */
+  public static final String PROJ_VALUE_ORDER = "p_order_money";
+  /** P番フォーム：受注月 */
+  public static final String PROJ_DATE_ORDER = "p_order_month";
+  /** P番フォーム：売上月 */
+  public static final String PROJ_DATE_SALES = "p_sales_month";
+  /** P番フォーム：入金月 */
+  public static final String PROJ_DATE_PAYMENT = "p_pay_month";
+  /** P番フォーム：備考 */
+  public static final String PROJ_COMMENT = "p_remarks";
+  /** P番フォーム：発行日 */
+  public static final String PROJ_ISSUED_DATE = "p_issue_day";
+  /** P番フォーム：開発期間 開始日 */
+  public static final String PROJ_DATE_DEV_START = "p_dev_start";
+  /** P番フォーム：開発期間 終了日 */
+  public static final String PROJ_DATE_DEV_END = "p_dev_end";
+  /** P番フォーム：添付資料 */
+  // public static final String PROJ_ATTACHMENT = "p_doc_";
+  /** P番フォーム：工数単価 */
+  public static final String PROJ_UNIT_PRICE = "p_unit_price";
+  /** P番フォーム：リーダー */
+  public static final String PROJ_LEADER = "p_leader";
+  /** P番フォーム：メンバー */
+  public static final String PROJ_MEMBER = "p_member";
+  /** P番フォーム：通知 */
+  public static final String PROJ_NOTICE = "p_notice_choice";
+  /** P番フォーム：売りwin反映 */
+  public static final String PROJ_ADD_UW = "p_winlist_ref";
+  /** P番フォーム：売りwin反映チェックボックスのvalue */
+  // public static final String PROJ_ADD_UW_VALUE = "true";
+  /** P番フォーム：開発予算 */
+  public static final String PROJ_DEV_BUDGET = "p_dev_budget";
+  /** P番フォーム(編集時):添付ファイル削除用チェックボックス */
+  public static final String PROJ_DELETE_ATTACHMENT = "p_doc_box";
+  /** P番詳細画面：P番ID */
+  public static final String PROJ_THE_ID = "p_id";
+  /** P番詳細画面：添付ファイルID */
+  public static final String ATTACHMENT_ID = "p_dat_inc_doc";
+
+
+  /** スコープ名 */
+  /** 新規追加・編集・再利用時の入力値 */
+  public static final String SCOPE_PROJ_INPUT_VALUE = "projMap";
+  /** 年度設定 */
+  public static final String SCOPE_FISCAL_YEAR = "fiscalYear";
+  /** ソート設定 */
+  public static final String SCOPE_SORT_PROJ = "projSort";
+  /** 検索設定 */
+  public static final String SCOPE_SEARCH_PROJ = "projSearch";
+  /** P番データ */
+  public static final String SCOPE_PROJ_DATA = "proj";
+  /** P番一覧データリスト */
+  public static final String SCOPE_PROJ_LIST = "projList";
+  /** 添付ファイルデータ */
+  public static final String SCOPE_ATTACHMENT = "attachment";
+  /** インポートエラークラス */
+  public static final String SCOPE_IMPORT_ERROR = "importError";
+  /** 通知ユーザーのユーザー情報 */
+  public static final String SCOPE_NOTICE_USER_INFO = "notiUserList";
+
+
+  /** インポート：カラム数 */
+  // 項目：P番、分類、営業、ステータス、プロジェクト名、売上先、エンドユーザ、受注金額、受注月、売上月、入金月、備考、発行日、開発期間(start)、開発期間(end)、開発予算、リーダー、メンバー、売りwin反映
+  public static final int PROJ_IMPORT_COLUMN_NUM = 20;
+  /** インポート：カラムの順番 */
+  // 1:P番 2:分類 3:営業 4:ステータス 5:プロジェクト名 6:売上先 7:エンドユーザー 8:受注金額 9:受注月
+  // 10:売上月 11:入金月 12:発行日 13:開発開始日 14:開発終了日 15:開発予算  16:工数単価 17:リーダー 18:メンバー 19:備考 20:売りwin反映
+  public static final String[] PROJ_IMPORT_COLUMN_NAME = new String[] {PROJ_ID, PROJ_CATEGORY,
+      PROJ_SALES_STAFF, PROJ_STATUS, PROJ_NAME, PROJ_CUSTOMER, PROJ_END_USER, PROJ_VALUE_ORDER,
+      PROJ_DATE_ORDER, PROJ_DATE_SALES, PROJ_DATE_PAYMENT, PROJ_ISSUED_DATE, PROJ_DATE_DEV_START,
+      PROJ_DATE_DEV_END, PROJ_DEV_BUDGET, PROJ_UNIT_PRICE,  PROJ_LEADER, PROJ_MEMBER, PROJ_COMMENT, PROJ_ADD_UW};
+  /** 入金月・売上月・受注月に自動的に足す日付 */
+  public static final String PROJ_PLUS_DATE = "-01";
+
+
+  /** デフォルト値 P番一覧：ソート条件 */
+  public static final String DEFAULT_SORT_CATEGORY_PROJ = "p_sort_issue";// 発行日
+  /** デフォルト値 P番一覧：検索条件 */
+  public static final String DEFAULT_SEARCH_CATEGORY_PROJ = "none"; // なし（空白）
+
+
+  /** 添付ファイルのサイズの上限(5M) */
+  public static final long FILE_SIZE_MAX = 5120000;// 単位はbyte
+
+
+  /** JSPパラメータ： P番一覧・ソート */
+  /** P番リスト(JSP)のP番ソート名 */
+  public static final String JSP_SORT_CATEGORY_PROJ_ID = "p_sort_pnum";
+  /** P番リスト(JSP)のプロジェクト名ソート名 */
+  public static final String JSP_SORT_CATEGORY_PROJ_NAME = "p_sort_pname";
+  /** P番リスト(JSP)の売上先ソート名 */
+  public static final String JSP_SORT_CATEGORY_CUSTOMER = "p_sort_cus";
+  /** P番リスト(JSP)の営業ソート名 */
+  public static final String JSP_SORT_CATEGORY_SALES_STAFF = "p_sort_sales";
+  /** P番リスト(JSP)のステータスソート名 */
+  public static final String JSP_SORT_CATEGORY_SALES_STATUS = "p_sort_status";
+  /** P番リスト(JSP)の発行日ソート名 */
+  public static final String JSP_SORT_CATEGORY_ISSUED_DATE = "p_sort_issue";
+  /** P番リスト(JSP)のメンバアサインソート名 */
+  public static final String JSP_SORT_CATEGORY_MEMBER_ASSIGN = "p_sort_assign";
+
+
+  /** JSPパラメータ：P番一覧・検索 */
+  /** P番リスト(JSP)の年度検索条件名 */
+  public static final String JSP_SEARCH_FISCAL_YEAR = "p_year";
+  /** P番リスト(JSP)の全て検索条件名 */
+  public static final String JSP_SEARCH_ALL = "sec_all";
+  /** P番リスト(JSP)のP番検索条件名 */
+  public static final String JSP_SEARCH_PROJ_ID = "sec_pnum";
+  /** P番リスト(JSP)のプロジェクト名検索条件名 */
+  public static final String JSP_SEARCH_PROJ_NAME = "sec_pname";
+  /** P番リスト(JSP)の売上先検索条件名 */
+  public static final String JSP_SEARCH_CUSTOMER = "sec_cus";
+  /** P番リスト(JSP)の営業検索条件名 */
+  public static final String JSP_SEARCH_SALES_STAFF = "sec_sales";
+  /** P番リスト(JSP)のステータス検索条件名 */
+  public static final String JSP_SEARCH_SALES_STATUS = "sec_status";
+  /** P番リスト(JSP)の発行日検索条件名 */
+  public static final String JSP_SEARCH_ISSUED_DATE = "sec_issue";
+  /** P番リスト(JSP)のアサイン検索条件名 */
+  public static final String JSP_SEARCH_MEMBER_ASSIGN = "sec_assign";
+  /** P番リスト(JSP)のアサイン条件のアサイン済み値 */
+  public static final String JSP_SEARCH_MEMBER_ASSIGN_ALREADY = "assign_fin";
+  /** P番リスト(JSP)のアサイン条件の未アサイン値 */
+  public static final String JSP_SEARCH_MEMBER_ASSIGN_YET = "assign_not_fin";
+}

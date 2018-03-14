@@ -1,0 +1,287 @@
+package jp.co.lsij.p16590004.e_200.controller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import jp.co.lsij.p16590004.common.ActionParamConstants;
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.Error;
+import jp.co.lsij.p16590004.common.ForwardPathConstants;
+import jp.co.lsij.p16590004.common.ScopeNameConstants;
+import jp.co.lsij.p16590004.e_200.model.ControllerActionHelper;
+import jp.co.lsij.p16590004.e_200.model.ExceptionHandler;
+import jp.co.lsij.p16590004.e_200.model.SystemLogAction;
+import jp.co.lsij.p16590004.e_77.model.BeanDataList;
+import jp.co.lsij.p16590004.e_77.model.BeanDataType;
+import jp.co.lsij.p16590004.e_77.model.IData;
+import jp.co.lsij.p16590004.e_77.model.IDataList;
+import jp.co.lsij.p16590004.e_77.model.master.UserFacade;
+import jp.co.lsij.p16590004.e_77.model.master.UserGroupFacade;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserBean;
+import jp.co.lsij.p16590004.e_77.model.master.beans.UserGroupBean;
+import jp.co.lsij.p16590004.exception.PASMErrorType;
+import jp.co.lsij.p16590004.exception.PASMException;
+
+/**
+ * Servlet implementation class LoginController
+ */
+/**
+ * ログイン・ログアウト処理を行うコントローラ
+ *
+ * @author m-kakuwa
+ *
+ */
+@WebServlet("/LoginController")
+public class LoginController extends HttpServlet {
+  private static final long serialVersionUID = 1L;
+
+  /** actionパラメータ */
+  /** ログインボタン */
+  private static final String ACTION_LOGIN = "login";
+  /** ログアウトボタン */
+  private static final String ACTION_LOGOUT = "logout";
+
+  /** リクエストパラメータ */
+  /** ユーザー一覧セレクトボックス */
+  private static final String SELECT_USER = "user_id";
+  /** パスワード入力欄 */
+  private static final String INPUT_PASS = "login_pass";
+
+  /** スコープ名 */
+  /** ユーザー一覧 */
+  private static final String SCOPE_USER_LIST = "userList";
+
+  /** ユーザーグループ名 */
+  // 追加:インターノウス
+  // ここから
+  private static final String SCOPE_USER_GROUP_LIST = "userGroupList";
+  //ここまで
+  /** 入力値リターン(エラー時) */
+  private static final String SCOPE_LOGIN_INPUT_VALUE = "accountMap";
+
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    // response.getWriter().append("Served at: ").append(request.getContextPath());
+
+    doPost(request, response);
+  }
+
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    // doGet(request, response);
+
+    ServletContext app = null;
+    DBDataSource dbDataSource = null;
+    String action = "";
+    Error error = null;
+    // フォワード先
+    String forwardPath = "";
+    // 正常処理・異常処理の識別(getForwardPath()の引数)
+    boolean isException = false;
+
+    try {// 前処理
+      // ServletContextオブジェクトの取得
+      app = getServletContext();
+      // DataSource取得
+      dbDataSource = (DBDataSource) app.getAttribute(ScopeNameConstants.SCOPE_PG_MAINTAINER);
+      // actionパラメータを取得(FilterAll.javaから)
+      action = ControllerActionHelper.getActionParmeter(request, dbDataSource, app);
+      if (!action.equals(ActionParamConstants.ACTION_SESSION_TIMEOUT)) {
+        // Errorインスタンスを生成
+        error = new Error(false);
+      } else {
+        error = (Error) request.getAttribute(ScopeNameConstants.SCOPE_ERROR_CLASS);
+      }
+      // リクエストスコープに保存
+      request.setAttribute(ScopeNameConstants.SCOPE_ERROR_CLASS, error);
+
+    } catch (Exception e) {
+      // エラー発生かの識別
+      isException = true;
+      // 共通の例外処理
+      ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+          "LoginController.doPost:前処理");
+    }
+
+    // actionパラメータごとの処理
+    if (action.equals(ACTION_LOGIN)) {// ログインボタンが押された時の処理
+      try {
+        // リクエストパラメータを取得
+        Map<String, String[]> requestParameterMap = ControllerActionHelper
+            .requestParameterAction(request, dbDataSource, CodeEnum.sysLogDebug.FromJSP, app);
+
+        if ((requestParameterMap.get(SELECT_USER)[0]).isEmpty()) {// ユーザーが全部削除されている状態でログインボタンが押されたときを想定
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "ユーザーを選択してください");
+        }
+
+        long userID = Long.parseLong(requestParameterMap.get(SELECT_USER)[0]);
+        String pass = requestParameterMap.get(INPUT_PASS)[0];
+
+        // ログイン処理実行
+        UserFacade userFacade = new UserFacade();
+        IData iData = userFacade.doAuthentication(dbDataSource, userID, pass);
+
+        if (iData.getDataType() != BeanDataType.USER_DATA) {
+          throw new IllegalStateException("異常なパラメータ(BeanDataType)");
+        }
+        UserBean userBean = (UserBean) iData.deepCopy();
+
+        // セッションスコープにアカウント情報を保存
+        if (request.getSession(false) != null) {
+          (request.getSession(false)).invalidate();
+        }
+        HttpSession session = request.getSession();
+        session.setAttribute(ScopeNameConstants.SCOPE_LOGIN_USER_INFO, userBean);
+
+        // 開発ログ追加(デバッグ用)
+        SystemLogAction.addSystemLog(dbDataSource, userBean, CodeEnum.sysLogDebug.ToJSP, request,
+            app);
+        Object[] objectArray = {session.getId(), String.valueOf(session.getMaxInactiveInterval()),
+            String.valueOf(session.isNew())};
+        SystemLogAction.addSystemLog(dbDataSource, "セッションID,保持時間(秒),isNew", objectArray,
+            CodeEnum.sysLogDebug.FromJSP, request, app);
+
+        // セッションスコープに保存したオブジェクトをリクエストスコープに保存しなおす(jspではセッションスコープは使用しないため)
+        // SessionManagement.sessionToRequest(session, request, dbDataSource);
+
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "LoginController.doPost:ACTION_LOGIN");
+
+        // 入力値戻す
+        Map<String, String[]> accountMap = ControllerActionHelper.requestParameterAction(request,
+            dbDataSource, CodeEnum.sysLogDebug.ToJSP, app);
+        request.setAttribute(SCOPE_LOGIN_INPUT_VALUE, accountMap);
+        isException = true;
+      }
+
+    } else if (action.equals(ACTION_LOGOUT)) {// ログアウト処理
+      try {
+        if (request.getSession(false) != null) {
+          request.getSession(false).invalidate();
+        }
+      } catch (Exception e) {
+        // エラー発生かの識別
+        isException = true;
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "LoginController.doPost:ACTION_LOGOUT");
+      }
+    }
+
+    // フォワード先を設定
+    forwardPath = getForwardPath(action, isException, forwardPath);
+
+    // フォワード先ごとの処理
+    forwardHelper(forwardPath, request, response, dbDataSource, error, app, action);
+
+    // 設定されたフォワード先にフォワードする
+    if (!forwardPath.isEmpty()) {
+      RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+      dispatcher.forward(request, response);
+    }
+  }
+
+  /**
+   * フォワード先ごとに処理を行うメソッド
+   *
+   * @param forwardPath フォワード先
+   * @param request リクエスト
+   * @param dbDataSource データソース
+   * @param action actionパラメータ
+   * @param error エラークラス
+   */
+  private static void forwardHelper(String forwardPath, HttpServletRequest request,
+      HttpServletResponse response, DBDataSource dbDataSource, Error error, ServletContext app,
+      String action) {
+
+    if (forwardPath.equals(ForwardPathConstants.FORWARD_LOGIN)) {
+      try {
+        // ユーザー情報一覧を取得
+        UserFacade userFacade = new UserFacade();
+        IDataList iDataList = userFacade.query(dbDataSource);
+        // UserBeanのListにキャスト
+        List<UserBean> userList = ((BeanDataList<UserBean>) iDataList).clone();
+
+        // ユーザーグループ情報を取得
+        // 追加：インターノウス
+        // ここから
+        UserGroupFacade userGroupFacade = new UserGroupFacade();
+        IDataList userGroupIDataList = userGroupFacade.query(dbDataSource);
+        List<UserGroupBean> userGroupList = ((BeanDataList<UserGroupBean>) userGroupIDataList).clone();
+
+        // ここまで
+
+        // リクエストスコープに保存
+        request.setAttribute(SCOPE_USER_LIST, userList);
+
+        // 追加：インターノウス
+        // ここから
+        request.setAttribute(SCOPE_USER_GROUP_LIST, userGroupList);
+        // ここまで
+
+        // 開発ログ追加(デバッグ用)
+        SystemLogAction.addSystemLog(userList, CodeEnum.sysLogDebug.ToJSP, dbDataSource, request,
+            app);
+
+        // 追加：インターノウス
+        // 開発ログ追加(デバック用)
+        // ここから
+        SystemLogAction.addSystemLog(userGroupList, CodeEnum.sysLogDebug.ToJSP, dbDataSource, request, app);
+        // ここまで
+
+      } catch (Exception e) {
+        // 共通の例外処理
+        ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+            "LoginController.forwardHelper:FORWARD_LOGIN");
+      }
+    }
+  }
+
+  /**
+   * フォワード先のパスを返すメソッド
+   *
+   * @param action actionパラメータ
+   * @param isException 例外処理かどうかの識別
+   * @param forwardPath フォワード先
+   * @return
+   */
+  private static String getForwardPath(String action, boolean isException, String forwardPath) {
+    // actionパラメータと、エラー識別フラグでフォワード先を分別
+    // 正常・異常ともにログイン画面
+    if ((action == null || action.isEmpty()) || action.equals(ACTION_LOGOUT)
+        || action.equals(ActionParamConstants.ACTION_SESSION_TIMEOUT)) {// ログアウト時
+      // フォワード先を設定
+      forwardPath = ForwardPathConstants.FORWARD_LOGIN;
+
+      // 正常：フレーム、異常：ログイン画面
+    } else if (action.equals(ACTION_LOGIN)) {// ログイン画面でログインボタンが押された時
+      if (!isException) {
+        forwardPath = ForwardPathConstants.FORWARD_FRAME;
+      } else {
+        forwardPath = ForwardPathConstants.FORWARD_LOGIN;
+      }
+    }
+    return forwardPath;
+  }
+}

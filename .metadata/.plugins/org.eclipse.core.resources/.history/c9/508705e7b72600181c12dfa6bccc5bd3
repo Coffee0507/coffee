@@ -1,0 +1,394 @@
+package jp.co.lsij.p16590004.e_200.model.p_num;
+
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.fileupload.FileItem;
+
+import jp.co.lsij.p16590004.common.CodeEnum;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.JSPParamConstants;
+import jp.co.lsij.p16590004.common.ProjConstants;
+import jp.co.lsij.p16590004.common.ScopeNameConstants;
+import jp.co.lsij.p16590004.e_200.model.DateAction;
+import jp.co.lsij.p16590004.e_200.model.ProjInputValue;
+import jp.co.lsij.p16590004.e_200.model.SystemLogAction;
+import jp.co.lsij.p16590004.e_200.model.bean.MultipartFormBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.ProjNumFacade;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.AttachFileBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.NotiUserBean;
+import jp.co.lsij.p16590004.e_77.model.p_num.beans.ProjNumBean;
+import jp.co.lsij.p16590004.e_77.util.DateHelper;
+import jp.co.lsij.p16590004.e_77.util.PathHelper;
+import jp.co.lsij.p16590004.exception.PASMErrorType;
+import jp.co.lsij.p16590004.exception.PASMException;
+
+/**
+ * P番関連の処理のヘルパークラス
+ *
+ * @author m-kakuwa
+ *
+ */
+public class ProjControllerActionHelper {
+
+  /**
+   * P番新規追加・編集・再利用画面で入力された値の空欄チェックをするメソッド
+   *
+   * @param formName
+   * @param formValue
+   * @return 空欄でなければtrue、入力必須項目に空欄があった場合は例外を投げる
+   * @throws PASMException
+   */
+  public static boolean projEmptyCheck(String formName, String formValue) throws PASMException {
+
+    if (formName.equals(ProjConstants.PROJ_ID) || formName.equals(ProjConstants.PROJ_ISSUED_DATE)
+        || formName.equals(ProjConstants.PROJ_CATEGORY)
+        || formName.equals(ProjConstants.PROJ_SALES_STAFF)
+        || formName.equals(ProjConstants.PROJ_STATUS)
+        || formName.equals(ProjConstants.PROJ_CUSTOMER)) {// 入力必須：P番、発行日、分類、営業担当、ステータス、売上先
+
+      if (formValue.isEmpty()) {
+        if (formName.equals(ProjConstants.PROJ_ID)) {
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "P番を入力してください");
+
+        } else if (formName.equals(ProjConstants.PROJ_ISSUED_DATE)) {
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "発行日を入力してください");
+
+        } else if (formName.equals(ProjConstants.PROJ_CATEGORY)) {
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "分類を入力してください");
+
+        } else if (formName.equals(ProjConstants.PROJ_SALES_STAFF)) {
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "営業を入力してください");
+
+        } else if (formName.equals(ProjConstants.PROJ_STATUS)) {
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "ステータスを入力してください");
+
+        } else if (formName.equals(ProjConstants.PROJ_CUSTOMER)) {
+          throw new PASMException(PASMErrorType.INVALID_PARAM, "売上先を入力してください");
+
+        }
+      }
+    }
+    return true;
+  }
+
+
+
+  /**
+   * P番フォーム画面で入力された値をチェックするメソッド
+   *
+   * @param name
+   * @param value
+   * @param projDevDate
+   * @param isProjAction P番一覧の操作かどうかの識別
+   * @return
+   * @throws ParseException
+   * @throws PASMException
+   */
+  public static boolean projIsValidInputValue(String name, String value, DateAction projDevDate,
+      boolean isProjAction) throws ParseException, PASMException {
+
+    if (name.equals(ProjConstants.PROJ_ID)) {// P番
+      ProjInputValue.checkProjID(value);
+
+//    // 追加：インターノウス
+//    if(!isProjAction) {
+//  	  for(prj : prjListの数だけ) {
+//  		  if(value.equals(prj.getPrjNum)) {
+//  			  throw new PASMException(PASMErrorType.INVALID_PARAM, "既にP番が存在しています");
+//  		  }
+//  	  }
+//    }
+    }
+
+    // 追加：インターノウス
+    // ここから
+    // 工数単価用のチェックを追加
+    if (name.equals(ProjConstants.PROJ_UNIT_PRICE)) {// 工数単価
+    	// int用の上限チェックを実装
+        ProjInputValue.checkInt(value, name);
+    }
+    // ここまで
+
+    if (name.equals(ProjConstants.PROJ_VALUE_ORDER) || name.equals(ProjConstants.PROJ_DEV_BUDGET)) {// 受注金額、開発予算
+      ProjInputValue.checkMoney(value, name);
+    }
+
+    if (name.equals(ProjConstants.PROJ_DATE_DEV_START)
+        || name.equals(ProjConstants.PROJ_DATE_DEV_END)) {// 開発開始日、開発終了日
+      if (!value.isEmpty()) {
+        boolean isRealDate = DateHelper.isValidDateStringWithHyphen(value);
+        if (!isRealDate) {
+          if (name.equals(ProjConstants.PROJ_DATE_DEV_START)) {
+            throw new PASMException(PASMErrorType.INVALID_PARAM, "開発開始日の入力に誤りがあります");
+          } else {
+            throw new PASMException(PASMErrorType.INVALID_PARAM, "開発終了日の入力に誤りがあります");
+          }
+        }
+        if (name.equals(ProjConstants.PROJ_DATE_DEV_START)) {
+          projDevDate.setProjDevStart(value);
+        } else {
+          projDevDate.setProjDevEnd(value);
+        }
+        if (!(projDevDate.getProjDevStart().isEmpty())
+            && !(projDevDate.getProjDevEnd().isEmpty())) {
+          int result =
+              DateAction.compareDate(projDevDate.getProjDevStart(), projDevDate.getProjDevEnd());
+          if (result > 0) {
+            throw new PASMException(PASMErrorType.INVALID_PARAM, "開発期間の終了日が開始日より前の日付になっています");
+          }
+        }
+      }
+    }
+
+    if (name.equals(ProjConstants.PROJ_ISSUED_DATE)) {// 発行日
+      boolean isRealDate = DateHelper.isValidDateStringWithHyphen(value);
+      if (!isRealDate) {
+        throw new PASMException(PASMErrorType.INVALID_PARAM, "発行日の入力に誤りがあります");
+      }
+    }
+
+    if (name.equals(ProjConstants.PROJ_DATE_ORDER) || name.equals(ProjConstants.PROJ_DATE_SALES)
+        || name.equals(ProjConstants.PROJ_DATE_PAYMENT)) {// 受注月、売上月、入金月
+
+      ProjInputValue.checkMonth(value, name);
+    }
+
+    if (name.equals(ProjConstants.PROJ_ADD_UW)) {// 売りwinへの反映
+      if (value != null) {
+        if (!value.isEmpty() && !value.equals(JSPParamConstants.ADD_DATA)) {
+          if (isProjAction) {
+            throw new IllegalStateException("売りwinへの反映に不正なパラメータが設定されています");
+          } else {
+            throw new PASMException(PASMErrorType.INVALID_PARAM, "売りwinへの反映の入力に誤りがあります");
+          }
+        }
+      }
+    }
+
+    return true;
+  }
+
+  /**
+   * ProjNumBeanにStringで受け取ったデータをセットするメソッド
+   *
+   * @param projBean
+   * @param name
+   * @param value
+   * @param attachmentIDList
+   * @return
+   * @throws ParseException
+   */
+  public static ProjNumBean createProjNumBean(ProjNumBean projBean, String name, String value,
+      List<Long> attachmentIDList) throws ParseException {
+
+    if (name.equals(ProjConstants.PROJ_THE_ID)) {// ID
+      long lID = Long.parseLong(value);
+      projBean.setId(lID);
+
+    } else if (name.equals(ProjConstants.PROJ_ID)) {// P番
+      projBean.setProjNum(value);
+
+    } else if (name.equals(ProjConstants.PROJ_CATEGORY)) {// 分類
+      projBean.setCatName(value);
+
+    } else if (name.equals(ProjConstants.PROJ_NAME)) {// プロジェクト名
+      projBean.setProjName(value);
+
+    } else if (name.equals(ProjConstants.PROJ_CUSTOMER)) {// 売上先
+      projBean.setCustomerName(value);
+
+    } else if (name.equals(ProjConstants.PROJ_END_USER)) {// エンドユーザ
+      projBean.setEndUserName(value);
+
+    } else if (name.equals(ProjConstants.PROJ_SALES_STAFF)) {// 営業担当
+      projBean.setSalesStaffName(value);
+
+    } else if (name.equals(ProjConstants.PROJ_STATUS)) {// ステータス
+      projBean.setSalesStatusName(value);
+
+    } else if (name.equals(ProjConstants.PROJ_ISSUED_DATE)) {// 発行日
+      if (!value.isEmpty()) {
+        // StringをTimeStampに変換
+        Timestamp issuedDate =
+            new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(value).getTime());
+        // Timestamp issuedDate =
+        // new Timestamp(new SimpleDateFormat("yyyy/MM/dd").parse(value).getTime());
+        projBean.setIssuedDate(issuedDate);
+      }
+
+    } else if (name.equals(ProjConstants.PROJ_DATE_DEV_START)
+        || name.equals(ProjConstants.PROJ_DATE_DEV_END)
+        || name.equals(ProjConstants.PROJ_DATE_ORDER) || name.equals(ProjConstants.PROJ_DATE_SALES)
+        || name.equals(ProjConstants.PROJ_DATE_PAYMENT)) {// 開発開始日、終了日、受注月、売上月、入金月
+
+      if (!value.isEmpty()) {
+        if (name.equals(ProjConstants.PROJ_DATE_ORDER) || name.equals(ProjConstants.PROJ_DATE_SALES)
+            || name.equals(ProjConstants.PROJ_DATE_PAYMENT)) {// 受注月、売上月、入金月は、日付部分を足す
+          value += ProjConstants.PROJ_PLUS_DATE;
+        }
+        // java.sql.Date型に変換する
+        java.sql.Date projDateSQL = ProjInputValue.stringToSQLDate(value);
+
+        // projBeanにデータをセットする
+        if (name.equals(ProjConstants.PROJ_DATE_DEV_START)) {
+          projBean.setDevStartTime(projDateSQL);
+
+        } else if (name.equals(ProjConstants.PROJ_DATE_DEV_END)) {
+          projBean.setDevEndTime(projDateSQL);
+
+        } else if (name.equals(ProjConstants.PROJ_DATE_ORDER)) {
+          projBean.setDateOfOrders(projDateSQL);
+
+        } else if (name.equals(ProjConstants.PROJ_DATE_SALES)) {
+          projBean.setDateOfSales(projDateSQL);
+
+        } else if (name.equals(ProjConstants.PROJ_DATE_PAYMENT)) {
+          projBean.setDayOfPayment(projDateSQL);
+        }
+      }
+
+    } else if (name.equals(ProjConstants.PROJ_DEV_BUDGET)
+        || name.equals(ProjConstants.PROJ_VALUE_ORDER)) {// 開発予算、受注金額
+      if (value.isEmpty()) {
+        value = "0";
+      }
+      long lValue = Long.parseLong(value);
+
+      if (name.equals(ProjConstants.PROJ_DEV_BUDGET)) {
+        projBean.setDevBudgets(lValue);
+
+      } else {
+        projBean.setValueOfOrder(lValue);
+      }
+
+    } else if (name.equals(ProjConstants.PROJ_LEADER)) {// リーダー
+      projBean.setProjLeader(value);
+
+    } else if (name.equals(ProjConstants.PROJ_MEMBER)) {// メンバー
+      projBean.setProjMember(value);
+
+    } else if (name.equals(ProjConstants.PROJ_NOTICE)) {// 通知
+      if (!value.isEmpty()) {
+        // 通知ユーザーの情報を保持するbeansを取得
+        NotiUserBean notiUserBean = new NotiUserBean();
+        // 取得した社員番号をnotiUserBeanにセットする
+        notiUserBean.setEmployeeNum(Integer.parseInt(value));
+        // projBeanに通知ユーザーの情報をセットする
+        projBean.addNotiUserBean(notiUserBean);
+      }
+
+    } else if (name.equals(ProjConstants.PROJ_DELETE_ATTACHMENT)) {// 添付ファイル削除
+      if (!value.isEmpty()) {
+        long attachmentID = Long.parseLong(value);
+        attachmentIDList.add(attachmentID);
+      }
+    } else if (name.equals(ProjConstants.PROJ_COMMENT)) {// 備考
+      if (!value.isEmpty()) {
+        projBean.setRemarks(value);
+      }
+      // 追加：インターノウス
+      // ここから
+      } else if(name.equals(ProjConstants.PROJ_UNIT_PRICE)) {
+      	if (value.isEmpty()) {
+              value = "0";
+          }
+
+      	int lValue = Integer.parseInt(value);
+
+      	if(name.equals(ProjConstants.PROJ_UNIT_PRICE)) {
+          	projBean.setUnitPrice(lValue);
+          }
+      }
+      // ここまで
+
+    return projBean;
+  }
+
+
+  /**
+   * P番追加処理を実行するメソッド(売りwinへの反映があるかどうかで処理が変わる)
+   *
+   * @param request
+   * @param projNumFacade
+   * @param projBean
+   * @param dbDataSource
+   * @throws PASMException
+   */
+  public static boolean executeAddMethod(HttpServletRequest request, ProjNumFacade projNumFacade,
+      ProjNumBean projBean, DBDataSource dbDataSource, ServletContext app) throws PASMException {
+
+    // 売りwinへの反映フラグを取得する※ProjNumBeanからは取得できない
+    MultipartFormBean multiPartFormBean =
+        (MultipartFormBean) request.getAttribute(ScopeNameConstants.SCOPE_MULTIPART_DATA);
+    // フォームデータ
+    Map<String, String[]> formFieldData = multiPartFormBean.getFormFieldMap();
+
+    // 売りwin反映のパラメータを取得
+    boolean isAddedSales = false;// 売りwinに反映するかどうかの識別
+    if (formFieldData.containsKey(ProjConstants.PROJ_ADD_UW)) {// リクエストパラメータの中に、売りwinへの反映のパラメータが送られているか
+      String value = formFieldData.get(ProjConstants.PROJ_ADD_UW)[0];
+      if (value.equals(JSPParamConstants.ADD_DATA)) {// valueがtrueの時
+        isAddedSales = true;
+      } else {// valueがtrue以外の時
+        throw new IllegalStateException("システムエラー：「売りwin反映」に不正なパラメータが設定されています");
+      }
+    }
+    // 開発ログ(デバッグ用)
+    SystemLogAction.addSystemLog(dbDataSource, projBean, CodeEnum.sysLogDebug.ToLogic, request,
+        app);
+    List<String> attachFileNameList = new ArrayList<String>();
+    for (AttachFileBean attachFileBean : projBean.getAttachFileList()) {
+      String fileName = attachFileBean.getFileName();
+      attachFileNameList.add(fileName);
+    }
+    SystemLogAction.addSystemLog(attachFileNameList, CodeEnum.sysLogDebug.ToLogic, dbDataSource,
+        request, app);
+    SystemLogAction.addSystemLog(projBean.getNotiUserList(), CodeEnum.sysLogDebug.ToLogic,
+        dbDataSource, request, app);
+    Object[] objectArray = {isAddedSales};
+    SystemLogAction.addSystemLog(dbDataSource, "isAddedSales", objectArray,
+        CodeEnum.sysLogDebug.ToLogic, request, app);
+
+    projNumFacade.add(projBean, isAddedSales, dbDataSource);
+
+    return isAddedSales;// 売りwin反映の識別フラグ
+  }
+
+
+  /**
+   * ファイルサイズの上限(5M)を超えていないかチェックするメソッド
+   *
+   * @param fileItem
+   * @return
+   */
+  public static boolean isValidFileSize(FileItem fileItem) {
+
+    long fileSize = fileItem.getSize();
+    if (fileSize > ProjConstants.FILE_SIZE_MAX) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * ファイル名を取得するメソッド
+   *
+   * @param fileNameWithPath
+   * @return
+   */
+  public static String getFileNameWithoutPath(String fileNameWithPath) {
+
+    String fileName = PathHelper.getFileNameByPath(fileNameWithPath);
+
+    return fileName;
+  }
+}
+

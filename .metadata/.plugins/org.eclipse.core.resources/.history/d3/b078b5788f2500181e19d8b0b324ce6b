@@ -1,0 +1,16 @@
+package com.portal.util;
+
+import java.sql.Connection;
+
+public class DBConnector {
+
+	private Connection con = null;
+	private String driverName = "";
+
+	public Connection getConnection(){
+
+
+
+	}
+
+}

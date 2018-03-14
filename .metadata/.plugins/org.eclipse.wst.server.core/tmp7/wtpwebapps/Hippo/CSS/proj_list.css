@@ -1,0 +1,248 @@
+@CHARSET "UTF-8";
+
+/*P番一覧（proj_list.jsp）のcss*/
+
+/*--------------画面上部 ここから----------------*/
+
+/*年度入力のinputの設定*/
+input.search_year_box {
+  width:50px !important;
+}
+
+/*検索条件（テキスト）のinputの設定*/
+input.search_word_text_box {
+  width: 350px !important;
+}
+
+/*検索項目「メンバーアサイン」選択時に表示されるラジオボタン横のlabelの設定*/
+label.assign_length {
+  font-weight:normal !important;
+}
+
+/*検索項目「発行日」選択時に表示されるinputの設定*/
+input.monthsize {
+  width: 150px !important;
+}
+
+/*削除ボタンを囲むtdの設定（再利用ボタンとの間をとるためのもの）*/
+td.print_space {
+  padding: 1px 1px 1px 25px !important; /*セル内の余白*/
+}
+
+/*--------------画面上部 ここまで----------------*/
+
+/*--------------画面下部（表） ここから----------------*/
+
+/* tableの設定 */
+table.proj_list_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding: 20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  width: 1650px;
+  /*font-size:small;*/
+  font-size: 13px;
+  table-layout:fixed;
+}
+
+/* th要素の設定 */
+table.proj_list_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:#C4E2FD; /*背景色*/
+  padding: 10px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size:15px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 150px;
+  word-wrap: break-word;
+}
+
+/* td要素の設定 */
+table.proj_list_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 10px;
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  color:black; /*文字色*/
+  font-size:13px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  width: 150px;
+  word-wrap: break-word;
+}
+
+/*thのチェックボックスの幅*/
+th.checkbox_area {
+  width: 30px !important;
+  text-align:center !important;
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
+/*tdのチェックボックスの幅*/
+td.checkbox_area {
+  text-align:center !important;
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
+
+/*P番のthの設定*/
+th.pnum {
+  width: 100px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+  text-align:center !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*P番のtdの設定*/
+td.pnum {
+  /*width: 100px !important;*/
+  padding: 1px 1px 1px 5px !important; /*セル内の余白*/
+  text-align:left !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*プロジェクト名のthの設定*/
+th.pname{
+  width: 310px !important;
+  padding: 1px 1px; /*セル内の余白*/
+  text-align:center !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*プロジェクト名のtdの設定*/
+td.pname{
+  /*width: 310px !important;*/
+  padding: 1px 1px 1px 5px !important; /*セル内の余白*/
+  text-align:left !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*売上先のthの設定*/
+th.customer{
+  width: 250px !important;
+  padding: 1px 1px; /*セル内の余白*/
+  text-align:center !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*売上先のthの設定*/
+td.customer{
+  /*width: 250px !important;*/
+  padding: 1px 1px 1px 5px !important; /*セル内の余白*/
+  text-align:left !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+/*営業のthの設定*/
+th.sales_user{
+  width: 100px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*営業のtdの設定*/
+td.sales_user{
+  /*width: 65px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*ステータスのthの設定*/
+th.status{
+  width: 70px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*ステータスのtdの設定*/
+td.status{
+  /*width: 70px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*発行日のthの設定*/
+th.issueddate{
+  width: 80px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*発行日のtdの設定*/
+td.issueddate{
+  /*width: 80px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*開発期間のth*/
+th.period {
+  width: 190px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*開発期間のtd*/
+td.period {
+  /*width: 190px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*開発予算のth*/
+th.order_money {
+  width: 105px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*開発予算のtd*/
+td.order_money {
+  /*width: 90px !important;*/
+  padding: 1px 1px; /*セル内の余白*/
+  text-align:right !important; /*配置右寄せ*/
+}
+
+/*メンバーアサインのth*/
+th.assign {
+  width: 60px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*メンバーアサインのtd*/
+td.assign {
+  /*width: 60px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+
+/*登録者のthの設定*/
+th.createdby{
+  width: 90px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*登録者のtdの設定*/
+td.createdby{
+  /*width: 90px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*更新者のthの設定*/
+th.changedby{
+  width: 90px !important;
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*更新者のtdの設定*/
+td.changedby{
+  /*width: 90px !important;*/
+  padding: 1px 1px !important; /*セル内の余白*/
+}
+
+/*ページ分割部の設定*/
+div.page_portion {
+  text-align:left; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+

@@ -1,0 +1,158 @@
+package jp.co.lsij.p16590004.e_200.controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jp.co.lsij.p16590004.common.ActionParamConstants;
+import jp.co.lsij.p16590004.common.DBDataSource;
+import jp.co.lsij.p16590004.common.Error;
+import jp.co.lsij.p16590004.common.ForwardPathConstants;
+import jp.co.lsij.p16590004.common.ScopeNameConstants;
+import jp.co.lsij.p16590004.e_200.model.ControllerActionHelper;
+import jp.co.lsij.p16590004.e_200.model.ExceptionHandler;
+
+/**
+ * Servlet implementation class MenuController
+ */
+/**
+ * メニュー画面からリクエストされる処理を各コントローラに振り分けるコントローラ
+ *
+ * @author m-kakuwa
+ *
+ */
+@WebServlet("/MenuController")
+public class MenuController extends HttpServlet {
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    // response.getWriter().append("Served at: ").append(request.getContextPath());
+    /*
+     * chromeで起動時にタブを復元させると、doGet()にリクエストが飛ぶ
+     */
+  }
+
+  /**
+   * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+   */
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    // doGet(request, response);
+
+    Error error = null;
+    ServletContext app = null;
+    DBDataSource dbDataSource = null;
+    // フォワード先
+    String forwardPath = "";
+    String action = "";
+
+    try {// 前処理
+      // Errorインスタンスを生成、リクエストスコープに保存
+      error = new Error(false);
+      request.setAttribute(ScopeNameConstants.SCOPE_ERROR_CLASS, error);
+      // DataSource取得
+      app = getServletContext();
+      dbDataSource = (DBDataSource) app.getAttribute(ScopeNameConstants.SCOPE_PG_MAINTAINER);
+      // actionパラメータを取得(FilterAll.javaから)
+      action = ControllerActionHelper.getActionParmeter(request, dbDataSource, app);
+
+    } catch (Exception e) {
+      // 共通の例外処理
+      ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+          "MenuController.doPost:前処理");
+    }
+
+    try {
+      // actionの値ごとに処理を分ける
+      if (action.equals(ActionParamConstants.ACTION_PROJ_ADMIN)
+          || action.equals(ActionParamConstants.ACTION_PROJ_GUEST)){// P番一覧がリクエストされた時の処理
+          // 追加：インターノウス
+          // ここから不要
+         // || action.equals(ActionParamConstants.ACTION_PROJ_PURCHASE))
+    	  // ここまで
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_PROJ_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_UW_ADMIN)
+          || action.equals(ActionParamConstants.ACTION_UW_GUEST)) {// 売りwin一覧がリクエストされた時の処理
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_UW_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_REVENUE_BY_MONTH_NOW)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_REVENUE_BY_MONTH_PAST)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_TTL_BY_MONTH_NOW)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_TTL_BY_MONTH_PAST)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_GTTL_BY_MONTH_NOW)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_GTTL_BY_MONTH_PAST)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYSIS_BY_CATEGORY_NOW)
+          || action.equals(ActionParamConstants.ACTION_UW_ANALYASIS_BY_CATEGORY_PAST)) {// 売りwin分析関連がリクエストされた時の処理
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_UW_ANALYSIS_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_MEETING_DATA)) {// 管理職会議用がリクエストされた時の処理
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_MEETING_DATA_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_UW_OPTION_CATEGORY)
+          || action.equals(ActionParamConstants.ACTION_UW_OPTION_STATUS)
+          || action.equals(ActionParamConstants.ACTION_UW_OPTION_CUSTOMER)
+          || action.equals(ActionParamConstants.ACTION_UW_OPTION_SALES_STAFF)) {// 売りwin設定関連がリクエストされた時の処理
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_UW_OPTION_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_SYSTEM_OPTION_USER_ADMIN)
+          || action.equals(ActionParamConstants.ACTION_SYSTEM_OPTION_USER_GUEST)
+          // 追加：インターノウス user_group_list
+          // ここから
+          || action.equals(ActionParamConstants.ACTION_SYSTEM_OPTION_USER_GROUP_ADMIN)
+          // ここまで
+          || action.equals(ActionParamConstants.ACTION_SYSTEM_OPTION_PASSWORD)) {// システム設定関連がリクエストされた時の処理
+        // フォワード先を設定
+
+        forwardPath = ForwardPathConstants.FORWARD_SYSTEM_OPTION_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_LOG)) {// 操作ログがリクエストされた時の処理
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_LOG_CONTROLLER;
+
+      } else if (action.equals(ActionParamConstants.ACTION_LOGOUT)) {// ログアウトがリクエストされた時の処理
+        // フォワード先を設定
+        forwardPath = ForwardPathConstants.FORWARD_LOGIN_CONTROLLER;
+
+        // 追加：インターノウス
+        // ここから
+      } else if (action.equals(ActionParamConstants.ACTION_PROJ_PURCHASE)) {// 仕入れインポートがリクエストされた時の処理
+    	  forwardPath = ForwardPathConstants.FORWARD_PURCHASE_CONTROLLER;
+    	// ここまで
+      } else {
+        throw new IllegalStateException("不正なactionパラメータ");
+      }
+
+      // 共通の処理・・・actionパラメータをリクエストスコープに保存
+      request.setAttribute(ActionParamConstants.ACTION, action);
+
+    } catch (Exception e) {
+      // 共通の例外処理
+      ExceptionHandler.exceptionAction(app, request, e, error, dbDataSource,
+          "MenuController.doPost");
+      // フォワード先を設定
+      forwardPath = "";
+    }
+
+    // 設定されたフォワード先にフォワードする
+    if (!forwardPath.isEmpty()) {
+      RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+      dispatcher.forward(request, response);
+    }
+  }
+}

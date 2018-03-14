@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+
+table.all {
+  width: auto;
+}
+
+/* tableの設定 */
+table.meeting_data_sales_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding: 20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  width: 1695px;
+  table-layout:fixed;
+}
+
+/* th要素の設定 */
+table.meeting_data_sales_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 1px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  
+  color:black; /*文字色*/
+  font-size:15px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  word-wrap: break-word;
+}
+
+/* td要素の設定 */
+table.meeting_data_sales_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 1px;
+  
+  color:black; /*文字色*/
+  font-size:15px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  word-wrap: break-word;
+  text-align: right;
+}
+
+
+
+/* tableの設定 */
+table.meeting_data_order_table {
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  
+  background-color:white; /*背景色*/
+  padding: 20px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  width: 1820px;
+  table-layout:fixed;
+}
+
+/* th要素の設定 */
+table.meeting_data_order_table th{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 1px; /*セル内の余白*/
+  text-align:center; /*配置 右寄せ、中央寄せ等を行う*/
+  
+  
+  color:black; /*文字色*/
+  font-size:15px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  word-wrap: break-word;
+}
+
+/* td要素の設定 */
+table.meeting_data_order_table td{
+  border-width: 1px; /*線の太さ 2px*/
+  border-style: solid; /*線のスタイル 実線*/
+  border-color:black; /*枠線の色：黒*/
+  border-collapse: collapse; /*隣接するセルのボーダーを重ねて表示*/
+  background-color:white; /*背景色*/
+  padding: 1px;
+  
+  color:black; /*文字色*/
+  font-size:15px; /*文字の大きさ*/
+  font-weight:normal;/*文字の太さ*/
+  font-family:sans-serif; /*文字のフォント*/
+  word-wrap: break-word;
+  text-align: right;
+}
+
+td.mincheck {
+  color:red !important; /*文字色*/
+  text-align:right !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+td.pluscheck {
+  color:blue !important; /*文字色*/
+  text-align:right !important; /*配置 右寄せ、中央寄せ等を行う*/
+}
+
+th.left_side_name {
+  width: 130px !important;
+}
+
+th.quarter {
+  width: 360px !important;
+}
+
+th.total {
+  width: 125px !important;
+}
+
+th.month {
+  width: 120px !important;
+}
+
+td.table_title {
+  color:black; /*文字の色*/
+  font-size:100%; /*文字の大きさ*/
+  font-weight:bold; /*文字の太さ*/
+  font-family:sans-serif; /*文字のスタイル*/
+}

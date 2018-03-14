@@ -1,0 +1,81 @@
+package jp.co.lsij.p16590004.common;
+
+/**
+ * システム設定関連の定数定義クラス
+ *
+ * @author m-kakuwa
+ *
+ */
+public class SystemOptionConstants {
+  /** スコープ名 */
+  /** ユーザー一覧：ソート */
+  public static final String SCOPE_SORT_USER_LIST = "userListSort";
+  /** ユーザー一覧：入力値 */
+  public static final String SCOPE_USER_INPUT_VALUE = "userMap";
+  /** パスワード設定：入力値 */
+  public static final String SCOPE_PASS_INPUT_VALUE = "passMap";
+  /** ユーザーデータ */
+  public static final String SCOPE_USER_DATA = "user";
+  /** ユーザーデータリスト */
+  public static final String SCOPE_USER_LIST = "userList";
+  // 追加：インターノウス
+  // ここから
+  /** ユーザーグループ設定データ */
+  public static final String SCOPE_USER_GROUP_DATA = "userGroup";
+  /** ユーザーグループ設定データリスト */
+  public static final String SCOPE_USER_GROUP_LIST = "userGroupList";
+  /** ユーザーグループ設定：入力値 */
+  public static final String SCOPE_USER_GROUP_INPUT_VALUE = "userGroupMap";
+  // ここまで
+
+
+
+  /** actionパラメータ一覧 */
+  /** ユーザー一覧：削除処理 */
+  public static final String ACTION_USER_DEL = "user_del";
+  /** ユーザー一覧：新規追加フォームから戻る */
+  public static final String ACTION_USER_ADD_RETURN = "user_add_return";
+  /** ユーザー一覧：編集フォームから戻る */
+  public static final String ACTION_USER_EDIT_RETURN = "user_edit_return";
+  /** ユーザー一覧：ソートボタン */
+  public static final String ACTION_USER_SORT = "user_sort";
+  /** ユーザー一覧：次のページ */
+  public static final String ACTION_USER_LIST_NEXT = "user_list_next";
+  /** ユーザー一覧：前のページ */
+  public static final String ACTION_USER_LIST_PRIVIOUS = "user_list_back";
+  /** パスワード設定:変更処理 */
+  public static final String ACTION_PASS_CHANGE = "pass_change";
+  /** ユーザー一覧：新規追加フォーム */
+  public static final String ACTION_USER_NEW = "user_new";
+  /** ユーザー一覧：新規追加処理 */
+  public static final String ACTION_USER_ADD = "user_add";
+  /** ユーザー一覧：編集フォーム */
+  public static final String ACTION_USER_CHANGE = "user_change";
+  /** ユーザー一覧：変更処理 */
+  public static final String ACTION_USER_EDIT = "user_edit";
+  // 追加：インターノウス
+  // ここから
+  /** ユーザグループ設定一覧：削除処理 */
+  public static final String ACTION_USER_GROUP_DEL = "user_group_del";
+  /** ユーザーグループ編集：新規追加フォームから戻る */
+  public static final String ACTION_USER_GROUP_ADD_RETURN = "user_group_add_return";
+  /** ユーザーグループ編集：変更フォームから戻る */
+  public static final String ACTION_USER_GROUP_EDIT_RETURN = "user_group_edit_return";
+  /** ユーザーグループ設定一覧：新規追加フォーム */
+  public static final String ACTION_USER_GROUP_NEW = "user_group_new";
+  /** ユーザーグループ編集：新規追加処理 */
+  public static final String ACTION_USER_GROUP_ADD = "user_group_add";
+  /** ユーザーグループ設定一覧：編集フォーム */
+  public static final String ACTION_USER_GROUP_CHANGE = "user_group_change";
+  /** ユーザーグループ編集：変更処理 */
+  public static final String ACTION_USER_GROUP_EDIT = "user_group_edit";
+  // ここまで
+
+  /** JSPパラメータ：ユーザー一覧・ソート */
+  /** ユーザーリスト(JSP)の氏名ソート名 */
+  public static final String JSP_SORT_CATEGORY_USER_NAME = "sort_name";
+  /** ユーザーリスト(JSP)の権限ソート名 */
+  public static final String JSP_SORT_CATEGORY_AUTHORITY = "sort_aut";
+  /** ユーザーリスト(JSP)の社員番号ソート名 */
+  public static final String JSP_SORT_CATEGORY_EMP_NUM = "sort_emp_num";
+}

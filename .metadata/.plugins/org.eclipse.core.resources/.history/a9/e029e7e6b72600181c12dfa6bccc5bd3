@@ -1,0 +1,65 @@
+/**
+ *
+ */
+package jp.co.lsij.p16590004.e_77.model;
+
+import jp.co.lsij.p16590004.e_200.model.master.CategoryBeanBuilder;
+import jp.co.lsij.p16590004.e_200.model.master.CustomerBeanBuilder;
+import jp.co.lsij.p16590004.e_200.model.master.SalesStaffBeanBuilder;
+import jp.co.lsij.p16590004.e_200.model.master.SalesStatusBeanBuilder;
+import jp.co.lsij.p16590004.e_200.model.master.UserBeanBuilder;
+import jp.co.lsij.p16590004.e_200.model.master.UserGroupBeanBuilder;
+import jp.co.lsij.p16590004.e_200.model.sales.SalesBeanBuilder;
+
+/**
+ * Bean ビルダー生成クラス
+ *
+ * ・スレッドセーフでない
+ *
+ * @version 1.0.0
+ * @author dai
+ *
+ */
+public final class BeanBuilderFactory {
+
+  /**
+   * コンストラクタ
+   */
+  private BeanBuilderFactory() {
+    // TODO 自動生成されたコンストラクター・スタブ
+  }
+
+  /**
+   * Bean ビルダー生成
+   *
+   * @param beanBuilderType Bean ビルダー種別
+   * @return Bean ビルダーインスフェース
+   */
+  public static IBeanBuilder create(BeanBuilderType beanBuilderType) {
+    if (BeanBuilderType.CATEGORY_BEAN_BUILDER == beanBuilderType) {
+      return new CategoryBeanBuilder();
+    } else if (BeanBuilderType.SALES_STATUS_BEAN_BUILDER == beanBuilderType) {
+      return new SalesStatusBeanBuilder();
+    } else if (BeanBuilderType.SALES_STAFF_BEAN_BUILDER == beanBuilderType) {
+      return new SalesStaffBeanBuilder();
+    } else if (BeanBuilderType.CUSTOMER_BEAN_BUILDER == beanBuilderType) {
+      return new CustomerBeanBuilder();
+    } else if (BeanBuilderType.USER_BEAN_BUILDER == beanBuilderType) {
+      return new UserBeanBuilder();
+      // 追加：インターノウス
+      // ここから
+    } else if (BeanBuilderType.USER_GROUP_BEAN_BUILDER == beanBuilderType) {
+      return new UserGroupBeanBuilder();
+      // ここまで
+    } else if (BeanBuilderType.LOG_BEAN_BUILDER == beanBuilderType) {
+      // return new LogBeanBuilder();
+    } else if (BeanBuilderType.P_NUM_BEAN_BUILDER == beanBuilderType) {
+      // return new ProjNumBeanBuilder();
+    } else if (BeanBuilderType.SALES_BEAN_BUILDER == beanBuilderType) {
+      return new SalesBeanBuilder();
+    }
+    assert (false);
+    throw new IllegalArgumentException();// java.lang.RuntimeException
+  }
+
+}

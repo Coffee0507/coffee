@@ -1,0 +1,2963 @@
+/**
+ *
+ */
+package jp.co.lsij.p16590004.e_77.model.p_num.beans;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.List;
+
+import jp.co.lsij.p16590004.common.Constants;
+import jp.co.lsij.p16590004.e_77.model.BeanDataList;
+import jp.co.lsij.p16590004.e_77.model.BeanDataType;
+import jp.co.lsij.p16590004.e_77.model.DataListType;
+import jp.co.lsij.p16590004.e_77.model.IData;
+import jp.co.lsij.p16590004.e_77.model.IDataList;
+import jp.co.lsij.p16590004.e_77.util.BeanHelper;
+import jp.co.lsij.p16590004.e_77.util.MailHelper;
+import jp.co.lsij.p16590004.e_77.util.MathHelper;
+import jp.co.lsij.p16590004.e_77.util.StringHelper;
+
+/**
+ * プロジェクト番号クラス
+ *
+ * ・スレッドセーフでない
+ *
+ * @version 1.0.0
+ * @author dai
+ *
+ */
+public class ProjNumBean implements Serializable, IData {
+  /**  */
+  private static final long serialVersionUID = 1L;
+
+  /** ID */
+  private long id;
+  // 64 -9223372036854775808～9223372036854775807
+  // 普通はLong.MIN_VALUE～Long.MAX_VALUEを使用
+  /** プロジェクト番号 */
+  private String projNum;
+  /** 分類名 */
+  private String catName;
+  /** プロジェクト名称 */
+  private String projName;
+  /** 受注先 */
+  private String customerName;
+  /** エンドユーザー */
+  private String endUserName;
+  /** 営業担当名 */
+  private String salesStaffName;
+  /** 営業状態名 */
+  private String salesStatusName;
+  /** 発行日 */
+  private Timestamp issuedDate;
+  /** 開発期間（開始日） */
+  private Date devStartTime;
+  /** 開発期間（終了日） */
+  private Date devEndTime;
+  /** 受注日 */
+  private Date dateOfOrders;
+  /** 売上日 */
+  private Date dateOfSales;
+  /** 入金日 */
+  private Date dayOfPayment;
+  /** 開発予算 */
+  private long devBudgets;
+  /** 受注金額 */
+  private long valueOfOrder;
+  /** 仕入れ金額 */
+  // ※未使用
+  private long purchaseAmount;
+  /** 工数金額 */
+  // ※未使用
+  private long manHoursFare;
+  /** 備考 */
+  private String remarks;
+  /** リーダー */
+  private String projLeader;
+  /** メンバー */
+  private String projMember;
+  /** 作成日時 */
+  // private Date createdAt;
+  private Timestamp createdAt;
+  // private String createdAt;
+  /** 作成者 */
+  private String createdBy;
+  /** 最終更新日時 */
+  // private Date changedAt;
+  private Timestamp changedAt;
+  // private String changedAt;
+  /** 最終更新者 */
+  private String changedBy;
+
+  // ---ここから Phase 2 追加分---
+  /** （旧弥生(2017年度いっぱいまで)）仕入れ総額 */
+  // 2018年度以降から発生するP番は、こちらを使用しない
+  private long prePurchaseAmount;
+  /** （新弥生（2018年度から））仕入れ総額 */
+  // 2018年度以降から発生するP番は、こちらのみを使用する
+  private long newPurchaseAmount;
+  /** （旧弥生(2017年度いっぱいまで)）仕入れ総額最終更新日時 */
+  private Timestamp prePurchaseAmountChangedAt;
+  /** （新弥生（2018年度から））仕入れ総額最終更新日時 */
+  private Timestamp newPurchaseAmountChangedAt;
+  /** 総作業時間 */
+  private String totalWorkingTime;
+  /** 総作業時間最終更新日時 */
+  private Timestamp totalWorkingTimeChangedAt;
+  /** 工数単価 */
+  private int unitPrice;
+  /** プロジェクト完了フラグ */
+  // 未使用
+  private boolean finished;
+  // ---ここまで Phase 2 追加分---
+
+  /** 添付ファイルリスト（リスト取得時は設定しない） */
+  private BeanDataList<AttachFileBean> attachFileBeanList;
+  /** ユーザー通知リスト（リスト取得時は設定しない） */
+  private BeanDataList<NotiUserBean> notiUserBeanList;
+  /** ユーザーリスト（リスト取得時は設定しない） */
+  // private BeanDataList<UserBean> userBeanList;
+
+  // ---追加：インターノウス
+  private boolean isProjPrePurchase;
+
+  /**
+   * コンストラクタ
+   */
+  public ProjNumBean() {
+    // TODO 自動生成されたコンストラクター・スタブ
+    this.id = Constants.DB_INVALID_ID;
+    this.projNum = "";
+    this.catName = "";
+    this.projName = "";
+    this.customerName = "";
+    this.endUserName = "";
+    this.salesStaffName = "";
+    this.salesStatusName = "";
+    this.issuedDate = null;
+    this.devStartTime = null;
+    this.devEndTime = null;
+    this.dateOfOrders = null;
+    this.dateOfSales = null;
+    this.dayOfPayment = null;
+    this.devBudgets = -1;
+    this.valueOfOrder = -1;
+    this.purchaseAmount = -1;
+    this.manHoursFare = -1;
+    this.remarks = "";
+    this.projLeader = "";
+    this.projMember = "";
+    this.createdAt = null;
+    this.createdBy = "";
+    this.changedAt = null;
+    this.changedBy = "";
+
+    // ---ここから Phase 2 追加分---
+    this.prePurchaseAmount = 0;
+    this.newPurchaseAmount = 0;
+    this.prePurchaseAmountChangedAt = null;
+    this.newPurchaseAmountChangedAt = null;
+    this.totalWorkingTime = "00:00:00";
+    // this.totalWorkingTime = null;
+    this.totalWorkingTimeChangedAt = null;
+    this.unitPrice = 0;
+    this.finished = false;
+    // ---ここまで Phase 2 追加分---
+
+    this.attachFileBeanList = new BeanDataList<AttachFileBean>(DataListType.ATTACH_FILE_DATA_LIST);
+    this.notiUserBeanList = new BeanDataList<NotiUserBean>(DataListType.NOTI_USER_DATA_LIST);
+    // this.userBeanList = null;
+    this.isProjPrePurchase = false;
+  }
+
+  /**
+   * IDが有効かチェック
+   *
+   * @param lID ID
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidID(long lID) {
+    return BeanHelper.isValidID(lID);
+  }
+
+  /**
+   * プロジェクト番号が有効かチェック
+   *
+   * @param strProjNum プロジェクト番号
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidProjNum(String strProjNum) {
+    return BeanHelper.isValidRequiredString(strProjNum);
+  }
+
+  /**
+   * 分類名が有効かチェック
+   *
+   * @param strCatName 分類名
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidCategoryName(String strCatName) {
+    // return BeanHelper.isValidNonRequiredString(strCatName);
+    return BeanHelper.isValidRequiredString(strCatName);
+  }
+
+  /**
+   * プロジェクト名称が有効かチェック
+   *
+   * @param strProjName プロジェクト名称
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidProjName(String strProjName) {
+    return BeanHelper.isValidNonRequiredString(strProjName);
+    // return BeanHelper.isValidRequiredString(strCatName);
+  }
+
+  /**
+   * 受注先名が有効かチェック
+   *
+   * @param strCustomerName 受注先名
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidCustomerName(String strCustomerName) {
+    // return BeanHelper.isValidNonRequiredString(strCustomerName);
+    return BeanHelper.isValidRequiredString(strCustomerName);
+  }
+
+  /**
+   * エンドユーザー名が有効かチェック
+   *
+   * @param strEndUserName エンドユーザー名
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidEndUserName(String strEndUserName) {
+    return BeanHelper.isValidNonRequiredString(strEndUserName);
+    // return BeanHelper.isValidRequiredString(strEndUserName);
+  }
+
+  /**
+   * 営業担当名が有効かチェック
+   *
+   * @param strSalesStaffName 営業担当名
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidSalesStaffName(String strSalesStaffName) {
+    return BeanHelper.isValidRequiredString(strSalesStaffName);
+  }
+
+  /**
+   * 営業状態名が有効かチェック
+   *
+   * @param strSalesStatusName 営業状態名
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidSalesStatusName(String strSalesStatusName) {
+    return BeanHelper.isValidRequiredString(strSalesStatusName);
+  }
+
+  /**
+   * 開発予算が有効かチェック
+   *
+   * @param lDevBudgets 開発予算
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidDevBudgets(long lDevBudgets) {
+    if (0 > lDevBudgets) {
+      return (false);
+    }
+
+    return (true);
+  }
+
+  /**
+   * 受注金額が有効かチェック
+   *
+   * @param lValueOfOrder 受注金額
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidValueOfOrder(long lValueOfOrder) {
+    if (0 > lValueOfOrder) {
+      return (false);
+    }
+
+    return (true);
+  }
+
+  /**
+   * 仕入れ金額が有効かチェック
+   *
+   * @param lPurchaseAmount 仕入れ金額
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  // ※マイナスもOK（返品時マイナスとなる）
+  public static boolean isValidPurchaseAmount(long lPurchaseAmount) {
+
+    return (true);
+  }
+
+  /**
+   * 工数金額が有効かチェック
+   *
+   * @param lManHoursFare 工数金額
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidManHoursFare(long lManHoursFare) {
+    if (0 > lManHoursFare) {
+      return (false);
+    }
+
+    return (true);
+  }
+
+  /**
+   * 備考が有効かチェック
+   *
+   * @param strRemarks 備考
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidRemarks(String strRemarks) {
+    return BeanHelper.isValidNonRequiredString(strRemarks);
+    // return BeanHelper.isValidRequiredString(strRemarks);
+  }
+
+  /**
+   * リーダーが有効かチェック
+   *
+   * @param strProjLeader リーダー
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidProjLeader(String strProjLeader) {
+    return BeanHelper.isValidNonRequiredString(strProjLeader);
+    // return BeanHelper.isValidRequiredString(strProjLeader);
+  }
+
+  /**
+   * メンバーが有効かチェック
+   *
+   * @param strProjMember メンバー
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidProjMember(String strProjMember) {
+    return BeanHelper.isValidNonRequiredString(strProjMember);
+    // return BeanHelper.isValidRequiredString(strProjMember);
+  }
+
+  /**
+   * 日付が有効かチェック
+   *
+   * @param date 日付オブジェクト
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidDate(Date date) {
+    return BeanHelper.isValidDate(date);
+  }
+
+  /**
+   * タイムスタンプが有効かチェック
+   *
+   * @param timeStamp タイムスタンプオブジェクト
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidTimestamp(Timestamp timeStamp) {
+    return BeanHelper.isValidTimestamp(timeStamp);
+  }
+
+  /**
+   * 作成者が有効かチェック
+   *
+   * @param strCreatedBy 作成者
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidCreatedBy(String strCreatedBy) {
+    return BeanHelper.isValidNonRequiredString(strCreatedBy);
+  }
+
+  /**
+   * 更新者が有効かチェック
+   *
+   * @param strChangedBy 更新者
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidChangedBy(String strChangedBy) {
+    return BeanHelper.isValidNonRequiredString(strChangedBy);
+  }
+
+  // ---ここから Phase 2 追加分---
+  /**
+   * 総作業時間が有効かチェック
+   *
+   * @param strTotalWorkingTime 総作業時間（00:00:00 フォーマット）
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidTotalWorkingTime(String strTotalWorkingTime) {
+    if ((null == strTotalWorkingTime) || (false != strTotalWorkingTime.isEmpty())) {
+      return false;
+    }
+    String[] strElements = strTotalWorkingTime.split(":");
+    if (0 >= strElements.length) {
+      return false;
+    }
+    if (1 == strElements.length) {
+      // コロンなしの場合（分指定））
+      if (('-' == strElements[0].charAt(0))
+          || (false == StringHelper.isValidLongString(strElements[0]))) {
+        return false;
+      }
+      long lMinute = 0;
+      try {
+        lMinute = Long.parseLong(strElements[0]);// NumberFormatException
+      } catch (Exception err) {
+        return false;
+      }
+      if (lMinute > (((long) Integer.MAX_VALUE) * 60)) {
+        // if (lMinute > (((long) Integer.MAX_VALUE) * 60) + 59) {
+        return false;
+      }
+    } else if ((2 == strElements.length) || (3 == strElements.length)) {
+      String[] strNewElements = new String[3];
+      if (2 == strElements.length) {
+        System.arraycopy(strElements, 0, strNewElements, 0, 2);
+        strNewElements[3] = "00";
+      } else {
+        System.arraycopy(strElements, 0, strNewElements, 0, 3);
+      }
+      boolean bFirst = true;
+      for (String item : strNewElements) {
+        if (false == bFirst) {
+          int nValue = 0;
+          try {
+            nValue = Integer.parseInt(item);// NumberFormatException
+          } catch (Exception err) {
+            return false;
+          }
+          if ((0 > nValue) || (59 < nValue)) {
+            return false;
+          }
+        } else {
+          long lHour = 0;
+          try {
+            lHour = Long.parseLong(item);// NumberFormatException
+          } catch (Exception err) {
+            return false;
+          }
+          if ((0 > lHour) || ((long) Integer.MAX_VALUE < lHour)) {
+            return false;
+          }
+          bFirst = false;
+        }
+      }
+    } else {
+      return false;
+    }
+
+    return (true);
+  }
+
+  /**
+   * 工数単価が有効かチェック
+   *
+   * @param nUnitPrice 工数単価
+   * @return 有効な場合、true、その他の場合、false を返す
+   */
+  public static boolean isValidUnitPrice(int nUnitPrice) {
+    if (0 > nUnitPrice) {
+      return (false);
+    }
+
+    return (true);
+  }
+  // ---ここまで Phase 2 追加分---
+
+  /**
+   * 設定必須項目が有効かチェック
+   *
+   * @param isInsert 追加時（or 更新時）
+   * @return 設定必須項目が有効な場合、true、その他の場合、false を返す
+   */
+  // 必須項目：P番、分類、営業、ステータス、売上先、発行日
+  public boolean isValidRequiredColumn(boolean isInsert) {
+    if (false != isInsert) {
+      if (false == ProjNumBean.isValidProjNum(this.getProjNum())) {
+        return false;
+      }
+    }
+    if (false == ProjNumBean.isValidCategoryName(this.getCatName())) {
+      return false;
+    }
+    if (false == ProjNumBean.isValidSalesStaffName(this.getSalesStaffName())) {
+      return false;
+    }
+    if (false == ProjNumBean.isValidSalesStatusName(this.getSalesStatusName())) {
+      return false;
+    }
+    if (false == ProjNumBean.isValidCustomerName(this.getCustomerName())) {
+      return false;
+    }
+    if (false == ProjNumBean.isValidTimestamp(this.getIssuedDate())) {
+      return false;
+    }
+    return true;
+  }
+
+  /*
+   * (非 Javadoc)
+   *
+   * @see jp.co.lsij.p16590004.e_77.model.IData#getDataType()
+   */
+  @Override
+  public BeanDataType getDataType() {
+    // TODO 自動生成されたメソッド・スタブ
+    return BeanDataType.PROJ_NUM_DATA;
+  }
+
+  /**
+   * ID 取得
+   *
+   * @return id
+   */
+  public long getId() {
+    assert (false != ProjNumBean.isValidID(this.id));
+    return this.id;
+  }
+
+  /**
+   * ID 設定
+   *
+   * @param id セットする id
+   */
+  public void setId(long id) {
+    assert (false != ProjNumBean.isValidID(id));
+
+    if (false == ProjNumBean.isValidID(id)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.id = id;
+  }
+
+  /**
+   * プロジェクト番号取得
+   *
+   * @return projNum
+   */
+  public String getProjNum() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.projNum;
+  }
+
+  /**
+   * プロジェクト番号設定
+   *
+   * @param projNum セットする projNum
+   */
+  public void setProjNum(String projNum) {
+    assert (false != ProjNumBean.isValidProjNum(projNum));
+
+    if (false == ProjNumBean.isValidProjNum(projNum)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.projNum = projNum;
+  }
+
+  /**
+   * 分類名取得
+   *
+   * @return catName
+   */
+  public String getCatName() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.catName;
+  }
+
+  /**
+   * 分類名設定
+   *
+   * @param catName セットする catName
+   */
+  public void setCatName(String catName) {
+    assert (false != ProjNumBean.isValidCategoryName(catName));
+
+    if (false == ProjNumBean.isValidCategoryName(catName)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.catName = catName;
+  }
+
+  /**
+   * プロジェクト名称取得
+   *
+   * @return projName
+   */
+  public String getProjName() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.projName;
+  }
+
+  /**
+   * プロジェクト名称設定
+   *
+   * @param projName セットする projName
+   */
+  public void setProjName(String projName) {
+    assert (false != ProjNumBean.isValidProjName(projName));
+
+    if (false == ProjNumBean.isValidProjName(projName)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.projName = projName;
+  }
+
+  /**
+   * 受注先名取得
+   *
+   * @return customerName
+   */
+  public String getCustomerName() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.customerName;
+  }
+
+  /**
+   * 受注先名設定
+   *
+   * @param customerName セットする customerName
+   */
+  public void setCustomerName(String customerName) {
+    assert (false != ProjNumBean.isValidCustomerName(customerName));
+
+    if (false == ProjNumBean.isValidCustomerName(customerName)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.customerName = customerName;
+  }
+
+  /**
+   * エンドユーザー取得
+   *
+   * @return endUserName
+   */
+  public String getEndUserName() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.endUserName;
+  }
+
+  /**
+   * エンドユーザー設定
+   *
+   * @param endUserName セットする endUserName
+   */
+  public void setEndUserName(String endUserName) {
+    assert (false != ProjNumBean.isValidEndUserName(endUserName));
+
+    if (false == ProjNumBean.isValidEndUserName(endUserName)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.endUserName = endUserName;
+  }
+
+  /**
+   * 営業担当名取得
+   *
+   * @return salesStaffName
+   */
+  public String getSalesStaffName() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.salesStaffName;
+  }
+
+  /**
+   * 営業担当名設定
+   *
+   * @param salesStaffName セットする salesStaffName
+   */
+  public void setSalesStaffName(String salesStaffName) {
+    assert (false != ProjNumBean.isValidSalesStaffName(salesStaffName));
+
+    if (false == ProjNumBean.isValidSalesStaffName(salesStaffName)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.salesStaffName = salesStaffName;
+  }
+
+  /**
+   * 営業状態名取得
+   *
+   * @return salesStatusName
+   */
+  public String getSalesStatusName() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.salesStatusName;
+  }
+
+  /**
+   * 営業状態名設定
+   *
+   * @param salesStatusName セットする salesStatusName
+   */
+  public void setSalesStatusName(String salesStatusName) {
+    assert (false != ProjNumBean.isValidSalesStatusName(salesStatusName));
+
+    if (false == ProjNumBean.isValidSalesStatusName(salesStatusName)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.salesStatusName = salesStatusName;
+  }
+
+  /**
+   * 発行日取得
+   *
+   * @return issuedDate
+   */
+  public Timestamp getIssuedDate() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.issuedDate;
+  }
+
+  /**
+   * 発行日設定
+   *
+   * @param issuedDate セットする issuedDate
+   */
+  public void setIssuedDate(Timestamp issuedDate) {
+    assert (false != ProjNumBean.isValidTimestamp(issuedDate));
+
+    if (false == ProjNumBean.isValidTimestamp(issuedDate)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.issuedDate = issuedDate;
+  }
+
+  /**
+   * 開発期間（開始日）取得
+   *
+   * @return devStartTime
+   */
+  public Date getDevStartTime() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.devStartTime;
+  }
+
+  /**
+   * 開発期間（開始日）設定
+   *
+   * @param devStartTime セットする devStartTime
+   */
+  public void setDevStartTime(Date devStartTime) {
+    assert (false != ProjNumBean.isValidDate(devStartTime));
+
+    if (false == ProjNumBean.isValidDate(devStartTime)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.devStartTime = devStartTime;
+  }
+
+  /**
+   * 開発期間（終了日）取得
+   *
+   * @return devEndTime
+   */
+  public Date getDevEndTime() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.devEndTime;
+  }
+
+  /**
+   * 開発期間（終了日）設定
+   *
+   * @param devEndTime セットする devEndTime
+   */
+  public void setDevEndTime(Date devEndTime) {
+    assert (false != ProjNumBean.isValidDate(devEndTime));
+
+    if (false == ProjNumBean.isValidDate(devEndTime)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.devEndTime = devEndTime;
+  }
+
+  /**
+   * 受注日取得
+   *
+   * @return dateOfOrders
+   */
+  public Date getDateOfOrders() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.dateOfOrders;
+  }
+
+  /**
+   * 受注日設定
+   *
+   * @param dateOfOrders セットする dateOfOrders
+   */
+  public void setDateOfOrders(Date dateOfOrders) {
+    assert (false != ProjNumBean.isValidDate(dateOfOrders));
+
+    if (false == ProjNumBean.isValidDate(dateOfOrders)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.dateOfOrders = dateOfOrders;
+  }
+
+  /**
+   * 売上日取得
+   *
+   * @return dateOfSales
+   */
+  public Date getDateOfSales() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.dateOfSales;
+  }
+
+  /**
+   * 売上日設定
+   *
+   * @param dateOfSales セットする dateOfSales
+   */
+  public void setDateOfSales(Date dateOfSales) {
+    assert (false != ProjNumBean.isValidDate(dateOfSales));
+
+    if (false == ProjNumBean.isValidDate(dateOfSales)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.dateOfSales = dateOfSales;
+  }
+
+  /**
+   * 入金日取得
+   *
+   * @return dayOfPayment
+   */
+  public Date getDayOfPayment() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.dayOfPayment;
+  }
+
+  /**
+   * 入金日設定
+   *
+   * @param dayOfPayment セットする dayOfPayment
+   */
+  public void setDayOfPayment(Date dayOfPayment) {
+    assert (false != ProjNumBean.isValidDate(dayOfPayment));
+
+    if (false == ProjNumBean.isValidDate(dayOfPayment)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.dayOfPayment = dayOfPayment;
+  }
+
+  /**
+   * 開発予算取得
+   *
+   * @return devBudgets
+   */
+  public long getDevBudgets() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.devBudgets;
+  }
+
+  /**
+   * 開発予算設定
+   *
+   * @param devBudgets セットする devBudgets
+   */
+  public void setDevBudgets(long devBudgets) {
+    assert (false != ProjNumBean.isValidDevBudgets(devBudgets));
+
+    if (false == ProjNumBean.isValidDevBudgets(devBudgets)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.devBudgets = devBudgets;
+  }
+
+  /**
+   * 受注金額取得
+   *
+   * @return valueOfOrder
+   */
+  public long getValueOfOrder() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.valueOfOrder;
+  }
+
+  /**
+   * 受注金額設定
+   *
+   * @param valueOfOrder セットする valueOfOrder
+   */
+  public void setValueOfOrder(long valueOfOrder) {
+    assert (false != ProjNumBean.isValidValueOfOrder(valueOfOrder));
+
+    if (false == ProjNumBean.isValidValueOfOrder(valueOfOrder)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.valueOfOrder = valueOfOrder;
+  }
+
+  /**
+   * 仕入れ金額取得
+   *
+   * @return purchaseAmount
+   */
+  public long getPurchaseAmount() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    // #if 1//Phase 2用
+    // ---ここから Phase 2 変更分---
+    throw new UnsupportedOperationException("未サポート");
+    // ---ここまで Phase 2 変更分---
+    // #else//Phase 1用
+    // return this.purchaseAmount;
+    // #endif
+  }
+
+  /**
+   * 仕入れ金額設定
+   *
+   * @param purchaseAmount セットする purchaseAmount
+   */
+  public void setPurchaseAmount(long purchaseAmount) {
+    assert (false != ProjNumBean.isValidPurchaseAmount(purchaseAmount));
+
+    if (false == ProjNumBean.isValidPurchaseAmount(purchaseAmount)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    // #if 1//Phase 2用
+    // ---ここから Phase 2 変更分---
+    throw new UnsupportedOperationException("未サポート");
+    // ---ここまで Phase 2 変更分---
+    // #else//Phase 1用
+    // this.purchaseAmount = purchaseAmount;
+    // #endif
+  }
+
+  /**
+   * 工数金額取得
+   *
+   * @return manHoursFare
+   */
+  public long getManHoursFare() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    // #if 1//Phase 2用
+    // ---ここから Phase 2 変更分---
+    throw new UnsupportedOperationException("未サポート");
+    // ---ここまで Phase 2 変更分---
+    // #else//Phase 1用
+    // return this.manHoursFare;
+    // #endif
+  }
+
+  /**
+   * 工数金額設定
+   *
+   * @param manHoursFare セットする manHoursFare
+   */
+  public void setManHoursFare(long manHoursFare) {
+    assert (false != ProjNumBean.isValidManHoursFare(manHoursFare));
+
+    if (false == ProjNumBean.isValidManHoursFare(manHoursFare)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    // #if 1//Phase 2用
+    // ---ここから Phase 2 変更分---
+    throw new UnsupportedOperationException("未サポート");
+    // ---ここまで Phase 2 変更分---
+    // #else//Phase 1用
+    // this.manHoursFare = manHoursFare;
+    // #endif
+  }
+
+  /**
+   * 備考取得
+   *
+   * @return remarks
+   */
+  public String getRemarks() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.remarks;
+  }
+
+  /**
+   * 備考設定
+   *
+   * @param remarks セットする remarks
+   */
+  public void setRemarks(String remarks) {
+    assert (false != ProjNumBean.isValidRemarks(remarks));
+
+    if (false == ProjNumBean.isValidRemarks(remarks)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.remarks = remarks;
+  }
+
+  /**
+   * リーダー取得
+   *
+   * @return projLeader
+   */
+  public String getProjLeader() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.projLeader;
+  }
+
+  /**
+   * リーダー設定
+   *
+   * @param projLeader セットする projLeader
+   */
+  public void setProjLeader(String projLeader) {
+    assert (false != ProjNumBean.isValidProjLeader(projLeader));
+
+    if (false == ProjNumBean.isValidProjLeader(projLeader)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.projLeader = projLeader;
+  }
+
+  /**
+   * メンバー取得
+   *
+   * @return projMember
+   */
+  public String getProjMember() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.projMember;
+  }
+
+  /**
+   * メンバー設定
+   *
+   * @param projMember セットする projMember
+   */
+  public void setProjMember(String projMember) {
+    assert (false != ProjNumBean.isValidProjMember(projMember));
+
+    if (false == ProjNumBean.isValidProjMember(projMember)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.projMember = projMember;
+  }
+
+  /**
+   * 作成日時取得
+   *
+   * @return createdAt
+   */
+  public Timestamp getCreatedAt() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.createdAt;
+  }
+
+  /**
+   * 作成日時設定
+   *
+   * @param createdAt セットする createdAt
+   */
+  public void setCreatedAt(Timestamp createdAt) {
+    assert (false != ProjNumBean.isValidTimestamp(createdAt));
+
+    if (false == ProjNumBean.isValidTimestamp(createdAt)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.createdAt = createdAt;
+  }
+
+  /**
+   * 作成者取得
+   *
+   * @return createdBy
+   */
+  public String getCreatedBy() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.createdBy;
+  }
+
+  /**
+   * 作成者設定
+   *
+   * @param createdBy セットする createdBy
+   */
+  public void setCreatedBy(String createdBy) {
+    assert (false != ProjNumBean.isValidCreatedBy(createdBy));
+
+    if (false == ProjNumBean.isValidCreatedBy(createdBy)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.createdBy = createdBy;
+  }
+
+  /**
+   * 最終更新日時取得
+   *
+   * @return changedAt
+   */
+  public Timestamp getChangedAt() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.changedAt;
+  }
+
+  /**
+   * 最終更新日時設定
+   *
+   * @param changedAt セットする changedAt
+   */
+  public void setChangedAt(Timestamp changedAt) {
+    assert (false != ProjNumBean.isValidTimestamp(changedAt));
+
+    if (false == ProjNumBean.isValidTimestamp(changedAt)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.changedAt = changedAt;
+  }
+
+  /**
+   * 最終更新者取得
+   *
+   * @return changedBy
+   */
+  public String getChangedBy() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.changedBy;
+  }
+
+  /**
+   * 最終更新者設定
+   *
+   * @param changedBy セットする changedBy
+   */
+  public void setChangedBy(String changedBy) {
+    assert (false != ProjNumBean.isValidChangedBy(changedBy));
+
+    if (false == ProjNumBean.isValidChangedBy(changedBy)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.changedBy = changedBy;
+  }
+
+  // ---ここから Phase 2 追加分---
+  /**
+   * （旧弥生(2017年度いっぱいまで)）仕入れ総額取得
+   *
+   * @return prePurchaseAmount
+   */
+  public long getPrePurchaseAmount() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.prePurchaseAmount;
+  }
+
+  /**
+   * （旧弥生(2017年度いっぱいまで)）仕入れ総額設定
+   *
+   * @param prePurchaseAmount セットする prePurchaseAmount
+   */
+  public void setPrePurchaseAmount(long prePurchaseAmount) {
+    assert (false != ProjNumBean.isValidPurchaseAmount(prePurchaseAmount));
+
+    if (false == ProjNumBean.isValidPurchaseAmount(prePurchaseAmount)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.prePurchaseAmount = prePurchaseAmount;
+  }
+
+  /**
+   * （新弥生（2018年度から））仕入れ総額取得
+   *
+   * @return newPurchaseAmount
+   */
+  public long getNewPurchaseAmount() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.newPurchaseAmount;
+  }
+
+  /**
+   * （新弥生（2018年度から））仕入れ総額設定
+   *
+   * @param newPurchaseAmount セットする newPurchaseAmount
+   */
+  public void setNewPurchaseAmount(long newPurchaseAmount) {
+    assert (false != ProjNumBean.isValidPurchaseAmount(newPurchaseAmount));
+
+    if (false == ProjNumBean.isValidPurchaseAmount(newPurchaseAmount)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.newPurchaseAmount = newPurchaseAmount;
+  }
+
+  /**
+   * （旧弥生(2017年度いっぱいまで)）仕入れ総額最終更新日時取得
+   *
+   * @return prePurchaseAmountChangedAt
+   */
+  public Timestamp getPrePurchaseAmountChangedAt() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.prePurchaseAmountChangedAt;
+  }
+
+  /**
+   * （旧弥生(2017年度いっぱいまで)）仕入れ総額最終更新日時設定
+   *
+   * @param prePurchaseAmountChangedAt セットする prePurchaseAmountChangedAt
+   */
+  public void setPrePurchaseAmountChangedAt(Timestamp prePurchaseAmountChangedAt) {
+    assert (false != ProjNumBean.isValidTimestamp(prePurchaseAmountChangedAt));
+
+    if (false == ProjNumBean.isValidTimestamp(prePurchaseAmountChangedAt)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.prePurchaseAmountChangedAt = prePurchaseAmountChangedAt;
+  }
+
+  /**
+   * （新弥生（2018年度から））仕入れ総額最終更新日時取得
+   *
+   * @return newPurchaseAmountChangedAt
+   */
+  public Timestamp getNewPurchaseAmountChangedAt() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.newPurchaseAmountChangedAt;
+  }
+
+  /**
+   * （新弥生（2018年度から））仕入れ総額最終更新日時設定
+   *
+   * @param newPurchaseAmountChangedAt セットする newPurchaseAmountChangedAt
+   */
+  public void setNewPurchaseAmountChangedAt(Timestamp newPurchaseAmountChangedAt) {
+    assert (false != ProjNumBean.isValidTimestamp(newPurchaseAmountChangedAt));
+
+    if (false == ProjNumBean.isValidTimestamp(newPurchaseAmountChangedAt)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.newPurchaseAmountChangedAt = newPurchaseAmountChangedAt;
+  }
+
+  /**
+   * 総作業時間取得
+   *
+   * @return totalWorkingTime
+   */
+  public String getTotalWorkingTime() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.totalWorkingTime;
+  }
+
+  /**
+   * 総作業時間設定
+   *
+   * @param totalWorkingTime セットする totalWorkingTime
+   */
+  public void setTotalWorkingTime(String totalWorkingTime) {
+    assert (false != ProjNumBean.isValidTotalWorkingTime(totalWorkingTime));
+
+    if (false == ProjNumBean.isValidTotalWorkingTime(totalWorkingTime)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.totalWorkingTime = totalWorkingTime;
+  }
+
+  /**
+   * 総作業時間最終更新日時取得
+   *
+   * @return totalWorkingTimeChangedAt
+   */
+  public Timestamp getTotalWorkingTimeChangedAt() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.totalWorkingTimeChangedAt;
+  }
+
+  /**
+   * 総作業時間最終更新日時設定
+   *
+   * @param totalWorkingTimeChangedAt セットする totalWorkingTimeChangedAt
+   */
+  public void setTotalWorkingTimeChangedAt(Timestamp totalWorkingTimeChangedAt) {
+    assert (false != ProjNumBean.isValidTimestamp(totalWorkingTimeChangedAt));
+
+    if (false == ProjNumBean.isValidTimestamp(totalWorkingTimeChangedAt)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.totalWorkingTimeChangedAt = totalWorkingTimeChangedAt;
+  }
+
+  /**
+   * 工数単価取得
+   *
+   * @return unitPrice
+   */
+  public int getUnitPrice() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.unitPrice;
+  }
+
+  /**
+   * 工数単価設定
+   *
+   * @param unitPrice セットする unitPrice
+   */
+  public void setUnitPrice(int unitPrice) {
+    assert (false != ProjNumBean.isValidUnitPrice(unitPrice));
+
+    if (false == ProjNumBean.isValidUnitPrice(unitPrice)) {
+      throw new IllegalArgumentException();
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    this.unitPrice = unitPrice;
+  }
+
+  /**
+   * プロジェクト完了フラグ取得
+   *
+   * @return finished
+   */
+  public boolean isFinished() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.finished;
+  }
+
+  /**
+   * プロジェクト完了フラグ設定
+   *
+   * @param finished セットする finished
+   */
+  public void setFinished(boolean finished) {
+    this.finished = finished;
+  }
+  // ---ここまで Phase 2 追加分---
+
+  /**
+   * 添付ファイルリスト取得
+   *
+   * @return 添付ファイルリストオブジェクト
+   */
+  public List<AttachFileBean> getAttachFileList() {
+    if (null == this.attachFileBeanList) {
+      return null;
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.attachFileBeanList.clone();
+  }
+
+  /**
+   * 添付ファイルビーンリスト取得
+   *
+   * @return 添付ファイルビーンリストオブジェクト
+   */
+  public BeanDataList<AttachFileBean> getAttachFileBeanList() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.attachFileBeanList;
+  }
+
+  /**
+   * 添付ファイルリスト設定
+   *
+   * @param list 添付ファイルリストオブジェクト
+   */
+  public void setAttachFileList(List<AttachFileBean> list) {
+    assert (null != list);
+
+    if (null == list) {
+      throw new IllegalArgumentException();
+    }
+    BeanDataList<AttachFileBean> workAttachFileBeanList =
+        new BeanDataList<AttachFileBean>(DataListType.ATTACH_FILE_DATA_LIST);
+    for (AttachFileBean item : list) {
+      AttachFileBean newAttachFileBean = item.deepCopyEntity();
+      workAttachFileBeanList.add(newAttachFileBean);
+    }
+    this.attachFileBeanList.clear();
+    this.attachFileBeanList = null;
+    this.attachFileBeanList = workAttachFileBeanList;
+  }
+
+  /**
+   * 添付ファイルビーンリスト設定
+   *
+   * @param list 添付ファイルビーンリストオブジェクト
+   */
+  public void setAttachFileBeanList(BeanDataList<AttachFileBean> list) {
+    assert (null != list);
+
+    if (null == list) {
+      throw new IllegalArgumentException();
+    }
+    BeanDataList<AttachFileBean> workAttachFileBeanList =
+        new BeanDataList<AttachFileBean>(DataListType.ATTACH_FILE_DATA_LIST);
+    for (int nCnt = 0; nCnt < list.size(); nCnt++) {
+      IData iData = list.get(nCnt).deepCopy();
+      workAttachFileBeanList.add(iData);
+    }
+    this.attachFileBeanList.clear();
+    this.attachFileBeanList = null;
+    this.attachFileBeanList = workAttachFileBeanList;
+  }
+
+  /**
+   * 添付ファイルリスト設定
+   *
+   * @param list 添付ファイルリストオブジェクト
+   */
+  public void setAttachFileBeanList(IDataList list) {
+    assert (null != list);
+
+    if (null == list) {
+      throw new IllegalArgumentException();
+    }
+    BeanDataList<AttachFileBean> workAttachFileBeanList =
+        new BeanDataList<AttachFileBean>(DataListType.ATTACH_FILE_DATA_LIST);
+    for (int nCnt = 0; nCnt < list.size(); nCnt++) {
+      IData iData = list.get(nCnt).deepCopy();
+      workAttachFileBeanList.add(iData);// IData
+    }
+    this.attachFileBeanList.clear();
+    this.attachFileBeanList = null;
+    this.attachFileBeanList = workAttachFileBeanList;
+  }
+
+  /**
+   * 通知ユーザーリスト取得
+   *
+   * @return 通知ユーザーリストオブジェクト
+   */
+  public List<NotiUserBean> getNotiUserList() {
+    if (null == this.notiUserBeanList) {
+      return null;
+    }
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.notiUserBeanList.clone();
+  }
+
+  /**
+   * 通知ユーザービーンリスト取得
+   *
+   * @return 通知ユーザービーンリストオブジェクト
+   */
+  public BeanDataList<NotiUserBean> getNotiUserBeanList() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    return this.notiUserBeanList;
+  }
+
+  // ---追加：インターノウスここから---
+  /**
+   * 旧弥生フラグ取得
+   *
+   * @return 旧弥生フラグ
+   */
+  public boolean isProjPrePurchase() {
+		return isProjPrePurchase;
+	}
+
+  /**
+   * 旧弥生フラグ設定
+   *
+   * @param isProjPrePurchase 旧弥生フラグ
+   */
+	public void setProjPrePurchase(boolean isProjPrePurchase) {
+		this.isProjPrePurchase = isProjPrePurchase;
+	}
+  // ---追加：インターノウスここまで---
+
+  /**
+   * 通知ユーザーリスト設定
+   *
+   * @param list 通知ユーザーリストオブジェクト
+   */
+  public void setNotiUserList(List<NotiUserBean> list) {
+    assert (null != list);
+
+    if (null == list) {
+      throw new IllegalArgumentException();
+    }
+    BeanDataList<NotiUserBean> workNotiUserBeanList =
+        new BeanDataList<NotiUserBean>(DataListType.NOTI_USER_DATA_LIST);
+    for (NotiUserBean item : list) {
+      NotiUserBean newNotiUserBean = item.deepCopyEntity();
+      workNotiUserBeanList.add(newNotiUserBean);
+    }
+    this.notiUserBeanList.clear();
+    this.notiUserBeanList = null;
+    this.notiUserBeanList = workNotiUserBeanList;
+  }
+
+  /**
+   * 通知ユーザービーンリスト設定
+   *
+   * @param list 通知ユーザービーンリストオブジェクト
+   */
+  public void setNotiUserBeanList(BeanDataList<NotiUserBean> list) {
+    assert (null != list);
+
+    if (null == list) {
+      throw new IllegalArgumentException();
+    }
+    BeanDataList<NotiUserBean> workNotiUserBeanList =
+        new BeanDataList<NotiUserBean>(DataListType.NOTI_USER_DATA_LIST);
+    for (int nCnt = 0; nCnt < list.size(); nCnt++) {
+      IData iData = list.get(nCnt).deepCopy();
+      workNotiUserBeanList.add(iData);
+    }
+    this.notiUserBeanList.clear();
+    this.notiUserBeanList = null;
+    this.notiUserBeanList = workNotiUserBeanList;
+  }
+
+  /**
+   * 通知ユーザーリスト設定
+   *
+   * @param list 通知ユーザーリストオブジェクト
+   */
+  public void setNotiUserBeanList(IDataList list) {
+    assert (null != list);
+
+    if (null == list) {
+      throw new IllegalArgumentException();
+    }
+    BeanDataList<NotiUserBean> workNotiUserBeanList =
+        new BeanDataList<NotiUserBean>(DataListType.NOTI_USER_DATA_LIST);
+    for (int nCnt = 0; nCnt < list.size(); nCnt++) {
+      IData iData = list.get(nCnt).deepCopy();
+      workNotiUserBeanList.add(iData);// IData
+    }
+    this.notiUserBeanList.clear();
+    this.notiUserBeanList = null;
+    this.notiUserBeanList = workNotiUserBeanList;
+  }
+
+  /**
+   * ユーザーリスト取得
+   *
+   * @return ユーザーリストオブジェクト
+   */
+  // public List<UserBean> getUserList() {
+  // if (null == this.userBeanList) {
+  // return null;
+  // }
+  // // assert (false != ProjNumBean.isValidID(this.id));
+  // return this.userBeanList.clone();
+  // }
+
+  /**
+   * ユーザービーンリスト取得
+   *
+   * @return ユーザービーンリストオブジェクト
+   */
+  // public BeanDataList<UserBean> getUserBeanList() {
+  // // assert (false != ProjNumBean.isValidID(this.id));
+  // return this.userBeanList;
+  // }
+
+  /**
+   * ユーザーリスト設定
+   *
+   * @param list ユーザーリストオブジェクト
+   */
+  // public void setUserList(List<UserBean> list) {
+  // assert(null != list);
+  //
+  // if (null == list) {
+  // throw new IllegalArgumentException();
+  // }
+  // BeanDataList<UserBean> workUserBeanList = new
+  // BeanDataList<UserBean>(DataListType.USER_DATA_LIST);
+  // for (UserBean item : list) {
+  // workUserBeanList.add(item);
+  // }
+  // this.userBeanList.clear();
+  // this.userBeanList = null;
+  // this.userBeanList = workUserBeanList;
+  // }
+
+  /**
+   * ユーザービーンリスト設定
+   *
+   * @param list ユーザービーンリストオブジェクト
+   */
+  // public void setUserBeanList(BeanDataList<UserBean> list) {
+  // assert(null != list);
+
+  // if (null == list) {
+  // throw new IllegalArgumentException();
+  // }
+  // BeanDataList<UserBean> workUserBeanList = new
+  // BeanDataList<UserBean>(DataListType.USER_DATA_LIST);
+  // for (int nCnt = 0; nCnt < list.size(); nCnt++) {
+  // workUserBeanList.add(list.get(nCnt));
+  // }
+  // this.userBeanList.clear();
+  // this.userBeanList = null;
+  // this.userBeanList = workUserBeanList;
+  // }
+
+  /**
+   * 添付ファイルリストサイズ
+   *
+   * @return 添付ファイルリストサイズ
+   */
+  public int getAttachFileBeanListSize() {
+    if (null == this.attachFileBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    return this.attachFileBeanList.size();
+  }
+
+  /**
+   * 通知ユーザーリストサイズ
+   *
+   * @return 通知ユーザーリストサイズ
+   */
+  public int getNotiUserBeanListSize() {
+    if (null == this.notiUserBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    return this.notiUserBeanList.size();
+  }
+
+  /**
+   * ユーザーリストサイズ
+   *
+   * @return ユーザーリストサイズ
+   */
+  // public int getUserBeanListSize() {
+  // if (null == this.userBeanList) {
+  // assert(false);
+  // throw new IllegalStateException();
+  // }
+  // this.userBeanList.size();
+  // }
+
+  /**
+   * 指定インデックスの添付ファイルオブジェクト取得
+   *
+   * @param nIndex リストのインデックス
+   * @return IData オブジェクト
+   */
+  public IData getAttachFileBean(int nIndex) {
+    if (null == this.attachFileBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    int nSize = this.attachFileBeanList.size();
+    if (0 >= nSize) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return this.attachFileBeanList.get(nIndex);
+  }
+
+  /**
+   * 指定インデックスの通知ユーザーオブジェクト取得
+   *
+   * @param nIndex リストのインデックス
+   * @return IData オブジェクト
+   */
+  public IData getNotiUserBean(int nIndex) {
+    if (null == this.notiUserBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    int nSize = this.notiUserBeanList.size();
+    if (0 >= nSize) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return this.notiUserBeanList.get(nIndex);
+  }
+
+  /**
+   * 指定インデックスのユーザーオブジェクト取得
+   *
+   * @param nIndex リストのインデックス
+   * @return IData オブジェクト
+   */
+  // public UserBean getUserBean(int nIndex) {
+  // if (null == this.userBeanList) {
+  // assert (false);
+  // throw new IllegalStateException();
+  // }
+  // int nSize = this.userBeanList.size();
+  // if (0 >= nSize) {
+  // assert (false);
+  // throw new IllegalStateException();
+  // }
+  //
+  // return this.userBeanList.get(nIndex);
+  // }
+
+  /**
+   * 添付ファイルオブジェクトをリストに追加
+   *
+   * @param attachFileBean 添付ファイルオブジェクト
+   * @return この呼び出しの結果、このコレクションが変更された場合は true
+   */
+  public boolean addAttachFileBean(AttachFileBean attachFileBean) {
+    if (null == this.attachFileBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return this.attachFileBeanList.add(attachFileBean);
+  }
+
+  /**
+   * 通知ユーザーオブジェクトをリストに追加
+   *
+   * @param notiUserBean 通知ユーザーオブジェクト
+   * @return この呼び出しの結果、このコレクションが変更された場合は true
+   */
+  public boolean addNotiUserBean(NotiUserBean notiUserBean) {
+    if (null == this.notiUserBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return this.notiUserBeanList.add(notiUserBean);
+  }
+
+  /**
+   * ユーザーオブジェクトをリストに追加
+   *
+   * @param userBean ユーザーオブジェクト
+   * @return この呼び出しの結果、このコレクションが変更された場合は true
+   */
+  // public boolean addUserBean (UserBean userBean) {
+  // if (null == this.userBean) {
+  // assert (false);
+  // throw new IllegalStateException();
+  // }
+  //
+  // return this.userBeanList.add(userBean);
+  // }
+
+  /**
+   * リスト内の指定された位置にある添付ファイルオブジェクトを削除
+   *
+   * @param nIndex インデックス
+   * @return 指定された位置に以前あった要素
+   */
+  public AttachFileBean removeAttachFileBean(int nIndex) {
+    if (null == this.attachFileBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return this.attachFileBeanList.removeEntity(nIndex);
+  }
+
+  /**
+   * リスト内の指定された位置にある通知ユーザーオブジェクトを削除
+   *
+   * @param nIndex インデックス
+   * @return 指定された位置に以前あった要素
+   */
+  public NotiUserBean removeNotiUserBean(int nIndex) {
+    if (null == this.notiUserBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return this.notiUserBeanList.removeEntity(nIndex);
+  }
+
+  /**
+   * リスト内の指定された位置にあるユーザーオブジェクトを削除
+   *
+   * @param nIndex インデックス
+   * @return 指定された位置に以前あった要素
+   */
+  // public UserBean removeUserBean(int nIndex) {
+  // if (null == this.userBeanList) {
+  // assert (false);
+  // throw new IllegalStateException();
+  // }
+  //
+  // return this.userBeanList.removeEntity(nIndex);
+  // }
+
+  /**
+   * リストをクリア
+   */
+  public void clearAttachFileBean() {
+    if (null == this.attachFileBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    this.attachFileBeanList.clear();;
+  }
+
+  /**
+   * リストをクリア
+   */
+  public void clearNotiUserBean() {
+    if (null == this.notiUserBeanList) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    this.notiUserBeanList.clear();;
+  }
+
+  /**
+   * リストをクリア
+   */
+  // public void clearUserBean() {
+  // if (null == this.userBeanList) {
+  // assert (false);
+  // throw new IllegalStateException();
+  // }
+  // this.userBeanList.clear();
+  // }
+
+  /**
+   * 表題生成
+   *
+   * @param projNumBean P番オブジェクト
+   * @param isNew 新規作成（or 更新）
+   * @return 表題文字列
+   */
+  // ※【P番】 が発行されました
+  // ※【P番】 が更新されました
+  public String createMailSubject(boolean isNew) {
+    if (false == ProjNumBean.isValidProjNum(this.getProjNum())) {
+      assert (false);
+      throw new IllegalArgumentException();
+    }
+    StringBuilder subjectBuilder =
+        new StringBuilder().append("[").append(this.getProjNum()).append("]が");
+    if (false == isNew) {
+      subjectBuilder.append("更新");
+    } else {
+      subjectBuilder.append("発行");
+    }
+    subjectBuilder.append("されました");
+    String strSubject = subjectBuilder.toString();
+
+    return strSubject;
+  }
+
+  /**
+   * 本文生成
+   *
+   * @param projNumBean P番オブジェクト
+   * @return 本文文字列
+   */
+  // ※P番、プロジェクト名、受注先、リーダー、メンバー
+  public String createMailBody() {
+    if (false == ProjNumBean.isValidProjNum(this.getProjNum())) {
+      assert (false);
+      throw new IllegalArgumentException();
+    }
+    StringBuilder bodyBuilder = new StringBuilder().append("【P番】").append(this.getProjNum())
+        .append(MailHelper.MAIL_NEW_LINE_STRING);
+    bodyBuilder.append("【プロジェクト名】");
+    if (false != ProjNumBean.isValidProjName(this.getProjName())) {
+      bodyBuilder.append(" ").append(this.getProjName());
+    }
+    bodyBuilder.append(MailHelper.MAIL_NEW_LINE_STRING);
+    bodyBuilder.append("【受注先】");
+    if (false != ProjNumBean.isValidCustomerName(this.getCustomerName())) {
+      bodyBuilder.append(" ").append(this.getCustomerName());
+    }
+    bodyBuilder.append(MailHelper.MAIL_NEW_LINE_STRING);
+    bodyBuilder.append("【リーダー】");
+    if (false != ProjNumBean.isValidProjLeader(this.getProjLeader())) {
+      bodyBuilder.append(" ").append(this.getProjLeader());
+    }
+    bodyBuilder.append(MailHelper.MAIL_NEW_LINE_STRING);
+    bodyBuilder.append("【メンバー】");
+    if (false != ProjNumBean.isValidProjMember(this.getProjMember())) {
+      bodyBuilder.append(" ").append(this.getProjMember());
+    }
+    bodyBuilder.append(MailHelper.MAIL_NEW_LINE_STRING).append(MailHelper.MAIL_NEW_LINE_STRING)
+        .append(MailHelper.MAIL_NEW_LINE_STRING).append("※なお、このメールはシステムより自動送信されています。")
+        .append(MailHelper.MAIL_NEW_LINE_STRING).append("返信は受付できませんので、ご了承ください。");
+    String strBody = bodyBuilder.toString();
+
+    return strBody;
+  }
+
+  // ---ここから Phase 2 追加分---
+  /**
+   * 作業時間を取得
+   *
+   * @return long の配列（時間、分、秒の順）
+   */
+  public long[] getTotalWorkingTimeWithLongArray() {
+    if (false == ProjNumBean.isValidTotalWorkingTime(getTotalWorkingTime())) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    long[] hourMinSec = {0, 0, 0};
+    String[] strElements = getTotalWorkingTime().split(":");
+    if (0 >= strElements.length) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    if (1 == strElements.length) {
+      // コロンなしの場合（分指定））
+      long lTotalMinute = 0;
+      try {
+        lTotalMinute = Long.parseLong(strElements[0]);// NumberFormatException
+        hourMinSec[0] = lTotalMinute / 60;
+        hourMinSec[1] = lTotalMinute % 60;
+      } catch (Exception err) {
+        assert (false);
+        throw err;
+      }
+    } else if ((2 == strElements.length) || (3 == strElements.length)) {
+      String[] strNewElements = new String[3];
+      if (2 == strElements.length) {
+        System.arraycopy(strElements, 0, strNewElements, 0, 2);
+        strNewElements[3] = "00";
+      } else {
+        System.arraycopy(strElements, 0, strNewElements, 0, 3);
+      }
+      int nIndex = 0;
+      for (String item : strNewElements) {
+        long lValue = 0;
+        try {
+          lValue = Long.parseLong(item);// NumberFormatException
+          hourMinSec[nIndex] = lValue;
+          nIndex++;
+        } catch (Exception err) {
+          assert (false);
+          throw err;
+        }
+      }
+    } else {
+      assert (false);
+      throw new IllegalStateException();
+    }
+
+    return (hourMinSec);
+  }
+  // ---ここまで Phase 2 追加分---
+
+  /**
+   * コピー生成
+   *
+   * @return プロジェクト番号オブジェクト
+   */
+  public ProjNumBean deepCopyEntity() {
+    // public ProjNumBean cloneEntity() {
+    // assert (false != ProjNumBean.isValidID(this.id));
+    ProjNumBean projNumBean = null;
+    projNumBean = new ProjNumBean();
+    try {
+      projNumBean.id = this.id;
+      if (null != this.projNum) {
+        projNumBean.projNum = new String(this.projNum);
+      }
+      if (null != this.catName) {
+        projNumBean.catName = new String(this.catName);
+      }
+      if (null != this.projName) {
+        projNumBean.projName = new String(this.projName);
+      }
+      if (null != this.customerName) {
+        projNumBean.customerName = new String(this.customerName);
+      }
+      if (null != this.endUserName) {
+        projNumBean.endUserName = new String(this.endUserName);
+      }
+      if (null != this.salesStaffName) {
+        projNumBean.salesStaffName = new String(this.salesStaffName);
+      }
+      if (null != this.salesStatusName) {
+        projNumBean.salesStatusName = new String(this.salesStatusName);
+      }
+      if (null != this.issuedDate) {
+        projNumBean.issuedDate = new Timestamp(this.issuedDate.getTime());
+      }
+      if (null != this.devStartTime) {
+        projNumBean.devStartTime = new Date(this.devStartTime.getTime());
+      }
+      if (null != this.devEndTime) {
+        projNumBean.devEndTime = new Date(this.devEndTime.getTime());
+      }
+      if (null != this.dateOfOrders) {
+        projNumBean.dateOfOrders = new Date(this.dateOfOrders.getTime());
+      }
+      if (null != this.dateOfSales) {
+        projNumBean.dateOfSales = new Date(this.dateOfSales.getTime());
+      }
+      if (null != this.dayOfPayment) {
+        projNumBean.dayOfPayment = new Date(this.dayOfPayment.getTime());
+      }
+      projNumBean.devBudgets = this.devBudgets;
+      projNumBean.valueOfOrder = this.valueOfOrder;
+      projNumBean.purchaseAmount = this.purchaseAmount;
+      projNumBean.manHoursFare = this.manHoursFare;
+      if (null != this.remarks) {
+        projNumBean.remarks = new String(this.remarks);
+      }
+      if (null != this.projLeader) {
+        projNumBean.projLeader = new String(this.projLeader);
+      }
+      if (null != this.projMember) {
+        projNumBean.projMember = new String(this.projMember);
+      }
+      if (null != this.createdAt) {
+        projNumBean.createdAt = new Timestamp(this.createdAt.getTime());
+      }
+      if (null != this.createdBy) {
+        projNumBean.createdBy = new String(this.createdBy);
+      }
+      if (null != this.changedAt) {
+        projNumBean.changedAt = new Timestamp(this.changedAt.getTime());
+      }
+      if (null != this.changedBy) {
+        projNumBean.changedBy = new String(this.changedBy);
+      }
+
+      // ---ここから Phase 2 追加分---
+      projNumBean.prePurchaseAmount = this.prePurchaseAmount;
+      projNumBean.newPurchaseAmount = this.newPurchaseAmount;
+      if (null != this.prePurchaseAmountChangedAt) {
+        projNumBean.prePurchaseAmountChangedAt =
+            new Timestamp(this.prePurchaseAmountChangedAt.getTime());
+      }
+      if (null != this.newPurchaseAmountChangedAt) {
+        projNumBean.newPurchaseAmountChangedAt =
+            new Timestamp(this.newPurchaseAmountChangedAt.getTime());
+      }
+      if (null != this.totalWorkingTime) {
+        projNumBean.totalWorkingTime = new String(this.totalWorkingTime);
+      }
+      if (null != this.totalWorkingTimeChangedAt) {
+        projNumBean.totalWorkingTimeChangedAt =
+            new Timestamp(this.totalWorkingTimeChangedAt.getTime());
+      }
+      projNumBean.unitPrice = this.unitPrice;
+      projNumBean.finished = this.finished;
+      // ---ここまで Phase 2 追加分---
+
+      if (null != this.attachFileBeanList) {
+        projNumBean.attachFileBeanList = this.attachFileBeanList.deepCopy();
+      }
+      if (null != this.notiUserBeanList) {
+        projNumBean.notiUserBeanList = this.notiUserBeanList.deepCopy();
+      }
+      // if (null != this.userBeanList) {
+      // projNumBean.userBeanList = this.userBeanList.deepCopy();
+      // }
+    } catch (Exception err) {
+      assert (false);
+      if (null != projNumBean.attachFileBeanList) {
+        try {
+          projNumBean.attachFileBeanList.clear();
+        } catch (Exception err_2) {
+          assert (false);
+        }
+      }
+      if (null != projNumBean.notiUserBeanList) {
+        try {
+          projNumBean.notiUserBeanList.clear();
+        } catch (Exception err_2) {
+          assert (false);
+        }
+      }
+      // if (null != projNumBean.userBeanList) {
+      // try {
+      // projNumBean.userBeanList.clear();
+      // } catch (Exception err_2) {
+      // assert(false);
+      // }
+      // }
+      projNumBean = null;
+      throw err;
+    }
+
+    return projNumBean;
+  }
+
+  /*
+   * (非 Javadoc)
+   *
+   * @see jp.co.lsij.p16590004.e_77.model.IData#deepCopy()
+   */
+  @Override
+  public IData deepCopy() {
+    // TODO 自動生成されたメソッド・スタブ
+    return deepCopyEntity();
+  }
+
+  /**
+   * 再設定
+   *
+   * @param projNumBean プロジェクト番号オブジェクト
+   */
+  // public void restore(ProjNumBean projNumBean) {
+  // assert (false != ProjNumBean.isValidID(projNumBean.getId()));
+
+  // if (false == ProjNumBean.isValidID(projNumBean.getId())) {
+  // throw new IllegalArgumentException();
+  // }
+  // this.id = projNumBean.getId();
+  // if (null == projNumBean.getProjNum()) {
+  // this.projNum = null;
+  // } else {
+  // this.projNum = new String(projNumBean.getProjNum());
+  // }
+  // if (null == projNumBean.getCatName()) {
+  // this.catName = null;
+  // } else {
+  // this.catName = new String(projNumBean.getCatName());
+  // }
+  // if (null == projNumBean.getProjName()) {
+  // this.projName = null;
+  // } else {
+  // this.projName = new String(projNumBean.getProjName());
+  // }
+  // if (null == projNumBean.getCustomerName()) {
+  // this.customerName = null;
+  // } else {
+  // this.customerName = new String(projNumBean.getCustomerName());
+  // }
+  // if (null == projNumBean.getEndUserName()) {
+  // this.endUserName = null;
+  // } else {
+  // this.endUserName = new String(projNumBean.getEndUserName());
+  // }
+  // this.salesStaffName = new String(projNumBean.getSalesStaffName());
+  // // if (null == projNumBean.getSalesStaffName()) {
+  // // this.salesStaffName = null;
+  // // } else {
+  // // this.salesStaffName = new String(projNumBean.getSalesStaffName());
+  // // }
+  // if (null == projNumBean.getSalesStatusName()) {
+  // this.salesStatusName = null;
+  // } else {
+  // this.salesStatusName = new String(projNumBean.getSalesStatusName());
+  // }
+  // if (null == projNumBean.getIssuedDate()) {
+  // this.issuedDate = null;
+  // } else {
+  // issuedDate = new Timestamp(projNumBean.getIssuedDate().getTime());
+  // }
+  // if (null == projNumBean.getDevStartTime()) {
+  // this.devStartTime = null;
+  // } else {
+  // this.devStartTime = new Date(projNumBean.getDevStartTime().getTime());
+  // }
+  // if (null == projNumBean.getDevEndTime()) {
+  // this.devEndTime = null;
+  // } else {
+  // this.devEndTime = new Date(projNumBean.getDevEndTime().getTime());
+  // }
+  // if (null == projNumBean.getDateOfOrders()) {
+  // this.dateOfOrders = null;
+  // } else {
+  // this.dateOfOrders = new Date(projNumBean.getDateOfOrders().getTime());
+  // }
+  // if (null == projNumBean.getDateOfSales()) {
+  // this.dateOfSales = null;
+  // } else {
+  // this.dateOfSales = new Date(projNumBean.getDateOfSales().getTime());
+  // }
+  // if (null == projNumBean.getDayOfPayment()) {
+  // this.dayOfPayment = null;
+  // } else {
+  // this.dayOfPayment = new Date(projNumBean.getDayOfPayment().getTime());
+  // }
+  // this.devBudgets = projNumBean.getDevBudgets();
+  // this.valueOfOrder = projNumBean.getValueOfOrder();
+  // this.purchaseAmount = projNumBean.getPurchaseAmount();
+  // this.manHoursFare = projNumBean.getManHoursFare();
+  // if (null == projNumBean.getRemarks()) {
+  // this.remarks = null;
+  // } else {
+  // this.remarks = new String(projNumBean.getRemarks());
+  // }
+  // if (null == projNumBean.getProjLeader()) {
+  // this.projLeader = null;
+  // } else {
+  // this.projLeader = new String(projNumBean.getProjLeader());
+  // }
+  // if (null == projNumBean.getProjMember()) {
+  // this.projMember = null;
+  // } else {
+  // this.projMember = new String(projNumBean.getProjMember());
+  // }
+  // // this.createdAt = categoryBean.getCreatedAt();
+  // this.createdAt = new Timestamp(projNumBean.getCreatedAt().getTime());
+  // // this.createdBy = categoryBean.getCreatedBy();
+  // this.createdBy = new String(projNumBean.getCreatedBy());
+  // // this.changedAt = categoryBean.getChangedAt();
+  // if (null == projNumBean.getChangedAt()) {
+  // this.changedAt = null;
+  // } else {
+  // this.changedAt = new Timestamp(projNumBean.getChangedAt().getTime());
+  // }
+  // // this.changedBy = categoryBean.getChangedBy();
+  // if (null == projNumBean.getChangedBy()) {
+  // this.changedBy = null;
+  // } else {
+  // this.changedBy = new String(projNumBean.getChangedBy());
+  // }
+
+  // ---ここから Phase 2 追加分---
+  // this.prePurchaseAmount = projNumBean.getPrePurchaseAmount();
+  // this.newPurchaseAmount = projNumBean.getNewPurchaseAmount();
+  // if (null == projNumBean.getPrePurchaseAmountChangedAt()) {
+  // this.prePurchaseAmountChangedAt = null;
+  // } else {
+  // this.prePurchaseAmountChangedAt = new
+  // Timestamp(projNumBean.getPrePurchaseAmountChangedAt().getTime());
+  // }
+  // if (null == projNumBean.getNewPurchaseAmountChangedAt()) {
+  // this.newPurchaseAmountChangedAt = null;
+  // } else {
+  // this.newPurchaseAmountChangedAt = new
+  // Timestamp(projNumBean.getNewPurchaseAmountChangedAt().getTime());
+  // }
+  // if (null == projNumBean.getTotalWorkingTime()) {
+  // this.totalWorkingTime = null;
+  // } else {
+  // this.totalWorkingTime = new String(projNumBean.getTotalWorkingTime());
+  // }
+  // if (null == projNumBean.getTotalWorkingTimeChangedAt()) {
+  // this.totalWorkingTimeChangedAt = null;
+  // } else {
+  // this.totalWorkingTimeChangedAt = new
+  // Timestamp(projNumBean.getTotalWorkingTimeChangedAt().getTime());
+  // }
+  // this.unitPrice = projNumBean.getUnitPrice();
+  // this.finished = projNumBean.isFinished();
+  // ---ここまで Phase 2 追加分---
+
+  // }
+
+  /**
+   * 比較
+   *
+   * @param projNumBean プロジェクト番号オブジェクト
+   * @return 等しい場合、true、その他の場合、false を返す
+   */
+  // public boolean compareTo(ProjNumBean projNumBean) {
+  // if (projNumBean.getId() != this.id) {
+  // return false;
+  // }
+  // if (null == this.projNum) {
+  // if (null != projNumBean.getProjNum()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getProjNum()) {
+  // return false;
+  // }
+  // if (0 != this.projNum.compareTo(projNumBean.getProjNum())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.catName) {
+  // if (null != projNumBean.getCatName()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getCatName()) {
+  // return false;
+  // }
+  // if (0 != this.catName.compareTo(projNumBean.getCatName())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.projName) {
+  // if (null != projNumBean.getProjName()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getProjName()) {
+  // return false;
+  // }
+  // if (0 != this.projName.compareTo(projNumBean.getProjName())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.customerName) {
+  // if (null != projNumBean.getCustomerName()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getCustomerName()) {
+  // return false;
+  // }
+  // if (0 != this.customerName.compareTo(projNumBean.getCustomerName())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.endUserName) {
+  // if (null != projNumBean.getEndUserName()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getEndUserName()) {
+  // return false;
+  // }
+  // if (0 != this.endUserName.compareTo(projNumBean.getEndUserName())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.salesStaffName) {
+  // if (null != projNumBean.getSalesStaffName()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getSalesStaffName()) {
+  // return false;
+  // }
+  // if (0 != this.salesStaffName.compareTo(projNumBean.getSalesStaffName())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.salesStatusName) {
+  // if (null != projNumBean.getSalesStatusName()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getSalesStatusName()) {
+  // return false;
+  // }
+  // if (0 != this.salesStatusName.compareTo(projNumBean.getSalesStatusName())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.issuedDate) {
+  // if (null != projNumBean.getIssuedDate()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getIssuedDate()) {
+  // return false;
+  // }
+  // if (0 != this.issuedDate.compareTo(projNumBean.getIssuedDate())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.devStartTime) {
+  // if (null != projNumBean.getDevStartTime()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getDevStartTime()) {
+  // return false;
+  // }
+  // if (0 != this.devStartTime.compareTo(projNumBean.getDevStartTime())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.devEndTime) {
+  // if (null != projNumBean.getDevEndTime()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getDevEndTime()) {
+  // return false;
+  // }
+  // if (0 != this.devEndTime.compareTo(projNumBean.getDevEndTime())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.dateOfOrders) {
+  // if (null != projNumBean.getDateOfOrders()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getDateOfOrders()) {
+  // return false;
+  // }
+  // if (0 != this.dateOfOrders.compareTo(projNumBean.getDateOfOrders())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.dateOfSales) {
+  // if (null != projNumBean.getDateOfSales()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getDateOfSales()) {
+  // return false;
+  // }
+  // if (0 != this.dateOfSales.compareTo(projNumBean.getDateOfSales())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.dayOfPayment) {
+  // if (null != projNumBean.getDayOfPayment()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getDayOfPayment()) {
+  // return false;
+  // }
+  // if (0 != this.dayOfPayment.compareTo(projNumBean.getDayOfPayment())) {
+  // return false;
+  // }
+  // }
+  // if (projNumBean.getDevBudgets() != this.devBudgets) {
+  // return false;
+  // }
+  // if (projNumBean.getValueOfOrder() != this.valueOfOrder) {
+  // return false;
+  // }
+  // if (projNumBean.getPurchaseAmount() != this.purchaseAmount) {
+  // return false;
+  // }
+  // if (projNumBean.getManHoursFare() != this.manHoursFare) {
+  // return false;
+  // }
+  // if (null == this.remarks) {
+  // if (null != projNumBean.getRemarks()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getRemarks()) {
+  // return false;
+  // }
+  // if (0 != this.remarks.compareTo(projNumBean.getRemarks())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.projLeader) {
+  // if (null != projNumBean.getProjLeader()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getProjLeader()) {
+  // return false;
+  // }
+  // if (0 != this.projLeader.compareTo(projNumBean.getProjLeader())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.projMember) {
+  // if (null != projNumBean.getProjMember()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getProjMember()) {
+  // return false;
+  // }
+  // if (0 != this.projMember.compareTo(projNumBean.getProjMember())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.createdAt) {
+  // if (null != projNumBean.getCreatedAt()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getCreatedAt()) {
+  // return false;
+  // }
+  // if (0 != this.createdAt.compareTo(projNumBean.getCreatedAt())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.createdBy) {
+  // if (null != projNumBean.getCreatedBy()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getCreatedBy()) {
+  // return false;
+  // }
+  // if (0 != this.createdBy.compareTo(projNumBean.getCreatedBy())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.changedAt) {
+  // if (null != projNumBean.getChangedAt()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getChangedAt()) {
+  // return false;
+  // }
+  // if (0 != this.changedAt.compareTo(projNumBean.getChangedAt())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.changedBy) {
+  // if (null != projNumBean.getChangedBy()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getChangedBy()) {
+  // return false;
+  // }
+  // if (0 != this.changedBy.compareTo(projNumBean.getChangedBy())) {
+  // return false;
+  // }
+  // }
+
+  // ---ここから Phase 2 追加分---
+  // if (projNumBean.getPrePurchaseAmount() != this.prePurchaseAmount) {
+  // return false;
+  // }
+  // if (projNumBean.getNewPurchaseAmount() != this.newPurchaseAmount) {
+  // return false;
+  // }
+  // if (null == this.prePurchaseAmountChangedAt) {
+  // if (null != projNumBean.getPrePurchaseAmountChangedAt()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getPrePurchaseAmountChangedAt()) {
+  // return false;
+  // }
+  // if (0 !=
+  // this.prePurchaseAmountChangedAt.compareTo(projNumBean.getPrePurchaseAmountChangedAt())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.newPurchaseAmountChangedAt) {
+  // if (null != projNumBean.getNewPurchaseAmountChangedAt()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getNewPurchaseAmountChangedAt()) {
+  // return false;
+  // }
+  // if (0 !=
+  // this.newPurchaseAmountChangedAt.compareTo(projNumBean.getNewPurchaseAmountChangedAt())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.totalWorkingTime) {
+  // if (null != projNumBean.getTotalWorkingTime()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getTotalWorkingTime()) {
+  // return false;
+  // }
+  // if (0 != this.totalWorkingTime.compareTo(projNumBean.getTotalWorkingTime())) {
+  // return false;
+  // }
+  // }
+  // if (null == this.totalWorkingTimeChangedAt) {
+  // if (null != projNumBean.getTotalWorkingTimeChangedAt()) {
+  // return false;
+  // }
+  // } else {
+  // if (null == projNumBean.getTotalWorkingTimeChangedAt()) {
+  // return false;
+  // }
+  // if (0 != this.totalWorkingTimeChangedAt.compareTo(projNumBean.getTotalWorkingTimeChangedAt()))
+  // {
+  // return false;
+  // }
+  // }
+  // if (projNumBean.getUnitPrice() != this.unitPrice) {
+  // return false;
+  // }
+  // if (projNumBean.isFinished() != this.finished) {
+  // return false;
+  // }
+  // ---ここまで Phase 2 追加分---
+
+  // return true;
+  // }
+
+  // ---ここから Phase 2 追加分---
+  /**
+   * 仕入れ総額算出（2017年度以前の総額と2018年度以降の総額を加算）
+   *
+   * @return 仕入れ総額
+   */
+  public long calcPurchaseAmount() {
+    if (false == ProjNumBean.isValidPurchaseAmount(getPrePurchaseAmount())) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    if (false == ProjNumBean.isValidPurchaseAmount(getNewPurchaseAmount())) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    long lSum = 0;
+
+    try {
+      lSum = MathHelper.safeAdd(getPrePurchaseAmount(), getNewPurchaseAmount());
+    } catch (ArithmeticException err) {
+      if (getNewPurchaseAmount() > 0) {
+        return Long.MAX_VALUE;
+      }
+      return Long.MIN_VALUE;
+    } catch (Exception err) {
+      throw err;
+    }
+
+    return lSum;
+  }
+
+  /**
+   * 工数総額（人件費）算出（総作業時間 × 工数単価）
+   *
+   * @return 工数総額（人件費）
+   */
+  // ※分まで、算出する（分は誤差はあり）
+  public long calcLaborCost() {
+    if (false == ProjNumBean.isValidTotalWorkingTime(getTotalWorkingTime())) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    if (false == ProjNumBean.isValidUnitPrice(getUnitPrice())) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    String[] strElements = getTotalWorkingTime().split(":");
+    if (3 != strElements.length) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    long lUnitPricePerHour = getUnitPrice();
+    long lTotalHour = 0;
+    long lTotalMin = 0;
+    try {
+      lTotalHour = Long.parseLong(strElements[0]);// NumberFormatException
+      lTotalMin = Long.parseLong(strElements[1]);// NumberFormatException
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+    long lResult = 0;
+    try {
+      lResult = MathHelper.safeMultiply(lTotalHour, lUnitPricePerHour);
+    } catch (ArithmeticException err) {
+      // 両方ゼロ以上の値なので、オーバーフローのみ
+      lResult = Long.MAX_VALUE;
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+
+    long lResult_2 = 0;
+    try {
+      lResult_2 = MathHelper.safeMultiply(lTotalMin, lUnitPricePerHour);
+    } catch (ArithmeticException err) {
+      lResult_2 = Long.MAX_VALUE;
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+    try {
+      lResult_2 = MathHelper.safeDivide(lResult_2, 60);
+    } catch (ArithmeticException err) {
+      lResult_2 = 0;
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+
+    try {
+      lResult = MathHelper.safeAdd(lResult, lResult_2);
+    } catch (ArithmeticException err) {
+      lResult = Long.MAX_VALUE;
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+
+    return lResult;
+  }
+
+  /**
+   * 損益算出（受注金額 ― （仕入れ総額 ＋ 人件費））
+   *
+   * @return 損益
+   */
+  // ※分まで、算出する（誤差は仕方ない）
+  public long calcLoss() {
+    if (false == ProjNumBean.isValidValueOfOrder(getValueOfOrder())) {
+      assert (false);
+      throw new IllegalStateException();
+    }
+    long lValueOfOrder = getValueOfOrder();
+    long lSubResult = 0;
+    try {
+      lSubResult = MathHelper.safeAdd(calcLaborCost(), calcPurchaseAmount());
+    } catch (ArithmeticException err) {
+      if (calcPurchaseAmount() > 0) {
+        lSubResult = Long.MAX_VALUE;
+      } else {
+        lSubResult = Long.MIN_VALUE;
+      }
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+
+    long lResult = 0;
+    try {
+      lResult = MathHelper.safeSubtract(lValueOfOrder, lSubResult);
+    } catch (ArithmeticException err) {
+      if (lSubResult > 0) {
+        lResult = Long.MIN_VALUE;
+      } else {
+        lResult = Long.MAX_VALUE;
+      }
+    } catch (Exception err) {
+      assert (false);
+      throw err;
+    }
+
+    return lResult;
+  }
+  // ---ここまで Phase 2 追加分---
+
+  /**
+   * 文字列化
+   *
+   * return （添付ファイル、通知ユーザーは含まない）文字列
+   */
+  public String toString() {
+    StringBuilder strBuilder =
+        new StringBuilder().append(StringHelper.valueOf(this.id)).append(",");
+    if (null == this.projNum) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.projNum);
+    }
+    strBuilder.append(",");
+    if (null == this.catName) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.catName);
+    }
+    strBuilder.append(",");
+    if (null == this.projName) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.projName);
+    }
+    strBuilder.append(",");
+    if (null == this.customerName) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.customerName);
+    }
+    strBuilder.append(",");
+    if (null == this.endUserName) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.endUserName);
+    }
+    strBuilder.append(",");
+    if (null == this.salesStaffName) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.salesStaffName);
+    }
+    strBuilder.append(",");
+    if (null == this.salesStatusName) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.salesStatusName);
+    }
+    strBuilder.append(",");
+    if (null == this.issuedDate) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.issuedDate.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.devStartTime) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.devStartTime.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.devEndTime) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.devEndTime.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.dateOfOrders) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.dateOfOrders.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.dateOfSales) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.dateOfSales.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.dayOfPayment) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.dayOfPayment.toString());
+    }
+    strBuilder.append(",").append(StringHelper.valueOf(this.devBudgets)).append(",")
+        .append(StringHelper.valueOf(this.valueOfOrder)).append(",")
+        .append(StringHelper.valueOf(this.purchaseAmount)).append(",")
+        .append(StringHelper.valueOf(this.manHoursFare)).append(",");
+    if (null == this.remarks) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.remarks);
+    }
+    strBuilder.append(",");
+    if (null == this.projLeader) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.projLeader);
+    }
+    strBuilder.append(",");
+    if (null == this.projMember) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.projMember);
+    }
+    strBuilder.append(",");
+    if (null == this.createdAt) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.createdAt.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.createdBy) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.createdBy);
+    }
+    strBuilder.append(",");
+    if (null == this.changedAt) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.changedAt.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.changedBy) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.changedBy);
+    }
+
+    // ---ここから Phase 2 追加分---
+    strBuilder.append(",").append(StringHelper.valueOf(this.prePurchaseAmount)).append(",")
+        .append(StringHelper.valueOf(this.newPurchaseAmount));
+    strBuilder.append(",");
+    if (null == this.prePurchaseAmountChangedAt) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.prePurchaseAmountChangedAt.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.newPurchaseAmountChangedAt) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.newPurchaseAmountChangedAt.toString());
+    }
+    strBuilder.append(",");
+    if (null == this.totalWorkingTime) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.totalWorkingTime);
+    }
+    strBuilder.append(",");
+    if (null == this.totalWorkingTimeChangedAt) {
+      strBuilder.append("null");
+    } else {
+      strBuilder.append(this.totalWorkingTimeChangedAt.toString());
+    }
+    strBuilder.append(",").append(StringHelper.valueOf(this.unitPrice)).append(",")
+        .append(StringHelper.valueOf(this.finished));
+    // ---ここまで Phase 2 追加分---
+
+    String str = strBuilder.toString();
+
+    return str;
+  }
+
+  /**
+   * 文字列化
+   *
+   * return （添付ファイルのみ）文字列
+   */
+  public String toStringOfAttachFile() {
+    StringBuilder strBuilder = new StringBuilder();
+    if (null == this.attachFileBeanList) {
+      strBuilder.append("null");
+    } else {
+      int nSize = this.attachFileBeanList.size();
+      for (int nCnt = 0; nCnt < nSize; nCnt++) {
+        if (0 < nCnt) {
+          strBuilder.append(",");
+        }
+        if (null == this.attachFileBeanList.getEntity(nCnt)) {
+          strBuilder.append("null");
+        } else {
+          strBuilder.append(this.attachFileBeanList.getEntity(nCnt).toString());
+        }
+      }
+    }
+    String str = strBuilder.toString();
+
+    return str;
+  }
+
+  /**
+   * 文字列化
+   *
+   * return （通知ユーザーのみ）文字列
+   */
+  public String toStringOfNotiUser() {
+    StringBuilder strBuilder = new StringBuilder();
+    if (null == this.notiUserBeanList) {
+      strBuilder.append("null");
+    } else {
+      int nSize = this.notiUserBeanList.size();
+      for (int nCnt = 0; nCnt < nSize; nCnt++) {
+        if (0 < nCnt) {
+          strBuilder.append(",");
+        }
+        if (null == this.notiUserBeanList.getEntity(nCnt)) {
+          strBuilder.append("null");
+        } else {
+          strBuilder.append(this.notiUserBeanList.getEntity(nCnt).toString());
+        }
+      }
+    }
+    String str = strBuilder.toString();
+
+    return str;
+  }
+
+}
