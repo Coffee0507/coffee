@@ -54,12 +54,12 @@ var PROJ_EDIT_CONTENT = {
 
 
 window.addEventListener("load",function(){
-	try {
-	  display_title_set();
-	  //attachOnKeyPressToText(PROJ_EDIT_CONTENT.PROJ_EDIT_FORM_ID);
-	} catch (e) {
-	  alert("例外発生"+ e);
-	}
+    try {
+      display_title_set();
+      //attachOnKeyPressToText(PROJ_EDIT_CONTENT.PROJ_EDIT_FORM_ID);
+    } catch (e) {
+      alert("例外発生"+ e);
+    }
 },false);
 
 
@@ -214,22 +214,38 @@ $(document).ready(function() {
       if(rightObj.length == null || rightObj.length == 0){//右側のボックスが空のとき
           $('select[name=' + target + ']').append($("#p_notice_all_id option:selected").clone());//右側のボックスに要素追加
 
-      }else{
+      } else {
           $('select[name=' + _this + '] option:selected').each(function() {//選択された要素を一つずつ取得
               var leftVal = $(this).val();//選択された要素のvalue
-              var isSame = false;//識別フラグ
-              for(var i=0; i<rightObj.length; i++){//右側のボックスの要素を一つずつ取得
+              // 追加：インターノウス
+              // ここから
+              if(leftVal > 0) {
+                var isSame = false;//識別フラグ
+                for(var i=0; i<rightObj.length; i++){//右側のボックスの要素を一つずつ取得
                   var rightVal = rightObj.eq(i).val()//valueを取得
                   if(leftVal == rightVal){
                       isSame = true;
                       break;
                   }
-              }
-              if(isSame == false){
+                }
+                if(isSame == false){
                   $('select[name=' + target + ']').append($(this).clone());//右側のボックスに要素追加
-              }
+                }
+             }
+             // ここまで
           });
       }
+
+      // 追加：インターノウス
+      // 1番目の要素は右側へ移動しない為、こちらで削除
+      // ここから
+      var rightObj = $("#p_notice_choice_id").children();
+      for(var i= 0; i < rightObj.length; i++) {
+        if(rightObj[i]["value"] < 0) {
+        	$("#p_notice_choice_id").children()[i].remove();
+        }
+      }
+      // ここまで
   };
 
   var moveToLeft = function(_this, target) {
@@ -518,7 +534,7 @@ function attachmentFileLimitCheck () {
     var notCheckedCount = uploadedFileCount(PROJ_EDIT_CONTENT.PROJ_UPLOADED_FILE_DIV_ID, PROJ_EDIT_CONTENT.INPUT_TAG);
     var addFileCount = addUploadFileCount(PROJ_EDIT_CONTENT.PROJ_ADD_UPLOAD_FILE_DIV_ID, PROJ_EDIT_CONTENT.DIV_TAG);
     if (notCheckedCount == null || addFileCount == null) {
-    	throw new Error("attachmentFileLimitCheck():カウント失敗");
+        throw new Error("attachmentFileLimitCheck():カウント失敗");
       return false;
     } else {
       total = (notCheckedCount + addFileCount);
@@ -698,13 +714,13 @@ function differenceDateCheck (end, start) {
  * @returns
  */
 $(function() {
-	  $(".input_file_checkbox").click(function() {
-	    if ($(this).is(":checked"))
-	    {
-	      $(this).closest("tr").css("text-decoration", "line-through");
-	    }
-	    else {
-	      $(this).closest("tr").css("text-decoration", "none");
-	    }
-	  });
-	});
+      $(".input_file_checkbox").click(function() {
+        if ($(this).is(":checked"))
+        {
+          $(this).closest("tr").css("text-decoration", "line-through");
+        }
+        else {
+          $(this).closest("tr").css("text-decoration", "none");
+        }
+      });
+    });

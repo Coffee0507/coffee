@@ -25,17 +25,16 @@
     var currentAction = function() {
     };
     var oldAction = function() {
-  	  clearInterval(timer);
-  	  //下記のalertとopenの順番は入れ替えないこと。ブラウザによってalertが表示されなくなるため。(firefoxで確認)
+      clearInterval(timer);
+      //下記のalertとopenの順番は入れ替えないこと。ブラウザによってalertが表示されなくなるため。(firefoxで確認)
       window.alert('複数タブには対応していません。タブを閉じてください。');
-  	  window.open('about:blank', '_parent');
-  	  sessionStorage.clear();
+      window.open('about:blank', '_parent');
+      sessionStorage.clear();
     };
-
     // sessionStorageにタブIDが保存されていないとき
     // もしくはIE8対応として、「新しいタブで開く」から開くと、sessionStorageの値がコピーされているので、発番フラグが立っていないとき
     if (sesTabID == null || (sesTabID == lclTabID && !issuedAlready)) {
-  	  newAction();
+      newAction();
       // sessionStorageの値とlocalStorageの値が等しいとき
     } else if (sesTabID == lclTabID) {
       currentAction();

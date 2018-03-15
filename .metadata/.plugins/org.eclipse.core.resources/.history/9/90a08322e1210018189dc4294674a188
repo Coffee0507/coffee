@@ -1,9 +1,0 @@
-package Action;
-
-public class LoginAction {
-
-	public String execute() extends SessionAware implements ActoionSupport{
-
-	}
-
-}

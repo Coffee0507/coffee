@@ -4,17 +4,17 @@
 
 // CONSTANTSに変更
 var PURCHASE_IMPORT_CONSTANTS = {
-	//仕入れ総額CSVデータのID値
+    //仕入れ総額CSVデータのID値
     'INPUT_FILE_ID':'purchase_import_file_id',
 }
 
 
 window.addEventListener("load",function(){
-	try {
-	  display_title_set();
-	} catch (e) {
-	  alert("例外発生"+ e);
-	}
+    try {
+      display_title_set();
+    } catch (e) {
+      alert("例外発生"+ e);
+    }
 },false);
 
 

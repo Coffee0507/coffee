@@ -132,9 +132,9 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://10.62.128.210/pasm_sys_db"
-              username="pasm_sys_db_maintainer"
-              password="maintainer_0509" />
+              url="jdbc:postgresql://192.168.1.99/pasm_sys_db"
+              username="postgres"
+              password="postgres" />
     <Resource name="pg_operator"
               auth="Container"
               type="javax.sql.DataSource"
@@ -142,11 +142,11 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://10.62.128.210/pasm_sys_db"
-              username="pasm_sys_db_operator"
-              password="operator_0509" /> -->
-    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_maintainer" password="posgre" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/pasm_sys_db" username="postgres"/>
-    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_operator" password="posgre" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/pasm_sys_db" username="postgres"/>
+              url="jdbc:postgresql://192.168.1.99/pasm_sys_db"
+              username="postgres"
+              password="postgres" /> -->
+    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_maintainer" password="postgres" type="javax.sql.DataSource" url="jdbc:postgresql://192.168.1.99:5432/pasm_sys_db" username="postgres"/>
+    <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_operator" password="postgres" type="javax.sql.DataSource" url="jdbc:postgresql://192.168.1.99:5432/pasm_sys_db" username="postgres"/>
 </Context></Host>
     </Engine>
   </Service>

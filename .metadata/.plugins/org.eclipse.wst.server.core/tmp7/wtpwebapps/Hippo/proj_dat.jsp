@@ -39,12 +39,12 @@ ArrayList<String> errorMessageList = new ArrayList<String>();
 <script type="text/javascript">
 <!--
 window.onload = function(){
-	var calcLossValue = document.getElementById("calcLoss").textContent;
-	var value = calcLossValue.substring(0, 1);
+    var calcLossValue = document.getElementById("calcLoss").textContent;
+    var value = calcLossValue.substring(0, 1);
 
-	if(value == "-") {
-		document.getElementById("calcLoss").style.color = "red";
-	}
+    if(value == "-") {
+        document.getElementById("calcLoss").style.color = "red";
+    }
 }
 //-->
 </script>
@@ -71,7 +71,7 @@ try{
 
 <%--エラー表示を行う箇所 --%>
 <c:if test="${error.isError}">
-	<p class="error_message noprint"><c:out value="${error.errorInfo}"/></p>
+    <p class="error_message noprint"><c:out value="${error.errorInfo}"/></p>
 </c:if>
 
 <form id="Mainform" name="Mainform" action="./ProjController" method="POST">
@@ -153,61 +153,61 @@ try{
           </tr>
           <!-- 追加:インターノウス -->
           <!-- ここから -->
-	      <tr>
-	      	<th colspan="2">工数単価</th>
-	      	  <td class="money_type"><fmt:formatNumber value="${proj.unitPrice}" groupingUsed="true"/>円</td>
- 		  </tr>
+          <tr>
+            <th colspan="2">工数単価</th>
+              <td class="money_type"><fmt:formatNumber value="${proj.unitPrice}" groupingUsed="true"/>円</td>
+          </tr>
           <tr>
             <th colspan="2">受注金額</th>
             <td class="money_type"><fmt:formatNumber value="${proj.valueOfOrder}" groupingUsed="true"/>円</td>
           </tr>
           <tr>
-          	  <th rowspan="2">仕入れ</th>
-          	  <td>金額</td>
-          	  <td class="money_type"><fmt:formatNumber value="${proj.calcPurchaseAmount()}" groupingUsed="true"/>円</td>
+              <th rowspan="2">仕入れ</th>
+              <td>金額</td>
+              <td class="money_type"><fmt:formatNumber value="${proj.calcPurchaseAmount()}" groupingUsed="true"/>円</td>
           </tr>
           <tr>
-          	  <td>更新日</td>
-          	  <td>
-          	  <c:choose>
-          	  <c:when test="${(proj.prePurchaseAmountChangedAt != null) and (proj.newPurchaseAmountChangedAt != null) }">
-	          	  <c:choose>
-	          	  	  <c:when test="${proj.newPurchaseAmountChangedAt.compareTo(proj.prePurchaseAmountChangedAt) > 0}">
-	          	  	  	<fmt:formatDate value="${proj.newPurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
-	          	  	  </c:when>
-	          	  	  <c:when test="${proj.prePurchaseAmountChangedAt.compareTo(proj.newPurchaseAmountChangedAt) > 0}">
-	          	  	  	<fmt:formatDate value="${proj.prePurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
-	          	  	  </c:when>
-          	  	  </c:choose>
-          	  </c:when>
-          	  <c:when test="${proj.prePurchaseAmountChangedAt != null}">
-          	  	<fmt:formatDate value="${proj.prePurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
-          	  </c:when>
-          	  <c:when test="${proj.newPurchaseAmountChangedAt != null}">
-          	  	<fmt:formatDate value="${proj.newPurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
-          	  </c:when>
-          	  </c:choose>
-          	  </td>
+              <td>更新日</td>
+              <td>
+              <c:choose>
+              <c:when test="${(proj.prePurchaseAmountChangedAt != null) and (proj.newPurchaseAmountChangedAt != null) }">
+                  <c:choose>
+                      <c:when test="${proj.newPurchaseAmountChangedAt.compareTo(proj.prePurchaseAmountChangedAt) > 0}">
+                        <fmt:formatDate value="${proj.newPurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
+                      </c:when>
+                      <c:when test="${proj.prePurchaseAmountChangedAt.compareTo(proj.newPurchaseAmountChangedAt) > 0}">
+                        <fmt:formatDate value="${proj.prePurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
+                      </c:when>
+                  </c:choose>
+              </c:when>
+              <c:when test="${proj.prePurchaseAmountChangedAt != null}">
+                <fmt:formatDate value="${proj.prePurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
+              </c:when>
+              <c:when test="${proj.newPurchaseAmountChangedAt != null}">
+                <fmt:formatDate value="${proj.newPurchaseAmountChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" />
+              </c:when>
+              </c:choose>
+              </td>
           </tr>
            <tr>
-          	  <th rowspan="2">工数
-          	  	<c:if test="${canEdit && !empty proj.id}">
-          	  		<button type="submit"  class="noprint" value="p_dat_modify_total_working_time" onClick="return setActionParam(this)">更新</button>
-          	  	</c:if>
-          	  </th>
-          	  <td>金額<br>(時間)</td>
-          	  <td class="money_type"><fmt:formatNumber value="${proj.calcLaborCost()}" groupingUsed="true"/>円
-          	  <br>(<c:out value="${proj.totalWorkingTime}" />)</td>
+              <th rowspan="2">工数
+                <c:if test="${canEdit && !empty proj.id}">
+                    <button type="submit"  class="noprint" value="p_dat_modify_total_working_time" onClick="return setActionParam(this)">更新</button>
+                </c:if>
+              </th>
+              <td>金額<br>(時間)</td>
+              <td class="money_type"><fmt:formatNumber value="${proj.calcLaborCost()}" groupingUsed="true"/>円
+              <br>(<c:out value="${proj.totalWorkingTime}" />)</td>
           </tr>
           <tr>
-          	  <th>更新日</th>
-          	  <td><fmt:formatDate value="${proj.totalWorkingTimeChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" /></td>
+              <th>更新日</th>
+              <td><fmt:formatDate value="${proj.totalWorkingTimeChangedAt}" pattern="yyyy/MM/dd HH:ss:mm" /></td>
           </tr>
           <tr>
             <th colspan="2">損益</th>
             <td class="money_type" id="calcLoss"><fmt:formatNumber value="${proj.calcLoss()}" groupingUsed="true"/>円
           </tr>
-          <!-- 追加:インターノウス -->
+          <!-- 追加:インターノウス ここまで -->
           <tr>
             <th colspan="2">添付資料</th>
             <td>

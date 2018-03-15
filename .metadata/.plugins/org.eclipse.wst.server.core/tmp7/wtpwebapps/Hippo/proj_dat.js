@@ -1,34 +1,36 @@
 
 
 var PROJ_DAT_CONTENT = {
-	// 対象のオブジェクトのvalue値
-	'VALUE': 'value',
-	// 対象のオブジェクトのname値
-	'NAME': 'name',
-	// 変更ボタンに割り当てられているvalue値
-	'P_DAT_CHANGE': 'p_dat_change',
-	// アクションパラメータを入れるhiddenのid値
-	'P_TURNING': 'proj_turning',
-	// 添付ファイルのaタグに割り当てられているtitle値（添付ファイルのリンクの箇所）
-	'TITLE': 'title',
-	// 添付ファイルのaタグに割り当てられているname値（添付ファイルのリンクの箇所）
-	'P_DAT_DOC': 'p_dat_doc',
-	// ファイルidを入れるhiddenのid値
-	'P_DAT_INC_DOC': 'p_dat_inc_doc',
-	//戻るボタンに割り当てられているvalue値
-	'P_DAT_RETURN': 'p_dat_return',
-	// 追加：インターノウス
-	// 更新ボタンに割り当てられているvalue値
-	'P_DAT_MODIFY_TOTAL_WORKING_TIME_EDIT':'p_dat_modify_total_working_time',
+    // 対象のオブジェクトのvalue値
+    'VALUE': 'value',
+    // 対象のオブジェクトのname値
+    'NAME': 'name',
+    // 変更ボタンに割り当てられているvalue値
+    'P_DAT_CHANGE': 'p_dat_change',
+    // アクションパラメータを入れるhiddenのid値
+    'P_TURNING': 'proj_turning',
+    // 添付ファイルのaタグに割り当てられているtitle値（添付ファイルのリンクの箇所）
+    'TITLE': 'title',
+    // 添付ファイルのaタグに割り当てられているname値（添付ファイルのリンクの箇所）
+    'P_DAT_DOC': 'p_dat_doc',
+    // ファイルidを入れるhiddenのid値
+    'P_DAT_INC_DOC': 'p_dat_inc_doc',
+    //戻るボタンに割り当てられているvalue値
+    'P_DAT_RETURN': 'p_dat_return',
+    // 追加：インターノウス
+    // ここから
+    // 更新ボタンに割り当てられているvalue値
+    'P_DAT_MODIFY_TOTAL_WORKING_TIME_EDIT':'p_dat_modify_total_working_time',
+    // ここまで
 }
 
 
 window.addEventListener("load",function(){
-	try {
-	  display_title_set();
-	} catch (e) {
-	  alert("例外発生"+ e);
-	}
+    try {
+          display_title_set();
+          } catch (e) {
+      alert("例外発生"+ e);
+    }
 },false);
 
 

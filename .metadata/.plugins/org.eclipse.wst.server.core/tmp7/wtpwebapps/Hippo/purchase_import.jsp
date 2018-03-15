@@ -28,16 +28,16 @@ ArrayList<String> errorMessageList = new ArrayList<String>();
   <br>
   <h3 class="page_title">仕入れインポート</h3>
   <c:choose>
-  	<c:when test="${importError.isError}">
-  	  <c:forEach items="${importError.errorInfoList}" var="error">
-  	    <p class="error_message"><c:out value="${error}"/></p>
+    <c:when test="${importError.isError}">
+      <c:forEach items="${importError.errorInfoList}" var="error">
+        <p class="error_message"><c:out value="${error}"/></p>
       </c:forEach>
-  	</c:when>
-  	<c:when test="${projPurchaseImportProcessComplete}">
-  	  <p class="complete_message"><c:out value="${completeMessage}"/></p>
-  	</c:when>
-  	<c:otherwise>
-  	</c:otherwise>
+    </c:when>
+    <c:when test="${projPurchaseImportProcessComplete}">
+      <p class="complete_message"><c:out value="${completeMessage}"/></p>
+    </c:when>
+    <c:otherwise>
+    </c:otherwise>
   </c:choose>
   <%--エラー表示を行う箇所 --%>
   <c:choose>
@@ -55,10 +55,10 @@ ArrayList<String> errorMessageList = new ArrayList<String>();
             <tr>
               <%-- <th>csvファイル</th> --%>
               <td>
-              	<input type="file" name="purchase_import_file" id="purchase_import_file_id" class="import_file_box">
-              	<div class="system_check">
-              	  <input type="checkbox" name="is_proj_pre_purchase" value="true" />旧弥生データ(2017年度以前)
-              	</div>
+                <input type="file" name="purchase_import_file" id="purchase_import_file_id" class="import_file_box">
+                <div class="system_check">
+                  <input type="checkbox" name="is_proj_pre_purchase" value="true" />旧弥生データ(2017年度以前)
+                </div>
               </td>
             </tr>
           </table>

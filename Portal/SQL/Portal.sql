@@ -31,7 +31,7 @@ id int,
 user_id int,
 post_id int,
 contents varchar(150),
-post_taime date,
+post_time date,
 favorite_count int
 );
 
@@ -56,4 +56,24 @@ create table notice_info(
 id int,
 user_id int,
 notice_content int
+);
+
+insert into user_info value(
+1,"01id","123pass","taro","自己紹介","東京","下書き",150
+);
+
+insert into post_info value(
+1,1,1,"投稿内容","2018/03/15 19:35:55",123
+);
+
+insert into favorite_info value(
+1,"1",1,"2018/3/15 19:37:55"
+);
+
+insert into follow_info value(
+1,1,1,"218/3/15 19:38:55"
+);
+
+insert into notice_info value(
+1,1,1
 );

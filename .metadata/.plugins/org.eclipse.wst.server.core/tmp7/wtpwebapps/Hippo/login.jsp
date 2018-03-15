@@ -26,13 +26,23 @@ ArrayList<String> errorMessageList = new ArrayList<String>();
 <script src="ConnectedSelect.js"></script>
 <script type="text/javascript">
 $(function() {
-	ConnectedSelect(['usergroup_id','user_id']);
-	ConnectedSelectDefault(['usergroup_id','user_id']);
+    // 現在選択されているグループのID値を取得
+    var selectedGroupId = $('[name=selected_usergroup_id]').val();
+    var selectedUserId = $('[name=selected_user_id]').val();
+    ConnectedSelect(['usergroup_id','user_id']);
+    ConnectedSelectDefault(['usergroup_id','user_id']);
+
+    // 初期遷移時選択されているグループは全てなので以下の処理をスルー
+    if(selectedGroupId != null) {
+      // グループとユーザーを選択状態へ
+      $('[name=usergroup_id]').val(selectedGroupId).change();
+      $('[name=user_id]').val(selectedUserId).change();
+
+      selectedGroupId = null;
+    }
 });
 </script>
 <!-- ここまで -->
-
-
 
 <!-- <link href="CSS/Normalize.css" rel="stylesheet" type="text/css"> login_decoration.cssを入れたため、例外的にコメントアウト -->
 <link href="CSS/p16590004.css" rel="stylesheet" type="text/css">
@@ -55,33 +65,36 @@ $(function() {
   <form id="Mainform" action="./LoginController" method="POST" Target="_top">
     <%--エラー表示を行う箇所 --%>
     <%--テーブルで真ん中表示させてるのでここに記述 --%>
-	<c:if test="${error.isError}">
+    <c:if test="${error.isError}">
       <p class="error_message login_error_message"><c:out value="${error.errorInfo}"/></p>
     </c:if>
     <table class="user_content">
     <!-- 追加：インターノウス -->
     <!-- ここから -->
       <tr>
-      	<th>所属：</th>
-      	<td>
-      	<%--
-      		<select id="usergroup_id" name="usergroup_id" class="input_box">
-      			<option value="" selected>全て</option>
-      			<c:forEach items="${userGroupList}" var="group">
+        <th>所属：</th>
+        <td>
+        <%--
+            <select id="usergroup_id" name="usergroup_id" class="input_box">
+                <option value="" selected>全て</option>
+                <c:forEach items="${userGroupList}" var="group">
                   <option value="<c:out value="${group.id}"/>"
                   <c:if test="${error.isError and group.id eq accountMap.usergroup_id[0]}"> selected="selected"</c:if>
                   ><c:out value="${group.userGroupName}"/></option>
                 </c:forEach>
-      		</select>
-      	--%>
-	      	<select id="usergroup_id" name="usergroup_id" class="input_box">
-				<option value="0">全て</option>
-				<c:forEach items="${userGroupList}" var="group" varStatus="status">
-				<c:out value="${status.index}" />
-					<option value="<c:out value="${group.id}"/>"><c:out value="${group.userGroupName}"/></option>
-				</c:forEach>
-			</select>
-      	</td>
+            </select>
+        --%>
+            <select id="usergroup_id" name="usergroup_id" class="input_box">
+                <option value="0">全て</option>
+                <c:forEach items="${userGroupList}" var="group" varStatus="status">
+                <c:out value="${status.index}" />
+                    <option value="<c:out value="${group.id}"/>"><c:out value="${group.userGroupName}"/></option>
+                </c:forEach>
+            </select>
+            <c:if test="${error.isError}">
+              <input type="hidden" name="selected_usergroup_id" value="<c:out value="${accountMap.usergroup_id[0]}"></c:out>" />
+            </c:if>
+        </td>
       </tr>
       <tr>
         <th>ユーザー：</th>
@@ -96,26 +109,29 @@ $(function() {
             </c:forEach>
           </select>
          --%>
-	         <select id="user_id" name="user_id" class="input_box">
-	         	<option value=""></option>
-				<optgroup label="0">
-				 <c:forEach items="${userList}" var="account">
-				 	<option value='<c:out value="${account.id}"></c:out>'><c:out value="${account.secondName}"></c:out> <c:out value="${account.firstName}"></c:out></option>
-				 </c:forEach>
-				</optgroup>
-				<c:forEach items="${userGroupList}" var="group" varStatus="status">
-					<optgroup label="<c:out value="${group.id}"/>">
-					<c:forEach items="${group.getUserGroupMemberList()}" var="userGroupMember">
-						<c:forEach items="${userList}" var="account">
-							<c:if test="${userGroupMember.employeeNum == account.employeeNum and userGroupMember.userGroupTblId == group.id}">
-				                <option value='<c:out value="${account.id}"></c:out>'><c:out value="${account.secondName}"></c:out> <c:out value="${account.firstName}"></c:out></option>
-							</c:if>
-						</c:forEach>
-					</c:forEach>
-					</optgroup>
-				</c:forEach>
-				<!-- ここまで -->
-			</select>
+             <select id="user_id" name="user_id" class="input_box">
+               <option value=""></option>
+                <optgroup label="0">
+                 <c:forEach items="${userList}" var="account">
+                    <option value='<c:out value="${account.id}"></c:out>'><c:out value="${account.secondName}"></c:out> <c:out value="${account.firstName}"></c:out></option>
+                </c:forEach>
+                </optgroup>
+                <c:forEach items="${userGroupList}" var="group" varStatus="status">
+                    <optgroup label="<c:out value="${group.id}"/>">
+                    <c:forEach items="${group.getUserGroupMemberList()}" var="userGroupMember">
+                        <c:forEach items="${userList}" var="account">
+                          <c:if test="${userGroupMember.employeeNum == account.employeeNum and userGroupMember.userGroupTblId == group.id}">
+                            <option value='<c:out value="${account.id}"></c:out>'><c:out value="${account.secondName}"></c:out> <c:out value="${account.firstName}"></c:out></option>
+                          </c:if>
+                        </c:forEach>
+                    </c:forEach>
+                    </optgroup>
+                </c:forEach>
+                <!-- ここまで -->
+            </select>
+            <c:if test="${error.isError}">
+              <input type="hidden" name="selected_user_id" value="<c:out value="${accountMap.user_id[0]}"></c:out>" />
+            </c:if>
         </td>
       </tr>
       <tr>

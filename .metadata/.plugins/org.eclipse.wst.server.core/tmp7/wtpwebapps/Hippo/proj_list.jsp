@@ -59,34 +59,34 @@ ArrayList<String> errorMessageList = new ArrayList<String>();
 
 <%
 try{
-	//SearchBean[]の要素数と検索項目から、検索ワードのinput要素の種別を判別、リクエストスコープに保存する
-	SearchBean[] projSearch = (SearchBean[])request.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ);
-//	SearchBean[] projSearch = (SearchBean[])session.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ);
-	//SearchBean[]の要素数を取得
-	int lengthOfProjSearch = projSearch.length;//要素数
+  //SearchBean[]の要素数と検索項目から、検索ワードのinput要素の種別を判別、リクエストスコープに保存する
+  SearchBean[] projSearch = (SearchBean[])request.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ);
+  //SearchBean[] projSearch = (SearchBean[])session.getAttribute(ProjConstants.SCOPE_SEARCH_PROJ);
+  //SearchBean[]の要素数を取得
+  int lengthOfProjSearch = projSearch.length;//要素数
 
-	//以下で、検索項目の種別(calendar, textbox, radioButton)を判別
-	String elementType1 = null;//検索条件1の種別
-	String elementType2 = null;//検索条件2の種別
-	//検索条件1の種別(要素数が0以外で条件取得可)
-	if((lengthOfProjSearch != 0) && (projSearch[0].getSearchCategory().equals("sec_issue"))){
-	  elementType1 = "calendar";
-	}else if((lengthOfProjSearch != 0) && (projSearch[0].getSearchCategory().equals("sec_assign"))){
-	  elementType1 = "radioButton";
-	}else{
-	  elementType1 = "textbox";
-	}
-	//検索条件2の種別(要素数が2のときのみ条件取得可)
-	if((lengthOfProjSearch == 2) && (projSearch[1].getSearchCategory().equals("sec_issue"))){
-	  elementType2 = "calendar";
-	}else if((lengthOfProjSearch == 2) && (projSearch[1].getSearchCategory().equals("sec_assign"))){
-	  elementType2 = "radioButton";
-	}else{
-	  elementType2 = "textbox";
-	}
-	//リクエストスコープに保存
-	request.setAttribute("elementType1", elementType1);
-	request.setAttribute("elementType2", elementType2);
+  //以下で、検索項目の種別(calendar, textbox, radioButton)を判別
+  String elementType1 = null;//検索条件1の種別
+  String elementType2 = null;//検索条件2の種別
+  //検索条件1の種別(要素数が0以外で条件取得可)
+  if((lengthOfProjSearch != 0) && (projSearch[0].getSearchCategory().equals("sec_issue"))){
+    elementType1 = "calendar";
+  }else if((lengthOfProjSearch != 0) && (projSearch[0].getSearchCategory().equals("sec_assign"))){
+    elementType1 = "radioButton";
+  }else{
+    elementType1 = "textbox";
+  }
+  //検索条件2の種別(要素数が2のときのみ条件取得可)
+  if((lengthOfProjSearch == 2) && (projSearch[1].getSearchCategory().equals("sec_issue"))){
+    elementType2 = "calendar";
+  }else if((lengthOfProjSearch == 2) && (projSearch[1].getSearchCategory().equals("sec_assign"))){
+    elementType2 = "radioButton";
+  }else{
+    elementType2 = "textbox";
+  }
+  //リクエストスコープに保存
+  request.setAttribute("elementType1", elementType1);
+  request.setAttribute("elementType2", elementType2);
 }catch(Exception e){
   errorMessageList.add("proj_list.jsp:検索条件判別エラー");
 }
@@ -98,7 +98,7 @@ try{
 <%--エラー表示を行う箇所 --%>
 <c:if test="${error.isError}"><p class="error_message noprint"><c:out value="${error.errorInfo}"/></p></c:if>
 
-   <form name="Mainform" id="Mainform" action="./ProjController" method="POST">
+  <form name="Mainform" id="Mainform" action="./ProjController" method="POST">
     <%--レイアウト調整のためのテーブル --%>
     <table>
       <tr>
@@ -191,15 +191,15 @@ try{
                 </td>
                 <td>
                   <%--検索ワード　ラジオボタンのとき--%>
-				  <div id="search1_radio" class="assign_length noprint"><%-- 非表示にするときに使用するid--%>
+                  <div id="search1_radio" class="assign_length noprint"><%-- 非表示にするときに使用するid--%>
                     <input type="radio" id="assignfin1" name="search_word_radio_1" value="assign_fin"  class="noprint" <c:if test="${(elementType1 eq 'radioButton') and (projSearch[0].searchWord eq 'assign_fin')}">checked</c:if>/>アサイン済
                     <input type="radio" id="assignnotfin1" name="search_word_radio_1" value="assign_not_fin" <c:if test="${(elementType1 ne 'radioButton') or ((elementType1 eq 'radioButton') and (projSearch[0].searchWord ne 'assign_fin'))}">checked</c:if>/>未アサイン
                   </div>
-				  <%--検索ワード　カレンダーのとき--%>
+                  <%--検索ワード　カレンダーのとき--%>
                   <input type="text"  class="dp2 noprint monthsize" name="search_word_text_1" id="search_word_date1" readonly
-					<c:if test="${elementType1 eq 'calendar'}">value="${projSearch[0].searchWord}"</c:if>
+                      <c:if test="${elementType1 eq 'calendar'}">value="${projSearch[0].searchWord}"</c:if>
                   />
-          		  <%--検索ワード　テキストボックスのとき--%>
+                  <%--検索ワード　テキストボックスのとき--%>
                   <input type="text" name="search_word_text_1" id="search_word_text1" class="noprint search_word_text_box"
                       <c:if test="${elementType1 eq 'textbox'}">value="<c:out value="${projSearch[0].searchWord}"/>"</c:if>
                   />
@@ -221,15 +221,15 @@ try{
                 </td>
                 <td>
                   <%--検索ワード　ラジオボタンのとき--%>
-				  <div id="search2_radio" class="assign_length noprint"><%-- 非表示にするときに使用するid--%>
+                  <div id="search2_radio" class="assign_length noprint"><%-- 非表示にするときに使用するid--%>
                     <input type="radio" id="assignfin2" name="search_word_radio_2" value="assign_fin" <c:if test="${(elementType2 eq 'radioButton') and (projSearch[1].searchWord eq 'assign_fin')}">checked</c:if>/>アサイン済
                     <input type="radio" id="assignnotfin2" name="search_word_radio_2" value="assign_not_fin" <c:if test="${(elementType2 ne 'radioButton') or ((elementType2 eq 'radioButton') and (projSearch[1].searchWord ne 'assign_fin'))}">checked</c:if>/>未アサイン
                   </div>
-				  <%--検索ワード　カレンダーのとき--%>
+                  <%--検索ワード　カレンダーのとき--%>
                   <input type="text"  class="dp2 noprint monthsize" name="search_word_text_2" id="search_word_date2" readonly
-					<c:if test="${elementType2 eq 'calendar'}">value="${projSearch[1].searchWord}"</c:if>
+                      <c:if test="${elementType2 eq 'calendar'}">value="${projSearch[1].searchWord}"</c:if>
                   />
-          		  <%--検索ワード　テキストボックスのとき--%>
+                  <%--検索ワード　テキストボックスのとき--%>
                   <input type="text" name="search_word_text_2" id="search_word_text2" class="noprint search_word_text_box"
                       <c:if test="${elementType2 eq 'textbox'}">value="<c:out value="${projSearch[1].searchWord}"/>"</c:if>
                   />
@@ -299,7 +299,7 @@ try{
               <%-- メンバーアサイン --%>
               <%-- リーダーかメンバーがいる場合に済にする --%>
               <td class="assign">
-			  <c:if test="${(!empty pr.projLeader) or (!empty pr.projMember)}">済</c:if>
+                <c:if test="${(!empty pr.projLeader) or (!empty pr.projMember)}">済</c:if>
               </td>
 
               <%-- 登録者 --%>
@@ -329,12 +329,12 @@ try{
       </tr>
       <tr>
         <td>
-	      <%--ページ分割処理(インクルード) --%>
+          <%--ページ分割処理(インクルード) --%>
           <div class="page_portion noprint">
             <jsp:include page="include_page_info.jsp" flush="true">
               <jsp:param name="forward_action" value="proj_list_next" />
               <jsp:param name="back_action" value="proj_list_back" />
-			</jsp:include>
+            </jsp:include>
           </div>
         </td>
       </tr>

@@ -14,9 +14,9 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://10.62.128.210/pasm_sys_db"
-              username="pasm_sys_db_maintainer"
-              password="maintainer_0509" />
+              url="jdbc:postgresql://192.168.1.99/pasm_sys_db"
+              username="postgres"
+              password="postgres" />
     <Resource name="pg_operator"
               auth="Container"
               type="javax.sql.DataSource"
@@ -24,9 +24,9 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://10.62.128.210/pasm_sys_db"
-              username="pasm_sys_db_operator"
-              password="operator_0509" /> -->
+              url="jdbc:postgresql://192.168.1.99/pasm_sys_db"
+              username="postgres"
+              password="postgres" /> -->
     <Resource name="pg_maintainer"
               auth="Container"
               type="javax.sql.DataSource"
@@ -34,9 +34,9 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://localhost:5432/pasm_sys_db"
+              url="jdbc:postgresql://192.168.1.99:5432/pasm_sys_db"
               username="postgres"
-              password="posgre" />
+              password="postgres" />
     <Resource name="pg_operator"
               auth="Container"
               type="javax.sql.DataSource"
@@ -44,9 +44,9 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://localhost:5432/pasm_sys_db"
+              url="jdbc:postgresql://192.168.1.99:5432/pasm_sys_db"
               username="postgres"
-              password="posgre" />
+              password="postgres" />
 </Context>
 
 <!--
@@ -58,9 +58,9 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://10.62.20.99/pasm_sys_db"
-              username="pasm_sys_db_maintainer"
-              password="maintainer_0509" />
+              url="jdbc:postgresql://192.168.1.99/pasm_sys_db"
+              username="postgres"
+              password="postgres" />
     <Resource name="pg_operator"
               auth="Container"
               type="javax.sql.DataSource"
@@ -68,8 +68,8 @@
               maxIdle="10"
               maxTotal="20"
               maxWaitMillis="-1"
-              url="jdbc:postgresql://10.62.20.99/pasm_sys_db"
-              username="pasm_sys_db_operator"
-              password="operator_0509" />
+              url="jdbc:postgresql://192.168.1.99/pasm_sys_db"
+              username="postgres"
+              password="postgres" />
 </Context>
 -->

@@ -30,7 +30,7 @@ table.user_content th {
 
 /*ログイン入力箇所のtableのtd設定*/
 table.user_content td, th {
-	padding:10px;
+    padding:10px;
 }
 
 /*ログインボタンを囲むtr設定*/

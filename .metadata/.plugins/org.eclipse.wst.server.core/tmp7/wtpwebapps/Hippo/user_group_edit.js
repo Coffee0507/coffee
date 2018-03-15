@@ -1,11 +1,9 @@
 /**
  * @fileOverview ユーザーグループ追加・編集に使用する関数を記述するファイルです。
- * @author emori
+ * @author インターノウス
  * @version 1.0
  */
 
-// 変更：インターノウス
-// CONSTANTS
 var INPUT_TEXT_CONSTANTS = {
   // ユーザーグループ名を入力するテキストボックスのid値
   'USER_GROUP_ID': 'user_group_name',
@@ -21,7 +19,7 @@ function check() {
   // グループ名の入力チェック
   var groupNameChecked = user_group_name_check(INPUT_TEXT_CONSTANTS.USER_GROUP_ID);
   if (groupNameChecked == false) {
-	  return false;
+      return false;
   }
   // メンバーの右側のリスト内を選択済みにする
   selectAll(INPUT_TEXT_CONSTANTS.GROUP_MEMBER_LIST_ID);
@@ -36,22 +34,22 @@ function check() {
  * @returns
  */
 function user_group_name_check(user_group_name) {
-	  try {
-	    // 入力チェック
-	    var checkInputTextobj = new Checkinputtext();
-	    var groupName = document.getElementById(user_group_name);
-	    var groupNameValue = groupName.value;
+      try {
+        // 入力チェック
+        var checkInputTextobj = new Checkinputtext();
+        var groupName = document.getElementById(user_group_name);
+        var groupNameValue = groupName.value;
 
-	    if (checkInputTextobj.isEmpty(groupNameValue) == true) {
-	      alert("グループ名が未入力です");
-	      return false;
-	    }
-	  } catch (e) {
-	    alert("例外発生 発生個所:user_group_name_check" + e);
-	    return false;
-	  }
-	  return true;
-	}
+        if (checkInputTextobj.isEmpty(groupNameValue) == true) {
+          alert("グループ名が未入力です");
+          return false;
+        }
+      } catch (e) {
+        alert("例外発生 発生個所:user_group_name_check" + e);
+        return false;
+      }
+      return true;
+    }
 
 /**
  * メンバーの処理(矢印ボタンをクリックしたときの)

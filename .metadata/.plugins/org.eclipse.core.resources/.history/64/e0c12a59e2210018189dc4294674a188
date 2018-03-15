@@ -1,9 +1,0 @@
-package util;
-
-public class DBConnector {
-
-	private String driverName = "com.mysql.jdbc.Driver";
-	private String url = "jdbc:mysql://localhost/login";
-	private String user = "root";
-	private String password = "mysql;"
-}
