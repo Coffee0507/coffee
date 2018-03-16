@@ -1,0 +1,14 @@
+package com.portal.DTO;
+
+public class LoginDTO {
+
+	private int id;
+	private String user_id;
+	private String password;;
+	private String user_name;
+	private String self_introduction;
+	private String place;
+	private String draft;
+	private String followers_count;
+
+}

@@ -1,0 +1,9 @@
+package com.portal.DAO;
+
+import com.portal.DTO.LoginDTO;
+
+public class LoginDAO {
+
+	private LoginDTO dto = new LoginDTO();
+
+}

@@ -1,0 +1,5 @@
+package com.portal.DAO;
+
+public class LoginDAO {
+
+}

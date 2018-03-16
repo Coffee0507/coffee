@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="next.jsp">
-		<s:submit value="jump" />
-	</s:form>
+user_id:<s:textfield name="luser_id"/><br>
+login_pass<s:password name="password"/>
+<s:submit value="login"/>
 </body>
 </html>

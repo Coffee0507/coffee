@@ -8,8 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="next.jsp">
-		<s:submit value="jump" />
-	</s:form>
+	<div id="Hello">Hello!</div>
+	<div id="submit">
+		<s:form action="next.jsp">
+			<s:submit value="jump" />
+		</s:form>
+	</div>
 </body>
 </html>
