@@ -1,0 +1,25 @@
+package log.input.Util;
+
+import java.sql.Connection;
+
+public class DBConnector {
+
+	private Connection con = null;
+	private String driverName = "com.mysql.jdbc.Driver";
+	private String url = "jdbc:mysql://localhost/LogDB";
+	private String user = "root";
+	private String pass = "mysql";
+
+	public Connection getConnection() {
+
+		try{
+
+		}catch(ClassNotFoundException e){
+			e.
+		}
+
+		return con;
+
+	}
+
+}

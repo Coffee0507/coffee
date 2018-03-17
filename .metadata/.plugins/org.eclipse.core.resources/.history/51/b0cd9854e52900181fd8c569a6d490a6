@@ -1,0 +1,14 @@
+package log.input.Action;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class InputAction extends ActionSupport implements SessionAware {
+
+	public String execute(){
+
+	String result = SUCCESS;
+	return result;
+	}
+}

@@ -1,0 +1,10 @@
+package log.input.Action;
+
+public class InputAcion {
+
+	public String execute(){
+
+	public String result = SUCCESS;
+	return result;
+	}
+}

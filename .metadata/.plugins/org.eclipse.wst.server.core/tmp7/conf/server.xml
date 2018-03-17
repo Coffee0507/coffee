@@ -147,7 +147,7 @@
               password="postgres" /> -->
     <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_maintainer" password="postgres" type="javax.sql.DataSource" url="jdbc:postgresql://192.168.1.99:5432/pasm_sys_db" username="postgres"/>
     <Resource auth="Container" driverClassName="org.postgresql.Driver" maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="pg_operator" password="postgres" type="javax.sql.DataSource" url="jdbc:postgresql://192.168.1.99:5432/pasm_sys_db" username="postgres"/>
-</Context></Host>
+</Context><Context docBase="C:\Users\a33a0\Desktop\coffee\.metadata\.plugins\org.eclipse.wst.server.core\tmp7\wtpwebapps\log" path="/log" reloadable="true" source="org.eclipse.jst.jee.server:log"/></Host>
     </Engine>
   </Service>
 </Server>

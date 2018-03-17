@@ -5,7 +5,405 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2018-03-13T16:59:30Z</updated>
+  <updated>2018-03-16T16:13:46Z</updated>
+  <entry>
+    <title>Spring Security OAuth 2.3.0 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/03/16/spring-security-oauth-2-3-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Joe Grandja</name>
+    </author>
+    <id>tag:spring.io,2018-03-16:3211</id>
+    <updated>2018-03-16T16:13:46Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community, I&amp;#8217;m pleased to announce the release of Spring Security OAuth 2.3.0.RELEASE.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;a href="https://github.com/spring-projects/spring-security-oauth/milestone/30?closed=1"&gt;2.3.0 release&lt;/a&gt; adds new support for Elliptic Curve signature verification in &lt;code&gt;JwkTokenStore&lt;/code&gt;. Thank you &lt;a href="https://github.com/duergner"&gt;Michael Duergner&lt;/a&gt; for this contribution! This release also includes a few minor enhancements and bug fixes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security-oauth/"&gt;Project Page&lt;/a&gt; |
+&lt;a href="https://github.com/spring-projects/spring-security-oauth/"&gt;GitHub&lt;/a&gt; |
+&lt;a href="http://projects.spring.io/spring-security-oauth/docs/Home.html"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security-oauth2"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Micrometer: Spring Boot 2's new application metrics collector</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/03/16/micrometer-spring-boot-2-s-new-application-metrics-collector" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Jon Schneider</name>
+    </author>
+    <id>tag:spring.io,2018-03-15:3209</id>
+    <updated>2018-03-16T14:50:09Z</updated>
+    <content type="html">&lt;div id="toc" class="toc"&gt;
+&lt;div id="toctitle"&gt;Table of Contents&lt;/div&gt;
+&lt;ul class="sectlevel1"&gt;
+&lt;li&gt;&lt;a href="#what-is-it"&gt;What is it?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#what-do-i-get-out-of-the-box"&gt;What do I get out of the box?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#which-monitoring-systems-does-micrometer-support"&gt;Which monitoring systems does Micrometer support?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#the-distinction-between-metrics-and-tracing"&gt;The distinction between metrics and tracing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#the-importance-of-dimensionality"&gt;The importance of dimensionality&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#meter-filters"&gt;Meter filters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#why-the-actuator-metrics-endpoint-changed-in-spring-boot-2"&gt;Why the /actuator/metrics endpoint changed in Spring Boot 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#get-involved"&gt;Get involved&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="what-is-it"&gt;&lt;a class="anchor" href="#what-is-it"&gt;&lt;/a&gt;What is it?&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Micrometer is a &lt;em&gt;dimensional-first&lt;/em&gt; metrics collection facade whose aim is to allow you to time, count, and gauge your code with a vendor neutral API. Through classpath and configuration, you may select one or several monitoring systems to export your metrics data to. Think of it like SLF4J, but for metrics!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Micrometer is the metrics collection facility included in Spring Boot 2&amp;#8217;s Actuator. It has also been &lt;a href="https://micrometer.io/docs/ref/spring/1.5"&gt;backported&lt;/a&gt; to Spring Boot 1.5, 1.4, and 1.3 with the addition of another dependency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Micrometer adds richer meter primitives to the counters and gauges that existed in Spring Boot 1. For example, a single Micrometer &lt;code&gt;Timer&lt;/code&gt; is capable of producing time series related to throughput, total time, maximum latency of recent samples, pre-computed percentiles, percentile histograms, and SLA boundary counts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="imageblock"&gt;
+&lt;div class="content"&gt;
+&lt;img src="https://raw.githubusercontent.com/micrometer-metrics/micrometer-docs/665b47c637743d6a7a328f42ad15b62e0c3130d5/blogs/spring/timer-example-3-15-18.png" alt="An Kibana-rendered timer"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Despite its focus on dimensional metrics, Micrometer does map to hierarchical names to continue to serve older monitoring solutions like Ganglia or narrower scoped tools like JMX. The change to Micrometer arose out of a desire to better serve a wave of dimensional monitoring systems (think Prometheus, Datadog, Wavefront, SignalFx, Influx, etc). One of Spring&amp;#8217;s strengths is the enablement of choice through abstraction. By integrating with Micrometer, Spring Boot is enabling you to choose one or more monitoring systems to use today, and change your mind later as your needs change without requiring a rewrite of your custom metrics instrumentation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Before opting to develop "yet another" metrics collection library, we looked hard at existing or up-and-coming dimensional collectors. But as we looked at exporting to more and more monitoring systems, the importance of the structure of names and data became apparent. Micrometer builds in concepts of naming convention normalization, base unit of time scaling, and support for proprietary expressions of structures like histogram data that are essential to make metrics shine in each target system. Along the way, we added meter filtering as well, allowing you to exercise greater control over the instrumentation of your upstream dependencies.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonitionblock tip"&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class="icon"&gt;
+&lt;div class="title"&gt;Tip&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class="content"&gt;
+To learn more about MicrometerÅfs capabilities, please refer to its &lt;a href="https://micrometer.io/docs"&gt;reference documentation&lt;/a&gt;, in particular the &lt;a href="https://micrometer.io/docs/concepts"&gt;concepts section&lt;/a&gt;.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="what-do-i-get-out-of-the-box"&gt;&lt;a class="anchor" href="#what-do-i-get-out-of-the-box"&gt;&lt;/a&gt;What do I get out of the box?&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Boot 2 &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics-meter"&gt;autoconfigures&lt;/a&gt; quite a few metrics for you, including:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;JVM, report utilization of:&lt;/p&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Various memory and buffer pools&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Statistics related to garbage collection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thread utilization&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Number of classes loaded/unloaded&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CPU usage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring MVC and WebFlux request latencies&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RestTemplate latencies&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cache utilization&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Datasource utilization, including HikariCP pool metrics&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RabbitMQ connection factories&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;File descriptor usage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Logback: record the number of events logged to Logback at each level&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uptime: report a gauge for uptime and a fixed gauge representing the applicationÅfs absolute start time&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tomcat usage&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Many of these metrics existed in a form in Spring Boot 1, but have been enriched with greater detail and tags in Spring Boot 2.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="which-monitoring-systems-does-micrometer-support"&gt;&lt;a class="anchor" href="#which-monitoring-systems-does-micrometer-support"&gt;&lt;/a&gt;Which monitoring systems does Micrometer support?&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Micrometer provides a vendor-neutral metrics collection API (rooted in &lt;code&gt;io.micrometer.core.instrument.MeterRegistry&lt;/code&gt;) and implementations for a variety of monitoring systems:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Netflix Atlas&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CloudWatch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Datadog&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ganglia&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Graphite&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;InfluxDB&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;JMX&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;New Relic&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Prometheus&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SignalFx&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;StatsD (Etsy, dogstatsd, Telegraf, and proprietary formats)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Wavefront&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Support for additional systems is underway or planned for the 1.1.0 release slated for mid-2018:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;AppOptics&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Azure Application Insights&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dynatrace&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Elasticsearch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;StackDriver&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Boot 2 configures a composite &lt;code&gt;MeterRegistry&lt;/code&gt; to which any number of registry implementations can be added, allowing you to ship your metrics to more than one monitoring system. Through, &lt;code&gt;MeterRegistryCustomizer&lt;/code&gt;, you can &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-metrics-getting-started"&gt;customize&lt;/a&gt; the whole set of registries at once or individual implementations in particular. For example, a commonly requested setup is to (1) export metrics to both Prometheus and CloudWatch, (2) add a set of common tags to metrics flowing to both (for example, host and application identifying tags) and (3) whitelist only a small subset of metrics to CloudWatch.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="the-distinction-between-metrics-and-tracing"&gt;&lt;a class="anchor" href="#the-distinction-between-metrics-and-tracing"&gt;&lt;/a&gt;The distinction between metrics and tracing&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;By metrics, we specifically mean the class of information that allows you to reason about the performance of a system in the aggregate (across different components of a single app, instances of an in a cluster, clusters operating in different environments or regions, etc.).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Notably this excludes information intended to reason about the contribution of various components to the total latency of a single request as it passes through a series of services; this is the responsibility of distributed tracing collectors like &lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth"&gt;Spring Cloud Sleuth&lt;/a&gt;, Zipkin&amp;#8217;s &lt;a href="https://github.com/openzipkin/brave"&gt;Brave&lt;/a&gt;, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Distributed tracing systems provide detailed information about subsystem latency, but generally downsample in order to scale (e.g. Spring Cloud Sleuth ships 10% of samples by default). Metrics data is generally pre-aggregated and so naturally lacks correlative information, but is also &lt;em&gt;not&lt;/em&gt; downsampled. So, for a series of 100,000 requests in a minute interval that feature an interaction with service A and, depending on the input, maybe an interaction with service B:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;Metrics data will tell you that in the aggregate, service A&amp;#8217;s observed throughput was 100k requests and service B&amp;#8217;s observed throughput was 60k requests. Additionally, in that minute, service A&amp;#8217;s max overall average latency was 100ms and service B&amp;#8217;s max overall average latency was 50ms. It will also provide information on maximum latencies and other distribution statistics in that period.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A distributed tracing system will tell you that for a &lt;em&gt;particular request&lt;/em&gt; (but not the entire population of requests, because remember downsampling is happening), service A took 50 ms and service B took 90ms.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You might reasonably infer from the metrics data that roughly half the time spent in the worst-case user experience was spent in each of A and B, but you can&amp;#8217;t be &lt;em&gt;certain&lt;/em&gt; since you are looking at an aggregate, and it is entirely possible that in the worst case all 100ms was spent in service A and B was never called at all.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Conversely, from tracing data you cannot reason about throughput over an interval or the worst-case user experience.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="the-importance-of-dimensionality"&gt;&lt;a class="anchor" href="#the-importance-of-dimensionality"&gt;&lt;/a&gt;The importance of dimensionality&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Boot 1&amp;#8217;s metrics interfaces were hierarchical in nature. This means that published metrics were identified entirely by their name. So you might have a metric named &lt;code&gt;jvm.memory.used&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;When you&amp;#8217;re looking at metrics from a single application instance, this seems suitable. But what if you have 10 instances all publishing &lt;code&gt;jvm.memory.used&lt;/code&gt; to the same monitoring system? How do we distinguish between them in the event that memory consumption spikes unexpectedly on one instance?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The answer is generally to add to the name, for example by adding a prefix or suffix to the name. So we might change the name to &lt;code&gt;${HOST}.jvm.memory.used&lt;/code&gt;, where we substitute &lt;code&gt;${HOST}&lt;/code&gt; for the host name. After redeploying all 10 instances, we now can identify which instance is under memory pressure. And in a typical hierarchical monitoring system, we can reason about the sum of memory used across all instances by wildcarding the name somehow:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-txt" data-lang="txt"&gt;*.jvm.memory.used&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Suppose now we have 10 application instances in each of 3 deployment regions. Further, we want to reason about the average or maximum memory footprint of our application by region. Now, if we add an additional prefix to the metric name (so that it looks like &lt;code&gt;${REGION}.${HOST}.jvm.memory.used&lt;/code&gt;, we have broken our existing queries. We could update the query to reason about the sum of memory used across all instances:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-txt" data-lang="txt"&gt;*.*.jvm.memory.used&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Unfortunately, this blinds us on our existing infrastructure until it has all been redeployed with the new prefix. This is just an example of one limitation of the hierarchical naming approach.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We mentioned already that Micometer is a &lt;em&gt;dimensional-first&lt;/em&gt; metrics collector. The same metric in Micrometer would have been recorded with tags (a.k.a. dimensions):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-java" data-lang="java"&gt;Gauge.builder("jvm.memory.used", ..)
+  .tag("host", "MYHOST")
+  .tag("region", "us-east-1")
+  .register(registry);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Dimensional monitoring systems naturally display &lt;code&gt;jvm.memory.used&lt;/code&gt; in the aggregate across all tags until you drill into one or more of them. A query in a dimensional monitoring system would select the name first (&lt;code&gt;jvm.memory.used&lt;/code&gt;) and allow for subsequent filtering by tag. In our scenario from above, if we had an existing chart/alert based on exploding memory consumption by host and then &lt;em&gt;later&lt;/em&gt; added an additional tag for region, the host-based query would continue to work uninterrupted as the new region-imbued metrics rolled out across your infrastructure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="meter-filters"&gt;&lt;a class="anchor" href="#meter-filters"&gt;&lt;/a&gt;Meter filters&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Meter filters allow you to control how and when meters are registered and what kinds of statistics they emit. Meter filters serve three basic functions:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Deny&lt;/strong&gt; (or accept) meters from being registered.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Transform&lt;/strong&gt; meter IDs (e.g. changing the name, adding or removing tags, changing description or base units).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Configure&lt;/strong&gt; distribution statistics for some meter types (e.g. percentiles, histograms, SLAs for timers and distribution summaries).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Boot 2 binds a &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#_per_meter_properties"&gt;series of properties&lt;/a&gt; to an out-of-the-box meter filter that allows you to control metrics emission through properties. For example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-txt" data-lang="txt"&gt;management.metrics.enable.jvm=false
+management.metrics.distribution.percentiles-histogram.http.server.requests=true
+management.metrics.distribution.sla.http.server.requests=1ms,5ms&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The above turns off all metrics beginning with the prefix "jvm", publishes percentile histograms for http server request metrics that are autoconfigured by Spring Boot, and ships counts of requests less than or equal to 1ms and 5ms SLA boundaries so you can see exactly how many requests are meeting your expectations. The SLA distribution configuration is also the core feature that enables you to visualize more complicated measurements like &lt;a href="https://medium.com/@tristan_96324/prometheus-apdex-alerting-d17a065e39d0"&gt;Apdex scores&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can flip enablement of metrics entirely at the root to generate a whitelist for just a handful of metrics you want. Suppose you want JVM metrics and nothing else:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code class="language-txt" data-lang="txt"&gt;management.metrics.enable.root=false
+management.metrics.enable.jvm=true&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="why-the-actuator-metrics-endpoint-changed-in-spring-boot-2"&gt;&lt;a class="anchor" href="#why-the-actuator-metrics-endpoint-changed-in-spring-boot-2"&gt;&lt;/a&gt;Why the /actuator/metrics endpoint changed in Spring Boot 2&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;It was trivial to provide a single REST endpoint that listed all metrics in Spring Boot 1, because we only had counters and gauges and both were hierarchical. More complex types like timers represent more than one time series (they contain at a minimum a count, a maximum, and a total sum). Also, our metrics went dimensional. It quickly became clear that there was no way to output all this information in a single payload. Even for a dimensional counter, do we display an aggregate for every permutation of tags? Flattening to hierarchical names for brevity, this turns into something like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;http.server.requests.method.GET.response.200.uri./foo=100
+http.server.requests.method.GET.response.500.uri./foo=1
+http.server.requests.method.GET.response.200.uri./bar=5
+http.server.requests.method.GET.response.400.uri./foo=1
+
+# and now the aggregates...
+http.server.requests.method.GET=107
+http.server.requests.method.GET.response.200=105
+http.server.requests.method.GET.uri./foo=101
+http.server.requests.response.200.uri./foo=100
+http.server.requests.response.500.uri./foo=1
+http.server.requests.response.200.uri./bar=5
+...&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As you can see, this quickly becomes untenable. If you were wanting to build a custom UI, for example, on the contents of &lt;code&gt;MeterRegistry&lt;/code&gt; and you know that your UI is only interested in http throughput by URI irrespective of the method, status, etc then the output can be substantially curtailed. For these kinds of cases, we recommend creating a component that presents your UI with just the data that it needs. Inject &lt;code&gt;MeterRegistry&lt;/code&gt; into your component and use its &lt;code&gt;find&lt;/code&gt; and &lt;code&gt;get&lt;/code&gt; methods to search for the metrics you need to expose. Then serialize them in a format that is tailored to your use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="get-involved"&gt;&lt;a class="anchor" href="#get-involved"&gt;&lt;/a&gt;Get involved&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Micrometer support is available on slack at &lt;a href="https://slack.micromter.io"&gt;slack.micrometer.io&lt;/a&gt;, on Twitter &lt;a href="https://twitter.com/micrometerio"&gt;@micrometerio&lt;/a&gt;, and on &lt;a href="https://github.com/micrometer-metrics/micrometer"&gt;Github&lt;/a&gt;. Don&amp;#8217;t hesitate to reach out with questions, suggestions, or problems!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Security SAML 1.0.4 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2018/03/16/spring-security-saml-1-0-4-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Filip Hanik</name>
+    </author>
+    <id>tag:spring.io,2018-03-16:3212</id>
+    <updated>2018-03-16T12:55:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;The Spring Security SAML project team is proud to announce our latest 1.0.4.RELEASE. This maintenance release pushes its dependencies to the latest known working version while staying backwards compatible.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This release requires an additional &lt;a href="http://repository.mulesoft.org/releases/"&gt;Maven repository&lt;/a&gt; to download the latest version of the not-yet-commons-ssl dependency.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Moving forward we will be working on our 2.0.0 release. This release aims to provide an easy upgrade path for users of the 1.0.x releases while modernizing the underlying dependencies for easy up keep.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Feedback and contributions are always appreciated. Stay tuned.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security-saml/"&gt;Project Site&lt;/a&gt; |
+&lt;a href="https://github.com/spring-projects/spring-security-saml/"&gt;GitHub&lt;/a&gt; |
+&lt;a href="https://docs.spring.io/spring-security-saml/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Open Service Broker M1 released</title>
     <link rel="alternate" href="https://spring.io/blog/2018/03/13/spring-cloud-open-service-broker-m1-released" />
@@ -1180,193 +1578,5 @@ dependencies {
 &lt;p&gt;Over the next couple of weeks we&amp;rsquo;ll be publishing blog posts that cover some Spring Boot 2.0 features in detail. You should also join us for &lt;a href="https://content.pivotal.io/webinars/mar-13-introducing-reactive-spring-boot-2-0-webinar"&gt;a webinar on March 13th&lt;/a&gt; where we&amp;rsquo;ll dive deeper into what upgrading looks like. &lt;/p&gt;
 &lt;p&gt;Thanks again to everyone that has contributed to Spring and Spring Boot over the years! A special thank you also to the developers of the other projects in the Spring portfolio, without whom there would be no Spring Boot.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.0.0.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Reactor BISMUTH-SR7 is out!</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/02/28/reactor-bismuth-sr7-is-out" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Simon Basl?</name>
-    </author>
-    <id>tag:spring.io,2018-02-27:3187</id>
-    <updated>2018-02-28T17:20:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the whole Reactor Team, it is my pleasure to announce that the
-Reactor &lt;code&gt;BISMUTH-SR7&lt;/code&gt; release train is now available. As always, we recommend
-using the &lt;a href="http://projectreactor.io/docs/core/release/reference/docs/index.html#getting"&gt;&lt;code&gt;reactor-bom&lt;/code&gt; Bill Of Material&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;In time for Spring Boot 2, this release train comes with improvements and
-bugfixes to core, extras, and reactor-netty.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;em&gt;This blog post highlights
-the most significant changes in both SR7 and last week&amp;#8217;s SR6 release trains.&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id="reactor-core-3-1-5" class="sect0"&gt;&lt;a class="anchor" href="#reactor-core-3-1-5"&gt;&lt;/a&gt;Reactor-Core 3.1.5&lt;/h1&gt;
-&lt;div class="quoteblock"&gt;
-&lt;blockquote&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;What&amp;#8217;s new since &lt;code&gt;3.1.3&lt;/code&gt;? See the full release notes of the
-&lt;a href="https://github.com/reactor/reactor-core/releases/tag/v3.1.4.RELEASE"&gt;&lt;code&gt;3.1.4.RELEASE&lt;/code&gt;&lt;/a&gt;
-and the &lt;a href="https://github.com/reactor/reactor-core/releases/tag/v3.1.5.RELEASE"&gt;&lt;code&gt;3.1.5.RELEASE&lt;/code&gt;&lt;/a&gt;.
-Core changes include more than 15 improvements and bugfixes.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;A few new operators have landed in this release: For example, &lt;code&gt;mergeOrdered&lt;/code&gt; has been added to &lt;code&gt;Flux&lt;/code&gt; and &lt;code&gt;ParallelFlux&lt;/code&gt;. It lets you merge multiple sources by continuously picking the smallest available value among all the sources, as defined by a provided &lt;code&gt;Comparator&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;For convenience, we also added &lt;code&gt;Flux#concatWithValues(T&amp;#8230;&amp;#8203;)&lt;/code&gt; and &lt;code&gt;Mono#thenReturn(T)&lt;/code&gt; , allowing easy concatenation/continuation with scalar values.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To kickstart our introspection theme of 2018, our implementations of &lt;code&gt;Scheduler&lt;/code&gt; are &lt;code&gt;Scannable&lt;/code&gt; and are thus meaningful when used with &lt;code&gt;Scannable#from&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Notable update considerations include the fix of &lt;code&gt;Mono.zip&lt;/code&gt; behavior, aligning it to that of &lt;code&gt;Flux.zip&lt;/code&gt;: It now cancels in-flight sources as soon as one source completes with &lt;strong&gt;empty&lt;/strong&gt; or throws an error. If all the &lt;code&gt;Mono&lt;/code&gt; sources you &lt;code&gt;zip&lt;/code&gt; together are guaranteed to be value, this changes nothing.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="admonitionblock tip"&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class="icon"&gt;
-&lt;div class="title"&gt;Tip&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class="content"&gt;
-If you don&amp;#8217;t care about the results but want to make sure the whole of N sources have all completed, prefer using &lt;code&gt;Mono.when&lt;/code&gt;. In particular, look out for a &lt;code&gt;.zip(&amp;#8230;&amp;#8203;).then()&lt;/code&gt; pattern, which should be replaced by &lt;code&gt;.when(&amp;#8230;&amp;#8203;)&lt;/code&gt;.
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Another change that is less likely to have been noticed by our users is fixing the visibility of a couple of classes that were never intended for the public:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The MPSC Queue implementation from 3.1.3.RELEASE is now exposed &lt;strong&gt;only&lt;/strong&gt; as a plain &lt;code&gt;Queue&lt;/code&gt; through &lt;code&gt;Queues.unboundedMultiproducer()&lt;/code&gt;. This concrete class is now package-private.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;FluxDelaySequence&lt;/code&gt;, &lt;code&gt;FluxIndex&lt;/code&gt; and &lt;code&gt;FluxIndexFuseable&lt;/code&gt; are now also package-private.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Bug fixes also include a few GC-friendly fixes, stopping unnecessary retaining of &lt;code&gt;elastic&lt;/code&gt; &lt;code&gt;Scheduler&lt;/code&gt; workers and event-loop based Processors' background task in case of &lt;code&gt;forceShutdown()&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id="reactor-addons-3-1-6" class="sect0"&gt;&lt;a class="anchor" href="#reactor-addons-3-1-6"&gt;&lt;/a&gt;Reactor Addons 3.1.6&lt;/h1&gt;
-&lt;div class="quoteblock"&gt;
-&lt;blockquote&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;What&amp;#8217;s new since &lt;code&gt;3.1.4&lt;/code&gt;? See the full release notes of the
-&lt;a href="https://github.com/reactor/reactor-addons/releases/tag/v3.1.5.RELEASE"&gt;&lt;code&gt;3.1.5.RELEASE&lt;/code&gt;&lt;/a&gt;
-and the &lt;a href="https://github.com/reactor/reactor-addons/releases/tag/v3.1.6.RELEASE"&gt;&lt;code&gt;3.1.6.RELEASE&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Addons has seen a couple of fixes and improvements.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The newly introduced opinionated helper for caching was released with a few package-private interfaces that should have been &lt;code&gt;public&lt;/code&gt;. This is embarrassing. :( It has now been fixed.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;A new &lt;code&gt;Repeat#create&lt;/code&gt; factory method variant has been introduced. It allows combining a &lt;code&gt;Predicate&lt;/code&gt; and a maximum amount of repeat attempts.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="admonitionblock note"&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class="icon"&gt;
-&lt;div class="title"&gt;Note&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class="content"&gt;
-Speaking of &lt;code&gt;Repeat&lt;/code&gt; and its sister, &lt;code&gt;Retry&lt;/code&gt;, some user noticed that the default behavior feels a bit misaligned with the core&amp;#8217;s dumbed-down &lt;code&gt;repeat()&lt;/code&gt; and &lt;code&gt;retry()&lt;/code&gt; variants: Without further configuration, the helpers are capped at a single attempt, where the core versions keep on repeating or retrying. Furthermore, this is changed by chaining in &lt;code&gt;timeout&lt;/code&gt;, which switches to an uncapped attempt behavior (which has been clarified in its javadoc).
-&lt;br&gt;
-&lt;br&gt;
-We are thinking about realigning this behavior with core in &lt;code&gt;3.2.0&lt;/code&gt;. Please chime in on the &lt;a href="https://github.com/reactor/reactor-addons/issues/149"&gt;issue&lt;/a&gt; if you have any insight or feedback.
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;h1 id="reactor-netty-0-7-5" class="sect0"&gt;&lt;a class="anchor" href="#reactor-netty-0-7-5"&gt;&lt;/a&gt;Reactor-Netty 0.7.5&lt;/h1&gt;
-&lt;div class="quoteblock"&gt;
-&lt;blockquote&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;What&amp;#8217;s new since &lt;code&gt;0.7.3&lt;/code&gt;? See the full release notes of the
-&lt;a href="https://github.com/reactor/reactor-netty/releases/tag/v0.7.4.RELEASE"&gt;&lt;code&gt;0.7.4.RELEASE&lt;/code&gt;&lt;/a&gt;
-and the &lt;a href="https://github.com/reactor/reactor-netty/releases/tag/v0.7.5.RELEASE"&gt;&lt;code&gt;0.7.5.RELEASE&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Reactor-Netty has also seen quite a few fixes, mostly around pooling and the connection lifecycle.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;New goodies include support for expect 100-continue, as well as better Reactor &lt;code&gt;Context&lt;/code&gt; handling, by passing Netty pipelines to it when relevant.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Compression support has also been improved, allowing per-response activation of compression.
-This slightly supersedes the &lt;code&gt;minCompressionThreshold&lt;/code&gt; feature that was already in place (albeit it was not 100% reliable). It is based on a &lt;code&gt;BiPredicate&amp;lt;Req,Resp&amp;gt;&lt;/code&gt; that could, for instance, activate compression only on certain content types. The minimum compression threshold option is backed by a &lt;code&gt;content-length&lt;/code&gt; predicate.&lt;/p&gt;
-&lt;/div&gt;
-&lt;h1 id="what-s-next" class="sect0"&gt;&lt;a class="anchor" href="#what-s-next"&gt;&lt;/a&gt;What&amp;#8217;s Next&lt;/h1&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We encourage you to grab these new artifacts, but, if you&amp;#8217;re a Spring Boot user, you&amp;#8217;ll be delighted to learn you&amp;#8217;ll be rewarded with the same goodies as soon as you upgrade to the upcoming Spring Boot 2.0.0 GA release. :)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;As always, feedback is welcome. Come and discuss this release on &lt;a href="https://gitter.im/reactor/reactor"&gt;Gitter&lt;/a&gt; or consider opening an &lt;a href="https://github.com/reactor/reactor-core/issues/new"&gt;issue on GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;strong&gt;In the meantime, happy reactive coding!&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.0.3 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/02/28/spring-security-5-0-3-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Rob Winch</name>
-    </author>
-    <id>tag:spring.io,2018-02-28:3193</id>
-    <updated>2018-02-28T16:53:50Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;I&amp;#8217;m pleased to announce the release of Spring Security 5.0.3.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The main purpose of this release is to provide a significant &lt;a href="https://github.com/spring-projects/spring-security/issues/5040"&gt;performance improvement&lt;/a&gt; for Spring Security WebFlux. It also contains dependency updates to prepare for Spring Boot 2.0.0.RELEASE. For a complete list of changes, refer to the &lt;a href="https://github.com/spring-projects/spring-security/milestone/111?closed=1"&gt;changelog&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; |
-&lt;a href="http://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Data Kay SR5 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2018/02/28/spring-data-kay-sr5-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Mark Paluch</name>
-    </author>
-    <id>tag:spring.io,2018-02-28:3192</id>
-    <updated>2018-02-28T11:35:13Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the Spring Data team, I&amp;rsquo;d like to announce the fifth service release of the Kay release train in prospect of Spring Boot 2.0 GA.&lt;/p&gt;
-&lt;p&gt;This service release ships with &lt;a href="https://jira.spring.io/issues/?filter=15839"&gt;23 tickets fixed&lt;/a&gt;. Kay SR5 will be picked up by Spring Boot 2.0 GA for your convenience and is a strongly recommended upgrade to users of the Kay release train. &lt;/p&gt;
-&lt;p&gt;You can find all details within the linked changelogs.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring Data Commons 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-commons/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data JPA 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-jpa/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data for Apache Cassandra 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-cassandra/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data KeyValue 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-keyvalue/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/keyvalue/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/keyvalue/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/keyvalue/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data for Apache Solr 3.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-solr/3.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/3.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/3.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/3.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data Gemfire 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-gemfire/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data Neo4j 5.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-neo4j/5.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/5.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/5.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/5.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data MongoDB 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-mongodb/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data for Apache Geode 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-geode/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/geode/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/geode/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/geode/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data LDAP 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-ldap/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/ldap/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/ldap/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/ldap/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data Envers 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-envers/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/envers/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/envers/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data REST 3.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-rest-webmvc/3.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/3.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/3.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/3.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data Redis 2.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-redis/2.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/2.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/2.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/2.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data Elasticsearch 3.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-elasticsearch/3.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/3.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/3.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/3.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data Couchbase 3.0.5 - &lt;a href="https://repo.spring.io/libs-release/org/springframework/data/spring-data-couchbase/3.0.5.RELEASE"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/3.0.5.RELEASE/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/3.0.5.RELEASE/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/3.0.5.RELEASE/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
   </entry>
 </feed>

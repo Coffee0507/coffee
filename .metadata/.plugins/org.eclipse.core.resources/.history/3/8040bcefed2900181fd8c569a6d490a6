@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	function InputAction() {
+		request.setAttribute("log", "A");
+	}
+</script>
+
+<title>インプット画面</title>
+</head>
+<body>
+
+	<s:form action="InputAction">
+		<s:submit value="パターンA" onClick="InputAction()">request.setAttribute("A","A")</s:submit>
+		<s:submit value="パターンB">
+			<s:param name="log" value="patternB" />
+		</s:submit>
+		<s:submit value="パターンC">
+			<s:param name="log" value="patternC" />
+		</s:submit>
+	</s:form>
+</body>
+</html>

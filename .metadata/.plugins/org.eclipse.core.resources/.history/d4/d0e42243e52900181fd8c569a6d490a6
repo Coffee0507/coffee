@@ -1,0 +1,10 @@
+package log.input.Action;
+
+public class InputAcion extends ActionSuppoet implements SessionAware {
+
+	public String execute(){
+
+	String result = SUCCESS;
+	return result;
+	}
+}

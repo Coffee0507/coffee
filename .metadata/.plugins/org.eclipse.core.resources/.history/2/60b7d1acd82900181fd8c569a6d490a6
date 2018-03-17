@@ -1,0 +1,16 @@
+package log.input.Util;
+
+public class DBConnector {
+
+	private Connection con = null;
+
+	public Connection getConnection(){
+
+
+
+
+		return con;
+
+	}
+
+}
