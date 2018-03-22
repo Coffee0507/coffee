@@ -5,10 +5,12 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="com.portal.action" extends="struts-default">
+		<!--
 		<action name="NextAction" class="com.portal.action.NextAction"
 			method="execute">
 			<result name="success">next.jsp</result>
 			<result name="error">index.jsp</result>
 		</action>
+	 	-->
 	</package>
 </struts>
