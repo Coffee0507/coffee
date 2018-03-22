@@ -1,7 +1,0 @@
-package log.input.Action;
-
-public class InputAcion {
-
-	public String result = SUCCESS;
-
-}

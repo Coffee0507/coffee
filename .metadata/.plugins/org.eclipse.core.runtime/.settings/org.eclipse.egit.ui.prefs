@@ -1,4 +1,4 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>hippo</message>\r\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>\#32 \u53E4\u5E02\u3055\u3093\u304B\u3089\u4E0A\u304C\u3063\u305F\u30D0\u30B0\u305D\u306E1-2</message>\r\n<message>\#32 \u53E4\u5E02\u3055\u3093\u304B\u3089\u4E0A\u304C\u3063\u305F\u30D0\u30B0\u305D\u306E1</message>\r\n<message>Merge remote-tracking branch &apos;origin/dev&apos; into&\#x0A;feature/yuuri/fixLogAction&\#x0A;&\#x0A;Conflicts\:&\#x0A;&\#x09;WebContent/proj_dat.jsp&\#x0A;</message>\r\n<message>3/19\u3000\u9AD8\u6A4B</message>\r\n<message>hippo</message>\r\n</messages>
 eclipse.preferences.version=1
 show_git_prefix_warning=false
 show_home_drive_warning=false

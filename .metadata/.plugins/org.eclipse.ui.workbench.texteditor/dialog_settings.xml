@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="repo" key="selection"/>
+		<item value="addLog" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="repo"/>
-			<item value="user_group_edit_table"/>
-			<item value="メンバー"/>
-			<item value="!"/>
-			<item value="notiuser"/>
-			<item value="multiple"/>
-			<item value="selected_user_group_member_all"/>
-			<item value="selected_user_group_member_all_id"/>
+			<item value="addLog"/>
+			<item value="getExecContentDetail"/>
+			<item value="getExecContent"/>
+			<item value="execContentDetail"/>
+			<item value="logBean"/>
+			<item value="getModifyWorkingTime"/>
+			<item value="user"/>
+			<item value="importAc"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -27,7 +27,7 @@
 		<item value="303" key="DIALOG_WIDTH"/>
 		<item value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI" key="DIALOG_FONT_NAME"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="585" key="DIALOG_X_ORIGIN"/>
-		<item value="407" key="DIALOG_Y_ORIGIN"/>
+		<item value="1342" key="DIALOG_X_ORIGIN"/>
+		<item value="373" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

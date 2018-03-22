@@ -4,4 +4,5 @@ eclipse.preferences.version=1
 managerUrl=http\://localhost\:8080/manager
 tomcatConfigFile=C\:\\pleiades\\tomcat\\8\\conf\\server.xml
 tomcatDir=C\:\\pleiades\\tomcat\\8
+tomcatJRE=1521681337124
 tomcatVersion=tomcatV8

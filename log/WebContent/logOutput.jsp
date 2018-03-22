@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:property value="log" />
+	<s:property value="dtoList"/>
 </body>
 </html>
