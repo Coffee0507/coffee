@@ -2,12 +2,10 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="org.springframework.samples.service.service"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="HelloWorld-0"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -47,6 +45,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item value="すべてのカタログ" key="catalog"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -70,12 +69,20 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="org.springframework.samples.service.service.firstapp"/>
+			<item value="org.springframework.samples.service.service.scondapp"/>
+			<item value="org.springframework.samples.service.service.thirdapp"/>
+			<item value="org.springframework.samples.service.service.secondapp"/>
 			<item value="org.springframework.samples.service.service"/>
 		</list>
 		<list key="groupId">
 			<item value="org.springframework.samples.service.service"/>
 		</list>
 		<list key="artifactId">
+			<item value="firstapp"/>
+			<item value="scondapp"/>
+			<item value="thirdapp"/>
+			<item value="secondapp"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -87,6 +94,20 @@
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\a33a0\Desktop\coffee\firstapp"/>
+			<item value="C:\Users\a33a0\Desktop\coffee\secondapp\webapp"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
 		</list>
 	</section>
 </section>

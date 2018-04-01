@@ -3,6 +3,7 @@ package com.portal.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.portal.DTO.LoginDTO;
 import com.portal.util.DBConnector;
@@ -16,7 +17,12 @@ public class LoginDAO {
 
 	public LoginDTO loginInfo(){
 
-		PreparedStatement ps = con.prepareStatement(sql);
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 
 

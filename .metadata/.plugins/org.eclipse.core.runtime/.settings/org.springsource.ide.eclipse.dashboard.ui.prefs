@@ -1,8 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=47a6d5eb900bc7b519444197b7ed0fcefe15828a
 dashboard.feed.springio.migration=true
 eclipse.preferences.version=1
-<<<<<<< HEAD
-org.springsource.ide.eclipse.dashboard.uidashboard.feed.last_update=1516582945401
-=======
-org.springsource.ide.eclipse.dashboard.uidashboard.feed.last_update=1516452993919
->>>>>>> 47a6d5eb900bc7b519444197b7ed0fcefe15828a
+org.springsource.ide.eclipse.dashboard.uidashboard.feed.last_update=1521901315899
 org.springsource.ide.eclipse.dashboard.uidashboard.startup=false

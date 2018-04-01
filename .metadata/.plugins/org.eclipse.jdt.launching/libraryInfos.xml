@@ -38,7 +38,7 @@
             <entry path="C:\Users\a33a0\Desktop\pleiades\java\7\jre\lib\endorsed"/>
         </endorsedDirs>
     </libraryInfo>
-    <libraryInfo home="C:\Users\a33a0\Desktop\pleiades\java\8" version="1.8.0_74">
+    <libraryInfo home="C:\Users\a33a0\Desktop\pleiades\java\8" version="1.8.0_152">
         <bootpath>
             <entry path="C:\Users\a33a0\Desktop\pleiades\java\8\jre\lib\resources.jar"/>
             <entry path="C:\Users\a33a0\Desktop\pleiades\java\8\jre\lib\rt.jar"/>
@@ -76,7 +76,6 @@
             <entry path="C:\pleiades\eclipse\jre\jre\lib\endorsed"/>
         </endorsedDirs>
     </libraryInfo>
-    <libraryInfo home="C:\Program Files\Java\jdk-10" version="10"/>
     <libraryInfo home="C:\Users\a33a0\Desktop\pleiades\eclipse\jre" version="1.8.0_74">
         <bootpath>
             <entry path="C:\Users\a33a0\Desktop\pleiades\eclipse\jre\jre\lib\resources.jar"/>
@@ -115,7 +114,6 @@
             <entry path="C:\Users\a33a0\Desktop\pleiades\eclipse\jre\jre\lib\endorsed"/>
         </endorsedDirs>
     </libraryInfo>
-    <libraryInfo home="C:\Program Files\Java\jdk-9.0.1" version="9.0.1"/>
     <libraryInfo home="C:\pleiades\eclipse\jre\jre" version="1.8.0_74">
         <bootpath>
             <entry path="C:\pleiades\eclipse\jre\jre\lib\resources.jar"/>

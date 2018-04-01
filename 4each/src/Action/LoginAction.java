@@ -19,6 +19,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	private LoginDTO dto = new LoginDTO();
 
 	public String execute() {
+		String str = "fnacjkbdcn-/ :@`{~";
+		if(str.matches("^[a-zA-Z0-9 -/:-@\\[-\\`\\{-\\~]+$")){
+		     System.out.println("半角英数記号で入力してください。");
+		}
 
 		result = ERROR;
 
@@ -33,10 +37,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 		return result;
 
+
+
 	}
 
-	@Override
-	public void setSession(Map<String, Object> session) {
+	public void setSession1(Map<String, Object> session) {
 		this.session = session;
 	}
 
@@ -66,6 +71,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 
 }

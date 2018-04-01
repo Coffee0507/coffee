@@ -19,4 +19,11 @@
     <fullyQualifiedTypeName name="jp.co.lsij.p16590004.e_77.model.BeanBuilderType"/>
     <fullyQualifiedTypeName name="javax.websocket.CloseReason.CloseCodes"/>
     <fullyQualifiedTypeName name="jp.co.lsij.p16590004.common.CodeEnum.Form"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.EnableWebMvc"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ComponentScan"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.ViewResolverRegistry"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter"/>
 </qualifiedTypeNameHistroy>

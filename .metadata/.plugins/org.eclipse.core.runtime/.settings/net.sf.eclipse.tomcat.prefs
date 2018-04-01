@@ -1,8 +1,10 @@
 computeSourcePath=true
-contextsDir=C\:\\pleiades\\tomcat\\8\\conf\\Catalina\\localhost
+contextsDir=C\:\\Users\\a33a0\\Desktop\\pleiades\\tomcat\\8\\conf\\Catalina\\localhost
 eclipse.preferences.version=1
+jvmParameters=-Djava.util.logging.manager%3Dorg.apache.juli.ClassLoaderLogManager+-Djava.util.logging.config.file%3D%22C%3A%5CUsers%5Ca33a0%5CDesktop%5Cpleiades%5Ctomcat%5C8%2Fconf%2Flogging.properties%22;
 managerUrl=http\://localhost\:8080/manager
-tomcatConfigFile=C\:\\pleiades\\tomcat\\8\\conf\\server.xml
-tomcatDir=C\:\\pleiades\\tomcat\\8
-tomcatJRE=1521681337124
+projectsInSourcePath=thirdapp;
+tomcatConfigFile=C\:\\Users\\a33a0\\Desktop\\pleiades\\tomcat\\8\\conf\\server.xml
+tomcatDir=C\:\\Users\\a33a0\\Desktop\\pleiades\\tomcat\\8
+tomcatJRE=1521897749176
 tomcatVersion=tomcatV8
