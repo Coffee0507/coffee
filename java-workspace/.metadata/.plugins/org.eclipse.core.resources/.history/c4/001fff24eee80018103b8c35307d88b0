@@ -1,0 +1,13 @@
+package com.spring.data.jpa.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller(value="/login")
+public class LoginController {
+
+	@GetMapping(value="/path")
+	public String login() {
+		return "res";
+	}
+}

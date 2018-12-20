@@ -1,0 +1,26 @@
+package com.spring.data.jpa.example.ServiceImpl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.spring.data.jpa.example.Entity.UserInfo;
+import com.spring.data.jpa.example.Service.UserInfoService;
+
+@Service
+@Transactional
+public class UserInfoServiceImpl implements UserInfoService{
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	@Override
+	public List<UserInfo> getUserInfoList(){
+		List<UserInfo> list = entityManager.createQuery("select e from UserInfo e", UserInfo.class).getResultList();
+		return list;
+	}
+}

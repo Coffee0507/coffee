@@ -1,0 +1,5 @@
+package sample.project.entity;
+
+public class UserInfo {
+
+}

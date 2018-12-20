@@ -1,0 +1,7 @@
+package sample.project.form;
+
+public class LoginForm {
+
+	private String loginId;
+	private String loginPass;
+}

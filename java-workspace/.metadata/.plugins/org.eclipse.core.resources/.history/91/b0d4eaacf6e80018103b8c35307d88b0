@@ -1,0 +1,10 @@
+package sample.project.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class LoginModel {
+
+	private String loginId;
+	private String loginPass;
+}

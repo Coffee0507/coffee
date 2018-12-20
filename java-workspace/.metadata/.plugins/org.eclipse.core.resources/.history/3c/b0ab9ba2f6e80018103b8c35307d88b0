@@ -1,0 +1,6 @@
+package sample.project.model;
+
+@Entity
+public class LoginModel {
+
+}

@@ -1,0 +1,60 @@
+package sample.project.model;
+
+import java.util.Collection;
+import java.util.Map;
+
+import org.springframework.ui.Model;
+
+public class LoginModel implements Model{
+
+	private String loginId;
+	private String loginPass;
+
+	public String getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	public String getLoginPass() {
+		return loginPass;
+	}
+	public void setLoginPass(String loginPass) {
+		this.loginPass = loginPass;
+	}
+	@Override
+	public Model addAttribute(String attributeName, Object attributeValue) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	@Override
+	public Model addAttribute(Object attributeValue) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	@Override
+	public Model addAllAttributes(Collection<?> attributeValues) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	@Override
+	public Model addAllAttributes(Map<String, ?> attributes) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	@Override
+	public Model mergeAttributes(Map<String, ?> attributes) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+	@Override
+	public boolean containsAttribute(String attributeName) {
+		// TODO 自動生成されたメソッド・スタブ
+		return false;
+	}
+	@Override
+	public Map<String, Object> asMap() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+}

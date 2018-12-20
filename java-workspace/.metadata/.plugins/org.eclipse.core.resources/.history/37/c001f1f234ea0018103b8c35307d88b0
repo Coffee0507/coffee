@@ -1,0 +1,17 @@
+package sample.project.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import sample.project.entity.UserInfo;
+
+@Repository
+public interface UserInfoRepository extends JpaRepository<UserInfo, String>{
+
+	public List<UserInfo> selectUserInfo();
+	public void insertUserInfo();
+	public void deleteUserInfo();
+
+}

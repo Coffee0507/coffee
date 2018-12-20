@@ -1,0 +1,14 @@
+package sample.project.service;
+
+import javax.enterprise.context.Dependent;
+
+@Inject
+private UserInfo userInfo;
+
+@Dependent
+public class InsertService {
+
+	public void insertUserInfo(@Param)
+
+
+}

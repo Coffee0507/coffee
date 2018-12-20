@@ -1,0 +1,27 @@
+package sample.project.form;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class LoginForm {
+
+	@NotNull
+	@Size(min=5, max=10)
+	@Pattern(regexp="[0-9a-zA-Z]")
+	private String loginId;
+
+	private String loginPass;
+
+	public String getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	public String getLoginPass() {
+		return loginPass;
+	}
+	public void setLoginPass(String loginPass) {
+		this.loginPass = loginPass;
+	}
+}

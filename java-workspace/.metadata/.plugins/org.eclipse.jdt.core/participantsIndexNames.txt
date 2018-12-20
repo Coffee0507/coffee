@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\pleiades-4.8.0-java-win-64bit-jre_20180923\pleiades\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1138204623.index
+\Hidouki\src\main\java
+C:\pleiades-4.8.0-java-win-64bit-jre_20180923\pleiades\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2846060557.index
+\Hidouki\src\main\java

@@ -1,0 +1,13 @@
+package sample.project.repository;
+
+import java.util.List;
+
+import sample.project.entity.UserInfo;
+
+public interface UserInfoRepository {
+
+	public List<UserInfo> selectUserInfo();
+	public void insertUserInfo();
+	public void deleteUserInfo();p
+
+}

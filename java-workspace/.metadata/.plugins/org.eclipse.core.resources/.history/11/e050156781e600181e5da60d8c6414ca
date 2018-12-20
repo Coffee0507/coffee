@@ -1,0 +1,7 @@
+package com.spring.data.jpa.example.Controller;
+
+public class LoginModel {
+	private String loginId;
+	private String loginPass;
+	private String loginUser;
+}

@@ -1,0 +1,8 @@
+package sample.project.model;
+
+@Entity
+public class LoginModel {
+
+	private String loginId;
+	private String loginPass;
+}

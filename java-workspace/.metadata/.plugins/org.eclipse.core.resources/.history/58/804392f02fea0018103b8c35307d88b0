@@ -1,0 +1,18 @@
+package sample.project.service;
+
+import javax.enterprise.context.Dependent;
+import javax.inject.Inject;
+
+import sample.project.entity.UserInfo;
+
+
+@Dependent
+public class SelectService {
+
+	@Autowired
+	private UserInfo userInfo;
+
+	public void insertUserInfo(@Param )
+
+
+}

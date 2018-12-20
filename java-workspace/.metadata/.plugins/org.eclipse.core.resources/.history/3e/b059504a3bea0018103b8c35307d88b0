@@ -1,0 +1,18 @@
+package sample.project.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import sample.project.entity.UserInfo;
+
+@Repository
+public interface UserInfoRepository extends JpaRepository<UserInfo, String>{
+
+	public List<UserInfo> selectById();
+	@Query("select e.id, e.name, e.password from userInfo e where e.id=?1 and e.name=2? and e.password=3?")
+	public List<UserInfo> login(String loginId, String loginName, String loginPass);
+
+}

@@ -1,0 +1,14 @@
+package com.spring.data.jpa.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@Controller(value="/login")
+public class LoginController {
+
+	@RequestMapping(value="/path", method=RequestMethod.GET, headers="Accept=application/*")
+	public String login() {
+		return "res";
+	}
+}

@@ -1,0 +1,31 @@
+package sample.project.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import sample.project.form.LoginForm;
+import sample.project.model.LoginModel;
+
+@RestController
+public class LoginController {
+
+//	@RequestMapping("/")
+//	public String nothing() {
+//		return "index";
+//	}
+
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public LoginModel login(LoginForm loginForm, LoginModel model) {
+		model.setLoginId(loginForm.getLoginId());
+		model.setLoginPass(loginForm.getLoginPass());
+		Map<String, String> map = new HashMap<>();
+		map.put("loginId", model.getLoginId());
+		map.put("loginPath", model.getLoginPass());
+
+		return model;
+	}
+}

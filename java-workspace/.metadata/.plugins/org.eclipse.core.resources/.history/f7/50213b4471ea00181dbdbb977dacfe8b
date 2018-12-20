@@ -1,0 +1,76 @@
+package sample.project.entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="userInfo")
+public class UserInfo {
+
+	@Id
+	@Column(name="id", nullable=false)
+	private int loginId;
+	@Column(name="password")
+	private String loginPass;
+//	@Column(name="name")
+//	private String loginName;
+	@Column(name="insDate")
+	private Date insDate;
+	@Column(name="insId")
+	private String insId;
+	@Column(name="updDate")
+	private Date updaDate;
+	@Column(name="updId")
+	private String updId;
+
+
+
+	public int getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(int loginId) {
+		this.loginId = loginId;
+	}
+//	public String getLoginName() {
+//		return loginName;
+//	}
+//	public void setLoginName(String loginName) {
+//		this.loginName = loginName;
+//	}
+	public String getLoginPass() {
+		return loginPass;
+	}
+	public void setLoginPass(String loginPass) {
+		this.loginPass = loginPass;
+	}
+	public Date getInsDate() {
+		return insDate;
+	}
+	public void setInsDate(Date insDate) {
+		this.insDate = insDate;
+	}
+	public String getInsId() {
+		return insId;
+	}
+	public void setInsId(String insId) {
+		this.insId = insId;
+	}
+	public Date getUpdaDate() {
+		return updaDate;
+	}
+	public void setUpdaDate(Date updaDate) {
+		this.updaDate = updaDate;
+	}
+	public String getUpdId() {
+		return updId;
+	}
+	public void setUpdId(String updId) {
+		this.updId = updId;
+	}
+
+
+}

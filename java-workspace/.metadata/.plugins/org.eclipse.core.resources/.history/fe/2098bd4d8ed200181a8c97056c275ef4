@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/login.css">
+		<title>ログイン</title>
+	<script>
+		function goLoginAction(){
+			document.getElementById("form").action="LoginAction";
+		}
+		function goCreateUserAction(){
+			document.getElementById("form").action="CreateUserAction";
+		}
+		function goResetPasswordAction(){
+			document.getElementById("form").action="ResetPasswordAction";
+		}
+	</script>
+	</head>
+	<body>
+		<jsp:include page="header.jsp" />
+
+			<!-- コンテントフォームここから -->
+			<div class="contentForm">
+
+				<!-- ページタイトル -->
+				<div class="pageTitle">
+					ログイン
+				</div>
+
+				<!-- エラーメッセージの挿入ここから -->
+				<s:if test="!#session.loginErrorMessage.isEmpty()">
+					<div class="error">
+						<s:iterator value="#session.loginErrorMessage"><s:property /><br></s:iterator>
+					</div>
+				</s:if>
+
+				<s:if test="!#session.loginIdErrorMessageList.isEmpty()">
+					<div class="error">
+						<s:iterator value="#session.loginIdErrorMessageList"><s:property /><br></s:iterator>
+					</div>
+				</s:if>
+
+				<s:if test="!#session.passwordErrorMessageList.isEmpty()">
+					<div class="error">
+						<div class="error-message">
+							<s:iterator value="#session.passwordErrorMessageList"><s:property /><br></s:iterator>
+						</div>
+					</div>
+				</s:if>
+
+				<!-- メインフォーム -->
+				<div class="mainForm">
+					<s:form id="form" action="LoginAction">
+						<div class="box">
+							<div class="title">ログインID：</div>
+							<s:if test="#session.savedLoginId==true">
+								<s:textfield name="loginId" class="inputForm" placeholder="ログインID" value='%{#session.loginedId}' autocomplete="off"/>
+							</s:if>
+							</div>
+
+							<s:else>
+							<s:textfield name="loginId" class="inputForm" placeholder="ログインID" autocomplete="off"/>
+							</s:else>
+
+						<div class="box">
+							<div class="title">パスワード：</div>
+								<s:password name="password" class="inputForm" placeholder="パスワード" autocomplete="off"/>
+						</div>
+
+						<div class="box">
+							<s:if test="#session.savedLoginId==true">
+								<s:checkbox name="savedLoginId" checked="checked"/>
+							</s:if>
+							<s:else>
+								<s:checkbox name="savedLoginId"/>
+							</s:else>
+							<s:label value="ログインID保存"/><br>
+						</div>
+
+						<div class="submit_btn_box">
+							<s:submit value="ログイン" class="submitButton" onclick="goLoginAction();"/>
+						</div>
+					</s:form>
+				</div>
+				<div class="submit_box">
+					<s:form action="CreateUserAction">
+						<s:submit value="新規ユーザー登録" class="submitButton1" />
+					</s:form>
+					<s:form action="ResetPasswordAction">
+						<s:submit value="パスワード再設定" class="submitButton1" />
+					</s:form>
+				</div>
+			</div>
+
+	<s:include value="footer.jsp"/>
+	</body>
+</html>

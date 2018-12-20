@@ -1,0 +1,31 @@
+package sample.project.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import sample.project.entity.UserInfo;
+import sample.project.form.LoginForm;
+import sample.project.service.SelectService;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	SelectService selectService;
+
+	@RequestMapping(value="/")
+	public String nothing() {
+		return "index";
+	}
+
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String login(@ModelAttribute("loginForm")LoginForm loginForm,  Model model) {
+		List<UserInfo> list = selectService.login(loginForm.getLoginId(), loginForm.getLoginName(), loginForm.getLoginPass());
+
+		return "index";
+	}
+}

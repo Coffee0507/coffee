@@ -1,0 +1,22 @@
+package sample.project.form;
+
+public class LoginForm {
+
+	private String loginId;
+	private String loginPass;
+
+	@NotNUll
+	@Size(min=5, max=10)
+	public String getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	public String getLoginPass() {
+		return loginPass;
+	}
+	public void setLoginPass(String loginPass) {
+		this.loginPass = loginPass;
+	}
+}

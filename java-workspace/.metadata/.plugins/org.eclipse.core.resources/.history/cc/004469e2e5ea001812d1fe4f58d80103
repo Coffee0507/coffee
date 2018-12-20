@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<div>
+			<form th:action="@{/login}" th:object="${loginForm}" method="post">
+				<div>
+					<input type="text" placeholder="ログインID" name="loginId">
+				</div>
+				<div>
+					<input type="text" placeholder="ログインユーザー" name="loginName">
+				</div>
+				<div>
+					<input type="text" placeholder="ログインパス" name="loginPass">
+					</div>
+				<div>
+					<input type="submit" value="login">
+				</div>
+			</form>
+		</div>
+		<div>
+			<h1 th:text="${errorMessage}"></h1>
+			<table>
+				<tr th:each="list : ${list}">
+					<td th:text="${loginId}"></td>
+					<td th:text="${loginName}"></td>
+					<td th:text="${loginPass}"></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

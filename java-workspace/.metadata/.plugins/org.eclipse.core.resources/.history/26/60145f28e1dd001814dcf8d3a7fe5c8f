@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<div><input type="text" id="insertCommentUserId" name="insertCommentUserId"></div>
+		<div><textarea id="insertComments" name="insertComments"></textarea></div>
+		<div><input type="submit" id="insertCommentsSubmit" value="投稿">&nbsp;
+			<form action="/secondSubspecies">
+				<input type="submit" value="更新">
+			</form>
+		</div>
+		<div id="insertMessage"></div>
+
+		<table>
+			<tr>
+				<td>コメントid</td>
+				<td>ユーザーID</td>
+				<td>コメント</td>
+				<td>投稿日</td>
+			</tr>
+			<tr th:each="commentsInfo : ${commentsInfo}">
+				<td th:text="${commentsInfo.id}">
+				<td th:text="${commentsInfo.userId}"></td>
+				<td th:text="${commentsInfo.comments}"><td>
+				<td th:text="${commentsInfo.insertDate}"></td>
+			</tr>
+		</table>
+		<div><p>--------------↓コメントidで紐づいたコメントの削除↓------------------</p></div>
+		<div><input type="text" id="deleteCommentId"></div>
+		<div><input type="submit" id="deleteCommentSubmit"></div>
+		<div id="deleteMessage"></div>
+
+		<div><p>--------------↓ユーザーidで紐づいたコメントの削除↓------------------</p></div>
+		<div><input type="text" id="deleteUserId"></div>
+		<div><input type="submit" id="deleteUserSubmit"></div>
+		<div id="deleteUserMessage"></div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			$(function(){
+				$('#insertCommentsSubmit').on('click',() => {
+					var insertCommentUserId = $('#insertCommentUserId').val();
+					var insertComments = $('#insertComments').val();
+					$.ajax({
+						url:'http://localhost:8080/insertComment',
+						type:'POST',
+						dataType:'html',
+						data:{
+							insertCommentUserId: insertCommentUserId,
+							insertComments: insertComments
+						}
+					}).done(function(res){
+						$('#insertMessage').html(res)
+					}).fail(function(res){
+						$('#insertMessage').html(res)
+					})
+				})
+			})
+
+			$(function(){
+				$('#deleteCommentSubmit').on('click',() => {
+					var deleteCommentId = $('#deleteCommentId').val();
+					$.ajax({
+						url:'http://localhost:8080/deleteComment',
+						type:'POST',
+						dataType:'html',
+						data:{
+							deleteCommentId: deleteCommentId
+						}
+					}).done(function(res){
+						$('#deleteMessage').html(res)
+					}).fail(function(res){
+						$('#deleteMessage').html("fail")
+					})
+				})
+			})
+
+			$(function(){
+				$('#deleteUserSubmit').on('click',() => {
+					var deleteUserId = $('#deleteUserId').val();
+					$.ajax({
+						url:'http://localhost:8080/deleteUserComment',
+						type:'POST',
+						dataType:'html',
+						data:{
+							deleteUserId: deleteUserId
+						}
+					}).done(function(res){
+						$('#deleteUserMessage').html(res)
+					}).fail(function(res){
+						$('#deleteUserMessage').html("fail")
+					})
+				})
+			})
+
+		</script>
+
+		<div><input type="text" id="selectId"></div>
+		<div><input type="submit" id="selectSubmit"></div>
+		<div id="selectList"></div>
+		<script type="text/javascript">
+			$(function(){
+				$('#selectSubmit').on('click',() => {
+					var selectId = $('#selectId').val();
+					$.ajax({
+						url:'http://localhost:8080/selectComment',
+						type:'POST',
+						dataType:'html',
+						data:{
+							selectId:selectId
+						}
+					}).done(function(res){
+						console.log(res);
+						$('#selectList').html(res)
+					}).fail(function(res){
+						console.log("--------------" + res + "-----------------------------------------------------");
+						$('#selectList').html("fail")
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+package sample.project.entity;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user_info")
+public class UserInfo {
+
+	@Column(name="id")
+	private String loginId;
+	@Column(name="name")
+	private String loginName;
+	@Column(name="password")
+	private String loginPass;
+	@Column(name="insDate")
+	private Date insDate;
+	@Column(name="insId")
+	private String insId;
+	@Column(name="updDate")
+	private Date updaDate;
+	@Column(name="updId")
+	private String updId;
+	public String getLoginId() {
+		return loginId;
+	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	public String getLoginPass() {
+		return loginPass;
+	}
+	public void setLoginPass(String loginPass) {
+		this.loginPass = loginPass;
+	}
+	public String getInsDate() {
+		return insDate;
+	}
+	public void setInsDate(String insDate) {
+		this.insDate = insDate;
+	}
+	public Date getInsId() {
+		return insId;
+	}
+	public void setInsId(Date insId) {
+		this.insId = insId;
+	}
+
+}

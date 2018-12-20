@@ -1,0 +1,15 @@
+package sample.project.service;
+
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
+
+private UserInfo userInfo;
+
+@Service
+public interface SelectService {
+
+	public void userInfoSelect(@Param );
+
+
+
+}

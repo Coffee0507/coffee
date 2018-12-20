@@ -1,0 +1,9 @@
+package com.spring.data.jpa.example.Service;
+
+import java.util.List;
+
+import com.spring.data.jpa.example.Entity.UserInfo;
+
+public interface UserInfoService {
+	public List<UserInfo> getUserInfoList();
+}
