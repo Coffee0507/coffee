@@ -1,5 +1,0 @@
-package com.spring.data.jpa.example.Controller;
-
-public class LoginModel {
-
-}

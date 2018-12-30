@@ -12,6 +12,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita"/>
 			<item value="C:\pleiades-4.8.0-java-win-64bit-jre_20180923\pleiades\workspace\snobow"/>
 			<item value="C:\pleiades-4.8.0-java-win-64bit-jre_20180923\pleiades\workspace\Hidouki"/>
 			<item value="C:\pleiades-e4.5-java-jre_20160312\pleiades\workspace\snobow"/>

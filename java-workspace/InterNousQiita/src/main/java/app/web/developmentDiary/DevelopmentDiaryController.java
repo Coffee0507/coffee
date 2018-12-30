@@ -11,22 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value="developmentDiary")
+@CrossOrigin
+@ResponseBody
 public class DevelopmentDiaryController {
 
 	@Autowired
 	private DevelopmentService service;
 
-
-	@CrossOrigin
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
 	public DevelopmentDiaryModel shop(@RequestBody DevelopmentDiaryModel model) {
 
-
-			//serviceからidとpassを取得
+		//serviceからidとpassを取得
 		service.login(model);
-
-		System.out.println(model.getId() + ":::" + model.getPass());
 
 		return model;
 	}
