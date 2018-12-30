@@ -14636,3 +14636,5 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2018-12-31 00:08:48,889 [Worker-10: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-12-31 00:08:48,890 [Worker-10: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2018-12-31 00:08:48,902 [Worker-10: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2018-12-31 00:08:49,017 [Worker-10: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-12-31 00:08:49,018 [Worker-10: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\Novenber\src\test\resources

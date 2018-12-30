@@ -3199,3 +3199,10 @@ Binding(CTRL+SHIFT+T,
 
 !ENTRY mergedoc.encoding 2 0 2018-12-31 00:08:51.668
 !MESSAGE リソース '/Novenber/src/main/java/sample/project/controller/LoginController.java' が存在しません。
+
+!ENTRY org.eclipse.equinox.p2.updatechecker 4 0 2018-12-31 00:28:15.771
+!MESSAGE Exception in update check thread
+!STACK 0
+java.lang.IllegalArgumentException: timeout value is negative
+	at java.lang.Thread.sleep(Native Method)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:87)
