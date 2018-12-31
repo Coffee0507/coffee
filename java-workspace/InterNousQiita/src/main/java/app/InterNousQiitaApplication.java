@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 //@EnableAutoConfiguration
 //@ComponentScan
-@MapperScan("app.mapper")
+@MapperScan("app.web.mapper")
 public class InterNousQiitaApplication {
 
 	public static void main(String[] args) {
