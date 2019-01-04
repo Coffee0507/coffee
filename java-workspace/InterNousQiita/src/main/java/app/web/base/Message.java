@@ -1,4 +1,4 @@
-package app.message;
+package app.web.base;
 
 import org.springframework.stereotype.Service;
 
