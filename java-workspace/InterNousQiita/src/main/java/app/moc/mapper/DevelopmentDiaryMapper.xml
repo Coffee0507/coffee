@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="app.web.mapper.DevelopmentDiaryMapper">
+	<select id="login" resultType="app.web.developmentDiary.DevelopmentDiaryModel">
+		select
+			*
+		from
+			user_info a
+		left outer join
+			pass_info b
+		on
+			a.id = b.id
+		and
+			a.name = b.name
+		where
+			a.id = #{id}
+		and
+			b.pass = #{pass}
+	</select>
+</mapper>
+
+

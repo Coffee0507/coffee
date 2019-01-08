@@ -19,11 +19,21 @@ public class DevelopmentDiaryController {
 	private DevelopmentService service;
 
 	@RequestMapping(value="/login", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-	public DevelopmentDiaryModel shop(@RequestBody DevelopmentDiaryModel model) {
+	public DevelopmentDiaryModel login(@RequestBody DevelopmentDiaryModel model) {
 
 		//serviceからuserNameとpassを取得
 		DevelopmentDiaryModel returnModel =  service.login(model);
 
 		return returnModel;
 	}
+
+	@RequestMapping(value="/mocLogin", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public DevelopmentDiaryModel mocLogin(@RequestBody DevelopmentDiaryModel model) {
+
+		//serviceからuserNameとpassを取得
+		DevelopmentDiaryModel returnModel =  service.login(model);
+
+		return returnModel;
+	}
+
 }

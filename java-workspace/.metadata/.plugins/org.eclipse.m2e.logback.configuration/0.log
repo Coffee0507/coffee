@@ -16513,3 +16513,58 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Unrecognise
 2019-01-04 17:48:25,636 [Worker-822: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
 2019-01-04 17:48:25,636 [Worker-822: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-01-04 17:48:25,636 [Worker-822: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:31:43,430 [Worker-818: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:31:43,437 [Worker-818: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:31:43,437 [Worker-818: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:31:43,437 [Worker-818: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:31:43,437 [Worker-818: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:31:54,266 [Worker-825: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:31:54,266 [Worker-825: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:31:54,266 [Worker-825: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:31:54,282 [Worker-825: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:31:54,282 [Worker-825: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:36:09,940 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:36:09,940 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:36:09,940 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:36:09,940 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:36:09,940 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:36:33,303 [Worker-834: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:36:33,305 [Worker-834: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:36:33,312 [Worker-834: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:36:33,315 [Worker-834: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:36:33,315 [Worker-834: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:36:46,029 [Worker-835: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:36:46,029 [Worker-835: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:36:46,044 [Worker-835: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:36:46,044 [Worker-835: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:36:46,044 [Worker-835: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:37:42,092 [Worker-837: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:37:42,092 [Worker-837: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:37:42,092 [Worker-837: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:37:42,092 [Worker-837: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:37:42,092 [Worker-837: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:39:31,034 [Worker-836: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:39:31,034 [Worker-836: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:39:31,034 [Worker-836: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:39:31,049 [Worker-836: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:39:31,049 [Worker-836: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:39:39,632 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:39:39,635 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:39:39,637 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:39:39,637 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:39:39,637 [Worker-832: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-04 18:51:06,845 [Worker-833: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:51:06,845 [Worker-833: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-04 18:51:06,856 [Worker-833: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-04 18:51:06,856 [Worker-833: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-04 18:51:06,856 [Worker-833: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-08 19:56:24,576 [Worker-878: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-08 19:56:24,629 [Worker-878: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-08 19:56:24,629 [Worker-878: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-08 19:56:24,645 [Worker-878: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-08 19:56:24,645 [Worker-878: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
+2019-01-08 19:56:30,492 [Worker-873: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-08 19:56:30,492 [Worker-873: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-01-08 19:56:30,492 [Worker-873: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 4 resources
+2019-01-08 19:56:30,507 [Worker-873: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-01-08 19:56:30,507 [Worker-873: ワークスペースをビルド中] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\a33a0\Desktop\coffee\java-workspace\InterNousQiita\src\test\resources
